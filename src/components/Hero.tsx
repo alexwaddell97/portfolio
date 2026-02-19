@@ -148,7 +148,6 @@ function Hero() {
             <Link
               to="/projects"
               className="btn-outline"
-              style={{ borderWidth: '2px', backgroundColor: 'transparent' }}
             >
               View Projects
             </Link>
