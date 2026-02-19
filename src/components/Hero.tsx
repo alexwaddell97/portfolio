@@ -141,19 +141,20 @@ function Hero() {
           </div>
 
           <p className="mx-auto mt-5 max-w-lg text-lg leading-relaxed text-text-muted md:text-xl">
-            I build fast, scalable web applications and mentor developers through practical, project-first delivery.
+            I build fast, scalable web applications, optimise teams, and help developers adopt AI tooling to improve workflows and delivery.
           </p>
 
           <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
             <Link
               to="/projects"
-              className="cursor-pointer rounded-lg border-2 border-border bg-bg-primary/60 px-6 py-3 text-center font-medium text-text-primary shadow-[0_0_0_1px_rgba(0,0,0,0.2)] transition-colors hover:border-cyan/50 hover:text-text-primary"
+              className="btn-primary brand-sheen"
             >
               View Projects
             </Link>
             <a
               href="#contact"
-              className="cursor-pointer rounded-lg border-2 border-border bg-bg-primary/60 px-6 py-3 text-center font-medium text-text-primary shadow-[0_0_0_1px_rgba(0,0,0,0.2)] transition-colors hover:border-cyan/50 hover:text-text-primary"
+              className="btn-outline hover-underline-accent"
+              style={{ borderWidth: '2px', backgroundColor: theme === 'light' ? '#fff' : 'transparent' }}
             >
               Get In Touch
             </a>
@@ -216,7 +217,7 @@ function Hero() {
           variants={itemVariants}
           className="mx-auto mt-5 max-w-lg text-lg leading-relaxed text-text-secondary md:text-xl"
         >
-          I build fast, scalable web applications and mentor developers through practical, project-first delivery.
+          I build fast, scalable web applications, optimise teams, and help developers adopt AI tooling to improve workflows and delivery.
         </motion.p>
 
         {/* CTAs */}

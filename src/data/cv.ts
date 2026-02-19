@@ -10,7 +10,7 @@ const cvData: CVProfile = {
   email: 'alexwaddell97@gmail.com',
   website: 'https://alexw.dev',
   summary:
-    'Lead Developer with 6+ years delivering production software for agencies and SMEs. I specialise in JavaScript/TypeScript, React, Next.js, and Node.js, building scalable web apps, CRMs, and high-converting marketing sites from discovery through launch.',
+    'Lead Developer with 6+ years delivering production software for agencies and SMEs. I specialise in JavaScript/TypeScript, React, Next.js, and Node.js, building scalable web apps, CRMs, and high-converting marketing sites from discovery through launch. I also help teams adopt AI tooling and optimise developer workflows to increase delivery velocity and reduce cognitive load.',
   links: [
     { label: '07940327386', href: 'tel:+447940327386' },
     { label: 'Website', href: 'https://alexw.dev' },
@@ -20,6 +20,7 @@ const cvData: CVProfile = {
   strengths: [
     'Leading small teams and line management',
     'Mentoring developers and T-Level students',
+    'Optimising team processes and developer workflows with AI tooling',
     'Technical planning, code reviews, and delivery leadership',
   ],
   skills: [
@@ -29,6 +30,7 @@ const cvData: CVProfile = {
     'Node.js',
     'Next.js',
     'Tailwind CSS',
+    'LLMs & AI tooling',
     'Azure DevOps',
     'AWS',
     'Vercel',

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "cms:proxy": "npx decap-server",
     "og:image": "node scripts/generate-og-image.mjs",
     "cv:pdf": "npm run build && node scripts/export-cv-pdf.mjs",
     "lint": "eslint .",

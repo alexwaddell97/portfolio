@@ -22,6 +22,7 @@ This project powers **alexw.dev**: a multi-page portfolio experience with projec
 
 - [Tech stack](#tech-stack)
 - [Quick start](#quick-start)
+- [Blog CMS (Decap)](#blog-cms-decap)
 - [Scripts](#scripts)
 - [Environment variables](#environment-variables)
 - [Routes](#routes)
@@ -91,6 +92,7 @@ npm run preview
 | `npm run build` | Type-check and create production build |
 | `npm run preview` | Serve production build locally |
 | `npm run lint` | Run ESLint across the repo |
+| `npm run cms:proxy` | Start Decap local backend proxy for local blog editing |
 | `npm run og:image` | Generate `public/og-image.png` |
 | `npm run cv:pdf` | Build app, render `/cv?pdf=1`, export `alexander-waddell-cv.pdf` |
 | `npm run a11y` | Build and run axe-core checks on preview output |
@@ -112,6 +114,44 @@ VITE_FORMSPREE_FORM_ID=your_form_id_here
 ```
 
 If `VITE_FORMSPREE_FORM_ID` is not set, the contact form opens the user's default mail client with a prefilled message.
+
+---
+
+## Blog CMS (Decap)
+
+The project includes a lightweight Decap CMS at `/admin` for blog-only editing.
+
+### Local usage
+
+1. Start the Vite app:
+
+```bash
+npm run dev
+```
+
+2. In a second terminal, start the Decap proxy:
+
+```bash
+npm run cms:proxy
+```
+
+3. Open:
+
+```text
+http://localhost:5173/admin
+```
+
+Blog posts are stored as Markdown files in `src/content/blog`.
+
+Use Decap's built-in editorial workflow status dropdown (top-right) to keep entries as draft/review until you publish.
+Use the post `Status` field for public visibility control:
+
+- `Live` → shown on the public blog
+- `Hidden` → kept in CMS but excluded from public blog routes/lists
+
+> [!NOTE]
+> Decap config is in `public/admin/config.yml`.
+> The GitHub backend is preconfigured for `alexwaddell97/portfolio` on `main`.
 
 ---
 
@@ -137,8 +177,12 @@ Most editable content is data-driven from `src/data`:
 | File | Responsibility |
 |---|---|
 | `src/data/projects.ts` | Project cards, stats, and case study content |
-| `src/data/posts.ts` | Blog metadata and post bodies |
+| `src/data/posts.ts` | Blog loader/parsing from markdown files |
 | `src/data/cv.ts` | CV profile content and downloadable PDF filename/path |
+
+CMS-backed blog content files:
+
+- `src/content/blog/*.md`
 
 Additional touchpoints:
 

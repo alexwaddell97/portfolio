@@ -9,7 +9,7 @@ import type { BlogPost, BlogTag } from '../types/index.ts';
 
 const allTags = Array.from(new Set(posts.flatMap(p => p.tags))).sort() as BlogTag[];
 
-const tagColor: Record<BlogTag, string> = {
+const tagColorMap: Record<string, string> = {
   Dev: 'bg-cyan/10 text-cyan border-cyan/20',
   Architecture: 'bg-violet/10 text-violet border-violet/20',
   Career: 'bg-pink/10 text-pink border-pink/20',
@@ -18,7 +18,7 @@ const tagColor: Record<BlogTag, string> = {
   'Open Source': 'bg-violet/10 text-violet border-violet/20',
 };
 
-const tagGlowRgb: Record<BlogTag, string> = {
+const tagGlowRgbMap: Record<string, string> = {
   Dev: '6, 182, 212',
   Architecture: '124, 58, 237',
   Career: '236, 72, 153',
@@ -27,8 +27,12 @@ const tagGlowRgb: Record<BlogTag, string> = {
   'Open Source': '124, 58, 237',
 };
 
+function getTagColor(tag: string): string {
+  return tagColorMap[tag] ?? 'bg-violet/10 text-violet border-violet/20';
+}
+
 function getGlowRgb(post: BlogPost): string {
-  return tagGlowRgb[post.tags[0]] ?? '124, 58, 237';
+  return tagGlowRgbMap[post.tags[0]] ?? '124, 58, 237';
 }
 
 function formatDate(iso: string) {
@@ -103,7 +107,7 @@ function PostCard({ post, featured = false }: { post: BlogPost; featured?: boole
               {post.tags.map(tag => (
                 <span
                   key={tag}
-                  className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${tagColor[tag]}`}
+                  className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${getTagColor(tag)}`}
                 >
                   {tag}
                 </span>
@@ -168,27 +172,29 @@ function Blog() {
     <div className="min-h-screen bg-bg-primary text-text-primary flex flex-col">
       <Nav />
       <main className="flex-1">
-        {/* Header */}
-        <div className="relative dot-grid border-b border-border overflow-hidden">
-          {/* Ambient glow orbs */}
-          <div className="pointer-events-none absolute -top-24 left-1/4 h-72 w-72 rounded-full bg-violet-glow opacity-[0.45] blur-3xl" />
-          <div className="pointer-events-none absolute -top-8 right-1/4 h-56 w-56 rounded-full bg-cyan opacity-[0.05] blur-3xl" />
-          <div className="pointer-events-none absolute bottom-0 right-1/3 h-40 w-40 rounded-full bg-cyan-glow opacity-[0.28] blur-3xl" />
-
-          <div className="mx-auto max-w-6xl px-4 pb-16 pt-32 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+        {/* Header (unified with Projects) */}
+        <div className="dot-grid border-b border-border">
+          <div className="mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6 lg:px-8">
+            <Link
+              to="/"
+              className="hover-underline-accent mb-8 inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-cyan"
             >
-              <h1 className="page-heading-sweep display-heading-safe text-5xl font-black tracking-tighter md:text-7xl">
-                Writing
-              </h1>
-              <p className="mt-4 max-w-xl text-lg text-text-secondary">
-                Dev deep-dives, architecture notes, mentoring lessons, and career reflections.
-              </p>
-              <p className="mt-2 text-sm text-text-muted">{posts.length} posts</p>
-            </motion.div>
+              <FiArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back to home
+            </Link>
+            <div className="flex items-end justify-between">
+              <div>
+                <h1 className="page-heading-sweep display-heading-safe text-5xl font-black tracking-tighter md:text-7xl">
+                  Writing
+                </h1>
+                <p className="mt-3 text-base text-text-secondary max-w-2xl">
+                  Dev deep-dives, architecture notes, mentoring lessons, and career reflections.
+                </p>
+                <p className="mt-3 text-lg text-text-secondary">
+                  {filtered.length} post{filtered.length !== 1 ? 's' : ''}
+                  {activeTag !== 'All' && ' matching filters'}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 

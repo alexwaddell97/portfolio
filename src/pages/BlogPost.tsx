@@ -7,7 +7,7 @@ import Footer from '../components/Footer.tsx';
 import posts from '../data/posts.ts';
 import type { BlogTag } from '../types/index.ts';
 
-const tagColor: Record<BlogTag, string> = {
+const tagColorMap: Record<string, string> = {
   Dev: 'bg-cyan/10 text-cyan border-cyan/20',
   Architecture: 'bg-violet/10 text-violet border-violet/20',
   Career: 'bg-pink/10 text-pink border-pink/20',
@@ -15,6 +15,10 @@ const tagColor: Record<BlogTag, string> = {
   AI: 'bg-cyan/10 text-cyan border-cyan/20',
   'Open Source': 'bg-violet/10 text-violet border-violet/20',
 };
+
+function getTagColor(tag: BlogTag): string {
+  return tagColorMap[tag] ?? 'bg-violet/10 text-violet border-violet/20';
+}
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString('en-GB', {
@@ -151,7 +155,7 @@ function BlogPost() {
                 {post.tags.map(tag => (
                   <span
                     key={tag}
-                    className={`rounded-full border px-3 py-1 text-xs font-medium ${tagColor[tag]}`}
+                    className={`rounded-full border px-3 py-1 text-xs font-medium ${getTagColor(tag)}`}
                   >
                     {tag}
                   </span>

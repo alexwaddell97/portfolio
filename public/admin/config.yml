@@ -1,0 +1,36 @@
+backend:
+  name: github
+  repo: alexwaddell97/portfolio
+  branch: main
+
+local_backend: true
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: blog
+    label: Blog Posts
+    label_singular: Blog Post
+    folder: src/content/blog
+    create: true
+    slug: '{{slug}}'
+    preview_path: blog/{{slug}}
+    extension: md
+    format: frontmatter
+    summary: '{{title}} — {{date}}'
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: slug, label: Slug, widget: string, hint: 'Used for /blog/:slug (e.g. building-with-llms-in-2026)' }
+      - { name: status, label: Status, widget: select, options: ['Live', 'Hidden'], default: 'Hidden', hint: 'Hidden posts stay in CMS but are excluded from the public blog.' }
+      - { name: date, label: Publish Date, widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false }
+      - { name: readTime, label: Read Time (minutes), widget: number, value_type: int, min: 1, default: 5 }
+      - { name: excerpt, label: Excerpt, widget: text }
+      - label: Tags
+        name: tags
+        widget: list
+        default: [Dev]
+        hint: 'Examples: Dev, Architecture, Career, Life, AI, Open Source'
+      - { name: body, label: Content, widget: markdown }

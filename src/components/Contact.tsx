@@ -121,11 +121,7 @@ function ContactForm() {
           Message failed to send. Please try again or email alexwaddell97@gmail.com directly.
         </p>
       )}
-      {!formspreeFormId && (
-        <p className="text-xs text-text-muted">
-          This form opens your email app to send the message.
-        </p>
-      )}
+    
     </form>
   );
 }

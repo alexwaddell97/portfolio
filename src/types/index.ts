@@ -17,7 +17,7 @@ export interface CaseStudyContent {
 
 export type ProjectCategory = 'Full-Stack' | 'Frontend' | 'AI / ML' | 'Data & Viz' | 'Other';
 
-export type BlogTag = 'Dev' | 'Architecture' | 'Career' | 'Life' | 'AI' | 'Open Source';
+export type BlogTag = string;
 
 export interface BlogPost {
   slug: string;

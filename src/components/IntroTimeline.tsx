@@ -160,6 +160,8 @@ function IntroTimeline() {
           <p className="mx-auto mb-10 max-w-3xl text-center text-base leading-relaxed text-text-secondary md:text-lg">
             I build high-quality products end-to-end, blending architecture, hands-on development, and mentorship.
             My focus is always practical delivery: clear scope, maintainable code, and outcomes teams can ship confidently.
+            I also work with teams to introduce pragmatic developer tooling and AI-assisted patterns that reduce
+            repetitive work, tighten feedback loops, and improve delivery predictability.
           </p>
         </AnimatedSection>
 

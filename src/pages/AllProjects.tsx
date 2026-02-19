@@ -115,6 +115,9 @@ function AllProjects() {
                 <h1 className="page-heading-sweep display-heading-safe text-5xl font-black tracking-tighter md:text-7xl">
                   All Projects
                 </h1>
+                <p className="mt-3 text-base text-text-secondary max-w-2xl">
+                  A curated collection of projects I’ve worked on or contributed to.
+                </p>
                 <p className="mt-3 text-lg text-text-secondary">
                   {filtered.length} project{filtered.length !== 1 ? 's' : ''}
                   {isFiltered && ' matching filters'}

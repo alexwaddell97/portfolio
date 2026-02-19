@@ -7,8 +7,8 @@ import AnimatedSection from './AnimatedSection.tsx';
 import SectionHeading from './SectionHeading.tsx';
 
 const mentorshipStats = [
-  { icon: FiUsers, label: 'Developers mentored', value: '50+' },
-  { icon: FiBookOpen, label: 'T-Level sessions delivered', value: '30+' },
+  { icon: FiUsers, label: 'Developers mentored', value: '30+' },
+  { icon: FiBookOpen, label: 'Bootcamp sessions delivered', value: '20+' },
   { icon: FiCode, label: 'Project reviews & build walkthroughs', value: '100+' },
 ];
 
@@ -80,6 +80,8 @@ function Mentorship() {
           <p className="mx-auto mb-10 max-w-3xl text-center text-base leading-relaxed text-text-secondary md:text-lg">
             Alongside delivery work, I mentor beginner developers through internal bootcamps and support T-Level learners
             through real-world projects — from planning and architecture to code reviews, debugging, and confident delivery.
+            I also help teams adopt practical developer tooling and AI assistants for repetitive tasks, improve code-review
+            workflows, and reduce cognitive load so teams can ship faster with more confidence.
           </p>
         </AnimatedSection>
 
@@ -106,7 +108,8 @@ function Mentorship() {
                 <h3 className="text-lg font-semibold text-text-primary">Bootcamp Mentoring</h3>
                 <p className="mt-3 text-sm leading-relaxed text-text-secondary">
                   Coached beginner developers through structured bootcamp pathways, helping them move from fundamentals to
-                  shipping complete projects with clean architecture and maintainable code.
+                  shipping complete projects with clean architecture and maintainable code. I introduce practical tooling
+                  and lightweight automation to speed routine tasks and free up time for learning complex concepts.
                 </p>
               </div>
             </TiltCard>
@@ -118,7 +121,9 @@ function Mentorship() {
                 <h3 className="text-lg font-semibold text-text-primary">T-Level Project Coaching</h3>
                 <p className="mt-3 text-sm leading-relaxed text-text-secondary">
                   Supported learners through project-based delivery with practical feedback, pair-debugging, and milestone
-                  guidance so they can confidently present and explain their solutions.
+                  guidance so they can confidently present and explain their solutions. I emphasise reproducible workflows,
+                  testable outputs, and sensible use of AI tools to assist research and debugging without replacing human
+                  judgement.
                 </p>
               </div>
             </TiltCard>

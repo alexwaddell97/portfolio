@@ -261,6 +261,17 @@ function CaseStudy() {
     { label: 'The Outcome', content: cs.outcome, color: 'var(--color-pink)' },
   ];
 
+  // Adjust hero title size based on length to avoid overflow for very long titles
+  const titleLen = project.title ? project.title.length : 0;
+  const titleSizeClass = titleLen > 40
+    ? 'text-[clamp(1.8rem,5.5vw,3.2rem)]'
+    : titleLen > 24
+      ? 'text-[clamp(2.6rem,7.5vw,5rem)]'
+      : 'text-[clamp(3.2rem,9vw,9rem)]';
+  // Replace wide en/em dashes with a normal hyphen for more consistent spacing
+  const displayTitle = project.title.replace(/\s[–—]\s/g, ' - ');
+  const displayNextTitle = nextProject.title.replace(/\s[–—]\s/g, ' - ');
+
   useEffect(() => {
     setIsTransitioning(false);
   }, [slug]);
@@ -322,10 +333,10 @@ function CaseStudy() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }}
-            className={`${titleStyle === undefined ? gradientTextClass[accent] : ''} display-heading-safe text-[clamp(3.2rem,9vw,9rem)] font-black tracking-tighter`}
+            className={`${titleStyle === undefined ? gradientTextClass[accent] : ''} display-heading-safe ${titleSizeClass} font-black tracking-tighter`}
             style={titleStyle}
           >
-            {project.title}
+              {displayTitle}
           </motion.h1>
 
           <motion.div
@@ -528,7 +539,7 @@ function CaseStudy() {
                 className={`${nextTitleStyle === undefined ? gradientTextClass[nextProject.accentColor] : ''} display-heading-safe text-4xl font-black transition-opacity group-hover:opacity-80 md:text-5xl`}
               style={nextTitleStyle}
             >
-              {nextProject.title}
+              {displayNextTitle}
             </span>
             <FiArrowRight
               size={28}
