@@ -37,7 +37,7 @@ function CV() {
   const pdfSkillLimit = 12;
 
   return (
-    <div className="min-h-screen bg-bg-primary text-text-primary">
+    <div className="min-h-screen bg-bg-primary text-text-primary" {...(isPdf ? { 'data-theme': 'light' } : {})}>
       {!isPdf && <Nav />}
       <main className={isPdf ? 'min-h-screen w-full p-0' : 'mx-auto max-w-5xl px-4 pb-20 pt-32 sm:px-6 lg:px-8'}>
         <section className={isPdf ? 'dot-grid min-h-screen w-full bg-bg-primary px-6 py-5' : 'dot-grid overflow-hidden rounded-2xl border border-border bg-bg-card p-6 sm:p-8'}>
@@ -62,7 +62,7 @@ function CV() {
               <a
                 href={cvFilePath}
                 download
-                className="inline-flex items-center gap-2 rounded-lg border border-cyan/35 bg-cyan/10 px-4 py-2 text-sm font-medium text-cyan transition-colors hover:bg-cyan/15"
+                className="btn-soft-cyan px-4 py-2 text-sm"
               >
                 <FiDownload size={15} />
                 Download PDF

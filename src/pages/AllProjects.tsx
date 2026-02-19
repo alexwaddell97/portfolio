@@ -1,8 +1,9 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
-import { FiArrowLeft, FiExternalLink, FiGithub, FiArrowRight } from 'react-icons/fi';
+import { FiArrowLeft, FiExternalLink, FiGithub, FiArrowRight, FiLock } from 'react-icons/fi';
 import Nav from '../components/Nav.tsx';
+import { useTheme } from '../contexts/ThemeContext.tsx';
 import Footer from '../components/Footer.tsx';
 import projects from '../data/projects.ts';
 import type { ProjectCategory } from '../types/index.ts';
@@ -41,12 +42,34 @@ const gradientTextClass: Record<string, string> = {
   pink: 'gradient-text-violet-pink',
 };
 
+const clientHighlights = [
+  {
+    client: 'De La Rue (via Boxmodel)',
+    role: 'Frontend Developer',
+    scope: 'Bespoke web experience delivered under strict brand and security constraints.',
+    impact: 'Improved performance and accessibility while shipping to tight timelines.',
+  },
+  {
+    client: 'Enterprise platform client (via Boxmodel)',
+    role: 'Frontend Developer',
+    scope: 'Component-led UI work for a high-stakes product area with evolving requirements.',
+    impact: 'Raised UI consistency and reduced implementation churn through reusable patterns.',
+  },
+  {
+    client: 'Public-sector digital service (via Boxmodel)',
+    role: 'Frontend Developer',
+    scope: 'Accessible interfaces for complex user journeys across responsive breakpoints.',
+    impact: 'Improved task completion clarity and strengthened WCAG-aligned UX decisions.',
+  },
+];
+
 function getProjectCategories(category: ProjectCategory | ProjectCategory[]): ProjectCategory[] {
   return Array.isArray(category) ? category : [category];
 }
 
 function AllProjects() {
   const navigate = useNavigate();
+  const { theme } = useTheme();
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | 'All'>('All');
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set());
 
@@ -83,13 +106,13 @@ function AllProjects() {
           <div className="mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6 lg:px-8">
             <Link
               to="/"
-              className="mb-8 inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-cyan"
+              className="hover-underline-accent mb-8 inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-cyan"
             >
               <FiArrowLeft size={14} /> Back to home
             </Link>
             <div className="flex items-end justify-between">
               <div>
-                <h1 className="gradient-text-cyan-violet display-heading-safe text-5xl font-black tracking-tighter md:text-7xl">
+                <h1 className="page-heading-sweep display-heading-safe text-5xl font-black tracking-tighter md:text-7xl">
                   All Projects
                 </h1>
                 <p className="mt-3 text-lg text-text-secondary">
@@ -119,7 +142,7 @@ function AllProjects() {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 aria-pressed={activeCategory === cat}
-                className={`relative rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-200 ${
+                className={`relative cursor-pointer rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-200 ${
                   activeCategory === cat
                     ? 'text-text-primary'
                     : 'text-text-secondary hover:text-text-primary'
@@ -146,7 +169,7 @@ function AllProjects() {
                   key={tag}
                   onClick={() => toggleTag(tag)}
                   aria-pressed={active}
-                  className={`rounded-full border px-3 py-1 text-xs font-medium transition-all duration-200 ${
+                  className={`cursor-pointer rounded-full border px-3 py-1 text-xs font-medium transition-all duration-200 ${
                     active
                       ? 'border-cyan/40 bg-cyan/10 text-cyan'
                       : 'border-border bg-bg-card text-text-secondary hover:border-border hover:text-text-primary'
@@ -175,8 +198,10 @@ function AllProjects() {
             ) : (
               filtered.map((project) => {
                 const accent = project.accentColor;
-                const color = project.accentHex ?? accentColor[accent];
                 const hasCustomAccent = Boolean(project.accentHex);
+                const color = hasCustomAccent
+                  ? (theme === 'light' ? (project.accentHexLight ?? project.accentHex!) : project.accentHex!)
+                  : accentColor[accent];
                 const projectCategories = getProjectCategories(project.category);
                 const primaryCategory = projectCategories[0];
                 const extraCategoryCount = Math.max(0, projectCategories.length - 1);
@@ -311,6 +336,39 @@ function AllProjects() {
             )}
           </AnimatePresence>
         </motion.div>
+
+        <section className="mt-16 border-t border-border pt-10">
+          <div className="max-w-4xl">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-border bg-bg-card px-3 py-1 text-xs font-medium uppercase tracking-wide text-text-secondary">
+              <FiLock size={12} />
+              Confidential client work
+            </div>
+            <h2 className="display-heading-safe text-3xl font-black tracking-tight md:text-4xl">
+              Selected Client Work
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-text-secondary">
+              Bespoke projects delivered under confidentiality agreements. Summaries are limited to NDA-safe scope and outcomes.
+            </p>
+          </div>
+
+          <div className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-3">
+            {clientHighlights.map((item) => (
+              <article
+                key={item.client}
+                className="rounded-2xl border border-border bg-bg-card/60 p-5"
+              >
+                <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-border bg-bg-primary/60 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-text-muted">
+                  <FiLock size={10} />
+                  NDA-safe summary
+                </div>
+                <h3 className="text-base font-semibold text-text-primary">{item.client}</h3>
+                <p className="mt-1 text-xs font-medium uppercase tracking-wide text-cyan">{item.role}</p>
+                <p className="mt-3 text-sm leading-relaxed text-text-secondary">{item.scope}</p>
+                <p className="mt-2 text-sm leading-relaxed text-text-secondary">{item.impact}</p>
+              </article>
+            ))}
+          </div>
+        </section>
         </div>
       </main>
       <Footer />

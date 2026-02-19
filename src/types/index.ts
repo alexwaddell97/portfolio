@@ -36,7 +36,8 @@ export interface Project {
   description: string;
   image: string;
   imageBgHex?: string;
-  accentHex?: string;
+  accentHex?: string;       // dark mode accent
+  accentHexLight?: string;  // light mode accent (darker variant)
   liveUrl: string;
   repoUrl?: string;
   tags: string[];

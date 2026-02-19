@@ -88,3 +88,8 @@ npm run cv:pdf
 ```bash
 npx playwright install chromium
 ```
+
+## Contact form
+
+- Set `VITE_FORMSPREE_FORM_ID` in a `.env` file to send submissions through Formspree.
+- If no Formspree ID is set, the contact form falls back to opening the default mail app with a prefilled message.

@@ -1,6 +1,6 @@
 import Nav from '../components/Nav.tsx';
 import Hero from '../components/Hero.tsx';
-import TechStack from '../components/TechStack.tsx';
+import IntroTimeline from '../components/IntroTimeline.tsx';
 import Projects from '../components/Projects.tsx';
 import Mentorship from '../components/Mentorship.tsx';
 import Contact from '../components/Contact.tsx';
@@ -12,7 +12,7 @@ function Home() {
       <Nav />
       <main>
         <Hero />
-        <TechStack />
+        <IntroTimeline />
         <Projects />
         <Mentorship />
         <Contact />

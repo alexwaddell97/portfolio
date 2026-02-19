@@ -13,6 +13,7 @@ import {
   SiD3Dotjs, SiSupabase, SiElasticsearch,
 } from 'react-icons/si';
 import Nav from '../components/Nav.tsx';
+import { useTheme } from '../contexts/ThemeContext.tsx';
 import projects from '../data/projects.ts';
 
 // Map tag strings → icon component + brand colour
@@ -69,6 +70,7 @@ const placeholderGrad: Record<string, string> = {
 function CaseStudy() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const { theme } = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
   const previousBodyOverflowRef = useRef<string | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -208,7 +210,7 @@ function CaseStudy() {
         <p className="text-xl">Project not found.</p>
         <button
           onClick={() => navigate('/')}
-          className="text-cyan underline hover:text-cyan/80"
+          className="btn-outline"
         >
           Back to home
         </button>
@@ -216,21 +218,42 @@ function CaseStudy() {
     );
   }
 
+  const isLight = theme === 'light';
+
   const cs = project.caseStudy;
   const accent = project.accentColor;
-  const accentColor = project.accentHex ?? accentVar[accent];
   const hasCustomAccent = Boolean(project.accentHex);
-  const titleStyle = cs.titleGradient
-    ? {
-      backgroundImage: `linear-gradient(135deg, ${cs.titleGradient.from}, ${cs.titleGradient.to})`,
-      WebkitBackgroundClip: 'text' as const,
-      backgroundClip: 'text' as const,
-      color: 'transparent',
-    }
-    : hasCustomAccent
-      ? { color: accentColor }
-      : undefined;
-  const nextAccentColor = nextProject.accentHex ?? accentVar[nextProject.accentColor];
+  const accentColor = hasCustomAccent
+    ? (isLight ? (project.accentHexLight ?? accentVar[accent]) : project.accentHex!)
+    : accentVar[accent];
+  // In light mode use accentHexLight as a solid color (dark-mode titleGradient values are pastel)
+  const titleStyle = isLight
+    ? (hasCustomAccent ? { color: project.accentHexLight ?? accentVar[accent] } : undefined)
+    : cs.titleGradient
+      ? {
+        backgroundImage: `linear-gradient(135deg, ${cs.titleGradient.from}, ${cs.titleGradient.to})`,
+        WebkitBackgroundClip: 'text' as const,
+        backgroundClip: 'text' as const,
+        color: 'transparent',
+      }
+      : hasCustomAccent
+        ? { color: accentColor }
+        : undefined;
+  const nextAccentColor = nextProject.accentHex
+    ? (isLight ? (nextProject.accentHexLight ?? accentVar[nextProject.accentColor]) : nextProject.accentHex)
+    : accentVar[nextProject.accentColor];
+  const nextTitleStyle = isLight
+    ? (nextProject.accentHex ? { color: nextProject.accentHexLight ?? accentVar[nextProject.accentColor] } : undefined)
+    : nextProject.caseStudy?.titleGradient
+      ? {
+        backgroundImage: `linear-gradient(135deg, ${nextProject.caseStudy.titleGradient.from}, ${nextProject.caseStudy.titleGradient.to})`,
+        WebkitBackgroundClip: 'text' as const,
+        backgroundClip: 'text' as const,
+        color: 'transparent' as const,
+      }
+      : nextProject.accentHex
+        ? { color: nextAccentColor }
+        : undefined;
 
   const panels = [
     { label: 'The Challenge', content: cs.challenge, color: 'var(--color-cyan)' },
@@ -299,7 +322,7 @@ function CaseStudy() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }}
-            className={`${cs.titleGradient || hasCustomAccent ? '' : gradientTextClass[accent]} display-heading-safe text-[clamp(3.2rem,9vw,9rem)] font-black tracking-tighter`}
+            className={`${titleStyle === undefined ? gradientTextClass[accent] : ''} display-heading-safe text-[clamp(3.2rem,9vw,9rem)] font-black tracking-tighter`}
             style={titleStyle}
           >
             {project.title}
@@ -502,17 +525,8 @@ function CaseStudy() {
             className="group flex items-center gap-4 disabled:cursor-wait disabled:opacity-80"
           >
             <span
-                className={`${nextProject.caseStudy?.titleGradient || nextProject.accentHex ? '' : gradientTextClass[nextProject.accentColor]} display-heading-safe text-4xl font-black transition-opacity group-hover:opacity-80 md:text-5xl`}
-              style={nextProject.caseStudy?.titleGradient
-                ? {
-                  backgroundImage: `linear-gradient(135deg, ${nextProject.caseStudy.titleGradient.from}, ${nextProject.caseStudy.titleGradient.to})`,
-                  WebkitBackgroundClip: 'text',
-                  backgroundClip: 'text',
-                  color: 'transparent',
-                }
-                : nextProject.accentHex
-                  ? { color: nextAccentColor }
-                : undefined}
+                className={`${nextTitleStyle === undefined ? gradientTextClass[nextProject.accentColor] : ''} display-heading-safe text-4xl font-black transition-opacity group-hover:opacity-80 md:text-5xl`}
+              style={nextTitleStyle}
             >
               {nextProject.title}
             </span>

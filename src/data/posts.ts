@@ -83,6 +83,78 @@ The pattern I've found most reliable for structured output: few-shot examples in
 
 On cost: OpenAI's pricing feels cheap until you're at scale. Profile your token usage early. Caching identical or near-identical requests with semantic similarity is often worth the engineering effort. One feature I optimised reduced costs by 60% just by caching common variants.`,
   },
+  {
+    slug: 'typescript-patterns-worth-the-boilerplate',
+    title: 'TypeScript Patterns Worth the Boilerplate',
+    date: '2025-06-10',
+    readTime: 7,
+    excerpt:
+      "Most TypeScript advice optimises for type safety at the expense of readability. Here are the patterns I've kept after ruthlessly cutting the rest.",
+    tags: ['Dev'],
+    content: `## Start With the Boundary, Not the Centre
+
+The most productive mindset shift I've had with TypeScript: stop writing types for everything inside a module, and focus on the boundary. The types that matter are the ones that cross function or module boundaries — API responses, component props, function parameters.
+
+Internal implementation types often don't need to be explicit at all. TypeScript's inference is good enough that annotating every intermediate variable is just noise.
+
+## Discriminated Unions Replace Flags
+
+Before I learned discriminated unions, I'd reach for boolean flags. A component would take an isLoading, isError, and data prop, and I'd have to mentally track which combinations were valid. The TypeScript compiler couldn't help because all the combinations were technically legal.
+
+Discriminated unions make invalid states unrepresentable. Instead of three boolean flags, you have a single status field that narrows the available data. Add a new union member and the compiler tells you every switch that needs updating — which makes refactors dramatically safer.
+
+## const Assertions for Literal Types
+
+When you need a value to be used as a literal type rather than just string or number, const assertions are the cleanest solution. I reach for this often with configuration objects and lookup maps where I want the values to remain narrow.
+
+The most practical application I've found: action type constants in a reducer. Without as const, TypeScript widens the type to string, which defeats the purpose of a discriminated union on action.type.
+
+## Template Literal Types for Constrained Strings
+
+This one felt like a party trick when I first saw it, but I now use it regularly for anything involving structured string keys — CSS variable names, route paths, event names. You get autocomplete and type checking on strings that follow a pattern.
+
+The main gotcha: these can slow down the type checker at scale. I don't use them for very large union expansions.
+
+## When to Stop
+
+The trap I see most often is types that describe types rather than domain concepts. If you find yourself writing utility types to manipulate other utility types, step back and ask whether the abstraction is serving the code or satisfying a completeness instinct. Good TypeScript typing is mostly invisible. If a type is the most interesting thing in a file, something has gone wrong.`,
+  },
+  {
+    slug: 'component-api-design',
+    title: 'Writing Component APIs People Actually Want to Use',
+    date: '2025-05-03',
+    readTime: 6,
+    excerpt:
+      "The interface between a component and its consumer is a product decision. Here's how I think about designing it.",
+    tags: ['Dev', 'Architecture'],
+    content: `## Components Are APIs
+
+Every component you write is an API. It has a contract: these are the inputs I accept, this is the output I produce, these are the side effects I have. The quality of that API determines how easy it is to use, extend, and eventually delete.
+
+Most component API problems fall into one of two failure modes: too rigid (accepts exactly the shape it was built for, breaks the moment requirements drift) or too flexible (accepts anything, communicates nothing, provides no guidance on correct usage).
+
+## Composition Over Configuration
+
+The classic failure mode of a rigid API: a mega-component with twenty props controlling internal behaviour. Twelve booleans and six optional callbacks. The author had good intentions — they wanted to support every use case — but the result is a component that's harder to understand than writing the feature yourself.
+
+The alternative is composition: smaller components with clear responsibilities that the consumer assembles. A Card with a CardHeader, CardBody, and CardFooter is more useful than a Card with headerContent, footerContent, and showFooter props. The consumer sees the structure in the JSX.
+
+## Sensible Defaults, Explicit Overrides
+
+Good APIs do the right thing by default and get out of the way. A Button that defaults to type="button" prevents the classic form-submission bug. A dialog that traps focus by default prevents the classic accessibility bug.
+
+When overrides are needed, make them explicit rather than inferred. Don't try to guess intent from combinations of props — give the consumer a clear escape hatch.
+
+## The Rule of Least Surprise
+
+I test component APIs with a simple question: if someone who hadn't written this component tried to use it cold, what would they expect to happen? The closer the actual behaviour is to that expectation, the better the API.
+
+This is why I'm conservative about clever prop patterns. Render props, compound components, and control inversion all have their place, but they're non-obvious to newcomers. Default to the simplest pattern that solves the problem.
+
+## Deletion Is a Feature
+
+The best component APIs are ones where you can delete the component later. This means avoiding tight coupling, avoiding global side effects, and designing props that don't bleed implementation details into the consumer. If removing a component requires surgery across twelve files, the API created incidental coupling. If removing it is a one-line deletion, the API was doing its job.`,
+  },
 ];
 
 export default posts;

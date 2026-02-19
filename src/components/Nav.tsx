@@ -1,10 +1,51 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX, FiArrowLeft } from 'react-icons/fi';
+import { FiMenu, FiX, FiArrowLeft, FiSun, FiMoon } from 'react-icons/fi';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { cvFilePath } from '../data/cv.ts';
+import { useTheme } from '../contexts/ThemeContext.tsx';
+
+function ThemeToggle() {
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === 'dark';
+
+  function handleToggle(e: React.MouseEvent<HTMLButtonElement>) {
+    document.documentElement.style.setProperty('--theme-x', `${e.clientX}px`);
+    document.documentElement.style.setProperty('--theme-y', `${e.clientY}px`);
+
+    if (!('startViewTransition' in document)) {
+      toggleTheme();
+      return;
+    }
+
+    (document as Document & { startViewTransition(cb: () => void): void })
+      .startViewTransition(toggleTheme);
+  }
+
+  return (
+    <button
+      onClick={handleToggle}
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      className="relative flex h-7 w-7 items-center justify-center rounded-full text-text-secondary transition-colors hover:text-text-primary cursor-pointer"
+    >
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={theme}
+          initial={{ opacity: 0, rotate: isDark ? -90 : 90, scale: 0.6 }}
+          animate={{ opacity: 1, rotate: 0, scale: 1 }}
+          exit={{ opacity: 0, rotate: isDark ? 90 : -90, scale: 0.6 }}
+          transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] as const }}
+          className="absolute inset-0 flex items-center justify-center"
+        >
+          {isDark ? <FiMoon size={15} /> : <FiSun size={16} />}
+        </motion.span>
+      </AnimatePresence>
+    </button>
+  );
+}
 
 function Nav() {
+  const mobileMenuTransitionMs = 260;
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -14,20 +55,24 @@ function Nav() {
   const isHome = location.pathname === '/';
   const isAllProjects = location.pathname === '/projects';
   const isBlog = location.pathname === '/blog' || location.pathname.startsWith('/blog/');
-  const isCV = location.pathname === '/cv';
   const isCaseStudy = location.pathname.startsWith('/projects/') && location.pathname !== '/projects';
 
+  function scrollToSection(sectionId: string, delayMs = 0) {
+    window.setTimeout(() => {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    }, delayMs);
+  }
+
   function handleHashNav(sectionId: string) {
+    const menuDelay = mobileOpen ? mobileMenuTransitionMs : 0;
     setMobileOpen(false);
+
     if (isHome) {
-      const el = document.getElementById(sectionId);
-      el?.scrollIntoView({ behavior: 'smooth' });
+      scrollToSection(sectionId, menuDelay);
     } else {
       navigate('/');
       // After navigation, React re-renders the home page — wait a tick for the DOM
-      setTimeout(() => {
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-      }, 120);
+      scrollToSection(sectionId, 120 + menuDelay);
     }
   }
 
@@ -81,37 +126,41 @@ function Nav() {
   return (
     <motion.nav
       initial={false}
-      className={`fixed top-0 right-0 left-0 z-50 backdrop-blur-md transition-all duration-300 ${
-        scrolled ? 'border-b border-border bg-bg-primary/80' : 'border-b border-transparent bg-bg-primary/0'
+      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
+        mobileOpen
+          ? 'border-b border-border bg-bg-primary'
+          : scrolled
+            ? 'backdrop-blur-md border-b border-border bg-bg-primary/80'
+            : 'border-b border-transparent bg-transparent'
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        {/* Logo */}
-        <Link
-          to="/"
-          onClick={() => { if (isHome) window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-          className="group relative flex items-center"
-        >
-          {/* <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan to-violet text-xs font-bold text-white shadow-lg shadow-violet/20">
-            {'</>'}
-          </div> */}
-          <motion.span
-            whileHover={{ y: -1 }}
-            transition={{ type: 'spring', stiffness: 420, damping: 28 }}
-            className="nav-brand text-sm font-semibold tracking-tight"
+        {/* Logo + theme toggle */}
+        <div className="flex items-center gap-2.5">
+          <Link
+            to="/"
+            onClick={() => { if (isHome) window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            className="group relative flex items-center"
           >
-            <span className="text-text-primary">alexw</span>
-            <span className="nav-brand-dotdev">.dev</span>
-          </motion.span>
-          <span
-            aria-hidden
-            className={`nav-brand-underline absolute -bottom-0.5 h-px bg-gradient-to-r from-cyan to-violet transition-all duration-300 ${
-              isHome
-                ? 'left-0 w-full opacity-70'
-                : 'left-1/2 w-0 opacity-0 group-hover:left-0 group-hover:w-full group-hover:opacity-100'
-            }`}
-          />
-        </Link>
+            <motion.span
+              whileHover={{ y: -1 }}
+              transition={{ type: 'spring', stiffness: 420, damping: 28 }}
+              className="nav-brand text-sm font-semibold tracking-tight"
+            >
+              <span className="text-text-primary">alexw</span>
+              <span className="nav-brand-dotdev">.dev</span>
+            </motion.span>
+            <span
+              aria-hidden
+              className={`nav-brand-underline absolute -bottom-0.5 h-px bg-linear-to-r from-cyan to-violet transition-all duration-300 ${
+                isHome
+                  ? 'left-0 w-full opacity-70'
+                  : 'left-1/2 w-0 opacity-0 group-hover:left-0 group-hover:w-full group-hover:opacity-100'
+              }`}
+            />
+          </Link>
+          <ThemeToggle />
+        </div>
 
         {/* Case study: back button */}
         {isCaseStudy ? (
@@ -136,7 +185,7 @@ function Nav() {
                   {active && (
                     <motion.span
                       layoutId="nav-indicator"
-                      className="absolute inset-0 rounded-full bg-white/5"
+                      className="absolute inset-0 rounded-full border border-cyan/30 bg-cyan/10"
                       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                     />
                   )}
@@ -152,7 +201,7 @@ function Nav() {
                   {active && (
                     <motion.span
                       layoutId="nav-indicator"
-                      className="absolute inset-0 rounded-full bg-white/5"
+                      className="absolute inset-0 rounded-full border border-cyan/30 bg-cyan/10"
                       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                     />
                   )}
@@ -163,7 +212,7 @@ function Nav() {
             <a
               href={cvFilePath}
               download
-              className="ml-2 rounded-full border border-cyan/35 bg-cyan/10 px-4 py-1.5 text-sm font-medium text-cyan transition-colors hover:bg-cyan/15"
+              className="btn-soft-cyan ml-2 rounded-full px-4 py-1.5 text-sm"
             >
               Download CV
             </a>
@@ -174,7 +223,7 @@ function Nav() {
         {!isCaseStudy && (
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="text-text-secondary md:hidden"
+            className="cursor-pointer text-text-secondary md:hidden"
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
@@ -192,47 +241,52 @@ function Nav() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden border-b border-border bg-bg-primary/95 backdrop-blur-md md:hidden"
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] as const }}
+            className="overflow-hidden border-b border-border bg-bg-primary md:hidden"
           >
-            <div className="flex flex-col gap-4 px-4 py-4">
-              {navItems.map((item) =>
-                item.type === 'link' ? (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    onClick={() => setMobileOpen(false)}
-                    className="text-text-secondary transition-colors hover:text-text-primary"
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
+            <div className="flex flex-col px-6 py-5">
+              {navItems.map((item) => {
+                const active = isActive(item);
+
+                if (item.type === 'link') {
+                  return (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      onClick={() => setMobileOpen(false)}
+                      className={`border-b py-3.5 text-base font-medium transition-colors last:border-0 ${
+                        active
+                          ? 'border-border/50 text-text-primary underline decoration-2 decoration-cyan/80 underline-offset-8'
+                          : 'border-border/50 text-text-secondary hover:text-text-primary'
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
+
+                return (
                   <button
                     key={item.href}
                     onClick={() => handleHashNav(item.section)}
-                    className="text-left text-text-secondary transition-colors hover:text-text-primary cursor-pointer"
+                    className={`cursor-pointer border-b py-3.5 text-left text-base font-medium transition-colors last:border-0 ${
+                      active
+                        ? 'border-border/50 text-text-primary underline decoration-2 decoration-cyan/80 underline-offset-8'
+                        : 'border-border/50 text-text-secondary hover:text-text-primary'
+                    }`}
                   >
                     {item.label}
                   </button>
-                )
-              )}
+                );
+              })}
               <a
                 href={cvFilePath}
                 download
                 onClick={() => setMobileOpen(false)}
-                className="rounded-lg border border-cyan/35 bg-cyan/10 px-3 py-2 text-sm font-medium text-cyan transition-colors hover:bg-cyan/15"
+                className="btn-soft-cyan mt-5 w-full rounded-xl py-3 text-sm"
               >
                 Download CV
               </a>
-              {!isCV && (
-                <Link
-                  to="/cv"
-                  onClick={() => setMobileOpen(false)}
-                  className="text-text-secondary transition-colors hover:text-text-primary"
-                >
-                  View CV
-                </Link>
-              )}
             </div>
           </motion.div>
         )}

@@ -1,6 +1,7 @@
+import { useState, type FormEvent } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiCheckCircle } from 'react-icons/fi';
 import AnimatedSection from './AnimatedSection.tsx';
 import SectionHeading from './SectionHeading.tsx';
 
@@ -15,22 +16,62 @@ const inputClasses =
   'w-full rounded-lg border border-border bg-bg-secondary px-4 py-3 text-text-primary placeholder:text-text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-colors';
 
 function ContactForm() {
-  const [state, handleSubmit] = useForm('xplaceholder');
+  const formspreeFormId = (import.meta as ImportMeta & { env: Record<string, string | undefined> }).env.VITE_FORMSPREE_FORM_ID;
+  const [state, handleSubmit] = useForm(formspreeFormId ?? 'xplaceholder');
+  const [fallbackStatus, setFallbackStatus] = useState<'idle' | 'succeeded' | 'failed'>('idle');
 
-  if (state.succeeded) {
+  const formSucceeded = state.succeeded || fallbackStatus === 'succeeded';
+  const hasSubmissionError = Boolean(state.errors) || fallbackStatus === 'failed';
+
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+    if (formspreeFormId) {
+      await handleSubmit(event);
+      return;
+    }
+
+    event.preventDefault();
+    setFallbackStatus('idle');
+
+    try {
+      const formData = new FormData(event.currentTarget);
+      const name = String(formData.get('name') ?? '').trim();
+      const email = String(formData.get('email') ?? '').trim();
+      const message = String(formData.get('message') ?? '').trim();
+
+      const subject = encodeURIComponent(`Portfolio enquiry from ${name || 'Website visitor'}`);
+      const body = encodeURIComponent([
+        `Name: ${name || 'Not provided'}`,
+        `Email: ${email || 'Not provided'}`,
+        '',
+        message,
+      ].join('\n'));
+
+      window.location.href = `mailto:alexwaddell97@gmail.com?subject=${subject}&body=${body}`;
+      event.currentTarget.reset();
+      setFallbackStatus('succeeded');
+    } catch {
+      setFallbackStatus('failed');
+    }
+  }
+
+  if (formSucceeded) {
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         className="flex h-full items-center justify-center rounded-xl border border-border bg-bg-card p-8"
       >
-        <p className="text-center text-lg text-accent">Thanks for reaching out! I'll get back to you soon.</p>
+        <div className="w-full max-w-sm rounded-lg border border-border bg-bg-secondary/60 p-6 text-center">
+          <FiCheckCircle className="mx-auto mb-3 text-cyan" size={36} aria-hidden="true" />
+          <p className="text-lg font-semibold text-text-primary">Message sent</p>
+          <p className="mt-2 text-sm text-text-secondary">Thanks for reaching out. I&apos;ll get back to you soon.</p>
+        </div>
       </motion.div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={onSubmit} className="space-y-4">
       <div>
         <label htmlFor="name" className="sr-only">Your name</label>
         <input
@@ -71,10 +112,20 @@ function ContactForm() {
       <button
         type="submit"
         disabled={state.submitting}
-        className="w-full rounded-lg bg-accent px-6 py-3 font-medium text-white transition-colors hover:bg-accent-hover disabled:opacity-50"
+        className="btn-primary brand-sheen w-full disabled:opacity-50"
       >
         {state.submitting ? 'Sending...' : 'Send Message'}
       </button>
+      {hasSubmissionError && (
+        <p className="rounded-lg border border-border bg-bg-secondary px-4 py-3 text-sm text-text-secondary" role="alert">
+          Message failed to send. Please try again or email alexwaddell97@gmail.com directly.
+        </p>
+      )}
+      {!formspreeFormId && (
+        <p className="text-xs text-text-muted">
+          This form opens your email app to send the message.
+        </p>
+      )}
     </form>
   );
 }

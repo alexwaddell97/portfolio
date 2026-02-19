@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { FiExternalLink, FiGithub, FiArrowRight } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import type { Project } from '../types/index.ts';
+import { useTheme } from '../contexts/ThemeContext.tsx';
 
 interface ProjectCardProps {
   project: Project;
@@ -41,9 +42,12 @@ const gradientTextClass: Record<string, string> = {
 
 function ProjectCard({ project, index = 0, compact = false }: ProjectCardProps) {
   const navigate = useNavigate();
+  const { theme } = useTheme();
   const accent = project.accentColor;
-  const color = project.accentHex ?? accentColor[accent];
   const hasCustomAccent = Boolean(project.accentHex);
+  const color = hasCustomAccent
+    ? (theme === 'light' ? (project.accentHexLight ?? accentColor[accent]) : project.accentHex!)
+    : accentColor[accent];
 
   function openCaseStudy() {
     navigate(`/projects/${project.slug}`);

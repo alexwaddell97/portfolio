@@ -15,6 +15,7 @@ const projects: Project[] = [
     category: ['Full-Stack', 'Frontend'],
     accentColor: 'cyan',
     accentHex: '#14DEC7',
+    accentHexLight: '#0A8C7D',
     featured: true,
     stats: [
       { label: 'Music Venues', value: '800+' },
@@ -47,6 +48,7 @@ const projects: Project[] = [
     category: ['Full-Stack', 'Frontend'],
     accentColor: 'violet',
     accentHex: '#F8F3EA',
+    accentHexLight: '#7A5225',
     stats: [
       { label: 'Teams Using', value: '500+' },
       { label: 'Tasks Created', value: '1M+' },
@@ -78,6 +80,7 @@ const projects: Project[] = [
     category: 'Data & Viz',
     accentColor: 'pink',
     accentHex: '#FBA2C7',
+    accentHexLight: '#B02E6E',
     stats: [
       { label: 'Events/second', value: '50k' },
       { label: 'Render Time', value: '<16ms' },
@@ -107,6 +110,7 @@ const projects: Project[] = [
     category: ['Full-Stack', 'Frontend'],
     accentColor: 'cyan',
     accentHex: '#EBAA00',
+    accentHexLight: '#8B6300',
     stats: [
       { label: 'Pieces Generated', value: '100k+' },
       { label: 'Time Saved/user', value: '3hrs' },
@@ -137,6 +141,7 @@ const projects: Project[] = [
     category: ['Full-Stack', 'Frontend'],
     accentColor: 'violet',
     accentHex: '#1E7675',
+    accentHexLight: '#155556',
     stats: [
       { label: 'Active Users', value: '20k+' },
       { label: 'Coins Tracked', value: '1,000+' },
@@ -167,6 +172,7 @@ const projects: Project[] = [
     category: ['Full-Stack', 'Frontend'],
     accentColor: 'pink',
     accentHex: '#DEAFF8',
+    accentHexLight: '#7820C8',
     stats: [
       { label: 'Downloads', value: '50k+' },
       { label: 'Daily Active Users', value: '5k+' },
@@ -198,6 +204,7 @@ const projects: Project[] = [
     category: 'Frontend',
     accentColor: 'cyan',
     accentHex: '#FCB22D',
+    accentHexLight: '#9C5E00',
     stats: [
       { label: 'Unique Visitors/month', value: '5k+' },
       { label: 'Projects Showcased', value: '10+' },

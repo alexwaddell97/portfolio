@@ -1,5 +1,8 @@
+import { useState, useRef, useCallback } from 'react';
+import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowRight, FiUsers, FiBookOpen, FiCode } from 'react-icons/fi';
+import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from 'framer-motion';
 import AnimatedSection from './AnimatedSection.tsx';
 import SectionHeading from './SectionHeading.tsx';
 
@@ -8,6 +11,61 @@ const mentorshipStats = [
   { icon: FiBookOpen, label: 'T-Level sessions delivered', value: '30+' },
   { icon: FiCode, label: 'Project reviews & build walkthroughs', value: '100+' },
 ];
+
+const GLOW_RGB = '124, 58, 237';
+
+function TiltCard({ children, className = '' }: { children: ReactNode; className?: string }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [hovered, setHovered] = useState(false);
+
+  const rawX = useMotionValue(0);
+  const rawY = useMotionValue(0);
+
+  const springConfig = { stiffness: 220, damping: 28 };
+  const rotateX = useSpring(useTransform(rawY, [-0.5, 0.5], [8, -8]), springConfig);
+  const rotateY = useSpring(useTransform(rawX, [-0.5, 0.5], [-8, 8]), springConfig);
+
+  const glowX = useTransform(rawX, [-0.5, 0.5], ['10%', '90%']);
+  const glowY = useTransform(rawY, [-0.5, 0.5], ['10%', '90%']);
+  const glowBg = useMotionTemplate`radial-gradient(circle at ${glowX} ${glowY}, rgba(${GLOW_RGB}, 0.15) 0%, transparent 65%)`;
+
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!cardRef.current) return;
+      const rect = cardRef.current.getBoundingClientRect();
+      rawX.set((e.clientX - rect.left) / rect.width - 0.5);
+      rawY.set((e.clientY - rect.top) / rect.height - 0.5);
+    },
+    [rawX, rawY],
+  );
+
+  const handleMouseEnter = useCallback(() => setHovered(true), []);
+
+  const handleMouseLeave = useCallback(() => {
+    setHovered(false);
+    rawX.set(0);
+    rawY.set(0);
+  }, [rawX, rawY]);
+
+  return (
+    <motion.div
+      ref={cardRef}
+      style={{ rotateX, rotateY, transformPerspective: 800 }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={`relative cursor-default overflow-hidden ${className}`}
+    >
+      <motion.div
+        className="pointer-events-none absolute inset-0 rounded-2xl"
+        style={{ background: glowBg }}
+        animate={{ opacity: hovered ? 1 : 0 }}
+        transition={{ duration: 0.25 }}
+      />
+      {children}
+    </motion.div>
+  );
+}
 
 function Mentorship() {
   return (
@@ -28,36 +86,42 @@ function Mentorship() {
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {mentorshipStats.map((stat, index) => (
             <AnimatedSection key={stat.label} delay={index * 0.08}>
-              <div className="rounded-2xl border border-border bg-bg-card p-6">
-                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-violet/10 text-violet">
-                  <stat.icon size={18} />
+              <TiltCard className="rounded-2xl border border-border bg-bg-card p-6">
+                <div className="relative z-10">
+                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-violet/10 text-violet">
+                    <stat.icon size={18} />
+                  </div>
+                  <p className="text-2xl font-black text-text-primary">{stat.value}</p>
+                  <p className="mt-1 text-sm text-text-secondary">{stat.label}</p>
                 </div>
-                <p className="text-2xl font-black text-text-primary">{stat.value}</p>
-                <p className="mt-1 text-sm text-text-secondary">{stat.label}</p>
-              </div>
+              </TiltCard>
             </AnimatedSection>
           ))}
         </div>
 
         <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">
           <AnimatedSection delay={0.16}>
-            <article className="rounded-2xl border border-border bg-bg-card p-6">
-              <h3 className="text-lg font-semibold text-text-primary">Bootcamp Mentoring</h3>
-              <p className="mt-3 text-sm leading-relaxed text-text-secondary">
-                Coached beginner developers through structured bootcamp pathways, helping them move from fundamentals to
-                shipping complete projects with clean architecture and maintainable code.
-              </p>
-            </article>
+            <TiltCard className="rounded-2xl border border-border bg-bg-card p-6">
+              <div className="relative z-10">
+                <h3 className="text-lg font-semibold text-text-primary">Bootcamp Mentoring</h3>
+                <p className="mt-3 text-sm leading-relaxed text-text-secondary">
+                  Coached beginner developers through structured bootcamp pathways, helping them move from fundamentals to
+                  shipping complete projects with clean architecture and maintainable code.
+                </p>
+              </div>
+            </TiltCard>
           </AnimatedSection>
 
           <AnimatedSection delay={0.24}>
-            <article className="rounded-2xl border border-border bg-bg-card p-6">
-              <h3 className="text-lg font-semibold text-text-primary">T-Level Project Coaching</h3>
-              <p className="mt-3 text-sm leading-relaxed text-text-secondary">
-                Supported learners through project-based delivery with practical feedback, pair-debugging, and milestone
-                guidance so they can confidently present and explain their solutions.
-              </p>
-            </article>
+            <TiltCard className="rounded-2xl border border-border bg-bg-card p-6">
+              <div className="relative z-10">
+                <h3 className="text-lg font-semibold text-text-primary">T-Level Project Coaching</h3>
+                <p className="mt-3 text-sm leading-relaxed text-text-secondary">
+                  Supported learners through project-based delivery with practical feedback, pair-debugging, and milestone
+                  guidance so they can confidently present and explain their solutions.
+                </p>
+              </div>
+            </TiltCard>
           </AnimatedSection>
         </div>
 
