@@ -147,14 +147,15 @@ function Hero() {
           <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
             <Link
               to="/projects"
-              className="btn-primary brand-sheen"
+              className="btn-outline"
+              style={{ borderWidth: '2px', backgroundColor: 'transparent' }}
             >
               View Projects
             </Link>
             <a
               href="#contact"
               className="btn-outline hover-underline-accent"
-              style={{ borderWidth: '2px', backgroundColor: theme === 'light' ? '#fff' : 'transparent' }}
+              style={{ borderWidth: '2px', backgroundColor: 'transparent' }}
             >
               Get In Touch
             </a>
