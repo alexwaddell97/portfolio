@@ -430,7 +430,7 @@ const projects: Project[] = [
   {
     id: 'project-14',
     slug: 'sports-guardian-booking',
-    title: 'Sports Guardian — Booking Platform',
+    title: 'Sports Guardian - Booking Platform',
     description:
       'The booking system for Sports Guardian venues, allowing participants to book activities and manage memberships.',
     image: '/images/20.png',

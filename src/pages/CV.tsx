@@ -58,15 +58,31 @@ function CV() {
               <p className={`${isPdf ? 'mt-0.5 text-xs' : 'mt-1 text-sm'} text-text-muted`}>{cvData.location}</p>
             </div>
 
-            {!isPdf && (
-              <a
-                href={cvFilePath}
-                download
-                className="btn-soft-cyan px-4 py-2 text-sm"
-              >
-                <FiDownload size={15} />
-                Download PDF
-              </a>
+            {!isPdf ? (
+              <div className="flex items-center gap-4">
+                <img
+                  src="/images/headshot.png"
+                  alt={`${cvData.fullName} headshot`}
+                  className="w-24 h-24 rounded-full object-cover border border-border"
+                  loading="lazy"
+                />
+
+                <a
+                  href={cvFilePath}
+                  download
+                  className="btn-soft-cyan px-4 py-2 text-sm"
+                >
+                  <FiDownload size={15} />
+                  Download PDF
+                </a>
+              </div>
+            ) : (
+              <img
+                src="/images/headshot.png"
+                alt={`${cvData.fullName} headshot`}
+                className="w-16 h-16 rounded-full object-cover border border-border"
+                loading="lazy"
+              />
             )}
           </div>
 

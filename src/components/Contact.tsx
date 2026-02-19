@@ -136,6 +136,14 @@ function Contact() {
           {/* Left column — info + social */}
           <AnimatedSection>
             <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <img src="/images/headshot.png" alt="Alex Waddell" className="w-20 h-20 rounded-full object-cover border border-border" loading="lazy" />
+                <div>
+                  <p className="text-lg font-semibold text-text-primary">Alex Waddell</p>
+                  <p className="text-sm text-text-secondary">Product-focused engineer, mentor, and trainer</p>
+                </div>
+              </div>
+
               <p className="text-lg leading-relaxed text-text-secondary">
                 I'm always open to discussing new projects, developer mentoring, and training opportunities.
                 Drop me a message and I'll get back to you as soon as I can.
