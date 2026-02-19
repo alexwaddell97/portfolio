@@ -71,3 +71,20 @@ export default defineConfig([
   },
 ])
 ```
+
+## CV page + PDF export
+
+- Edit CV data in `src/data/cv.ts`.
+- View the styled CV page at `/cv`.
+- Generate downloadable PDF with:
+
+```bash
+npm run cv:pdf
+```
+
+- Output file: `public/alexander-waddell-cv.pdf` (also written to `dist/` during export).
+- If Chromium is missing locally, run:
+
+```bash
+npx playwright install chromium
+```
