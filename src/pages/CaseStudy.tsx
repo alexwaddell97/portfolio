@@ -9,7 +9,7 @@ import type { IconType } from 'react-icons';
 import {
   SiReact, SiTypescript, SiNodedotjs, SiNextdotjs, SiPostgresql,
   SiDocker, SiTailwindcss, SiGraphql, SiRedis, SiPython, SiFigma, SiVite,
-  SiStripe, SiOpenai, SiMongodb, SiPrisma, SiVercel, SiAmazon,
+  SiStripe, SiOpenai, SiMongodb, SiPrisma, SiVercel,
   SiD3Dotjs, SiSupabase, SiElasticsearch,
   SiWordpress, SiWoo, SiElectron, SiPwa, SiEthereum,
   SiClaude, SiGooglegemini, SiHuggingface, SiLeaflet,
@@ -78,12 +78,6 @@ const gradientTextClass: Record<string, string> = {
   cyan: 'gradient-text-cyan-violet',
   violet: 'gradient-text-violet-pink',
   pink: 'gradient-text-violet-pink',
-};
-
-const placeholderGrad: Record<string, string> = {
-  cyan: 'from-cyan/10 to-cyan/5',
-  violet: 'from-violet/10 to-violet/5',
-  pink: 'from-pink/10 to-pink/5',
 };
 
 function CaseStudy() {
