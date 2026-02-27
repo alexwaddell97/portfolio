@@ -4,6 +4,8 @@ import {
   SiMongodb, SiWordpress, SiSanity, SiPwa,
   SiAmazonwebservices, SiVercel, SiSentry, SiStripe, SiVitest,
   SiCypress, SiReactrouter, SiJsonwebtokens, SiStrapi,
+  SiOpenai, SiClaude, SiGooglegemini, SiGithubcopilot, SiHuggingface,
+  SiAstro,
 } from 'react-icons/si';
 import { FiZap } from 'react-icons/fi';
 
@@ -32,6 +34,12 @@ const techIcons = [
   { Icon: SiSentry, label: 'Sentry', color: '#362d59' },
   { Icon: SiPwa, label: 'PWA', color: '#5a0fc8' },
   { Icon: FiZap, label: 'Vite', color: '#fbbf24' },
+  { Icon: SiOpenai, label: 'ChatGPT', color: '#10a37f' },
+  { Icon: SiClaude, label: 'Claude', color: '#D97757' },
+  { Icon: SiGooglegemini, label: 'Gemini', color: '#4285F4' },
+  { Icon: SiGithubcopilot, label: 'GitHub Copilot', color: '#9b72cf' },
+  { Icon: SiHuggingface, label: 'Hugging Face', color: '#FFD21E' },
+  { Icon: SiAstro, label: 'Astro', color: '#FF5D01' },
 ];
 
 const marqueeIcons = [...techIcons, ...techIcons];

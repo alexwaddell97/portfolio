@@ -179,9 +179,10 @@ function BlogPost() {
           {/* Next post card */}
           {nextPost && (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] as const }}
               className="mt-20"
             >
               <p className="mb-4 text-xs font-semibold tracking-[0.2em] uppercase text-text-muted">

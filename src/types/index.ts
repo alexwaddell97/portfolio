@@ -38,13 +38,15 @@ export interface Project {
   imageBgHex?: string;
   accentHex?: string;       // dark mode accent
   accentHexLight?: string;  // light mode accent (darker variant)
-  liveUrl: string;
+  liveUrl?: string;
   repoUrl?: string;
   tags: string[];
   category: ProjectCategory | ProjectCategory[];
   accentColor: 'cyan' | 'violet' | 'pink';
   featured?: boolean;
   stats?: ProjectStat[];
+  gallery?: string[];
+  techBrief?: string;
   caseStudy?: CaseStudyContent;
 }
 

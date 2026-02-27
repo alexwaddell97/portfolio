@@ -3,7 +3,7 @@ excerpt: "Moving from running my own company into industry changed how I worked,
 draft: false
 title: Moving from my own company into industry — the benefits and surprises
 slug: moving-from-own-company-to-industry
-status: Live
+status: hidden
 date: 2026-02-19
 readTime: 6
 tags:

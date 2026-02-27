@@ -43,7 +43,7 @@ function formatDate(iso: string) {
   });
 }
 
-function PostCard({ post, featured = false }: { post: BlogPost; featured?: boolean }) {
+function PostCard({ post, featured = false, index = 0 }: { post: BlogPost; featured?: boolean; index?: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState(false);
   const glowRgb = getGlowRgb(post);
@@ -79,6 +79,9 @@ function PostCard({ post, featured = false }: { post: BlogPost; featured?: boole
   return (
     <motion.div
       ref={cardRef}
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] as const, delay: index * 0.08 }}
       style={{ rotateX, rotateY, transformPerspective: 900 }}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
@@ -175,6 +178,11 @@ function Blog() {
         {/* Header (unified with Projects) */}
         <div className="dot-grid border-b border-border">
           <div className="mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+            >
             <Link
               to="/"
               className="hover-underline-accent mb-8 inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-cyan"
@@ -189,54 +197,60 @@ function Blog() {
                 <p className="mt-3 text-base text-text-secondary max-w-2xl">
                   Dev deep-dives, architecture notes, mentoring lessons, and career reflections.
                 </p>
-                <p className="mt-3 text-lg text-text-secondary">
-                  {filtered.length} post{filtered.length !== 1 ? 's' : ''}
-                  {activeTag !== 'All' && ' matching filters'}
-                </p>
+                {posts.length > 0 && (
+                  <p className="mt-3 text-lg text-text-secondary">
+                    {filtered.length} post{filtered.length !== 1 ? 's' : ''}
+                    {activeTag !== 'All' && ' matching filters'}
+                  </p>
+                )}
               </div>
             </div>
+            </motion.div>
           </div>
         </div>
 
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
           {/* Tag filter */}
-          <div className="mb-10 flex flex-wrap gap-2">
-            {(['All', ...allTags] as const).map(tag => (
-              <button
-                key={tag}
-                onClick={() => setActiveTag(tag)}
-                aria-pressed={activeTag === tag}
-                className={`relative cursor-pointer rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-200 ${
-                  activeTag === tag ? 'text-text-primary' : 'text-text-secondary hover:text-text-primary'
-                }`}
-              >
-                {activeTag === tag && (
-                  <motion.span
-                    layoutId="blog-tag-pill"
-                    className="absolute inset-0 rounded-full bg-white/8 border border-border"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-                <span className="relative z-10">
-                  {tag}
-                  <span className="ml-1.5 text-xs opacity-50">{tagCounts[tag]}</span>
-                </span>
-              </button>
-            ))}
-          </div>
+          {posts.length > 0 && (
+            <div className="mb-10 flex flex-wrap gap-2">
+              {(['All', ...allTags] as const).map(tag => (
+                <button
+                  key={tag}
+                  onClick={() => setActiveTag(tag)}
+                  aria-pressed={activeTag === tag}
+                  className={`relative cursor-pointer rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-200 ${
+                    activeTag === tag ? 'text-text-primary' : 'text-text-secondary hover:text-text-primary'
+                  }`}
+                >
+                  {activeTag === tag && (
+                    <motion.span
+                      layoutId="blog-tag-pill"
+                      className="absolute inset-0 rounded-full bg-white/8 border border-border"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">
+                    {tag}
+                    <span className="ml-1.5 text-xs opacity-50">{tagCounts[tag]}</span>
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
 
           {/* Posts */}
           <AnimatePresence mode="wait">
             {filtered.length === 0 ? (
-              <motion.p
+              <motion.div
                 key="empty"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="py-16 text-center text-text-muted"
+                transition={{ duration: 0.35 }}
+                className="py-20 text-center"
               >
-                No posts in this category yet.
-              </motion.p>
+                <p className="text-text-muted">Nothing to see here just yet — posts are on the way.</p>
+              </motion.div>
             ) : (
               <motion.div
                 key={activeTag}
@@ -248,15 +262,15 @@ function Blog() {
                 {/* Featured post — full width */}
                 {featuredPost && (
                   <div className="mb-5">
-                    <PostCard post={featuredPost} featured />
+                    <PostCard post={featuredPost} featured index={0} />
                   </div>
                 )}
 
                 {/* Remaining posts — 2-col grid */}
                 {restPosts.length > 0 && (
                   <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                    {restPosts.map(post => (
-                      <PostCard key={post.slug} post={post} />
+                    {restPosts.map((post, i) => (
+                      <PostCard key={post.slug} post={post} index={i + 1} />
                     ))}
                   </div>
                 )}

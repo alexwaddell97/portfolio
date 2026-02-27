@@ -4,6 +4,8 @@ import {
   SiReact, SiTypescript, SiNodedotjs, SiNextdotjs, SiPostgresql,
   SiDocker, SiTailwindcss, SiGraphql, SiRedis, SiPython, SiFigma,
   SiMongodb, SiWordpress, SiSanity, SiPwa,
+  SiOpenai, SiClaude, SiGooglegemini, SiGithubcopilot, SiHuggingface,
+  SiAstro,
 } from 'react-icons/si';
 import SectionHeading from './SectionHeading.tsx';
 
@@ -24,6 +26,12 @@ const techItems = [
   { Icon: SiPwa, label: 'PWA', color: '#5a0fc8', glow: 'rgba(90,15,200,0.12)' },
   { Icon: SiFigma, label: 'Figma', color: '#f24e1e', glow: 'rgba(242,78,30,0.12)' },
   { Icon: FiZap, label: 'Vite', color: '#fbbf24', glow: 'rgba(251,191,36,0.14)' },
+  { Icon: SiOpenai, label: 'ChatGPT', color: '#10a37f', glow: 'rgba(16,163,127,0.12)' },
+  { Icon: SiClaude, label: 'Claude', color: '#D97757', glow: 'rgba(217,119,87,0.12)' },
+  { Icon: SiGooglegemini, label: 'Gemini', color: '#4285F4', glow: 'rgba(66,133,244,0.12)' },
+  { Icon: SiGithubcopilot, label: 'GitHub Copilot', color: '#9b72cf', glow: 'rgba(155,114,207,0.12)' },
+  { Icon: SiHuggingface, label: 'Hugging Face', color: '#FFD21E', glow: 'rgba(255,210,30,0.12)' },
+  { Icon: SiAstro, label: 'Astro', color: '#FF5D01', glow: 'rgba(255,93,1,0.12)' },
 ];
 
 const containerVariants = {

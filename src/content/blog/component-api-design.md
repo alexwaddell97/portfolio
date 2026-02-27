@@ -1,4 +1,5 @@
 ---
+status: hidden
 title: Writing Component APIs People Actually Want to Use
 slug: component-api-design
 date: 2025-05-03

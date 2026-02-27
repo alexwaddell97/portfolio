@@ -103,8 +103,11 @@ function AllProjects() {
       <main className="flex-1">
         {/* Page header */}
         <div className="dot-grid border-b border-border">
-          <div className="mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6 lg:px-8">
-            <Link
+          <div className="mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6 lg:px-8">            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+            >            <Link
               to="/"
               className="hover-underline-accent mb-8 inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-cyan"
             >
@@ -132,6 +135,7 @@ function AllProjects() {
                 </button>
               )}
             </div>
+            </motion.div>
           </div>
         </div>
 
@@ -243,7 +247,7 @@ function AllProjects() {
                         <img
                           src={project.image}
                           alt={project.title}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
                         />
                       ) : (
                         <div
@@ -308,16 +312,18 @@ function AllProjects() {
                           ))}
                         </div>
                         <div className="flex shrink-0 items-center gap-3 pl-3">
-                          <a
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={e => e.stopPropagation()}
-                            aria-label={`Open live site for ${project.title}`}
-                            className="text-text-secondary transition-colors hover:text-text-primary"
-                          >
-                            <FiExternalLink size={14} />
-                          </a>
+                          {project.liveUrl && (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={e => e.stopPropagation()}
+                              aria-label={`Open live site for ${project.title}`}
+                              className="text-text-secondary transition-colors hover:text-text-primary"
+                            >
+                              <FiExternalLink size={14} />
+                            </a>
+                          )}
                           {project.repoUrl && (
                             <a
                               href={project.repoUrl}
@@ -341,7 +347,13 @@ function AllProjects() {
         </motion.div>
 
         <section className="mt-16 border-t border-border pt-10">
-          <div className="max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+            className="max-w-4xl"
+          >
             <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-border bg-bg-card px-3 py-1 text-xs font-medium uppercase tracking-wide text-text-secondary">
               <FiLock size={12} />
               Confidential client work
@@ -352,12 +364,16 @@ function AllProjects() {
             <p className="mt-3 text-sm leading-relaxed text-text-secondary">
               Bespoke projects delivered under confidentiality agreements. Summaries are limited to NDA-safe scope and outcomes.
             </p>
-          </div>
+          </motion.div>
 
           <div className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-3">
-            {clientHighlights.map((item) => (
-              <article
+            {clientHighlights.map((item, idx) => (
+              <motion.article
                 key={item.client}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
                 className="rounded-2xl border border-border bg-bg-card/60 p-5"
               >
                 <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-border bg-bg-primary/60 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-text-muted">
@@ -368,7 +384,7 @@ function AllProjects() {
                 <p className="mt-1 text-xs font-medium uppercase tracking-wide text-cyan">{item.role}</p>
                 <p className="mt-3 text-sm leading-relaxed text-text-secondary">{item.scope}</p>
                 <p className="mt-2 text-sm leading-relaxed text-text-secondary">{item.impact}</p>
-              </article>
+              </motion.article>
             ))}
           </div>
         </section>

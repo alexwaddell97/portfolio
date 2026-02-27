@@ -6,32 +6,40 @@ const projects: Project[] = [
     slug: 'gig-lab',
     title: 'Gig Lab',
     description:
-      'A venue discovery and booking platform helping independent UK venues get found, get booked, and grow.',
+      'A unified platform for venues to manage their diaries and for promoters to book artists, with an integrated venue directory and complex diary management system.',
     image: '/images/11.webp',
     imageBgHex: '#1D1F2E',
     liveUrl: 'https://www.giglab.co.uk/',
     repoUrl: '',
-    tags: ['React', 'Vite', 'Node.js', 'Marketplace', 'Booking Platform', 'SaaS'],
+    tags: ['React', 'Vite', 'Node.js', 'MongoDB', 'Booking Platform', 'SaaS'],
     category: ['Full-Stack', 'Frontend'],
     accentColor: 'cyan',
     accentHex: '#14DEC7',
     accentHexLight: '#0A8C7D',
     featured: true,
     stats: [
-      { label: 'Music Venues', value: '800+' },
-      { label: 'Active Users', value: '10k+' },
-      { label: 'Uptime', value: '99.9%' },
+      
     ],
+    gallery: [
+      '/images/giglab/1.png',
+      '/images/giglab/3.png',
+      '/images/giglab/2.png',
+      '/images/giglab/6.png',
+      '/images/giglab/5.png',
+      '/images/giglab/4.png',
+    ],
+    techBrief:
+      'Custom bespoke React and Vite SPA frontend with a Node.js backend and MongoDB for venue and booking data. Features a unified platform for venue diary management, artist booking, venue directory discovery, and a sophisticated diary/pencil management system.',
     caseStudy: {
       titleGradient: { from: '#F292D2', to: '#14DEC7' },
       overview:
-        'Built a production-grade e-commerce platform serving thousands of daily transactions with real-time inventory across multiple warehouses.',
+        'Built a custom bespoke booking platform unifying venue diary management and promoter artist booking in one place, with venue discovery and advanced diary/pencil management.',
       challenge:
-        'Needed to handle real-time inventory sync across multiple warehouses without overselling during flash sales — traditional polling caused race conditions.',
+        'Creating a complex diary management system that handles multiple user roles (venues and promoters), pencil bookings, confirmations, and real-time availability without conflicts.',
       approach:
-        'Implemented an event-sourcing pattern with PostgreSQL LISTEN/NOTIFY for live inventory updates, combined with optimistic locking and a queue-based checkout flow.',
+        'Designed a robust data model in MongoDB to handle diary entries, bookings states and user roles. Implemented optimistic UI updates for instant feedback and server-side reconciliation for conflict resolution.',
       outcome:
-        'Reduced checkout abandonment by 40% and achieved sub-100ms inventory checks at 10k concurrent users. Zero overselling incidents in 12 months of production.',
+        'Delivered a unified platform that venues and promoters actively use to manage bookings, reducing coordination overhead and enabling seamless artist-to-venue discovery and booking flows.',
     },
   },
   {
@@ -49,21 +57,27 @@ const projects: Project[] = [
     accentColor: 'violet',
     accentHex: '#F8F3EA',
     accentHexLight: '#7A5225',
-    stats: [
-      { label: 'Teams Using', value: '500+' },
-      { label: 'Tasks Created', value: '1M+' },
-      { label: 'Sync Latency', value: '<50ms' },
+    stats: [],
+    gallery: [
+      '/images/atlas/1.png',
+      '/images/atlas/2.png',
+      '/images/atlas/3.png',
+      '/images/atlas/4.png',
+      '/images/atlas/5.png',
+      '/images/atlas/7.png',
     ],
+    techBrief:
+      'E-commerce healthcare platform selling health testing kits with integrations to Randox APIs for test processing and Cliniko API for clinic management. Supports multiple ordering channels: at-home kits, HQ clinic visits, and nationwide clinic network. Unified workflow for managing complex health biomarkers and test reports.',
     caseStudy: {
       titleGradient: { from: '#F8F3EA', to: '#F8F3EA' },
       overview:
-        'A real-time collaborative workspace built for distributed teams, designed to replace a legacy tool with a 6-year-old architecture.',
+        'Built a healthcare e-commerce platform enabling customers to order health testing kits with flexible fulfillment options and unified clinic management across multiple locations.',
       challenge:
-        'Keeping board state consistent across clients during concurrent edits without conflicts or lost updates.',
+        'Integrating multiple healthcare APIs (Randox and Cliniko) while maintaining a seamless customer experience across at-home and clinic-based testing pathways.',
       approach:
-        'Used CRDTs (conflict-free replicated data types) via Yjs over WebSocket for optimistic updates, with Prisma handling durable persistence.',
+        'Implemented secure API integrations with Randox for test processing and Cliniko for clinic scheduling, unified order management across fulfillment channels, and automated biomarker reporting workflows.',
       outcome:
-        'Zero data conflicts reported across 500 teams in 6 months of production. Sync latency consistently under 50ms globally.',
+        'Delivered a cohesive platform enabling customers to select their preferred testing method and receive comprehensive health reports, while clinics manage capacity and patient data efficiently.',
     },
   },
   {
@@ -76,26 +90,33 @@ const projects: Project[] = [
     imageBgHex: '#111827',
     liveUrl: 'https://www.nemap.co.uk/',
     repoUrl: '',
-    tags: ['Next.js', 'Geo Search', 'Leaflet Map', 'Business Directory'],
+    tags: ['Next.js', 'React', 'Leaflet Map', 'MongoDB', 'Framer Motion', 'Geo Search'],
     category: ['Full-Stack', 'Data & Viz'],
     accentColor: 'pink',
     accentHex: '#FBA2C7',
     accentHexLight: '#B02E6E',
     stats: [
-      { label: 'Events/second', value: '50k' },
-      { label: 'Render Time', value: '<16ms' },
-      { label: 'Data Sources', value: '12' },
+      { label: 'Businesses Listed', value: '40+' },
+      { label: 'Regions Covered', value: '17' },
+      { label: 'Avg Load Time', value: '<2s' },
     ],
+    gallery: [
+      '/images/floe/1.png',
+      '/images/floe/3.png',
+      '/images/floe/4.png',
+    ],
+    techBrief:
+      'Next.js and React frontend with Leaflet.js for interactive mapping and Framer Motion for smooth animations. MongoDB stores business listings and geographical data, with geo-search capabilities enabling location-based directory filtering.',
     caseStudy: {
       titleGradient: { from: '#1CE7B1', to: '#FBA2C7' },
       overview:
-        'High-frequency data visualisation for a fintech client processing 50k events per second across 12 data sources.',
+        'Built an interactive map and business directory connecting North East entrepreneurs and tech companies, enabling discovery and community engagement.',
       challenge:
-        "Rendering thousands of data points in real-time without dropping frames — the DOM simply couldn't keep up.",
+        'Creating a performant, intuitive map interface that smoothly handles hundreds of business listings with animations and filtering without compromising load times.',
       approach:
-        'Canvas-based D3 rendering with a Redis pub/sub fan-out and intelligent data decimation to maintain 60fps at any zoom level.',
+        'Implemented Leaflet.js for efficient map rendering, MongoDB for scalable location data storage, Framer Motion for polished UI animations, and client-side geo-filtering for instant search results.',
       outcome:
-        'Sustained 60fps at 50k events/sec on mid-range hardware. Client reported a 3x increase in analyst productivity.',
+        'Delivered a vibrant, responsive directory that serves the North East tech ecosystem with smooth interactions and fast performance across devices.',
     },
   },
   {
@@ -107,26 +128,24 @@ const projects: Project[] = [
     image: '/images/8.webp',
     liveUrl: 'https://app.sportsguardian.com/',
     repoUrl: '',
-    tags: ['React', 'Vite', 'QR', 'Native Integration', 'PWA'],
+    tags: ['React', 'Vite', 'QR Scanner', 'Azure API', 'PWA'],
     category: ['Full-Stack', 'Frontend'],
     accentColor: 'cyan',
     accentHex: '#EBAA00',
     accentHexLight: '#8B6300',
-    stats: [
-      { label: 'Pieces Generated', value: '100k+' },
-      { label: 'Time Saved/user', value: '3hrs' },
-      { label: 'Editor Approval', value: '94%' },
-    ],
+    stats: [],
+    techBrief:
+      'React Vite PWA with Strich QR scanner integration for fast, accurate wristband scanning. Connects to a REST API hosted on Azure with JWT auth for secure medical-ID retrieval. Delivers cross-platform support without requiring app store distribution.',
     caseStudy: {
       titleGradient: { from: '#EBAA00', to: '#EBAA00' },
       overview:
-        'An AI-powered writing assistant that generates on-brand content at scale for enterprise marketing teams.',
+        'Built a progressive web app for sports safety that enables instant medical ID access via QR-enabled wristbands, supporting individual and organisational memberships.',
       challenge:
-        "Maintaining consistent brand voice across LLM outputs — early versions produced content the editors rejected 55% of the time.",
+        'Creating a fast, reliable QR scanning experience that works on diverse devices while securely retrieving medical information from cloud APIs.',
       approach:
-        'Fine-tuning prompts with RAG over company style guides stored in a vector DB, plus a feedback loop that learns from editor corrections.',
+        'Integrated Strich QR scanner for robust scanning, built a React Vite PWA for instant loading and offline support, and connected to an Azure-hosted REST API with JWTo auth for secure, scalable medical data access.',
       outcome:
-        'Editor approval rate increased from 45% to 94% in 3 months. Average time saved per writer: 3 hours per week.',
+        'Deployed a responsive, performant safety platform enabling venues and organisations to quickly access participant medical information during emergencies.',
     },
   },
   {
@@ -138,26 +157,26 @@ const projects: Project[] = [
     image: '/images/4.webp',
     liveUrl: 'https://switchsavvi.procuresmart.com/',
     repoUrl: '',
-    tags: ['Next.js', 'Multi-Step Form', 'Energy Comparison', 'Lead Capture'],
+    tags: ['Next.js', 'Multi-Step Form', 'Energy Comparison', 'PostgreSQL', 'Lead Capture'],
     category: ['Full-Stack', 'Frontend'],
     accentColor: 'violet',
     accentHex: '#1E7675',
     accentHexLight: '#155556',
     stats: [
-      { label: 'Active Users', value: '20k+' },
-      { label: 'Coins Tracked', value: '1,000+' },
-      { label: 'Price Update Latency', value: '<1s' },
+    
     ],
+    techBrief:
+      'Next.js application with server-side rendering for the multi-step buying journey and quote generation. PostgreSQL backs the customer and quote data, with integrations to energy tariff APIs for real-time pricing. Fully responsive design optimised for SME decision-makers.',
     caseStudy: {
       titleGradient: { from: '#1E7675', to: '#C7EBB6' },
       overview:
-        'A real-time cryptocurrency portfolio tracker that aggregates data from multiple exchanges and APIs.',
+        'Built a B2B energy buying platform that guides SME customers through gas and electric procurement, simplifying complex tariff selection and enabling quick, personalised quotes.',
       challenge:
-        "Ensuring real-time price updates with low latency while handling API rate limits and potential downtime.",
+        'Simplifying the complex gas and electric buying process for non-specialist SME customers while handling real-time pricing and multiple supplier options.',
       approach:
-        'Implemented a WebSocket-based data pipeline with intelligent caching and fallback strategies to maintain real-time updates.',
+        'Designed an intuitive multi-step form with guided inputs, integrated real-time energy tariff APIs, used PostgreSQL for reliable customer and quote data persistence, and leveraged Next.js SSR for fast, SEO-friendly pages.',
       outcome:
-        'Achieved sub-1 second price update latency for 1,000+ coins. User base grew to 20k active users within 6 months.',
+        'Delivered a streamlined buying experience that reduces decision time and has generated £2M+ in cumulative annual customer savings; 500+ active business customers trust the platform for energy procurement.',
     },
   },
   {
@@ -165,30 +184,37 @@ const projects: Project[] = [
     slug: 'sp_ce-real-estate',
     title: 'SP_CE Real Estate',
     description:
-      'A real estate consultancy website with property listings, search filters, and service-led lead generation pages.',
+      'A design-forward Dubai property consultancy platform with integrated property listings, advanced search, and CRM-driven lead management via WordPress and PropSpace.',
     image: '/images/3.webp',
     liveUrl: 'https://www.spacerealestate.me/',
     repoUrl: '',
-    tags: ['Next.js', 'Headless Wordpress', 'Real Estate', 'Property Search'],
+    tags: ['Next.js', 'Headless WordPress', 'PropSpace CRM', 'Real Estate', 'Dubai'],
     category: ['Full-Stack', 'Frontend'],
     accentColor: 'pink',
     accentHex: '#DEAFF8',
     accentHexLight: '#7820C8',
     stats: [
-      { label: 'Downloads', value: '50k+' },
-      { label: 'Daily Active Users', value: '5k+' },
-      { label: 'Average Session', value: '15min' },
+    
     ],
+    gallery: [
+      '/images/sp_ce/2.png',
+      '/images/sp_ce/3.png',
+      '/images/sp_ce/4.png',
+      '/images/sp_ce/5.png',
+      '/images/sp_ce/6.png',
+    ],
+    techBrief:
+      'Next.js frontend consumes a Headless WordPress CMS via REST API with ISR for listing freshness, integrated with PropSpace CRM for seamless lead capture and management. Custom property search filters and design-focused UI components deliver a premium, stand-out experience in the Dubai property market.',
     caseStudy: {
       titleGradient: { from: '#DEAFF8', to: '#ADCCFE' },
       overview:
-        'A mobile app designed to help users reduce stress through guided meditations and mood tracking.',
+        'Built a premium, design-forward real estate platform for SP_CE that stands out in Dubai\'s competitive property market, integrating content management with CRM-powered lead flows.',
       challenge:
-        "Creating a calming, performant experience on mobile while integrating rich animations and real-time mood tracking.",
+        'Creating a visually distinctive platform that seamlessly bridges content management and sales operations while handling high-volume property listings and lead capture.',
       approach:
-        'Used React Native with Expo for rapid development, Firebase for real-time data sync, and Lottie for smooth animations.',
+        'Connected Next.js with Headless WordPress for flexible content delivery, integrated PropSpace CRM for lead auto-capture, built custom property search and filtering, and designed premium UI components with Dubai market expectations.',
       outcome:
-        '50k+ downloads with a 4.8-star rating. Average session length of 15 minutes, indicating high user engagement.',
+        'Delivered a market-leading platform that combines consultancy positioning with operational efficiency, enabling the team to manage listings and leads cohesively while maintaining design excellence.',
     },
   },
   {
@@ -201,26 +227,26 @@ const projects: Project[] = [
     imageBgHex: '#FCB22D',
     liveUrl: 'https://www.saleslynk.co.uk/',
     repoUrl: '',
-    tags: ['React', 'Node.js', 'Postgres', 'Data Pipeline', 'SaaS'],
-    category: ['Full-Stack', 'Data & Viz', 'AI / ML'],
+    tags: ['Next.js', 'React', 'MongoDB', 'Data Pipeline', 'SaaS', 'B2B Intelligence'],
+    category: ['Full-Stack', 'Data & Viz'],
     accentColor: 'cyan',
     accentHex: '#FCB22D',
     accentHexLight: '#9C5E00',
     stats: [
-      { label: 'Companies Indexed', value: 'Millions+' },
-      { label: 'Enterprise Trials', value: 'Private / By Invite' },
-      { label: 'Avg Research Time', value: '<1min' },
+
     ],
+    techBrief:
+      'Next.js and React frontend connected to a MongoDB backend storing company and contact data from LinkedIn and business sources. Background ingestion and enrichment pipelines aggregate sales-relevant signals with server-side caching for sub-second dashboard loads.',
     caseStudy: {
       titleGradient: { from: '#FCB22D', to: '#E6583A' },
       overview:
-        'Built the core SalesLynk sales intelligence application: resilient ingestion and enrichment pipelines, a relevance/scoring engine, and a compact dashboard that delivers actionable prospect briefs to sales reps (private enterprise access).',
+        'Built the core SalesLynk sales intelligence platform: aggregates company and individual LinkedIn data with business intelligence, enabling sales teams to quickly access actionable prospect briefs.',
       challenge:
-        'Aggregating, normalising and enriching signals from thousands of sources while keeping data fresh, accurate and concise for fast consumption by sales teams.',
+        'Aggregating and enriching sales signals from LinkedIn and business data sources while keeping information fresh, accurate and concise for rapid sales team consumption.',
       approach:
-        'Implemented resilient ETL pipelines, deduplication and company/contact resolution, a scoring layer for relevance, server-side caching and precomputed briefs, plus a minimal UX optimized for rapid reading and role-based access controls for enterprise deployments.',
+        'Implemented background enrichment pipelines consuming business APIs, stored normalised company and contact graphs in MongoDB, built a Next.js dashboard with server-side caching for instant brief retrieval, and optimised UX for rapid reading.',
       outcome:
-        'Delivered private enterprise deployments and pilot trials that reduced pre-call research time to under a minute and increased meeting conversion for pilot customers; marketing site remains separate for demos and lead capture.',
+        'Delivered a sales intelligence platform enabling private enterprise users to access rich company and individual data; reduced prospect research time to under a minute and improved sales team productivity.',
     },
   },
   {
@@ -229,23 +255,29 @@ const projects: Project[] = [
     title: 'Roleplaying Realm',
     description:
       'A personal project that uses AI as a game master to let players roleplay in fictitious worlds and franchise-style settings.',
-    image: '/images/14.png',
-    imageBgHex: '#4F46E5',
+    image: '/images/rr1.png',
+    imageBgHex: '#E52F3A',
     liveUrl: 'https://dev.roleplayingrealm.com/',
     repoUrl: '',
     tags: ['AI', 'Game Master', 'Roleplaying', 'LLM'],
     category: ['Full-Stack', 'AI / ML'],
-    accentColor: 'violet',
-    accentHex: '#4F46E5',
-    accentHexLight: '#A78BFA',
+    accentColor: 'pink',
+    accentHex: '#E52F3A',
+    accentHexLight: '#F87171',
     featured: false,
     stats: [
       { label: 'Playable Worlds', value: '15+' },
       { label: 'Active Sessions', value: '100+' },
       { label: 'Unique Players', value: '45+' },
     ],
+    gallery: [
+      '/images/rr2.png',
+      '/images/rr3.png',
+    ],
+    techBrief:
+      'LLM-orchestrated game master via the OpenAI API, with a React frontend driving session state and lore retrieval via RAG. A custom moderation pipeline enforces IP-aware behaviour and safety constraints across all player inputs.',
     caseStudy: {
-      titleGradient: { from: '#4F46E5', to: '#A78BFA' },
+      titleGradient: { from: '#E52F3A', to: '#F87171' },
       overview:
         'Roleplaying Realm experiments with using a large language model as an adaptive game master, creating dynamic narratives and playable scenarios inspired by favourite franchises.',
       challenge:
@@ -278,6 +310,14 @@ const projects: Project[] = [
       { label: 'Unique Puzzles', value: '20+' },
       { label: 'Interface', value: 'Terminal-style' },
     ],
+    gallery: [
+      '/images/nullvoid1.png',
+      '/images/nullvoid2.png',
+      '/images/nullvoid3.png',
+      '/images/nullvoid4.png',
+    ],
+    techBrief:
+      'React and Vite front a custom command parser and stateful session backend. Wrapped in an Electron shell for optional desktop distribution, with puzzles built as isolated, testable modules to allow rapid iteration during playtesting.',
     caseStudy: {
       titleGradient: { from: '#62AD72', to: '#A7F0C9' },
       overview:
@@ -312,6 +352,8 @@ const projects: Project[] = [
       { label: 'Items Indexed', value: '50k+' },
       { label: 'Avg Fit Time', value: '<2min' },
     ],
+    techBrief:
+      'Next.js with SSR powers the accessible storefront and recommendation flows. A custom size-mapping engine normalises brand sizing data, while the UI is built to WCAG AA with screen-reader support and reduced-motion defaults throughout.',
     caseStudy: {
       titleGradient: { from: '#6B5B8A', to: '#32164C' },
       overview:
@@ -346,6 +388,8 @@ const projects: Project[] = [
       { label: 'Play Sessions', value: '2k+' },
       { label: 'Formats Supported', value: '10+' },
     ],
+    techBrief:
+      'Electron wraps a React/Vite frontend for a native desktop experience, with a local-first file indexing layer and background thumbnail generation. WebAssembly emulator cores handle sandboxed, performant in-app ROM playback across multiple formats.',
     caseStudy: {
       titleGradient: { from: '#ffb86a', to: '#ffdca8' },
       overview:
@@ -380,6 +424,8 @@ const projects: Project[] = [
       { label: 'Applications', value: 'Thousands' },
       { label: 'Avg Decision Time', value: '<48hrs' },
     ],
+    techBrief:
+      'Next.js with SSR ensures fast initial load for an SEO-critical public page. The filterable grants catalogue is rendered accessibly with ARIA-compliant controls, and application CTAs integrate cleanly with the Foundation\'s existing grant management infrastructure.',
     caseStudy: {
       titleGradient: { from: '#7FD1FF', to: '#39A1F0' },
       overview:
@@ -414,6 +460,8 @@ const projects: Project[] = [
       { label: 'Members', value: '300+' },
       { label: 'Unlocks', value: '2000+' },
     ],
+    techBrief:
+      'Next.js SSR marketing site paired with a secure member dashboard, using ISR for content pages and role-based access control for course unlocks. Stripe handles subscription billing and webhook-driven membership state updates.',
     caseStudy: {
       titleGradient: { from: '#5B4B7A', to: '#0E0726' },
       overview:
@@ -448,6 +496,8 @@ const projects: Project[] = [
       { label: 'Organisations', value: '1k+' },
       { label: 'Avg Lead Time', value: '<3 days' },
     ],
+    techBrief:
+      'Next.js PWA with server-side availability checks and optimistic UI for instant booking feedback. Multi-tenant organiser admin flows are isolated by role, with background reconciliation handling edge-case conflicts and an offline-capable frontend for poor-signal venues.',
     caseStudy: {
       titleGradient: { from: '#EBAA00', to: '#EBAA00' },
       overview:

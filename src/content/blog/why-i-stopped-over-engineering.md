@@ -1,4 +1,5 @@
 ---
+status: hidden
 title: Why I Stopped Over-Engineering Everything
 slug: why-i-stopped-over-engineering
 date: 2025-11-14

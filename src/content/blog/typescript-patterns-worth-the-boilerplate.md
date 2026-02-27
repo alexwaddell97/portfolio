@@ -1,4 +1,5 @@
 ---
+status: hidden
 title: TypeScript Patterns Worth the Boilerplate
 slug: typescript-patterns-worth-the-boilerplate
 date: 2025-06-10

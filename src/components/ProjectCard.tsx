@@ -82,7 +82,7 @@ function ProjectCard({ project, index = 0, compact = false }: ProjectCardProps) 
           <img
             src={project.image}
             alt={project.title}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
           />
         ) : (
           <div
@@ -164,16 +164,18 @@ function ProjectCard({ project, index = 0, compact = false }: ProjectCardProps) 
               </div>
             ))}
             <div className="flex items-center gap-4 mt-1">
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                aria-label={`Open live site for ${project.title}`}
-                className="hover-underline-accent flex items-center gap-1.5 text-xs text-text-secondary transition-colors hover:text-text-primary"
-              >
-                <FiExternalLink size={13} /> Live
-              </a>
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  aria-label={`Open live site for ${project.title}`}
+                  className="hover-underline-accent flex items-center gap-1.5 text-xs text-text-secondary transition-colors hover:text-text-primary"
+                >
+                  <FiExternalLink size={13} /> Live
+                </a>
+              )}
               {project.repoUrl && (
                 <a
                   href={project.repoUrl}

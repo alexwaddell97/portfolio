@@ -1,4 +1,5 @@
 ---
+status: hidden
 title: 'Five Years of Remote Work: The Honest Version'
 slug: working-remotely-for-five-years
 date: 2025-08-19

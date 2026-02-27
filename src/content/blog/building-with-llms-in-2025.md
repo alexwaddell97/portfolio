@@ -1,4 +1,5 @@
 ---
+status: hidden
 title: 'Building Real Products with LLMs: Patterns That Actually Work'
 slug: building-with-llms-in-2025
 date: 2025-07-08

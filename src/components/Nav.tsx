@@ -182,13 +182,18 @@ function Nav() {
                   className="relative px-4 py-1.5 text-sm transition-colors"
                   style={{ color: active ? 'var(--color-text-primary)' : 'var(--color-text-secondary)' }}
                 >
-                  {active && (
-                    <motion.span
-                      layoutId="nav-indicator"
-                      className="absolute inset-0 rounded-full border border-cyan/30 bg-cyan/10"
-                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                    />
-                  )}
+                  <AnimatePresence>
+                    {active && (
+                      <motion.span
+                        key={item.to}
+                        initial={{ opacity: 0, scale: 0.88 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.88 }}
+                        transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                        className="absolute inset-0 rounded-full border border-cyan/30 bg-cyan/10"
+                      />
+                    )}
+                  </AnimatePresence>
                   <span className="relative z-10">{item.label}</span>
                 </Link>
               ) : (
@@ -198,13 +203,18 @@ function Nav() {
                   className="relative px-4 py-1.5 text-sm transition-colors cursor-pointer"
                   style={{ color: active ? 'var(--color-text-primary)' : 'var(--color-text-secondary)' }}
                 >
-                  {active && (
-                    <motion.span
-                      layoutId="nav-indicator"
-                      className="absolute inset-0 rounded-full border border-cyan/30 bg-cyan/10"
-                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                    />
-                  )}
+                  <AnimatePresence>
+                    {active && (
+                      <motion.span
+                        key={item.href}
+                        initial={{ opacity: 0, scale: 0.88 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.88 }}
+                        transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                        className="absolute inset-0 rounded-full border border-cyan/30 bg-cyan/10"
+                      />
+                    )}
+                  </AnimatePresence>
                   <span className="relative z-10">{item.label}</span>
                 </button>
               );

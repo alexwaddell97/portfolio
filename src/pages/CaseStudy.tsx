@@ -4,41 +4,60 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { FiArrowRight, FiExternalLink, FiGithub } from 'react-icons/fi';
+import { FiArrowRight, FiChevronLeft, FiChevronRight, FiExternalLink, FiGithub, FiX } from 'react-icons/fi';
 import type { IconType } from 'react-icons';
 import {
   SiReact, SiTypescript, SiNodedotjs, SiNextdotjs, SiPostgresql,
   SiDocker, SiTailwindcss, SiGraphql, SiRedis, SiPython, SiFigma, SiVite,
   SiStripe, SiOpenai, SiMongodb, SiPrisma, SiVercel, SiAmazon,
   SiD3Dotjs, SiSupabase, SiElasticsearch,
+  SiWordpress, SiWoo, SiElectron, SiPwa, SiEthereum,
+  SiClaude, SiGooglegemini, SiHuggingface, SiLeaflet,
+  SiSanity, SiStrapi, SiAmazonwebservices,
 } from 'react-icons/si';
+import { FiCode } from 'react-icons/fi';
 import Nav from '../components/Nav.tsx';
 import { useTheme } from '../contexts/ThemeContext.tsx';
 import projects from '../data/projects.ts';
 
 // Map tag strings → icon component + brand colour
 const tagIconMap: Record<string, { Icon: IconType; color: string }> = {
-  'React':         { Icon: SiReact,         color: '#61dafb' },
-  'TypeScript':    { Icon: SiTypescript,     color: '#3178c6' },
-  'Node.js':       { Icon: SiNodedotjs,      color: '#6cc24a' },
-  'Next.js':       { Icon: SiNextdotjs,      color: '#e4e4e7' },
-  'PostgreSQL':    { Icon: SiPostgresql,     color: '#4169e1' },
-  'Docker':        { Icon: SiDocker,         color: '#2496ed' },
-  'Tailwind CSS':  { Icon: SiTailwindcss,    color: '#06b6d4' },
-  'GraphQL':       { Icon: SiGraphql,        color: '#e10098' },
-  'Redis':         { Icon: SiRedis,          color: '#dc382d' },
-  'Python':        { Icon: SiPython,         color: '#3776ab' },
-  'Figma':         { Icon: SiFigma,          color: '#f24e1e' },
-  'Vite':          { Icon: SiVite,           color: '#646cff' },
-  'Stripe':        { Icon: SiStripe,         color: '#635bff' },
-  'OpenAI API':    { Icon: SiOpenai,         color: '#74aa9c' },
-  'MongoDB':       { Icon: SiMongodb,        color: '#47a248' },
-  'Prisma':        { Icon: SiPrisma,         color: '#5a67d8' },
-  'Vercel':        { Icon: SiVercel,         color: '#e4e4e7' },
-  'AWS':           { Icon: SiAmazon,         color: '#ff9900' },
-  'D3.js':         { Icon: SiD3Dotjs,        color: '#f9a03c' },
-  'Supabase':      { Icon: SiSupabase,       color: '#3ecf8e' },
-  'Elasticsearch': { Icon: SiElasticsearch,  color: '#f04e98' },
+  'React':               { Icon: SiReact,            color: '#61dafb' },
+  'TypeScript':          { Icon: SiTypescript,        color: '#3178c6' },
+  'Node.js':             { Icon: SiNodedotjs,         color: '#6cc24a' },
+  'Next.js':             { Icon: SiNextdotjs,         color: '#a3a3a3' },
+  'PostgreSQL':          { Icon: SiPostgresql,        color: '#4169e1' },
+  'Postgres':            { Icon: SiPostgresql,        color: '#4169e1' },
+  'Docker':              { Icon: SiDocker,            color: '#2496ed' },
+  'Tailwind CSS':        { Icon: SiTailwindcss,       color: '#06b6d4' },
+  'GraphQL':             { Icon: SiGraphql,           color: '#e10098' },
+  'Redis':               { Icon: SiRedis,             color: '#dc382d' },
+  'Python':              { Icon: SiPython,            color: '#3776ab' },
+  'Figma':               { Icon: SiFigma,             color: '#f24e1e' },
+  'Vite':                { Icon: SiVite,              color: '#646cff' },
+  'Stripe':              { Icon: SiStripe,            color: '#635bff' },
+  'OpenAI API':          { Icon: SiOpenai,            color: '#74aa9c' },
+  'AI':                  { Icon: SiOpenai,            color: '#74aa9c' },
+  'LLM':                 { Icon: SiOpenai,            color: '#74aa9c' },
+  'MongoDB':             { Icon: SiMongodb,           color: '#47a248' },
+  'Prisma':              { Icon: SiPrisma,            color: '#5a67d8' },
+  'Vercel':              { Icon: SiVercel,            color: '#a3a3a3' },
+  'AWS':                 { Icon: SiAmazonwebservices, color: '#ff9900' },
+  'D3.js':               { Icon: SiD3Dotjs,           color: '#f9a03c' },
+  'Supabase':            { Icon: SiSupabase,          color: '#3ecf8e' },
+  'Elasticsearch':       { Icon: SiElasticsearch,     color: '#f04e98' },
+  'WordPress':           { Icon: SiWordpress,         color: '#21759b' },
+  'Headless Wordpress':  { Icon: SiWordpress,         color: '#21759b' },
+  'WooCommerce':         { Icon: SiWoo,               color: '#96588a' },
+  'Electron':            { Icon: SiElectron,          color: '#47848f' },
+  'PWA':                 { Icon: SiPwa,               color: '#5a0fc8' },
+  'Web3':                { Icon: SiEthereum,          color: '#627eea' },
+  'Claude':              { Icon: SiClaude,            color: '#D97757' },
+  'Gemini':              { Icon: SiGooglegemini,      color: '#4285F4' },
+  'Hugging Face':        { Icon: SiHuggingface,       color: '#FFD21E' },
+  'Leaflet Map':         { Icon: SiLeaflet,           color: '#199900' },
+  'Sanity.io':           { Icon: SiSanity,            color: '#f03e2f' },
+  'Strapi':              { Icon: SiStrapi,            color: '#8e75ff' },
 };
 
 gsap.registerPlugin(ScrollTrigger);
@@ -74,6 +93,7 @@ function CaseStudy() {
   const containerRef = useRef<HTMLDivElement>(null);
   const previousBodyOverflowRef = useRef<string | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const project = projects.find(p => p.slug === slug);
   const currentIndex = projects.findIndex(p => p.slug === slug);
@@ -110,34 +130,7 @@ function CaseStudy() {
 
       ScrollTrigger.clearScrollMemory();
 
-      // 1. PIN HERO — stays while user starts scrolling
-      ScrollTrigger.create({
-        trigger: '#cs-hero',
-        start: 'top top',
-        end: '+=500',
-        pin: true,
-        pinSpacing: true,
-      });
-
-      // 2. HORIZONTAL SCROLL — Challenge / Approach / Outcome
-      const panels = gsap.utils.toArray<HTMLElement>('.cs-panel');
-      if (panels.length > 1) {
-        const totalTravel = (panels.length - 1) * window.innerWidth;
-        gsap.to('.cs-panels-track', {
-          x: -totalTravel,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: '#cs-horizontal',
-            start: 'top top',
-            end: () => `+=${totalTravel}`,
-            scrub: 1,
-            pin: true,
-            anticipatePin: 1,
-          },
-        });
-      }
-
-      // 3. ANIMATED COUNTERS
+      // 1. ANIMATED COUNTERS
       gsap.utils.toArray<HTMLElement>('.cs-stat-value').forEach(el => {
         const raw = el.dataset.value ?? '0';
         const isPercent = raw.includes('%');
@@ -158,42 +151,6 @@ function CaseStudy() {
           scrollTrigger: {
             trigger: el,
             start: 'top 85%',
-            once: true,
-          },
-        });
-      });
-
-      // 4. IMAGE REVEAL via clipPath
-      const imageEl = document.querySelector<HTMLElement>('#cs-image-reveal');
-      if (imageEl) {
-        gsap.from(imageEl, {
-          clipPath: 'inset(0 100% 0 0)',
-          duration: 1.2,
-          ease: 'power3.inOut',
-          scrollTrigger: {
-            trigger: imageEl,
-            start: 'top 72%',
-            once: true,
-          },
-        });
-      }
-
-      // 5. TECH PILL SCATTER
-      const pills = gsap.utils.toArray<HTMLElement>('.cs-tech-pill');
-      pills.forEach((pill, i) => {
-        const angle = (i / pills.length) * Math.PI * 2;
-        const radius = 50 + Math.random() * 40;
-        gsap.from(pill, {
-          x: Math.cos(angle) * radius,
-          y: Math.sin(angle) * radius,
-          opacity: 0,
-          scale: 0.6,
-          duration: 0.7,
-          delay: i * 0.06,
-          ease: 'back.out(1.7)',
-          scrollTrigger: {
-            trigger: '#cs-tech',
-            start: 'top 80%',
             once: true,
           },
         });
@@ -261,6 +218,8 @@ function CaseStudy() {
     { label: 'The Outcome', content: cs.outcome, color: 'var(--color-pink)' },
   ];
 
+  const galleryImages: string[] = (project.gallery ?? []).filter(Boolean);
+
   // Adjust hero title size based on length to avoid overflow for very long titles
   const titleLen = project.title ? project.title.length : 0;
   const titleSizeClass = titleLen > 40
@@ -305,6 +264,17 @@ function CaseStudy() {
     }, 260);
   }
 
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') setLightboxIndex(null);
+      if (e.key === 'ArrowRight') setLightboxIndex(i => i === null ? 0 : Math.min(galleryImages.length - 1, i + 1));
+      if (e.key === 'ArrowLeft') setLightboxIndex(i => i === null ? 0 : Math.max(0, i - 1));
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [lightboxIndex, galleryImages.length]);
+
   return (
     <div ref={containerRef} className="bg-bg-primary text-text-primary overflow-x-hidden">
       <Nav />
@@ -314,6 +284,23 @@ function CaseStudy() {
         id="cs-hero"
         className="dot-grid relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4"
       >
+        {/* Cinematic image backdrop */}
+        {project.image && (
+          <div className="absolute inset-0 overflow-hidden">
+            <img
+              src={project.image}
+              alt=""
+              aria-hidden
+              className="h-full w-full object-cover object-top scale-110 blur-[2px]"
+              style={{ opacity: isLight ? 0.45 : 0.18 }}
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: isLight ? 'rgba(255,255,255,0.35)' : 'var(--color-bg-primary)', opacity: isLight ? 1 : 0.65 }}
+            />
+          </div>
+        )}
+
         <div
           className={`pointer-events-none absolute top-1/2 left-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl opacity-50 ${hasCustomAccent ? '' : glowClass[accent]}`}
           style={hasCustomAccent ? { background: `radial-gradient(circle, ${accentColor}55 0%, transparent 70%)` } : undefined}
@@ -339,20 +326,39 @@ function CaseStudy() {
               {displayTitle}
           </motion.h1>
 
+          {/* Category chips + links */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-10 flex items-center justify-center gap-4"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="mt-8 flex flex-wrap items-center justify-center gap-3"
           >
+            {(Array.isArray(project.category) ? project.category : [project.category]).map(cat => (
+              <span
+                key={cat}
+                className="rounded-full border px-4 py-1.5 text-xs font-semibold tracking-wide uppercase backdrop-blur-md"
+                style={{
+                  borderColor: `${accentColor}60`,
+                  background: isLight ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.45)',
+                  color: isLight ? '#111' : 'var(--color-text-secondary)',
+                }}
+              >
+                {cat}
+              </span>
+            ))}
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-text-muted transition-colors hover:text-text-primary"
+                className="flex items-center gap-1.5 rounded-full border px-4 py-1.5 text-xs font-semibold tracking-wide uppercase backdrop-blur-md transition-opacity hover:opacity-80"
+                style={{
+                  borderColor: `${accentColor}80`,
+                  color: isLight ? accentColor : accentColor,
+                  background: isLight ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.45)',
+                }}
               >
-                <FiExternalLink size={14} /> Live Site
+                <FiExternalLink size={11} /> Live Site
               </a>
             )}
             {project.repoUrl && (
@@ -360,9 +366,14 @@ function CaseStudy() {
                 href={project.repoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-text-muted transition-colors hover:text-text-primary"
+                className="flex items-center gap-1.5 rounded-full border px-4 py-1.5 text-xs font-semibold tracking-wide uppercase backdrop-blur-md transition-opacity hover:opacity-80"
+                style={{
+                  borderColor: `${accentColor}80`,
+                  color: isLight ? accentColor : accentColor,
+                  background: isLight ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.45)',
+                }}
               >
-                <FiGithub size={14} /> Source
+                <FiGithub size={11} /> Source
               </a>
             )}
           </motion.div>
@@ -370,7 +381,7 @@ function CaseStudy() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
             className="mt-12 flex flex-col items-center gap-2 text-text-muted"
           >
             <span className="text-xs tracking-widest uppercase">Scroll to explore</span>
@@ -384,173 +395,304 @@ function CaseStudy() {
 
       {/* ── 2. OVERVIEW ──────────────────────────────── */}
       <section className="py-32">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-16 md:grid-cols-2">
-            <div>
-              <p
-                className="mb-4 text-xs font-semibold tracking-[0.2em] uppercase"
-                style={{ color: accentColor }}
-              >
-                Overview
-              </p>
-              <p className="text-xl leading-relaxed text-text-secondary">{cs.overview}</p>
-            </div>
-            <div className="space-y-0">
-              {project.tags.map((tag, i) => (
-                <div
-                  key={tag}
-                  className="flex items-center gap-4 border-b border-border py-4"
-                >
-                  <span className="w-6 text-sm font-medium text-text-muted">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span className="text-text-primary">{tag}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8"
+        >
+          <p
+            className="mb-6 text-xs font-semibold tracking-[0.2em] uppercase"
+            style={{ color: accentColor }}
+          >
+            Overview
+          </p>
+          <p className="text-2xl leading-relaxed text-text-secondary lg:text-3xl">{cs.overview}</p>
+        </motion.div>
       </section>
 
-      {/* ── 3. HORIZONTAL SCROLL ─────────────────────── */}
-      <section id="cs-horizontal" className="overflow-hidden">
-        <div
-          className="cs-panels-track flex"
-          style={{ width: `${panels.length * 100}vw` }}
+      {/* ── 3. CHALLENGE / APPROACH / OUTCOME ─────────── */}
+      {panels.map((panel, i) => (
+        <motion.section
+          key={panel.label}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+          className="relative overflow-hidden border-t border-border py-28"
         >
-          {panels.map((panel) => (
-            <div
-              key={panel.label}
-              className="cs-panel flex min-h-screen w-screen flex-col items-center justify-center px-8 md:px-24"
-            >
-              <div className="max-w-2xl">
+          {/* Corner glow */}
+          <div
+            className="pointer-events-none absolute top-0 right-0 h-96 w-96 opacity-[0.07] blur-3xl"
+            style={{ background: panel.color }}
+          />
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className={`grid items-start gap-16 ${i % 2 === 1 ? 'md:grid-cols-[1fr_280px]' : 'md:grid-cols-[280px_1fr]'}`}>
+              {/* Label + ordinal */}
+              <div className={i % 2 === 1 ? 'md:order-2 md:text-right' : ''}>
+                <span
+                  className="block select-none text-[8rem] font-black leading-none opacity-[0.07]"
+                  style={{ color: panel.color }}
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
                 <p
-                  className="mb-6 text-xs font-semibold tracking-[0.2em] uppercase"
+                  className="mt-2 text-xs font-semibold tracking-[0.2em] uppercase"
                   style={{ color: panel.color }}
                 >
                   {panel.label}
                 </p>
-                <p className="text-2xl font-medium leading-relaxed text-text-primary md:text-3xl lg:text-4xl">
+              </div>
+              {/* Content */}
+              <div
+                className={i % 2 === 1 ? 'border-r-[3px] pr-10 md:order-1' : 'border-l-[3px] pl-10'}
+                style={{ borderColor: panel.color }}
+              >
+                <p className="text-xl leading-relaxed text-text-secondary md:text-2xl lg:text-3xl">
                   {panel.content}
                 </p>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+        </motion.section>
+      ))}
 
       {/* ── 4. STATS ─────────────────────────────────── */}
       {project.stats && project.stats.length > 0 && (
         <section className="border-y border-border py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
-              {project.stats.map((stat) => (
-                <div key={stat.label} className="text-center">
+              {project.stats.map((stat, statIdx) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.55, delay: statIdx * 0.09, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative overflow-hidden rounded-2xl border border-border bg-bg-card p-8 text-center"
+                >
                   <div
-                    className={`cs-stat-value gradient-text-full text-5xl font-black md:text-6xl`}
+                    className="pointer-events-none absolute inset-0 rounded-2xl"
+                    style={{ background: `radial-gradient(ellipse at 50% 0%, ${accentColor}22, transparent 65%)` }}
+                  />
+                  <div
+                    className="cs-stat-value relative text-5xl font-black md:text-6xl"
                     data-value={stat.value}
+                    style={{ color: accentColor }}
                   >
                     0
                   </div>
-                  <p className="mt-2 text-sm text-text-muted">{stat.label}</p>
-                </div>
+                  <p className="relative mt-3 text-sm text-text-muted">{stat.label}</p>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
       )}
 
-      {/* ── 5. TECH SCATTER ──────────────────────────── */}
-      <section id="cs-tech" className="py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="mb-12 text-xs font-semibold tracking-[0.2em] uppercase text-text-muted">
-            Built With
+      {/* ── 5. STACK ─────────────────────────────────── */}
+      <section id="cs-tech" className="border-t border-border py-24">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8"
+        >
+          <p className="mb-6 text-xs font-semibold tracking-[0.2em] uppercase" style={{ color: accentColor }}>
+            Stack
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {project.tags.map((tag, i) => {
+          {project.techBrief && (
+            <p className="mb-10 text-lg leading-relaxed text-text-secondary">
+              {project.techBrief}
+            </p>
+          )}
+          <div className="flex flex-wrap gap-2.5">
+            {project.tags.map((tag) => {
               const iconEntry = tagIconMap[tag];
-              // Stagger the pulse animation so pills don't all pulse together
-              const pulseDelay = `${(i * 0.22) % 2.8}s`;
-              const pulseClass = accent === 'cyan'
-                ? 'cs-tech-pill-cyan'
-                : accent === 'pink'
-                  ? 'cs-tech-pill-pink'
-                  : 'cs-tech-pill-violet';
+              const iconColor = iconEntry?.color ?? accentColor;
               return (
-                <div
+                <span
                   key={tag}
-                  className={`cs-tech-pill ${pulseClass} flex items-center gap-2.5 rounded-full border bg-bg-card px-5 py-2.5 text-sm font-medium text-text-secondary`}
-                  style={{ animationDelay: pulseDelay }}
+                  className="flex items-center gap-2 rounded-full border bg-bg-card px-4 py-2 text-sm font-medium text-text-secondary"
+                  style={{ borderColor: `${iconColor}40` }}
                 >
-                  {iconEntry && (
-                    <iconEntry.Icon size={16} style={{ color: iconEntry.color }} />
-                  )}
+                  {iconEntry
+                    ? <iconEntry.Icon size={14} style={{ color: iconColor }} />
+                    : <FiCode size={13} style={{ color: accentColor }} />
+                  }
                   {tag}
-                </div>
+                </span>
               );
             })}
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      {/* ── 6. IMAGE REVEAL ──────────────────────────── */}
-      <section className="py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div
-            id="cs-image-reveal"
-            className="relative aspect-video overflow-hidden rounded-2xl bg-bg-secondary"
-            style={{ clipPath: 'inset(0 0% 0 0)' }}
-          >
-            {project.image ? (
-              <img
-                src={project.image}
-                alt={project.title}
-                className="h-full w-full object-cover"
-              />
-            ) : (
-              <div
-                className={`flex h-full w-full items-center justify-center ${hasCustomAccent ? '' : `bg-gradient-to-br ${placeholderGrad[accent]}`}`}
-                style={hasCustomAccent ? { background: `linear-gradient(135deg, ${accentColor}22, transparent 70%)` } : undefined}
-              >
-                <span
-                  className="text-8xl font-black opacity-20"
-                  style={{ color: accentColor }}
+      {/* ── 6. GALLERY ───────────────────────────────── */}
+      {galleryImages.length > 0 && (
+        <section className="py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="mb-10 text-xs font-semibold tracking-[0.2em] uppercase"
+              style={{ color: accentColor }}
+            >
+              Gallery
+            </motion.p>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {galleryImages.map((src, i) => (
+                <motion.button
+                  key={src + i}
+                  onClick={() => setLightboxIndex(i)}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  whileHover={{ scale: 1.02, transition: { type: 'spring', stiffness: 300, damping: 22 } }}
+                  transition={{ duration: 0.5, delay: (i % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  className="group block w-full rounded-xl border border-border focus-visible:outline-none focus-visible:ring-2"
+                  style={{
+                    boxShadow: `0 0 0 0 ${accentColor}`,
+                  }}
+                  aria-label={`View image ${i + 1}`}
                 >
-                  {project.title[0]}
-                </span>
-              </div>
-            )}
+                  <div className="aspect-video w-full overflow-hidden rounded-xl">
+                    <img
+                      src={src}
+                      alt={`${project.title} screenshot ${i + 1}`}
+                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                </motion.button>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ── 7. NEXT PROJECT ──────────────────────────── */}
-      <section className="border-t border-border py-24">
+      <motion.section
+        className="border-t border-border py-24"
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="mb-4 text-xs font-semibold tracking-[0.2em] uppercase text-text-muted">
+          <p className="mb-8 text-xs font-semibold tracking-[0.2em] uppercase text-text-muted">
             Next Project
           </p>
           <button
             onClick={transitionToNextCaseStudy}
             disabled={isTransitioning}
-            className="group flex items-center gap-4 disabled:cursor-wait disabled:opacity-80"
+            className="group block w-full text-left disabled:cursor-wait disabled:opacity-80"
           >
-            <span
-                className={`${nextTitleStyle === undefined ? gradientTextClass[nextProject.accentColor] : ''} display-heading-safe text-4xl font-black transition-opacity group-hover:opacity-80 md:text-5xl`}
-              style={nextTitleStyle}
+            <div
+              className="relative overflow-hidden rounded-2xl border bg-bg-card transition-all duration-300"
+              style={{ borderColor: `${nextAccentColor}44`, boxShadow: `0 0 40px ${nextAccentColor}12` }}
             >
-              {displayNextTitle}
-            </span>
-            <FiArrowRight
-              size={28}
-              className="transition-transform duration-200 group-hover:translate-x-2"
-              style={{ color: nextAccentColor }}
-            />
+              {/* Background image */}
+              {nextProject.image && (
+                <div className="absolute inset-0">
+                  <img
+                    src={nextProject.image}
+                    alt=""
+                    aria-hidden
+                    className="h-full w-full object-cover object-top opacity-10 blur-sm transition-opacity duration-300 group-hover:opacity-20"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-r from-bg-card via-bg-card/85 to-transparent" />
+                </div>
+              )}
+              <div className="relative flex items-center justify-between gap-8 p-8 md:p-12">
+                <div>
+                  <span
+                    className="mb-3 block text-xs font-semibold tracking-[0.2em] uppercase"
+                    style={{ color: nextAccentColor }}
+                  >
+                    Up Next
+                  </span>
+                  <h3
+                    className={`${nextTitleStyle === undefined ? gradientTextClass[nextProject.accentColor] : ''} display-heading-safe text-3xl font-black md:text-5xl`}
+                    style={nextTitleStyle}
+                  >
+                    {displayNextTitle}
+                  </h3>
+                  {nextProject.description && (
+                    <p className="mt-3 max-w-xl text-sm leading-relaxed text-text-secondary">
+                      {nextProject.description}
+                    </p>
+                  )}
+                </div>
+                <FiArrowRight
+                  size={36}
+                  className="shrink-0 transition-transform duration-300 group-hover:translate-x-2"
+                  style={{ color: nextAccentColor }}
+                />
+              </div>
+            </div>
           </button>
         </div>
-      </section>
-
+      </motion.section>
+      {/* Lightbox */}
       <AnimatePresence>
+        {lightboxIndex !== null && galleryImages[lightboxIndex] && (
+          <motion.div
+            className="fixed inset-0 z-200 flex items-center justify-center bg-black/92 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.22 }}
+            onClick={() => setLightboxIndex(null)}
+          >
+            <button
+              className="absolute top-4 right-4 rounded-full bg-white/10 p-2 text-white/70 transition-colors hover:bg-white/20 hover:text-white"
+              onClick={() => setLightboxIndex(null)}
+              aria-label="Close lightbox"
+            >
+              <FiX size={22} />
+            </button>
+            {lightboxIndex > 0 && (
+              <button
+                className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white/70 transition-colors hover:bg-white/20 hover:text-white"
+                onClick={e => { e.stopPropagation(); setLightboxIndex(i => Math.max(0, (i ?? 0) - 1)); }}
+                aria-label="Previous image"
+              >
+                <FiChevronLeft size={26} />
+              </button>
+            )}
+            {lightboxIndex < galleryImages.length - 1 && (
+              <button
+                className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white/70 transition-colors hover:bg-white/20 hover:text-white"
+                onClick={e => { e.stopPropagation(); setLightboxIndex(i => Math.min(galleryImages.length - 1, (i ?? 0) + 1)); }}
+                aria-label="Next image"
+              >
+                <FiChevronRight size={26} />
+              </button>
+            )}
+            <motion.img
+              key={lightboxIndex}
+              src={galleryImages[lightboxIndex]}
+              alt={`${project.title} screenshot ${lightboxIndex + 1}`}
+              className="max-h-[85vh] max-w-[90vw] rounded-xl object-contain shadow-2xl"
+              initial={{ scale: 0.94, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.94, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={e => e.stopPropagation()}
+            />
+            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-white/10 px-4 py-1.5 text-xs text-white/60">
+              {lightboxIndex + 1} / {galleryImages.length}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Page transition overlay */}      <AnimatePresence>
         {isTransitioning && (
           <motion.div
             className="pointer-events-none fixed inset-0 z-[120]"
@@ -561,7 +703,7 @@ function CaseStudy() {
           >
             <div className="absolute inset-0 bg-bg-primary/75 backdrop-blur-[2px]" />
             <motion.div
-              className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-cyan via-violet to-pink"
+              className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-cyan via-violet to-pink"
               initial={{ scaleX: 0, transformOrigin: 'left center' }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.7, ease: 'easeOut' }}

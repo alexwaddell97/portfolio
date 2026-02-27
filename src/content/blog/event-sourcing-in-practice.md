@@ -1,4 +1,5 @@
 ---
+status: hidden
 title: 'Event Sourcing in Practice: What Nobody Warns You About'
 slug: event-sourcing-in-practice
 date: 2025-10-02
