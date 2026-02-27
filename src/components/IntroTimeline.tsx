@@ -153,15 +153,14 @@ function IntroTimeline() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="How I Work"
-          subtitle="End-to-end delivery from architecture to shipping, with a focus on clarity and craft"
+          
         />
 
         <AnimatedSection>
           <p className="mx-auto mb-10 max-w-3xl text-center text-base leading-relaxed text-text-secondary md:text-lg">
-            I build high-quality products end-to-end, blending architecture, hands-on development, and mentorship.
-            My focus is always practical delivery: clear scope, maintainable code, and outcomes teams can ship confidently.
-            I also work with teams to introduce pragmatic developer tooling and AI-assisted patterns that reduce
-            repetitive work, tighten feedback loops, and improve delivery predictability.
+           I lead product builds end to end, setting direction, writing production code, and helping other developers grow.
+My priority is practical delivery, with well-defined scope, sound technical decisions, and code that will not become a problem six months later.
+I work with teams to adopt developer tooling and AI in a way that is useful rather than fashionable, reducing repetition and making delivery more reliable.
           </p>
         </AnimatedSection>
 

@@ -91,7 +91,7 @@ function Hero() {
       <motion.div
         className="pointer-events-none fixed inset-0 z-0"
         style={{
-          background: `radial-gradient(700px circle at ${springX}px ${springY}px, rgba(6,182,212,${theme === 'light' ? '0.10' : '0.05'}), transparent 50%)`,
+          background: `radial-gradient(700px circle at ${springX}px ${springY}px, rgba(59,130,246,${theme === 'light' ? '0.10' : '0.05'}), transparent 50%)`,
         }}
       />
 

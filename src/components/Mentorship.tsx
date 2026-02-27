@@ -73,15 +73,13 @@ function Mentorship() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="Teaching & Mentorship"
-          subtitle="I build products and help developers grow with practical, project-first coaching"
         />
 
         <AnimatedSection>
           <p className="mx-auto mb-10 max-w-3xl text-center text-base leading-relaxed text-text-secondary md:text-lg">
-            Alongside delivery work, I mentor beginner developers through internal bootcamps and support T-Level learners
-            through real-world projects — from planning and architecture to code reviews, debugging, and confident delivery.
-            I also help teams adopt practical developer tooling and AI assistants for repetitive tasks, improve code-review
-            workflows, and reduce cognitive load so teams can ship faster with more confidence.
+          Alongside leading delivery, I mentor junior developers through internal bootcamps and support T-Level students on real client projects. I’m involved across the full lifecycle, from planning and architectural decisions to detailed code reviews and debugging sessions.
+
+I also help teams refine their workflows by introducing practical tooling and AI assistants where they add value, improving review quality and reducing unnecessary friction so teams can deliver more confidently.
           </p>
         </AnimatedSection>
 
@@ -107,9 +105,7 @@ function Mentorship() {
               <div className="relative z-10">
                 <h3 className="text-lg font-semibold text-text-primary">Bootcamp Mentoring</h3>
                 <p className="mt-3 text-sm leading-relaxed text-text-secondary">
-                  Coached beginner developers through structured bootcamp pathways, helping them move from fundamentals to
-                  shipping complete projects with clean architecture and maintainable code. I introduce practical tooling
-                  and lightweight automation to speed routine tasks and free up time for learning complex concepts.
+                 I’ve coached beginner developers through structured bootcamp programmes, helping them move from the basics to shipping complete projects with clean structure and code they can actually maintain. I introduce practical tooling and light automation to handle routine tasks, giving them more space to focus on understanding the harder concepts.
                 </p>
               </div>
             </TiltCard>
@@ -120,10 +116,7 @@ function Mentorship() {
               <div className="relative z-10">
                 <h3 className="text-lg font-semibold text-text-primary">T-Level Project Coaching</h3>
                 <p className="mt-3 text-sm leading-relaxed text-text-secondary">
-                  Supported learners through project-based delivery with practical feedback, pair-debugging, and milestone
-                  guidance so they can confidently present and explain their solutions. I emphasise reproducible workflows,
-                  testable outputs, and sensible use of AI tools to assist research and debugging without replacing human
-                  judgement.
+               I support learners through real, project-based work, giving practical feedback, sitting down to debug together, and helping them break work into clear milestones so they can confidently explain what they’ve built and why. I focus on good, repeatable workflows, testable results, and using AI as a support tool for research and debugging, not as a replacement for thinking.
                 </p>
               </div>
             </TiltCard>
