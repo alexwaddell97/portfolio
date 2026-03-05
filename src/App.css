@@ -313,7 +313,7 @@
   display: flex;
   width: max-content;
   will-change: transform;
-  animation: marquee 30s linear infinite;
+  animation: marquee 90s linear infinite;
 }
 
 .marquee-group {
