@@ -523,6 +523,15 @@
   background-position: 100% 50%;
 }
 
+@keyframes konami-rainbow {
+  0%   { filter: hue-rotate(0deg)   saturate(1.8) brightness(1.15); }
+  100% { filter: hue-rotate(360deg) saturate(1.8) brightness(1.15); }
+}
+
+.konami-rainbow {
+  animation: konami-rainbow 0.7s linear infinite !important;
+}
+
 .page-heading-sweep {
   display: inline-block;
   background: linear-gradient(

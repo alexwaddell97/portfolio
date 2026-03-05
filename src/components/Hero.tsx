@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import MarqueeTicker from './MarqueeTicker.tsx';
@@ -6,6 +6,7 @@ import { useTheme } from '../contexts/ThemeContext.tsx';
 
 const roles = ['Lead Developer', 'Architect', 'Mentor', 'Problem Solver', 'Performance Obsessive'];
 const ORIGINAL_NAME = 'Alex Waddell';
+const KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -26,6 +27,10 @@ function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [nameClickCount, setNameClickCount] = useState(0);
   const [nameGlitchActive, setNameGlitchActive] = useState(false);
+  const [konamiActive, setKonamiActive] = useState(false);
+  const [showKonamiToast, setShowKonamiToast] = useState(false);
+
+  const konamiProgress = useRef<string[]>([]);
 
   // Cursor spotlight
   const mouseX = useMotionValue(0);
@@ -41,6 +46,21 @@ function Hero() {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      konamiProgress.current = [...konamiProgress.current, e.key].slice(-KONAMI.length);
+      if (konamiProgress.current.join(',') === KONAMI.join(',')) {
+        setKonamiActive(true);
+        setShowKonamiToast(true);
+        konamiProgress.current = [];
+        window.setTimeout(() => setKonamiActive(false), 4000);
+        window.setTimeout(() => setShowKonamiToast(false), 3200);
+      }
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -118,7 +138,7 @@ function Hero() {
         >
           <h1
               data-text={ORIGINAL_NAME}
-              className={`hero-name-interactive display-heading-safe block text-[clamp(3rem,8vw,7rem)] font-black tracking-tighter ${nameGlitchActive ? 'hero-name-glitch' : ''}`}
+              className={`hero-name-interactive display-heading-safe block text-[clamp(3rem,8vw,7rem)] font-black tracking-tighter ${nameGlitchActive ? 'hero-name-glitch' : ''} ${konamiActive ? 'konami-rainbow' : ''}`}
             >
               {ORIGINAL_NAME}
             </h1>
@@ -158,6 +178,26 @@ function Hero() {
           </a>
         </motion.div>
       </motion.div>
+
+      {/* Konami toast */}
+      <AnimatePresence>
+        {showKonamiToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 16, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as const }}
+            className="pointer-events-none fixed bottom-24 left-1/2 z-50 -translate-x-1/2 rounded-full border border-border bg-bg-primary/90 px-5 py-2.5 text-sm font-medium text-text-primary shadow-xl backdrop-blur-md"
+          >
+            🎮 +30 lives unlocked
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Subtle Konami hint */}
+      <p className="pointer-events-none absolute bottom-20 right-5 z-10 select-none text-[10px] uppercase tracking-widest text-text-muted/30">
+        ↑ ↑ ↓ ↓ ← → ← → B A
+      </p>
 
       {/* Marquee at bottom */}
       <div className="absolute right-0 bottom-0 left-0 z-10">

@@ -100,8 +100,8 @@ I also help teams refine their workflows by introducing practical tooling and AI
         </div>
 
         <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">
-          <AnimatedSection delay={0.16}>
-            <TiltCard className="rounded-2xl border border-border bg-bg-card p-6">
+          <AnimatedSection delay={0.16} className="h-full">
+            <TiltCard className="h-full rounded-2xl border border-border bg-bg-card p-6">
               <div className="relative z-10">
                 <h3 className="text-lg font-semibold text-text-primary">Bootcamp Mentoring</h3>
                 <p className="mt-3 text-sm leading-relaxed text-text-secondary">
@@ -111,8 +111,8 @@ I also help teams refine their workflows by introducing practical tooling and AI
             </TiltCard>
           </AnimatedSection>
 
-          <AnimatedSection delay={0.24}>
-            <TiltCard className="rounded-2xl border border-border bg-bg-card p-6">
+          <AnimatedSection delay={0.24} className="h-full">
+            <TiltCard className="h-full rounded-2xl border border-border bg-bg-card p-6">
               <div className="relative z-10">
                 <h3 className="text-lg font-semibold text-text-primary">T-Level Project Coaching</h3>
                 <p className="mt-3 text-sm leading-relaxed text-text-secondary">
