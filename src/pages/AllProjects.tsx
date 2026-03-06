@@ -242,6 +242,8 @@ function AllProjects() {
                           src={project.image}
                           alt={project.title}
                           className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+                          loading="lazy"
+                          decoding="async"
                         />
                       ) : (
                         <div

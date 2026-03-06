@@ -61,7 +61,7 @@ function CV() {
             {!isPdf ? (
               <div className="flex items-center gap-4">
                 <img
-                  src="/images/headshot.png"
+                  src="/images/headshot.webp"
                   alt={`${cvData.fullName} headshot`}
                   className="w-24 h-24 rounded-full object-cover border border-border"
                   loading="lazy"
@@ -78,7 +78,7 @@ function CV() {
               </div>
             ) : (
               <img
-                src="/images/headshot.png"
+                src="/images/headshot.webp"
                 alt={`${cvData.fullName} headshot`}
                 className="w-16 h-16 rounded-full object-cover border border-border"
                 loading="lazy"

@@ -83,6 +83,8 @@ function ProjectCard({ project, index = 0, compact = false }: ProjectCardProps) 
             src={project.image}
             alt={project.title}
             className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+            loading="lazy"
+            decoding="async"
           />
         ) : (
           <div

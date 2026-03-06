@@ -137,7 +137,7 @@ function Contact() {
           <AnimatedSection>
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <img src="/images/headshot.png" alt="Alex Waddell" className="w-20 h-20 rounded-full object-cover border border-border" loading="lazy" />
+                <img src="/images/headshot.webp" alt="Alex Waddell" className="w-20 h-20 rounded-full object-cover border border-border" loading="lazy" />
                 <div>
                   <p className="text-lg font-semibold text-text-primary">Alex Waddell</p>
                   <p className="text-sm text-text-secondary">Lead Developer</p>

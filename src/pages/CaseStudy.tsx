@@ -598,6 +598,8 @@ function CaseStudy() {
                     alt=""
                     aria-hidden
                     className="h-full w-full object-cover object-top opacity-10 blur-sm transition-opacity duration-300 group-hover:opacity-20"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-linear-to-r from-bg-card via-bg-card/85 to-transparent" />
                 </div>

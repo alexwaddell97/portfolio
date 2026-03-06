@@ -21,12 +21,12 @@ const projects: Project[] = [
       
     ],
     gallery: [
-      '/images/giglab/1.png',
-      '/images/giglab/3.png',
-      '/images/giglab/2.png',
-      '/images/giglab/6.png',
-      '/images/giglab/5.png',
-      '/images/giglab/4.png',
+      '/images/giglab/1.webp',
+      '/images/giglab/3.webp',
+      '/images/giglab/2.webp',
+      '/images/giglab/6.webp',
+      '/images/giglab/5.webp',
+      '/images/giglab/4.webp',
     ],
     techBrief:
       'Custom bespoke React and Vite SPA frontend with a Node.js backend and MongoDB for venue and booking data. Features a unified platform for venue diary management, artist booking, venue directory discovery, and a sophisticated diary/pencil management system.',
@@ -59,12 +59,12 @@ const projects: Project[] = [
     accentHexLight: '#7A5225',
     stats: [],
     gallery: [
-      '/images/atlas/1.png',
-      '/images/atlas/2.png',
-      '/images/atlas/3.png',
-      '/images/atlas/4.png',
-      '/images/atlas/5.png',
-      '/images/atlas/7.png',
+      '/images/atlas/1.webp',
+      '/images/atlas/2.webp',
+      '/images/atlas/3.webp',
+      '/images/atlas/4.webp',
+      '/images/atlas/5.webp',
+      '/images/atlas/7.webp',
     ],
     techBrief:
       'E-commerce healthcare platform selling health testing kits with integrations to Randox APIs for test processing and Cliniko API for clinic management. Supports multiple ordering channels: at-home kits, HQ clinic visits, and nationwide clinic network. Unified workflow for managing complex health biomarkers and test reports.',
@@ -101,9 +101,9 @@ const projects: Project[] = [
       { label: 'Avg Load Time', value: '<2s' },
     ],
     gallery: [
-      '/images/floe/1.png',
-      '/images/floe/3.png',
-      '/images/floe/4.png',
+      '/images/floe/1.webp',
+      '/images/floe/3.webp',
+      '/images/floe/4.webp',
     ],
     techBrief:
       'Next.js and React frontend with Leaflet.js for interactive mapping and Framer Motion for smooth animations. MongoDB stores business listings and geographical data, with geo-search capabilities enabling location-based directory filtering.',
@@ -197,11 +197,11 @@ const projects: Project[] = [
     
     ],
     gallery: [
-      '/images/sp_ce/2.png',
-      '/images/sp_ce/3.png',
-      '/images/sp_ce/4.png',
-      '/images/sp_ce/5.png',
-      '/images/sp_ce/6.png',
+      '/images/sp_ce/2.webp',
+      '/images/sp_ce/3.webp',
+      '/images/sp_ce/4.webp',
+      '/images/sp_ce/5.webp',
+      '/images/sp_ce/6.webp',
     ],
     techBrief:
       'Next.js frontend consumes a Headless WordPress CMS via REST API with ISR for listing freshness, integrated with PropSpace CRM for seamless lead capture and management. Custom property search filters and design-focused UI components deliver a premium, stand-out experience in the Dubai property market.',
@@ -255,7 +255,7 @@ const projects: Project[] = [
     title: 'Roleplaying Realm',
     description:
       'A personal project that uses AI as a game master to let players roleplay in fictitious worlds and franchise-style settings.',
-    image: '/images/rr1.png',
+    image: '/images/rr1.webp',
     imageBgHex: '#E52F3A',
     liveUrl: 'https://dev.roleplayingrealm.com/',
     repoUrl: '',
@@ -272,8 +272,8 @@ const projects: Project[] = [
       { label: 'Unique Players', value: '45+' },
     ],
     gallery: [
-      '/images/rr2.png',
-      '/images/rr3.png',
+      '/images/rr2.webp',
+      '/images/rr3.webp',
     ],
     techBrief:
       'LLM-orchestrated game master via the OpenAI API, with a React frontend driving session state and lore retrieval via RAG. A custom moderation pipeline enforces IP-aware behaviour and safety constraints across all player inputs.',
@@ -287,7 +287,7 @@ const projects: Project[] = [
         'Combined strong system prompts with retrieval-augmented context for lore, explicit state management for game sessions, deterministic seeds for reproducible events, and moderation layers to enforce safety and IP-aware behaviour.',
       outcome:
         'Delivered a public demo at the provided URL with stable session persistence and coherent storylines; useful testbed for experimenting with interactive narrative designs and safety-driven LLM orchestration.',
-      imageUrl: '/images/14.png',
+      imageUrl: '/images/14.webp',
     },
   },
   {
@@ -296,7 +296,7 @@ const projects: Project[] = [
     title: 'null // void',
     description:
       'A puzzle/investigation game built around an old-style computer terminal interface.',
-    image: '/images/15.png',
+    image: '/images/15.webp',
     imageBgHex: '#62AD72',
     liveUrl: 'https://nullvoid-smoky.vercel.app/',
     repoUrl: '',
@@ -312,10 +312,10 @@ const projects: Project[] = [
       { label: 'Interface', value: 'Terminal-style' },
     ],
     gallery: [
-      '/images/nullvoid1.png',
-      '/images/nullvoid2.png',
-      '/images/nullvoid3.png',
-      '/images/nullvoid4.png',
+      '/images/nullvoid1.webp',
+      '/images/nullvoid2.webp',
+      '/images/nullvoid3.webp',
+      '/images/nullvoid4.webp',
     ],
     techBrief:
       'React and Vite front a custom command parser and stateful session backend. Wrapped in an Electron shell for optional desktop distribution, with puzzles built as isolated, testable modules to allow rapid iteration during playtesting.',
@@ -329,7 +329,7 @@ const projects: Project[] = [
         'Implemented a command parser and stateful session backend, crafted puzzles as modular, testable units, and designed the UI to evoke retro terminals while remaining accessible.',
       outcome:
         'Shipped a public demo that highlighted constrained-UI UX and narrative puzzle design; used as a portfolio piece and playtest vehicle for iterative puzzle tuning.',
-      imageUrl: '/images/15.png',
+      imageUrl: '/images/15.webp',
     },
   },
   {
@@ -338,7 +338,7 @@ const projects: Project[] = [
     title: 'Styleability',
     description:
       'An accessibility first clothing guidance and sizing platform tailored for diverse user needs.',
-    image: '/images/16.png',
+    image: '/images/16.webp',
     imageBgHex: '#32164C',
     liveUrl: 'https://www.styleability.co.uk/',
     repoUrl: '',
@@ -365,7 +365,7 @@ const projects: Project[] = [
         'Created a size-mapping engine, measurement-guided onboarding, and an accessibility-first UI with clear contrast, screen-reader support and reduced-motion defaults.',
       outcome:
         'Delivered a production-ready application driving the marketing site’s demo flows and improving user confidence in fit and accessibility across supported brands.',
-      imageUrl: '/images/16.png',
+      imageUrl: '/images/16.webp',
     },
   },
   {
@@ -374,7 +374,7 @@ const projects: Project[] = [
     title: 'OctoLog',
     description:
       'A web based visual client for storing and playing emulated ROMs.',
-    image: '/images/17.png',
+    image: '/images/17.webp',
     imageBgHex: '#ffb86a',
     liveUrl: '',
     repoUrl: '',
@@ -402,7 +402,7 @@ const projects: Project[] = [
         'Built a local-first storage layer, background processing to generate thumbnails/previews, and an embeddable WebAssembly-based player for performant, sandboxed playback.',
       outcome:
         'Delivered a polished demo used for playtesting and to validate WebAssembly playback performance and local indexing UX.',
-      imageUrl: '/images/17.png',
+      imageUrl: '/images/17.webp',
     },
   },
   {
@@ -411,7 +411,7 @@ const projects: Project[] = [
     title: 'Arbitrum Grants',
     description:
       'Built the grants page for the Arbitrum Foundation website while keeping the experience accessible and performant.',
-    image: '/images/18.png',
+    image: '/images/18.webp',
     imageBgHex: '#39A1F0',
     liveUrl: 'https://arbitrum.foundation/grants',
     repoUrl: '',
@@ -439,7 +439,7 @@ const projects: Project[] = [
         'Built an accessible, responsive layout with server-side rendering for fast initial load, robust filtering and clear call-to-action flows for applicants.',
       outcome:
         'Launched the live grants page used for applications and program info; improved discoverability and clarity for prospective applicants.',
-      imageUrl: '/images/18.png',
+      imageUrl: '/images/18.webp',
     },
   },
   {
@@ -448,7 +448,7 @@ const projects: Project[] = [
     title: 'Being Giant',
     description:
       'A standard marketing site plus dashboard to access unlockable course content and member resources.',
-    image: '/images/19.png',
+    image: '/images/19.webp',
     imageBgHex: '#0E0726',
     liveUrl: 'https://beinggiant.com/',
     repoUrl: '',
@@ -475,7 +475,7 @@ const projects: Project[] = [
         'Implemented an SSR marketing site with a secure dashboard, incremental static regeneration for content, and role-based access for course unlocks.',
       outcome:
         'Launched a cohesive marketing + member experience that improved course discoverability and reduced support friction for access-related issues.',
-      imageUrl: '/images/19.png',
+      imageUrl: '/images/19.webp',
     },
   },
   {
@@ -484,7 +484,7 @@ const projects: Project[] = [
     title: 'Sports Guardian - Booking Platform',
     description:
       'The booking system for Sports Guardian venues, allowing participants to book activities and manage memberships.',
-    image: '/images/20.png',
+    image: '/images/20.webp',
     imageBgHex: '#EBAA00',
     liveUrl: 'https://booking-dev.sportsguardian.com/',
     repoUrl: '',
@@ -511,7 +511,7 @@ const projects: Project[] = [
         'Implemented robust availability checks, optimistic UI for bookings, background reconciliation for edge cases, and an accessible PWA frontend for offline-friendly booking.',
       outcome:
         'Delivered a production-ready booking system used in pilot deployments; the dev URL is provided and the production URL will remove the `-dev` suffix.',
-      imageUrl: '/images/20.png',
+      imageUrl: '/images/20.webp',
     },
   },
 ];
