@@ -55,12 +55,6 @@ const clientHighlights = [
     scope: 'Component-led UI work for a high-stakes product area with evolving requirements.',
     impact: 'Raised UI consistency and reduced implementation churn through reusable patterns.',
   },
-  {
-    client: 'Public-sector digital service (via Boxmodel)',
-    role: 'Frontend Developer',
-    scope: 'Accessible interfaces for complex user journeys across responsive breakpoints.',
-    impact: 'Improved task completion clarity and strengthened WCAG-aligned UX decisions.',
-  },
 ];
 
 function getProjectCategories(category: ProjectCategory | ProjectCategory[]): ProjectCategory[] {

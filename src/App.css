@@ -40,6 +40,9 @@
   --color-selection-text: #ffffff;
 
   --font-family-sans: 'Inter', system-ui, sans-serif;
+
+  /* Misc icon overrides */
+  --color-vercel-icon: #ffffff;
 }
 
 /* ─── Light mode overrides ──────────────────────────────── */
@@ -56,6 +59,7 @@
   --color-cyan-glow: rgba(59, 130, 246, 0.22);
   --color-violet-glow: rgba(29, 78, 216, 0.18);
   --color-pink-glow: rgba(147, 197, 253, 0.15);
+  --color-vercel-icon: #111111;
 
   /* UI chrome (light) */
   --color-scrollbar-track: #eef0f6;
@@ -65,9 +69,7 @@
   --color-selection-text: #111827;
 }
 
-[data-theme="light"] .dot-grid {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.12) 1px, transparent 1px);
-}
+[data-theme="light"] .dot-grid {}
 
 [data-theme="light"] .wave-grid {
   background-image:
@@ -231,11 +233,8 @@
     0 0 60px rgba(147, 197, 253, 0.04);
 }
 
-/* ─── Dot grid background ───────────────────────────────── */
-.dot-grid {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
+/* ─── Crosshatch background ───────────────────────────── */
+.dot-grid {}
 
 .wave-grid {
   background-image:
