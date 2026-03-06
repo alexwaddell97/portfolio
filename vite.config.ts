@@ -33,4 +33,21 @@ function decapAdminPrettyPathPlugin() {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [decapAdminPrettyPathPlugin(), react(), tailwindcss()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/framer-motion')) return 'vendor-motion';
+          if (id.includes('node_modules/gsap') || id.includes('node_modules/@gsap')) return 'vendor-gsap';
+          if (id.includes('node_modules/react-icons')) return 'vendor-icons';
+          if (
+            id.includes('node_modules/react/') ||
+            id.includes('node_modules/react-dom/') ||
+            id.includes('node_modules/react-router') ||
+            id.includes('node_modules/scheduler/')
+          ) return 'vendor-react';
+        },
+      },
+    },
+  },
 })

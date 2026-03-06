@@ -1,16 +1,17 @@
 import './App.css';
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useLayoutEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext.tsx';
-import Home from './pages/Home.tsx';
-import AllProjects from './pages/AllProjects.tsx';
-import CaseStudy from './pages/CaseStudy.tsx';
-import Blog from './pages/Blog.tsx';
-import BlogPost from './pages/BlogPost.tsx';
-import CV from './pages/CV.tsx';
-import NotFound from './pages/NotFound.tsx';
-import Lab from './pages/Lab.tsx';
 import SnakeOverlay from './components/SnakeOverlay.tsx';
+
+const Home = lazy(() => import('./pages/Home.tsx'));
+const AllProjects = lazy(() => import('./pages/AllProjects.tsx'));
+const CaseStudy = lazy(() => import('./pages/CaseStudy.tsx'));
+const Blog = lazy(() => import('./pages/Blog.tsx'));
+const BlogPost = lazy(() => import('./pages/BlogPost.tsx'));
+const CV = lazy(() => import('./pages/CV.tsx'));
+const NotFound = lazy(() => import('./pages/NotFound.tsx'));
+const Lab = lazy(() => import('./pages/Lab.tsx'));
 
 const KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 
@@ -122,7 +123,7 @@ function AppRoutes() {
   }, [terminalMode]);
 
   return (
-    <>
+    <Suspense fallback={null}>
       <ScrollToTop />
       {terminalMode && <SnakeOverlay onClose={() => setTerminalMode(false)} />}
       <Routes>
@@ -135,7 +136,7 @@ function AppRoutes() {
         <Route path="/lab" element={<Lab />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </>
+    </Suspense>
   );
 }
 
