@@ -201,7 +201,7 @@ function AllProjects() {
                 const accent = project.accentColor;
                 const hasCustomAccent = Boolean(project.accentHex);
                 const color = hasCustomAccent
-                  ? (theme === 'light' ? (project.accentHexLight ?? project.accentHex!) : project.accentHex!)
+                  ? (theme === 'light' ? (project.accentHexDark ?? project.accentHexLight ?? project.accentHex!) : project.accentHex!)
                   : accentColor[accent];
                 const projectCategories = getProjectCategories(project.category);
                 const primaryCategory = projectCategories[0];

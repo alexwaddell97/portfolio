@@ -53,12 +53,14 @@
   --color-text-primary: #18181b;
   --color-text-secondary: #52525b;
   --color-text-muted: #71717a;
+  --color-cyan: #0369a1;
   --color-violet: #1d4ed8;
+  --color-pink: #be123c;
   --color-border: rgba(0, 0, 0, 0.08);
   --color-accent-glow: rgba(59, 130, 246, 0.18);
-  --color-cyan-glow: rgba(59, 130, 246, 0.22);
+  --color-cyan-glow: rgba(3, 105, 161, 0.15);
   --color-violet-glow: rgba(29, 78, 216, 0.18);
-  --color-pink-glow: rgba(147, 197, 253, 0.15);
+  --color-pink-glow: rgba(190, 18, 60, 0.15);
   --color-vercel-icon: #111111;
 
   /* UI chrome (light) */
@@ -70,6 +72,22 @@
 }
 
 [data-theme="light"] .dot-grid {}
+
+[data-theme="light"] .btn-soft-cyan {
+  background: rgba(3, 105, 161, 0.12);
+  border-color: rgba(3, 105, 161, 0.3);
+  color: #075985;
+}
+
+[data-theme="light"] .btn-soft-cyan:hover,
+[data-theme="light"] .btn-soft-cyan:focus-visible {
+  background: rgba(3, 105, 161, 0.18);
+  border-color: rgba(3, 105, 161, 0.5);
+}
+
+[data-theme="light"] .btn-soft-cyan:focus-visible {
+  box-shadow: 0 0 0 2px rgba(3, 105, 161, 0.28);
+}
 
 [data-theme="light"] .wave-grid {
   background-image:

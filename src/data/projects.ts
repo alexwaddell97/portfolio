@@ -264,6 +264,7 @@ const projects: Project[] = [
     accentColor: 'pink',
     accentHex: '#E52F3A',
     accentHexLight: '#F87171',
+    accentHexDark: '#7F1D1A',
     featured: false,
     stats: [
       { label: 'Playable Worlds', value: '15+' },
@@ -382,6 +383,7 @@ const projects: Project[] = [
     accentColor: 'cyan',
     accentHex: '#ffb86a',
     accentHexLight: '#ffdca8',
+    accentHexDark: '#92400e',
     featured: false,
     stats: [
       { label: 'Roms Stored', value: '500+' },
@@ -418,6 +420,7 @@ const projects: Project[] = [
     accentColor: 'cyan',
     accentHex: '#7FD1FF',
     accentHexLight: '#39A1F0',
+    accentHexDark: '#0369a1',
     featured: false,
     stats: [
       { label: 'Grants Listed', value: '100+' },
