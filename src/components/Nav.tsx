@@ -37,7 +37,7 @@ function ThemeToggle() {
           transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] as const }}
           className="absolute inset-0 flex items-center justify-center"
         >
-          {isDark ? <FiMoon size={15} /> : <FiSun size={16} />}
+          {isDark ? <FiSun size={16} /> : <FiMoon size={15} />}
         </motion.span>
       </AnimatePresence>
     </button>
