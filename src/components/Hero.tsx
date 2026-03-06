@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import MarqueeTicker from './MarqueeTicker.tsx';
 import { useTheme } from '../contexts/ThemeContext.tsx';
 
-const roles = ['Lead Developer', 'Architect', 'Mentor', 'Problem Solver', 'Performance Obsessive'];
+const roles = ['Lead Developer', 'Software Architect', 'Mentor', 'Problem Solver', 'Performance Driven'];
 const ORIGINAL_NAME = 'Alex Waddell';
 const KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
 
@@ -158,7 +158,7 @@ function Hero() {
           variants={itemVariants}
           className="mx-auto mt-5 max-w-lg text-lg leading-relaxed text-text-muted md:text-xl"
         >
-          I build fast, scalable web applications, optimise teams, and help developers adopt AI tooling to improve workflows and delivery.
+          I build fast, scalable web applications and optimise teams to deliver at their best.
         </motion.p>
 
         {/* CTAs */}

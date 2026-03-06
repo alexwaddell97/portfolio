@@ -5,7 +5,7 @@ export const cvFilePath = `/${cvFileName}`;
 
 const cvData: CVProfile = {
   fullName: 'Alexander Waddell',
-  title: 'Lead Developer · Architect · Mentor',
+  title: 'Lead Developer · Software Architect · Mentor',
   location: 'Newcastle, United Kingdom',
   email: 'alexwaddell97@gmail.com',
   website: 'https://alexw.dev',

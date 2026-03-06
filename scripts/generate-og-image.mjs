@@ -117,7 +117,7 @@ async function run() {
           <div class="card">
             <div>
               <p class="kicker">Alexander Waddell</p>
-              <h1 class="title">Lead Developer · Architect · Mentor</h1>
+              <h1 class="title">Lead Developer · Software Architect · Mentor</h1>
               <p class="subtitle">Building fast, scalable web applications and helping teams ship with confidence.</p>
             </div>
             <div class="footer">

@@ -11,9 +11,9 @@
   --color-text-secondary: #a1a1aa;
   --color-text-muted: #8b8b9d;
 
-  /* Accent trio — electric blue / deep indigo / ice blue */
+  /* Accent trio — electric blue / indigo / ice blue */
   --color-cyan: #3b82f6;
-  --color-violet: #1d4ed8;
+  --color-violet: #818cf8;
   --color-pink: #93c5fd;
 
   /* Legacy accent alias (keeps existing components working) */
@@ -23,13 +23,13 @@
 
   /* Per-accent glows */
   --color-cyan-glow: rgba(59, 130, 246, 0.15);
-  --color-violet-glow: rgba(29, 78, 216, 0.15);
+  --color-violet-glow: rgba(129, 140, 248, 0.15);
   --color-pink-glow: rgba(147, 197, 253, 0.10);
 
   /* Borders */
   --color-border: rgba(255, 255, 255, 0.06);
   --color-border-cyan: rgba(59, 130, 246, 0.3);
-  --color-border-violet: rgba(29, 78, 216, 0.3);
+  --color-border-violet: rgba(129, 140, 248, 0.3);
   --color-border-pink: rgba(147, 197, 253, 0.25);
 
   /* UI chrome */
@@ -50,6 +50,7 @@
   --color-text-primary: #18181b;
   --color-text-secondary: #52525b;
   --color-text-muted: #71717a;
+  --color-violet: #1d4ed8;
   --color-border: rgba(0, 0, 0, 0.08);
   --color-accent-glow: rgba(59, 130, 246, 0.18);
   --color-cyan-glow: rgba(59, 130, 246, 0.22);
@@ -143,21 +144,21 @@
   }
 
   .gradient-text-cyan-violet {
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+    background: linear-gradient(135deg, var(--color-cyan) 0%, var(--color-violet) 100%) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
   }
 
   .gradient-text-violet-pink {
-    background: linear-gradient(135deg, #1d4ed8 0%, #93c5fd 100%) !important;
+    background: linear-gradient(135deg, var(--color-violet) 0%, var(--color-pink) 100%) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
   }
 
   .gradient-text-full {
-    background: linear-gradient(135deg, #bae6fd 0%, #3b82f6 40%, #1d4ed8 100%) !important;
+    background: linear-gradient(135deg, #bae6fd 0%, var(--color-cyan) 40%, var(--color-violet) 100%) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;

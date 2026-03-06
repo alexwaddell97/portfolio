@@ -106,6 +106,18 @@ function AppRoutes() {
   }, []);
 
   useEffect(() => {
+    const base = 'https://alexw.dev';
+    const canonical = `${base}${location.pathname}`;
+    let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'canonical';
+      document.head.appendChild(link);
+    }
+    link.href = canonical;
+  }, [location.pathname]);
+
+  useEffect(() => {
     document.documentElement.setAttribute('data-konami', terminalMode ? 'on' : 'off');
   }, [terminalMode]);
 
