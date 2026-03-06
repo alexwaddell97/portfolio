@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/generate-seo-pages.mjs",
     "cms:proxy": "npx decap-server",
     "og:image": "node scripts/generate-og-image.mjs",
     "cv:pdf": "npm run build && node scripts/export-cv-pdf.mjs",
