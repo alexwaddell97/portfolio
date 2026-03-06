@@ -79,7 +79,6 @@ function Mentorship() {
           <p className="mx-auto mb-10 max-w-3xl text-center text-base leading-relaxed text-text-secondary md:text-lg">
           Alongside leading delivery, I mentor junior developers through internal bootcamps and support T-Level students on real client projects. I’m involved across the full lifecycle, from planning and architectural decisions to detailed code reviews and debugging sessions.
 
-I also help teams refine their workflows by introducing practical tooling and AI assistants where they add value, improving review quality and reducing unnecessary friction so teams can deliver more confidently.
           </p>
         </AnimatedSection>
 
@@ -116,7 +115,7 @@ I also help teams refine their workflows by introducing practical tooling and AI
               <div className="relative z-10">
                 <h3 className="text-lg font-semibold text-text-primary">T-Level Project Coaching</h3>
                 <p className="mt-3 text-sm leading-relaxed text-text-secondary">
-               I support learners through real, project-based work, giving practical feedback, sitting down to debug together, and helping them break work into clear milestones so they can confidently explain what they’ve built and why. I focus on good, repeatable workflows, testable results, and using AI as a support tool for research and debugging, not as a replacement for thinking.
+               I support learners through real, project-based work, giving practical feedback, sitting down to debug together, and helping them break work into clear milestones so they can confidently explain what they've built and why. I focus on good, repeatable workflows and testable results.
                 </p>
               </div>
             </TiltCard>

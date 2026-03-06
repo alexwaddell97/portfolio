@@ -160,7 +160,6 @@ function IntroTimeline() {
           <p className="mx-auto mb-10 max-w-3xl text-center text-base leading-relaxed text-text-secondary md:text-lg">
            I lead product builds end to end, setting direction, writing production code, and helping other developers grow.
 My priority is practical delivery, with well-defined scope, sound technical decisions, and code that will not become a problem six months later.
-I work with teams to adopt developer tooling and AI in a way that is useful rather than fashionable, reducing repetition and making delivery more reliable.
           </p>
         </AnimatedSection>
 
