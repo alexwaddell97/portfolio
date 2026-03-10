@@ -18,7 +18,7 @@ function ContactForm() {
   const [state, handleSubmit] = useForm('mbdakwzd');
 
   const formSucceeded = state.succeeded;
-  const hasSubmissionError = Boolean(state.errors?.length);
+  const hasSubmissionError = Boolean(state.errors);
 
   if (formSucceeded) {
     return (
