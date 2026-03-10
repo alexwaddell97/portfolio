@@ -1,4 +1,3 @@
-import { useState, type FormEvent } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiCheckCircle } from 'react-icons/fi';
@@ -16,43 +15,10 @@ const inputClasses =
   'w-full rounded-lg border border-border bg-bg-secondary px-4 py-3 text-text-primary placeholder:text-text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-colors';
 
 function ContactForm() {
-  const formspreeFormId = (import.meta as ImportMeta & { env: Record<string, string | undefined> }).env.VITE_FORMSPREE_FORM_ID;
-  const [state, handleSubmit] = useForm(formspreeFormId ?? 'xplaceholder');
-  const [fallbackStatus, setFallbackStatus] = useState<'idle' | 'succeeded' | 'failed'>('idle');
+  const [state, handleSubmit] = useForm('mbdakwzd');
 
-  const formSucceeded = state.succeeded || fallbackStatus === 'succeeded';
-  const hasSubmissionError = Boolean(state.errors) || fallbackStatus === 'failed';
-
-  async function onSubmit(event: FormEvent<HTMLFormElement>) {
-    if (formspreeFormId) {
-      await handleSubmit(event);
-      return;
-    }
-
-    event.preventDefault();
-    setFallbackStatus('idle');
-
-    try {
-      const formData = new FormData(event.currentTarget);
-      const name = String(formData.get('name') ?? '').trim();
-      const email = String(formData.get('email') ?? '').trim();
-      const message = String(formData.get('message') ?? '').trim();
-
-      const subject = encodeURIComponent(`Portfolio enquiry from ${name || 'Website visitor'}`);
-      const body = encodeURIComponent([
-        `Name: ${name || 'Not provided'}`,
-        `Email: ${email || 'Not provided'}`,
-        '',
-        message,
-      ].join('\n'));
-
-      window.location.href = `mailto:alex@alexw.dev?subject=${subject}&body=${body}`;
-      event.currentTarget.reset();
-      setFallbackStatus('succeeded');
-    } catch {
-      setFallbackStatus('failed');
-    }
-  }
+  const formSucceeded = state.succeeded;
+  const hasSubmissionError = Boolean(state.errors?.length);
 
   if (formSucceeded) {
     return (
@@ -71,7 +37,7 @@ function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div>
         <label htmlFor="name" className="sr-only">Your name</label>
         <input
