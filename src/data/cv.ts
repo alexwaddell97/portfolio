@@ -7,7 +7,7 @@ const cvData: CVProfile = {
   fullName: 'Alexander Waddell',
   title: 'Lead Developer · Software Architect · Mentor',
   location: 'Newcastle, United Kingdom',
-  email: 'alexwaddell97@gmail.com',
+  email: 'alex@alexw.dev',
   website: 'https://alexw.dev',
   summary:
     'Lead Developer with 6+ years delivering production software for agencies and SMEs. I specialise in JavaScript/TypeScript, React, Next.js, and Node.js, building scalable web apps, CRMs, and high-converting marketing sites from discovery through launch. I help teams work more effectively through clear technical direction, structured delivery, and hands-on mentoring.',

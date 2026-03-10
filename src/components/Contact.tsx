@@ -9,7 +9,7 @@ const socialLinks = [
   { icon: FiGithub, label: 'GitHub', href: 'https://github.com/alexwaddell97' },
   { icon: FiLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/alexander-waddell/' },
   { icon: FiTwitter, label: 'Twitter', href: 'https://x.com/alexw_dev' },
-  { icon: FiMail, label: 'alexwaddell97@gmail.com', href: 'mailto:alexwaddell97@gmail.com' },
+  { icon: FiMail, label: 'alex@alexw.dev', href: 'mailto:alex@alexw.dev' },
 ];
 
 const inputClasses =
@@ -46,7 +46,7 @@ function ContactForm() {
         message,
       ].join('\n'));
 
-      window.location.href = `mailto:alexwaddell97@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:alex@alexw.dev?subject=${subject}&body=${body}`;
       event.currentTarget.reset();
       setFallbackStatus('succeeded');
     } catch {
@@ -118,7 +118,7 @@ function ContactForm() {
       </button>
       {hasSubmissionError && (
         <p className="rounded-lg border border-border bg-bg-secondary px-4 py-3 text-sm text-text-secondary" role="alert">
-          Message failed to send. Please try again or email alexwaddell97@gmail.com directly.
+          Message failed to send. Please try again or email alex@alexw.dev directly.
         </p>
       )}
     
