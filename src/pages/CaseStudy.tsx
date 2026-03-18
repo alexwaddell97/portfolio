@@ -270,7 +270,7 @@ function CaseStudy() {
   }, [lightboxIndex, galleryImages.length]);
 
   return (
-    <div ref={containerRef} className="bg-bg-primary text-text-primary overflow-x-hidden">
+    <div ref={containerRef} className="bg-bg-primary text-text-primary overflow-x-clip">
       <Nav />
 
       {/* ── 1. HERO ──────────────────────────────────── */}
