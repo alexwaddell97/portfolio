@@ -1,24 +1,21 @@
-import { FiCpu, FiZap, FiTerminal } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import Nav from '../components/Nav.tsx';
 import Footer from '../components/Footer.tsx';
+import { labs } from '../data/labs.ts';
 
-const experiments = [
-  {
-    title: 'Interaction Lab',
-    desc: 'Micro-interactions and animation timing experiments used before shipping UI updates.',
-    icon: FiZap,
-  },
-  {
-    title: 'Performance Sandbox',
-    desc: 'Bundle-size and rendering tests for keeping experiences fast under real constraints.',
-    icon: FiCpu,
-  },
-  {
-    title: 'Command Notes',
-    desc: 'Scratchpad for command-line style UI ideas and hidden terminal-inspired patterns.',
-    icon: FiTerminal,
-  },
-];
+function StatusBadge({ status }: { status: 'live' | 'wip' | 'idea' }) {
+  const styles = {
+    live: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+    wip: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
+    idea: 'bg-border text-text-secondary border-border',
+  };
+  const labels = { live: 'Live', wip: 'WIP', idea: 'Idea' };
+  return (
+    <span className={`rounded-full border px-2 py-0.5 text-xs font-medium ${styles[status]}`}>
+      {labels[status]}
+    </span>
+  );
+}
 
 function Lab() {
   return (
@@ -32,19 +29,39 @@ function Lab() {
               Lab
             </h1>
             <p className="mt-3 max-w-2xl text-text-secondary">
-              A quiet corner for experiments, prototypes, and things that may or may not ship.
+              A quiet corner for experiments, toys, and things that exist for the joy of building them.
             </p>
           </div>
         </section>
 
         <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            {experiments.map((item) => (
-              <article key={item.title} className="rounded-2xl border border-border bg-bg-card p-5">
-                <item.icon size={18} className="text-cyan" />
-                <h2 className="mt-3 text-lg font-semibold">{item.title}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-text-secondary">{item.desc}</p>
-              </article>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {labs.map((experiment) => (
+              <Link
+                key={experiment.slug}
+                to={`/lab/${experiment.slug}`}
+                className="group relative flex flex-col rounded-2xl border border-border bg-bg-card p-5 transition-colors hover:border-cyan/40 hover:bg-bg-card/80"
+              >
+                <div className="flex items-start justify-between">
+                  <h2 className="text-lg font-semibold transition-colors group-hover:text-cyan">
+                    {experiment.title}
+                  </h2>
+                  <StatusBadge status={experiment.status} />
+                </div>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-text-secondary">
+                  {experiment.description}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {experiment.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-md border border-border bg-bg-primary px-2 py-0.5 text-xs text-text-secondary"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </Link>
             ))}
           </div>
         </section>

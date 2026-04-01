@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiArrowLeft, FiSun, FiMoon } from 'react-icons/fi';
+import { LuFlaskConical } from 'react-icons/lu';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { cvFilePath } from '../data/cv.ts';
 import { useTheme } from '../contexts/ThemeContext.tsx';
@@ -160,6 +161,15 @@ function Nav() {
             />
           </Link>
           <ThemeToggle />
+          <motion.span whileHover={{ rotate: -15 }} transition={{ type: 'spring', stiffness: 400, damping: 20 }}>
+            <Link
+              to="/lab"
+              aria-label="Lab"
+              className="flex h-7 w-7 items-center justify-center rounded-full text-text-secondary transition-colors hover:text-cyan"
+            >
+              <LuFlaskConical size={15} strokeWidth={2} />
+            </Link>
+          </motion.span>
         </div>
 
         {/* Case study: back button */}
