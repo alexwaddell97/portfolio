@@ -132,6 +132,7 @@ function parseTeamProfile(html, teamId) {
       if (nonEmpty.length === 1 && nonEmpty[0] &&
           !/^(Date|Time|Court|Opposition|Result)/i.test(nonEmpty[0]) &&
           !/^\d/.test(nonEmpty[0])) {
+        if (/Fixtures and Results/i.test(nonEmpty[0])) continue;
         pendingLabel = nonEmpty[0];
         continue;
       }
@@ -195,7 +196,9 @@ function parseTeamProfile(html, teamId) {
       if (!rawCell) continue;
       const href = rawCell[1].match(/href="([^"]+)"/);
       const label = stripHtml(rawCell[1]);
-      if (!label || /Previous Seasons/i.test(label)) continue;
+      if (!label || /^(Previous Seasons|Season)$/i.test(label)) continue;
+      // Only include rows that are actual season links (must have SeasonId in href)
+      if (!href || !/SeasonId=\d+/i.test(href[1])) continue;
       let leagueId = null, seasonId = null, divisionId = null;
       if (href) {
         const l = href[1].match(/LeagueId=(\d+)/);   if (l) leagueId   = parseInt(l[1]);
