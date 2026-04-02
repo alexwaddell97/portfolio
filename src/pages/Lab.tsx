@@ -44,7 +44,7 @@ function Lab() {
               >
                 <div className="flex items-start justify-between">
                   <h2 className="text-lg font-semibold transition-colors group-hover:text-(--accent)">
-                    {experiment.title}
+                    {experiment.shortTitle ?? experiment.title}
                   </h2>
                   <StatusBadge status={experiment.status} />
                 </div>
@@ -52,7 +52,7 @@ function Lab() {
                   {experiment.description}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-1.5">
-                  {experiment.tags.map((tag) => (
+                  {experiment.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
                       className="rounded-md border border-border bg-bg-primary px-2 py-0.5 text-xs text-text-secondary"

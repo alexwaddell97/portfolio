@@ -13,6 +13,7 @@ const CV = lazy(() => import('./pages/CV.tsx'));
 const NotFound = lazy(() => import('./pages/NotFound.tsx'));
 const Lab = lazy(() => import('./pages/Lab.tsx'));
 const LabExperiment = lazy(() => import('./pages/LabExperiment.tsx'));
+const LabCaseStudy = lazy(() => import('./pages/LabCaseStudy.tsx'));
 
 const KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 
@@ -130,6 +131,7 @@ function AppRoutes() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<AllProjects />} />
+        <Route path="/projects/lab/:slug" element={<LabCaseStudy />} />
         <Route path="/projects/:slug" element={<CaseStudy key={location.pathname} />} />
         <Route path="/cv" element={<CV />} />
         <Route path="/blog" element={<Blog />} />

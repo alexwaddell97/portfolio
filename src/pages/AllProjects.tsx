@@ -10,8 +10,26 @@ import { labs } from '../data/labs.ts';
 import type { ProjectCategory } from '../types/index.ts';
 
 // Derive unique tech tags from all projects
-const allTags = Array.from(new Set(projects.flatMap(p => p.tags))).sort();
+const allTags = Array.from(new Set([...projects.flatMap(p => p.tags), ...labs.flatMap(l => l.tags)])).sort();
 const categories: ProjectCategory[] = ['Full-Stack', 'Frontend', 'AI / ML', 'Data & Viz'];
+
+type DisplayItem = {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  imageBgHex?: string;
+  accentHex?: string;
+  accentHexLight?: string;
+  accentHexDark?: string;
+  accentColor: 'cyan' | 'violet' | 'pink';
+  liveUrl?: string;
+  repoUrl?: string;
+  tags: string[];
+  category: ProjectCategory | ProjectCategory[];
+  href: string;
+};
 
 const accentColor: Record<string, string> = {
   cyan: 'var(--color-cyan)',
@@ -68,14 +86,31 @@ function AllProjects() {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | 'All'>('All');
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set());
 
+  const displayItems = useMemo<DisplayItem[]>(() => [
+    ...labs.map(l => ({
+      id: l.slug,
+      slug: l.slug,
+      title: l.title,
+      description: l.description,
+      image: l.image ?? '',
+      accentHex: l.color,
+      accentColor: 'cyan' as const,
+      tags: l.tags,
+      category: ['Data & Viz'] as ProjectCategory[],
+      href: `/projects/lab/${l.slug}`,
+      liveUrl: l.path,
+    })),
+    ...projects.map(p => ({ ...p, href: `/projects/${p.slug}` })),
+  ], []);
+
   const filtered = useMemo(() => {
-    return projects.filter(p => {
+    return displayItems.filter(p => {
       const projectCategories = getProjectCategories(p.category);
       const categoryMatch = activeCategory === 'All' || projectCategories.includes(activeCategory);
       const tagMatch = activeTags.size === 0 || [...activeTags].every(t => p.tags.includes(t));
       return categoryMatch && tagMatch;
     });
-  }, [activeCategory, activeTags]);
+  }, [displayItems, activeCategory, activeTags]);
 
   function toggleTag(tag: string) {
     setActiveTags(prev => {
@@ -207,7 +242,7 @@ function AllProjects() {
                 const projectCategories = getProjectCategories(project.category);
                 const primaryCategory = projectCategories[0];
                 const extraCategoryCount = Math.max(0, projectCategories.length - 1);
-                const openCaseStudy = () => navigate(`/projects/${project.slug}`);
+                const openCaseStudy = () => navigate(project.href);
                 return (
                   <motion.div
                     key={project.id}
@@ -342,46 +377,6 @@ function AllProjects() {
             )}
           </AnimatePresence>
         </motion.div>
-
-        <section className="mt-16 border-t border-border pt-10">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-            className="mb-7"
-          >
-            <h2 className="display-heading-safe text-3xl font-black tracking-tight md:text-4xl">Lab Experiments</h2>
-            <p className="mt-3 text-sm leading-relaxed text-text-secondary">
-              Side projects and data experiments, built for fun.
-            </p>
-          </motion.div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {labs.map((lab, idx) => (
-              <motion.a
-                key={lab.slug}
-                href={lab.path}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.45, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] as const }}
-                style={{ '--accent': lab.color } as React.CSSProperties}
-                className="group flex flex-col rounded-2xl border border-border bg-bg-card p-5 transition-colors hover:border-(--accent) hover:bg-bg-card/80"
-              >
-                <div className="flex items-start justify-between">
-                  <h3 className="text-base font-semibold transition-colors group-hover:text-(--accent)">{lab.title}</h3>
-                  <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-400">Live</span>
-                </div>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-text-secondary">{lab.description}</p>
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {lab.tags.map(tag => (
-                    <span key={tag} className="rounded-md border border-border bg-bg-primary px-2 py-0.5 text-xs text-text-secondary">{tag}</span>
-                  ))}
-                </div>
-              </motion.a>
-            ))}
-          </div>
-        </section>
 
         <section className="mt-16 border-t border-border pt-10">
           <motion.div

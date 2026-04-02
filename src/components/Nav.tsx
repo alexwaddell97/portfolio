@@ -179,7 +179,7 @@ function Nav() {
             className="flex items-center gap-2 rounded-full px-4 py-1.5 text-sm text-text-secondary transition-colors hover:text-cyan"
           >
             <FiArrowLeft size={16} />
-            Back to work
+            Back to projects
           </Link>
         ) : (
           <div className="hidden items-center gap-1 md:flex">

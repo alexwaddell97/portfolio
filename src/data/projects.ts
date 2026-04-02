@@ -296,7 +296,7 @@ const projects: Project[] = [
     title: 'null // void',
     description:
       'A puzzle/investigation game built around an old-style computer terminal interface.',
-    image: '/images/15.webp',
+    image: '/images/nullvoid3.webp',
     imageBgHex: '#62AD72',
     liveUrl: 'https://nullvoid-smoky.vercel.app/',
     repoUrl: '',
