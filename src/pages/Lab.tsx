@@ -24,7 +24,6 @@ function Lab() {
       <main className="flex-1">
         <section className="dot-grid border-b border-border">
           <div className="mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6 lg:px-8">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-cyan">Hidden Route</p>
             <h1 className="page-heading-sweep display-heading-safe mt-2 text-5xl font-black tracking-tighter md:text-7xl">
               Lab
             </h1>
