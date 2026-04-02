@@ -4,6 +4,7 @@ import AnimatedSection from './AnimatedSection.tsx';
 import SectionHeading from './SectionHeading.tsx';
 import ProjectCard from './ProjectCard.tsx';
 import projects from '../data/projects.ts';
+import { labs } from '../data/labs.ts';
 
 // Show featured + up to 2 others on the home page
 const homeProjects = [
@@ -37,7 +38,7 @@ function Projects() {
             to="/projects"
             className="hover-underline-accent group inline-flex items-center gap-2 text-sm font-medium text-text-secondary transition-colors hover:text-text-primary"
           >
-            View all {projects.length} projects
+            View all {projects.length + labs.length} projects
             <FiArrowRight
               size={14}
               className="transition-transform duration-200 group-hover:translate-x-1"
