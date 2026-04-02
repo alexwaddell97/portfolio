@@ -33,6 +33,11 @@ function decapAdminPrettyPathPlugin() {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [decapAdminPrettyPathPlugin(), react(), tailwindcss()],
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3000',
+    },
+  },
   build: {
     rollupOptions: {
       output: {

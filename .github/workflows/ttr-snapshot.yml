@@ -1,0 +1,36 @@
+name: TTR Newcastle — weekly snapshot
+
+on:
+  schedule:
+    # Every Monday at 08:00 UTC (reasonable time to catch weekend results)
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+    # Allow manual trigger from the GitHub Actions UI
+
+jobs:
+  snapshot:
+    name: Scrape & commit snapshot
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run snapshot
+        run: node scripts/snapshot-ttr.mjs
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/ttr/
+          git diff --staged --quiet \
+            && echo "No new data — nothing to commit." \
+            || git commit -m "chore: TTR snapshot $(date -u +%Y-%m-%d)" && git push

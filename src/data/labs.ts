@@ -16,4 +16,12 @@ export const labs: LabExperiment[] = [
     status: 'live',
     layout: 'page',
   },
+  {
+    slug: 'ttr-dashboard',
+    title: 'TTR Newcastle',
+    description: 'Live standings and fixtures for Try Tag Rugby Newcastle leagues — The Parks and RGS Wednesday & Thursday.',
+    tags: ['tag rugby', 'data', 'local', 'sports'],
+    status: 'live',
+    layout: 'page',
+  },
 ];

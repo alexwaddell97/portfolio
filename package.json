@@ -11,7 +11,9 @@
     "cv:pdf": "npm run build && node scripts/export-cv-pdf.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
-    "a11y": "npm run build && node scripts/a11y-audit.mjs"
+    "a11y": "npm run build && node scripts/a11y-audit.mjs",
+    "ttr:snapshot": "node scripts/snapshot-ttr.mjs",
+    "ttr:snapshot:dry": "node scripts/snapshot-ttr.mjs --dry-run"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
@@ -32,6 +34,7 @@
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "@vercel/node": "^5.6.24",
     "@vitejs/plugin-react-swc": "^4.2.2",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",

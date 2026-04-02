@@ -9,6 +9,7 @@ import { FiArrowLeft } from 'react-icons/fi';
  */
 const experimentComponents: Record<string, React.LazyExoticComponent<() => React.ReactElement>> = {
   'f1-dashboard': lazy(() => import('../labs/F1Dashboard.tsx')),
+  'ttr-dashboard': lazy(() => import('../labs/TTRDashboard.tsx')),
 };
 
 export default function LabExperiment() {
@@ -31,23 +32,32 @@ export default function LabExperiment() {
 
   return (
     <div className={`relative w-full overflow-x-hidden bg-black ${isCanvas ? 'h-screen overflow-hidden' : 'min-h-screen'}`}>
-      {/* Floating back button */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center justify-between px-5 py-4">
-        <Link
-          to="/lab"
-          className="pointer-events-auto flex items-center gap-1.5 rounded-full border border-white/10 bg-black/60 px-3 py-1.5 text-sm font-medium text-white/80 backdrop-blur-md transition hover:bg-white/10"
-        >
-          <FiArrowLeft size={14} />
-          Lab
-        </Link>
-
-        {isCanvas && (
+      {/* Floating back button — fixed on canvas, inline on scroll layouts */}
+      {isCanvas ? (
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center justify-between px-5 py-4">
+          <Link
+            to="/lab"
+            className="pointer-events-auto flex items-center gap-1.5 rounded-full border border-white/10 bg-black/60 px-3 py-1.5 text-sm font-medium text-white/80 backdrop-blur-md transition hover:bg-white/10"
+          >
+            <FiArrowLeft size={14} />
+            Lab
+          </Link>
           <div className="pointer-events-none flex flex-col items-end">
             <span className="text-sm font-semibold text-white/90">{meta.title}</span>
             <span className="text-xs text-white/40">{meta.description}</span>
           </div>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="hidden sm:flex items-center px-5 py-3 absolute inset-x-0 top-0 z-10 pointer-events-none">
+          <Link
+            to="/lab"
+            className="pointer-events-auto flex items-center gap-1.5 rounded-full border border-white/10 bg-black/60 px-3 py-1.5 text-sm font-medium text-white/80 backdrop-blur-md transition hover:bg-white/10"
+          >
+            <FiArrowLeft size={14} />
+            Lab
+          </Link>
+        </div>
+      )}
 
       {/* Canvas hint */}
       {isCanvas && (
