@@ -593,7 +593,7 @@ function StandingsTable({
       <table className="w-full border-collapse text-sm">
         <thead>
           <tr style={{ borderBottom: `1px solid ${BORDER}` }}>
-            {(['#', 'Club', 'P', 'W', 'L', 'D', 'F', 'A', 'PD', 'Pts', 'Form'] as const).map((h, i) => (
+            {(['#', 'Team Name', 'P', 'W', 'L', 'D', 'F', 'A', 'PD', 'Pts', 'Form'] as const).map((h, i) => (
               <th
                 key={h}
                 scope="col"
