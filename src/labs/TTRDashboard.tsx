@@ -457,9 +457,9 @@ function TeamProfilePage({ profile, onBack }: { profile: TeamProfile; onBack: ()
         ) : (
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
             {(() => {
-              const totalW = seasonGroups.reduce((sum, g) => sum + (g.profile.currentRecord?.w ?? 0), 0);
-              const totalL = seasonGroups.reduce((sum, g) => sum + (g.profile.currentRecord?.l ?? 0), 0);
-              const totalD = seasonGroups.reduce((sum, g) => sum + (g.profile.currentRecord?.d ?? 0), 0);
+              const totalW = seasonGroups.reduce((sum, g) => sum + g.profile.seasonMatches.filter(m => m.result === 'W').length, 0);
+              const totalL = seasonGroups.reduce((sum, g) => sum + g.profile.seasonMatches.filter(m => m.result === 'L').length, 0);
+              const totalD = seasonGroups.reduce((sum, g) => sum + g.profile.seasonMatches.filter(m => m.result === 'D').length, 0);
               return (totalW + totalL + totalD) > 0 ? (
                 <>
                   <div className="flex items-baseline gap-1.5">
