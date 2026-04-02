@@ -1075,15 +1075,6 @@ export default function TTRDashboard(): React.ReactElement {
         <LeaguePanel key={league.id} league={league} />
       </div>
 
-      {/* ── Sponsored by ── */}
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 pb-16 flex items-center gap-3">
-        <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-black/25">Proudly sponsored by</span>
-        <span
-          className="font-mono text-[11px] font-bold uppercase tracking-[0.2em]"
-          style={{ background: 'linear-gradient(90deg, #d63cbe, #2ecfc4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
-        >Shadestation</span>
-      </div>
-
     </div>
   );
 }
