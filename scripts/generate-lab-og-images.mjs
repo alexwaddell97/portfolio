@@ -14,25 +14,27 @@ const LABS = [
     slug: 'ttr-dashboard',
     kicker: 'Lab Experiment · alexw.dev',
     title: 'TTR Newcastle',
-    subtitle: 'Live standings and fixtures for Try Tag Rugby Newcastle — The Parks, RGS Wednesday & Thursday.',
+    subtitle: 'Standings, fixtures and team stats for Try Tag Rugby Newcastle. The Parks on Mondays, RGS on Wednesdays and Thursdays.',
     accent1: '#d01c1c',
     accent2: '#991414',
     accent3: '#ff6b6b',
     tag: 'Tag Rugby',
+    urlPath: 'ttr',
   },
   {
     slug: 'f1-dashboard',
     kicker: 'Lab Experiment · alexw.dev',
     title: 'F1 Dashboard',
-    subtitle: 'Lap times, tyre strategy, position charts and race control feed for any session — OpenF1 API.',
+    subtitle: 'Lap times, tyre strategy, position charts and race control messages for any session. Powered by the OpenF1 API.',
     accent1: '#e10600',
     accent2: '#ff6b35',
     accent3: '#ffcc00',
     tag: 'Formula 1',
+    urlPath: 'f1',
   },
 ];
 
-function buildHtml({ kicker, title, subtitle, accent1, accent2, accent3, tag }) {
+function buildHtml({ kicker, title, subtitle, accent1, accent2, accent3, tag, urlPath }) {
   return `<!doctype html>
 <html>
   <head>
@@ -169,7 +171,7 @@ function buildHtml({ kicker, title, subtitle, accent1, accent2, accent3, tag }) 
           <p class="subtitle">${subtitle}</p>
         </div>
         <div class="footer">
-          <div class="url">alexw.dev/lab/${title.toLowerCase().replace(/\s+/g, '-')}</div>
+          <div class="url">alexw.dev/${urlPath}</div>
           <div class="mark">aw</div>
         </div>
       </div>

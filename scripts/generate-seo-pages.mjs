@@ -182,25 +182,27 @@ console.log(`✓ SEO pages: ${projectCount} project routes, ${postCount} blog ro
 const LAB_EXPERIMENTS = [
   {
     slug: 'f1-dashboard',
+    path: 'f1',
     title: 'F1 Dashboard',
-    description: 'Lap times, tyre strategy, position charts and race control feed for any session — powered by the OpenF1 API.',
+    description: 'Lap times, tyre strategy, position charts and race control feed for any session, powered by the OpenF1 API.',
     image: '/images/og-lab-f1-dashboard.png',
   },
   {
     slug: 'ttr-dashboard',
+    path: 'ttr',
     title: 'TTR Newcastle',
-    description: 'Live standings and fixtures for Try Tag Rugby Newcastle leagues — The Parks and RGS Wednesday & Thursday.',
+    description: 'Live standings and fixtures for Try Tag Rugby Newcastle leagues, running Monday, Wednesday and Thursday.',
     image: '/images/og-lab-ttr-dashboard.png',
   },
 ];
 
 let labCount = 0;
 for (const lab of LAB_EXPERIMENTS) {
-  const url = `${BASE_URL}/lab/${lab.slug}`;
+  const url = `${BASE_URL}/${lab.path}`;
   const image = `${BASE_URL}${lab.image}`;
   const title = `${lab.title} | alexw.dev`;
   const html = injectMeta(baseHtml, { title, description: lab.description, url, image });
-  writeRoute(distDir, `lab/${lab.slug}`, html);
+  writeRoute(distDir, lab.path, html);
   labCount++;
 }
 

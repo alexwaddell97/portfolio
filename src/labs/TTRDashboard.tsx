@@ -223,7 +223,7 @@ function TeamDetailPanel({ profile, onViewProfile }: { profile: TeamProfile; onV
         )}
         <button
           onClick={onViewProfile}
-          className="ml-auto font-mono text-[11px] font-bold uppercase tracking-widest px-4 py-2 rounded-sm transition-opacity hover:opacity-85 active:opacity-70 shrink-0"
+          className="ml-auto cursor-pointer font-mono text-[11px] font-bold uppercase tracking-widest px-4 py-2 rounded-sm transition-opacity hover:opacity-85 active:opacity-70 shrink-0"
           style={{ background: RED, color: '#fff' }}
         >
           Full profile →
@@ -319,7 +319,7 @@ function SeasonAccordion({ label, played, w, l, d }: {
     <div>
       <button
         onClick={() => setOpen(o => !o)}
-        className="w-full flex items-center gap-4 px-4 py-3 text-left transition-colors hover:bg-black/2"
+        className="w-full flex cursor-pointer items-center gap-4 px-4 py-3 text-left transition-colors hover:bg-black/2"
         style={{ borderBottom: `1px solid ${BORDER}` }}
       >
         <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-black/40 flex-1">
@@ -421,7 +421,7 @@ function TeamProfilePage({ profile, onBack }: { profile: TeamProfile; onBack: ()
       <div className="flex items-center gap-3 px-4 py-4" style={{ borderBottom: `1px solid ${BORDER}` }}>
         <button
           onClick={onBack}
-          className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-widest transition-colors hover:text-black"
+          className="flex cursor-pointer items-center gap-1.5 font-mono text-[11px] uppercase tracking-widest transition-colors hover:text-black"
           style={{ color: 'rgba(0,0,0,0.40)' }}
         >
           ← Back to standings
@@ -617,7 +617,7 @@ function StandingsTable({
             return (
               <Fragment key={s.team}>
                 <tr
-                  className="transition-colors cursor-pointer hover:bg-black/2"
+                  className={`transition-colors hover:bg-black/2 ${s.teamId !== null ? 'cursor-pointer' : 'cursor-default'}`}
                   onClick={() => s.teamId !== null && onSelectTeam(isSelected ? null : s.teamId)}
                   style={{
                     borderBottom: isSelected ? 'none' : `1px solid ${BORDER2}`,
@@ -901,7 +901,7 @@ function LeaguePanel({ league }: { league: LeagueConfig }) {
           <button
             key={t}
             onClick={() => setTab(t)}
-            className="relative px-5 py-3.5 text-xs font-semibold capitalize transition-colors"
+            className="relative cursor-pointer px-5 py-3.5 text-xs font-semibold capitalize transition-colors"
             style={{ color: tab === t ? '#000' : 'rgba(0,0,0,0.40)' }}>
             {t}
             {tab === t && (
@@ -1030,7 +1030,7 @@ export default function TTRDashboard(): React.ReactElement {
               <button
                 key={v.id}
                 onClick={() => { setVenue(v.id); setDivision('cup'); }}
-                className="relative whitespace-nowrap px-4 py-4 text-xs font-semibold transition-colors"
+                className="relative cursor-pointer whitespace-nowrap px-4 py-4 text-xs font-semibold transition-colors"
                 style={{ color: venue === v.id ? '#000' : 'rgba(0,0,0,0.35)' }}
               >
                 {v.label}
@@ -1055,7 +1055,7 @@ export default function TTRDashboard(): React.ReactElement {
               <button
                 key={d}
                 onClick={() => setDivision(d)}
-                className="flex items-center gap-1.5 px-5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors"
+                className="flex cursor-pointer items-center gap-1.5 px-5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors"
                 style={
                   division === d
                     ? { background: RED, color: '#fff' }

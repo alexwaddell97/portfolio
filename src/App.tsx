@@ -135,6 +135,8 @@ function AppRoutes() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/lab" element={<Lab />} />
+        <Route path="/ttr" element={<LabExperiment slugOverride="ttr-dashboard" />} />
+        <Route path="/f1" element={<LabExperiment slugOverride="f1-dashboard" />} />
         <Route path="/lab/:slug" element={<LabExperiment />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

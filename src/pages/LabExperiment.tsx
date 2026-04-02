@@ -12,10 +12,18 @@ const experimentComponents: Record<string, React.LazyExoticComponent<() => React
   'ttr-dashboard': lazy(() => import('../labs/TTRDashboard.tsx')),
 };
 
-export default function LabExperiment() {
-  const { slug } = useParams<{ slug: string }>();
+export default function LabExperiment({ slugOverride }: { slugOverride?: string } = {}) {
+  const params = useParams<{ slug: string }>();
+  const slug = slugOverride ?? params.slug;
   const meta = labs.find((l) => l.slug === slug);
   const ExperimentComponent = slug ? experimentComponents[slug] : undefined;
+
+  useEffect(() => {
+    if (!meta) return;
+    const prev = document.title;
+    document.title = `${meta.title} | alexw.dev`;
+    return () => { document.title = prev; };
+  }, [meta]);
 
   if (!meta || !ExperimentComponent) {
     return (
@@ -29,12 +37,6 @@ export default function LabExperiment() {
   }
 
   const isCanvas = (meta.layout ?? 'canvas') === 'canvas';
-
-  useEffect(() => {
-    const prev = document.title;
-    document.title = `${meta.title} | alexw.dev`;
-    return () => { document.title = prev; };
-  }, [meta.title]);
 
   return (
     <div className={`relative w-full overflow-x-hidden bg-black ${isCanvas ? 'h-screen overflow-hidden' : 'min-h-screen'}`}>
