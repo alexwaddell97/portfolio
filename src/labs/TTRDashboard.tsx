@@ -1,4 +1,5 @@
 import { useState, useEffect, Fragment } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { LuTrophy, LuMedal } from 'react-icons/lu';
 import { FiChevronDown } from 'react-icons/fi';
 
@@ -583,7 +584,7 @@ function StandingsTable({
   profilesLoading: boolean;
   selectedTeamId: number | null;
   onSelectTeam: (id: number | null) => void;
-  onViewProfile: (profile: TeamProfile) => void;
+  onViewProfile: (teamId: number) => void;
 }) {
   if (standings.length === 0) return <p className="py-10 text-center text-sm text-black/30">No standings data yet.</p>;
 
@@ -679,7 +680,7 @@ function StandingsTable({
                 {isSelected && profile && (
                   <tr style={{ borderBottom: `1px solid ${BORDER2}` }}>
                     <td colSpan={12}>
-                      <TeamDetailPanel profile={profile} onViewProfile={() => onViewProfile(profile)} />
+                      <TeamDetailPanel profile={profile} onViewProfile={() => onViewProfile(profile.teamId)} />
                     </td>
                   </tr>
                 )}
@@ -783,23 +784,35 @@ function FixturesList({ fixtures }: { fixtures: Fixture[] }) {
 // ── League panel ──────────────────────────────────────────────────────────────
 
 function LeaguePanel({ league }: { league: LeagueConfig }) {
-  const [tab, setTab] = useState<'standings' | 'fixtures'>('standings');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const tab = (searchParams.get('tab') ?? 'standings') as 'standings' | 'fixtures';
+  const teamParam = searchParams.get('team');
+  const selectedTeamId: number | null = teamParam ? parseInt(teamParam, 10) : null;
+  const profileParam = searchParams.get('profile');
+  const profileTeamId: number | null = profileParam ? parseInt(profileParam, 10) : null;
+
+  function setTab(t: 'standings' | 'fixtures') {
+    setSearchParams(p => { const n = new URLSearchParams(p); n.set('tab', t); return n; }, { replace: true });
+  }
+  function setSelectedTeamId(id: number | null) {
+    setSearchParams(p => { const n = new URLSearchParams(p); if (id === null) n.delete('team'); else n.set('team', String(id)); n.delete('profile'); return n; }, { replace: true });
+  }
+  function setProfileTeamId(id: number | null) {
+    setSearchParams(p => { const n = new URLSearchParams(p); if (id === null) n.delete('profile'); else n.set('profile', String(id)); return n; }, { replace: true });
+  }
+
   const [standings, setStandings] = useState<Standing[]>([]);
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [teamProfiles, setTeamProfiles] = useState<Map<number, TeamProfile>>(new Map());
   const [profilesLoading, setProfilesLoading] = useState(false);
-  const [selectedTeamId, setSelectedTeamId] = useState<number | null>(null);
-  const [viewingProfile, setViewingProfile] = useState<TeamProfile | null>(null);
 
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
     setError(null);
     setTeamProfiles(new Map());
-    setSelectedTeamId(null);
-    setViewingProfile(null);
     Promise.all([
       fetchTTR(league, 'standings'),
       fetchTTR(league, 'fixtures'),
@@ -836,10 +849,21 @@ function LeaguePanel({ league }: { league: LeagueConfig }) {
   const upcomingCount = fixtures.length; // every returned fixture is upcoming
   const fixturesReleased = fixtures.length > 0;
 
-  if (viewingProfile) {
+  const viewingProfile = profileTeamId !== null ? (teamProfiles.get(profileTeamId) ?? null) : null;
+  if (profileTeamId !== null) {
+    if (!viewingProfile) {
+      return (
+        <div className="flex items-center gap-3 px-4 py-8">
+          <div className="relative h-0.5 w-32 overflow-hidden rounded-full" style={{ background: 'rgba(0,0,0,0.06)' }}>
+            <div className="absolute inset-y-0 w-1/2" style={{ background: `linear-gradient(90deg, transparent, ${RED}, transparent)`, animation: 'ttr-sweep 1.5s ease-in-out infinite' }} />
+          </div>
+          <span className="font-mono text-[9px] uppercase tracking-widest text-black/30">Loading profile…</span>
+        </div>
+      );
+    }
     return (
       <div>
-        <TeamProfilePage profile={viewingProfile} onBack={() => setViewingProfile(null)} />
+        <TeamProfilePage profile={viewingProfile} onBack={() => setProfileTeamId(null)} />
       </div>
     );
   }
@@ -953,7 +977,7 @@ function LeaguePanel({ league }: { league: LeagueConfig }) {
           profilesLoading={profilesLoading}
           selectedTeamId={selectedTeamId}
           onSelectTeam={setSelectedTeamId}
-          onViewProfile={setViewingProfile}
+          onViewProfile={setProfileTeamId}
         />
       ) : (
         <FixturesList fixtures={fixtures} />
@@ -965,8 +989,31 @@ function LeaguePanel({ league }: { league: LeagueConfig }) {
 // ── Main export ───────────────────────────────────────────────────────────────
 
 export default function TTRDashboard(): React.ReactElement {
-  const [venue, setVenue] = useState<VenueId>('parks');
-  const [division, setDivision] = useState<'cup' | 'plate'>('cup');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const venue = (searchParams.get('venue') ?? 'parks') as VenueId;
+  const division = (searchParams.get('division') ?? 'cup') as 'cup' | 'plate';
+
+  function setVenue(v: VenueId) {
+    setSearchParams(p => {
+      const n = new URLSearchParams(p);
+      n.set('venue', v);
+      n.set('division', 'cup');
+      n.delete('tab');
+      n.delete('team');
+      n.delete('profile');
+      return n;
+    }, { replace: true });
+  }
+  function setDivision(d: 'cup' | 'plate') {
+    setSearchParams(p => {
+      const n = new URLSearchParams(p);
+      n.set('division', d);
+      n.delete('tab');
+      n.delete('team');
+      n.delete('profile');
+      return n;
+    }, { replace: true });
+  }
 
   const league = LEAGUES.find(l => l.venue === venue && l.division === division)!;
 
@@ -1029,7 +1076,7 @@ export default function TTRDashboard(): React.ReactElement {
             {VENUES.map(v => (
               <button
                 key={v.id}
-                onClick={() => { setVenue(v.id); setDivision('cup'); }}
+                onClick={() => setVenue(v.id)}
                 className="relative cursor-pointer whitespace-nowrap px-4 py-4 text-xs font-semibold transition-colors"
                 style={{ color: venue === v.id ? '#000' : 'rgba(0,0,0,0.35)' }}
               >

@@ -1,4 +1,5 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, ScatterChart,
   Scatter, ReferenceLine, CartesianGrid,
@@ -2914,13 +2915,31 @@ function DriverSeasonView({
 // ─── Main dashboard ───────────────────────────────────────────────────────────
 
 export default function F1Dashboard() {
-  const [year, setYear] = useState(2026);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const year = parseInt(searchParams.get('year') ?? '2026', 10);
+  const selectedMeeting: number | null = searchParams.get('meeting') ? parseInt(searchParams.get('meeting')!, 10) : null;
+  const selectedSession: number | null = searchParams.get('session') ? parseInt(searchParams.get('session')!, 10) : null;
+  const activeTab = (searchParams.get('tab') ?? 'positions') as 'positions' | 'laptimes' | 'tyres' | 'rc';
+  const view = (searchParams.get('view') ?? 'championship') as 'championship' | 'race' | 'driver';
+
   const [meetings, setMeetings] = useState<Meeting[]>([]);
-  const [selectedMeeting, setSelectedMeeting] = useState<number | null>(null);
   const [sessions, setSessions] = useState<Session[]>([]);
-  const [selectedSession, setSelectedSession] = useState<number | null>(null);
-  const [activeTab, setActiveTab] = useState<'positions' | 'laptimes' | 'tyres' | 'rc'>('positions');
-  const [view, setView] = useState<'championship' | 'race' | 'driver'>('championship');
+
+  function setYear(y: number) {
+    setSearchParams(p => { const n = new URLSearchParams(p); n.set('year', String(y)); n.delete('meeting'); n.delete('session'); return n; }, { replace: true });
+  }
+  function setSelectedMeeting(k: number | null) {
+    setSearchParams(p => { const n = new URLSearchParams(p); if (k == null) n.delete('meeting'); else n.set('meeting', String(k)); n.delete('session'); return n; }, { replace: true });
+  }
+  function setSelectedSession(k: number | null) {
+    setSearchParams(p => { const n = new URLSearchParams(p); if (k == null) n.delete('session'); else n.set('session', String(k)); return n; }, { replace: true });
+  }
+  function setActiveTab(t: 'positions' | 'laptimes' | 'tyres' | 'rc') {
+    setSearchParams(p => { const n = new URLSearchParams(p); n.set('tab', t); return n; }, { replace: true });
+  }
+  function setView(v: 'championship' | 'race' | 'driver') {
+    setSearchParams(p => { const n = new URLSearchParams(p); n.set('view', v); return n; }, { replace: true });
+  }
 
   // Data
   const [drivers, setDrivers] = useState<Driver[]>([]);
@@ -2956,15 +2975,15 @@ export default function F1Dashboard() {
   useEffect(() => {
     const controller = new AbortController();
     setMeetings([]);
-    setSelectedMeeting(null);
     setSessions([]);
-    setSelectedSession(null);
     apiFetch<Meeting[]>(`/meetings?year=${year}`, controller.signal)
       .then((data) => {
         // sort ascending (chronological) so R1 = first race visually
         const sorted = [...data].sort((a, b) => new Date(a.date_start).getTime() - new Date(b.date_start).getTime());
         setMeetings(sorted);
-        // most recent past = last entry whose date is before now
+        // If URL already has a valid meeting for this year, keep it
+        if (selectedMeeting && sorted.some(m => m.meeting_key === selectedMeeting)) return;
+        // Otherwise auto-select most recent past
         const mostRecentPast = [...sorted].reverse().find((m) => new Date(m.date_start).getTime() < MODULE_NOW);
         if (mostRecentPast) setSelectedMeeting(mostRecentPast.meeting_key);
         else if (sorted.length) setSelectedMeeting(sorted[0].meeting_key);
@@ -2974,6 +2993,7 @@ export default function F1Dashboard() {
         setError('Failed to load meetings');
       });
     return () => controller.abort();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [year]);
 
   // Fetch season standings from Ergast/Jolpi.ca when year changes
@@ -3034,10 +3054,12 @@ export default function F1Dashboard() {
     if (!selectedMeeting) return;
     const controller = new AbortController();
     setSessions([]);
-    setSelectedSession(null);
     apiFetch<Session[]>(`/sessions?meeting_key=${selectedMeeting}`, controller.signal)
       .then((data) => {
         setSessions(data);
+        // If URL already has a valid session for this meeting, keep it
+        if (selectedSession && data.some(s => s.session_key === selectedSession)) return;
+        // Otherwise auto-select Race session
         const race = data.find((s) => s.session_name === 'Race') ?? data[data.length - 1];
         if (race) setSelectedSession(race.session_key);
       })
@@ -3046,6 +3068,7 @@ export default function F1Dashboard() {
         setError('Failed to load sessions');
       });
     return () => controller.abort();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedMeeting]);
 
   // Synchronously mark loading before browser paints to prevent stale-content flash
