@@ -1062,9 +1062,6 @@ export default function TTRDashboard(): React.ReactElement {
               </div>
               </div>
             </div>
-            <div className="pb-1 font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: RED }}>
-              Spring 2026
-            </div>
           </div>
         </div>
       </div>
