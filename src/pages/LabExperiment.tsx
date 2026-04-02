@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { labs } from '../data/labs.ts';
 import { FiArrowLeft } from 'react-icons/fi';
@@ -29,6 +29,12 @@ export default function LabExperiment() {
   }
 
   const isCanvas = (meta.layout ?? 'canvas') === 'canvas';
+
+  useEffect(() => {
+    const prev = document.title;
+    document.title = `${meta.title} | alexw.dev`;
+    return () => { document.title = prev; };
+  }, [meta.title]);
 
   return (
     <div className={`relative w-full overflow-x-hidden bg-black ${isCanvas ? 'h-screen overflow-hidden' : 'min-h-screen'}`}>

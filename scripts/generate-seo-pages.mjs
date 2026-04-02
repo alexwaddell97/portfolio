@@ -177,3 +177,31 @@ for (const post of posts) {
 }
 
 console.log(`✓ SEO pages: ${projectCount} project routes, ${postCount} blog routes generated`);
+
+// Lab experiments
+const LAB_EXPERIMENTS = [
+  {
+    slug: 'f1-dashboard',
+    title: 'F1 Dashboard',
+    description: 'Lap times, tyre strategy, position charts and race control feed for any session — powered by the OpenF1 API.',
+    image: '/images/og-lab-f1-dashboard.png',
+  },
+  {
+    slug: 'ttr-dashboard',
+    title: 'TTR Newcastle',
+    description: 'Live standings and fixtures for Try Tag Rugby Newcastle leagues — The Parks and RGS Wednesday & Thursday.',
+    image: '/images/og-lab-ttr-dashboard.png',
+  },
+];
+
+let labCount = 0;
+for (const lab of LAB_EXPERIMENTS) {
+  const url = `${BASE_URL}/lab/${lab.slug}`;
+  const image = `${BASE_URL}${lab.image}`;
+  const title = `${lab.title} | alexw.dev`;
+  const html = injectMeta(baseHtml, { title, description: lab.description, url, image });
+  writeRoute(distDir, `lab/${lab.slug}`, html);
+  labCount++;
+}
+
+console.log(`✓ Lab SEO pages: ${labCount} routes generated`);
