@@ -43,12 +43,6 @@ function Lab() {
                 style={{ '--accent': experiment.color } as React.CSSProperties}
                 className="group relative flex flex-col rounded-2xl border border-border bg-bg-card p-5 transition-colors hover:border-(--accent) hover:bg-bg-card/80"
               >
-                <span
-                  className="pointer-events-none absolute bottom-4 right-4 select-none text-5xl opacity-5 transition-opacity group-hover:opacity-15"
-                  aria-hidden="true"
-                >
-                  {experiment.icon}
-                </span>
                 <div className="flex items-start justify-between">
                   <h2 className="text-lg font-semibold transition-colors group-hover:text-(--accent)">
                     {experiment.title}
