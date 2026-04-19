@@ -21,26 +21,26 @@ interface LeagueConfig {
   leagueId: number;
   divisionId: number;
   seasonId: number;
-  venue: 'parks' | 'rgs-wed' | 'rgs-thu';
+  venue: 'novos-mon' | 'novos-wed' | 'paddy-thu';
   division: 'cup' | 'plate';
 }
 
 const LEAGUES: LeagueConfig[] = [
-  { id: 'parks-cup',     label: 'The Parks — Cup',            shortLabel: 'Parks Cup',     leagueId: 2074, divisionId: 8151, seasonId: 95, venue: 'parks',   division: 'cup'   },
-  { id: 'parks-plate',   label: 'The Parks — Plate',           shortLabel: 'Parks Plate',   leagueId: 2074, divisionId: 8152, seasonId: 95, venue: 'parks',   division: 'plate' },
-  { id: 'rgs-wed-cup',   label: 'RGS Newcastle Wed — Cup',     shortLabel: 'RGS Wed Cup',   leagueId: 2075, divisionId: 8159, seasonId: 95, venue: 'rgs-wed', division: 'cup'   },
-  { id: 'rgs-wed-plate', label: 'RGS Newcastle Wed — Plate',   shortLabel: 'RGS Wed Plate', leagueId: 2075, divisionId: 8160, seasonId: 95, venue: 'rgs-wed', division: 'plate' },
-  { id: 'rgs-thu-cup',   label: 'RGS Newcastle Thu — Cup',     shortLabel: 'RGS Thu Cup',   leagueId: 2076, divisionId: 8165, seasonId: 95, venue: 'rgs-thu', division: 'cup'   },
-  { id: 'rgs-thu-plate', label: 'RGS Newcastle Thu — Plate',   shortLabel: 'RGS Thu Plate', leagueId: 2076, divisionId: 8166, seasonId: 95, venue: 'rgs-thu', division: 'plate' },
+  { id: 'novos-mon-cup',   label: 'Novocastrians Mon — Cup',    shortLabel: 'Novos Mon Cup',   leagueId: 2159, divisionId: 8327, seasonId: 96, venue: 'novos-mon', division: 'cup'   },
+  { id: 'novos-mon-plate', label: 'Novocastrians Mon — Plate',  shortLabel: 'Novos Mon Plate', leagueId: 2159, divisionId: 8328, seasonId: 96, venue: 'novos-mon', division: 'plate' },
+  { id: 'novos-wed-cup',   label: 'Novocastrians Wed — Cup',    shortLabel: 'Novos Wed Cup',   leagueId: 2160, divisionId: 8329, seasonId: 96, venue: 'novos-wed', division: 'cup'   },
+  { id: 'novos-wed-plate', label: 'Novocastrians Wed — Plate',  shortLabel: 'Novos Wed Plate', leagueId: 2160, divisionId: 8330, seasonId: 96, venue: 'novos-wed', division: 'plate' },
+  { id: 'paddy-thu-cup',   label: "Paddy Freeman's Thu — Cup",   shortLabel: 'Paddy Thu Cup',   leagueId: 2161, divisionId: 8331, seasonId: 96, venue: 'paddy-thu', division: 'cup'   },
+  { id: 'paddy-thu-plate', label: "Paddy Freeman's Thu — Plate", shortLabel: 'Paddy Thu Plate', leagueId: 2161, divisionId: 8332, seasonId: 96, venue: 'paddy-thu', division: 'plate' },
 ];
 
 const VENUES = [
-  { id: 'parks'   as const, label: 'Monday' },
-  { id: 'rgs-wed' as const, label: 'Wednesday' },
-  { id: 'rgs-thu' as const, label: 'Thursday' },
+  { id: 'novos-mon' as const, label: 'Monday' },
+  { id: 'novos-wed' as const, label: 'Wednesday' },
+  { id: 'paddy-thu' as const, label: 'Thursday' },
 ];
 
-type VenueId = 'parks' | 'rgs-wed' | 'rgs-thu';
+type VenueId = 'novos-mon' | 'novos-wed' | 'paddy-thu';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -93,6 +93,69 @@ interface TeamProfile {
 
 // ── API helpers ───────────────────────────────────────────────────────────────
 
+const SNAPSHOT_LEAGUE_KEY_BY_IDS: Record<string, string> = {
+  '96:2159:8327': 'novos-mon-cup',
+  '96:2159:8328': 'novos-mon-plate',
+  '96:2160:8329': 'novos-wed-cup',
+  '96:2160:8330': 'novos-wed-plate',
+  '96:2161:8331': 'paddy-thu-cup',
+  '96:2161:8332': 'paddy-thu-plate',
+  '95:2074:8151': 'parks-cup',
+  '95:2074:8152': 'parks-plate',
+  '95:2075:8159': 'rgs-wed-cup',
+  '95:2075:8160': 'rgs-wed-plate',
+  '95:2076:8165': 'rgs-thu-cup',
+  '95:2076:8166': 'rgs-thu-plate',
+};
+
+let apiUnavailableInLocalDev = false;
+
+function isLocalDevHost(): boolean {
+  return typeof window !== 'undefined' && window.location.hostname === 'localhost';
+}
+
+async function fetchTeamProfileByIds(args: {
+  leagueId: number;
+  divisionId: number;
+  seasonId: number;
+  teamId: number;
+}): Promise<TeamProfile> {
+  const { leagueId, divisionId, seasonId, teamId } = args;
+  const params = new URLSearchParams({
+    leagueId: String(leagueId),
+    divisionId: String(divisionId),
+    seasonId: String(seasonId),
+    teamId: String(teamId),
+    type: 'team-profile',
+  });
+
+  try {
+    if (isLocalDevHost() && apiUnavailableInLocalDev) {
+      throw new Error('Local API unavailable');
+    }
+    const res = await fetch(`/api/ttr?${params}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    return json.data as TeamProfile;
+  } catch {
+    if (isLocalDevHost()) {
+      apiUnavailableInLocalDev = true;
+    }
+    const leagueKey = SNAPSHOT_LEAGUE_KEY_BY_IDS[`${seasonId}:${leagueId}:${divisionId}`];
+    if (!leagueKey) throw new Error('HTTP 500');
+
+    const snapRes = await fetch(`/data/ttr/season-${seasonId}/latest.json`);
+    if (!snapRes.ok) throw new Error('HTTP 500');
+
+    const snap = await snapRes.json() as {
+      leagues?: Record<string, { teamProfiles?: Record<string, TeamProfile> }>;
+    };
+    const profile = snap.leagues?.[leagueKey]?.teamProfiles?.[String(teamId)];
+    if (!profile) throw new Error('HTTP 500');
+    return profile;
+  }
+}
+
 async function fetchTTR(league: LeagueConfig, type: 'standings' | 'fixtures'): Promise<unknown[]> {
   const params = new URLSearchParams({
     leagueId: String(league.leagueId),
@@ -100,24 +163,37 @@ async function fetchTTR(league: LeagueConfig, type: 'standings' | 'fixtures'): P
     seasonId: String(league.seasonId),
     type,
   });
-  const res = await fetch(`/api/ttr?${params}`);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const json = await res.json();
-  return json.data ?? [];
+  try {
+    if (isLocalDevHost() && apiUnavailableInLocalDev) {
+      throw new Error('Local API unavailable');
+    }
+    const res = await fetch(`/api/ttr?${params}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    return json.data ?? [];
+  } catch {
+    if (isLocalDevHost()) {
+      apiUnavailableInLocalDev = true;
+    }
+    const snapRes = await fetch(`/data/ttr/season-${league.seasonId}/latest.json`);
+    if (!snapRes.ok) return [];
+    const snap = await snapRes.json() as {
+      leagues?: Record<string, { standings?: unknown[]; fixtures?: unknown[] }>;
+    };
+    const leagueSnap = snap.leagues?.[league.id];
+    return type === 'standings'
+      ? (leagueSnap?.standings ?? [])
+      : (leagueSnap?.fixtures ?? []);
+  }
 }
 
 async function fetchTeamProfileAPI(league: LeagueConfig, teamId: number): Promise<TeamProfile> {
-  const params = new URLSearchParams({
-    leagueId: String(league.leagueId),
-    divisionId: String(league.divisionId),
-    seasonId: String(league.seasonId),
-    teamId: String(teamId),
-    type: 'team-profile',
+  return fetchTeamProfileByIds({
+    leagueId: league.leagueId,
+    divisionId: league.divisionId,
+    seasonId: league.seasonId,
+    teamId,
   });
-  const res = await fetch(`/api/ttr?${params}`);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const json = await res.json();
-  return json.data as TeamProfile;
 }
 
 // ── Sub-components ────────────────────────────────────────────────────────────
@@ -363,39 +439,53 @@ function TeamProfilePage({ profile, onBack }: { profile: TeamProfile; onBack: ()
   const allTime = profile.stats.allTime;
 
   // Fetch all previous seasons in parallel
-  const [pastProfiles, setPastProfiles] = useState<(TeamProfile | null)[]>([]);
+  const [pastProfilesByIndex, setPastProfilesByIndex] = useState<Record<number, TeamProfile | null>>({});
   const [pastLoading, setPastLoading] = useState(false);
 
   useEffect(() => {
-    const fetchable = profile.previousSeasons.filter(
-      s => s.leagueId && s.seasonId && s.divisionId
-    );
-    if (fetchable.length === 0) return;
+    let cancelled = false;
+    const fetchable = profile.previousSeasons
+      .map((season, index) => ({ season, index }))
+      .filter(({ season }) =>
+        season.leagueId !== null && season.seasonId !== null && season.divisionId !== null
+      );
+
+    if (fetchable.length === 0) {
+      setPastProfilesByIndex({});
+      return;
+    }
+
     setPastLoading(true);
     Promise.all(
-      fetchable.map(s =>
-        fetch(`/api/ttr?${new URLSearchParams({
-          leagueId: String(s.leagueId!),
-          divisionId: String(s.divisionId!),
-          seasonId: String(s.seasonId!),
-          teamId: String(profile.teamId),
-          type: 'team-profile',
-        })}`)
-          .then(r => r.json())
-          .then(j => j.data as TeamProfile)
-          .catch(() => null)
-      )
+      fetchable.map(async ({ season, index }) => {
+        try {
+          const data = await fetchTeamProfileByIds({
+            leagueId: season.leagueId!,
+            divisionId: season.divisionId!,
+            seasonId: season.seasonId!,
+            teamId: profile.teamId,
+          });
+          return [index, data] as const;
+        } catch {
+          return [index, null] as const;
+        }
+      })
     ).then(results => {
-      setPastProfiles(results);
+      if (cancelled) return;
+      setPastProfilesByIndex(Object.fromEntries(results) as Record<number, TeamProfile | null>);
       setPastLoading(false);
     });
+
+    return () => {
+      cancelled = true;
+    };
   }, [profile.teamId, profile.previousSeasons]);
 
   // All seasons ordered newest → oldest: current first, then each past season
   const seasonGroups: { label: string; profile: TeamProfile }[] = [
     { label: 'This Season', profile },
     ...profile.previousSeasons
-      .map((s, i) => ({ label: s.label, p: pastProfiles[i] ?? null }))
+      .map((s, i) => ({ label: s.label, p: pastProfilesByIndex[i] ?? null }))
       .filter((s): s is { label: string; p: TeamProfile } => s.p !== null)
       .map(s => ({ label: s.label, profile: s.p })),
   ];
@@ -990,8 +1080,16 @@ function LeaguePanel({ league }: { league: LeagueConfig }) {
 
 export default function TTRDashboard(): React.ReactElement {
   const [searchParams, setSearchParams] = useSearchParams();
-  const venue = (searchParams.get('venue') ?? 'parks') as VenueId;
-  const division = (searchParams.get('division') ?? 'cup') as 'cup' | 'plate';
+  const venueParam = searchParams.get('venue');
+  const divisionParam = searchParams.get('division');
+
+  const venue: VenueId =
+    venueParam === 'novos-mon' || venueParam === 'novos-wed' || venueParam === 'paddy-thu'
+      ? venueParam
+      : 'novos-mon';
+
+  const division: 'cup' | 'plate' =
+    divisionParam === 'cup' || divisionParam === 'plate' ? divisionParam : 'cup';
 
   function setVenue(v: VenueId) {
     setSearchParams(p => {
@@ -1015,7 +1113,7 @@ export default function TTRDashboard(): React.ReactElement {
     }, { replace: true });
   }
 
-  const league = LEAGUES.find(l => l.venue === venue && l.division === division)!;
+  const league = LEAGUES.find(l => l.venue === venue && l.division === division) ?? LEAGUES[0];
 
   // Scrollbar override — TTR red
   useEffect(() => {

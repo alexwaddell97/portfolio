@@ -1,0 +1,4662 @@
+{
+  "capturedAt": "2026-04-19T18:28:42.150Z",
+  "season": 96,
+  "date": "2026-04-19",
+  "leagues": {
+    "novos-mon-cup": {
+      "standings": [
+        {
+          "pos": 1,
+          "teamId": 12560,
+          "team": "Montag",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12628,
+          "team": "Ruck me Harder",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12636,
+          "team": "Sausage Roll-Ball",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12535,
+          "team": "ShadeStation",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 11373,
+          "team": "The Try-ghty Ducks",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 11221,
+          "team": "Try, Mash and Gravy",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 11953,
+          "team": "Try-ranosaurus Rex!",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12537,
+          "team": "Wu~Tag Clan",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        }
+      ],
+      "fixtures": [
+        {
+          "date": "Monday 20 Apr 2026",
+          "time": "18:25",
+          "pitch": "Pitch B",
+          "home": "Try-ranosaurus Rex!",
+          "away": "Ruck me Harder",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Monday 20 Apr 2026",
+          "time": "18:25",
+          "pitch": "Pitch C",
+          "home": "The Try-ghty Ducks",
+          "away": "ShadeStation",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Monday 20 Apr 2026",
+          "time": "19:05",
+          "pitch": "Pitch B",
+          "home": "Try, Mash and Gravy",
+          "away": "Sausage Roll-Ball",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Monday 20 Apr 2026",
+          "time": "19:45",
+          "pitch": "Pitch A",
+          "home": "Montag",
+          "away": "Wu~Tag Clan",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        }
+      ],
+      "teamProfiles": {
+        "11221": {
+          "teamId": 11221,
+          "name": "Try, Mash and Gravy",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch B",
+              "opposition": "Sausage Roll-Ball",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 4.33,
+              "avgConceded": 16.67,
+              "avgPoints": null,
+              "biggestWin": "No wins",
+              "biggestLoss": "5 - 21"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 9.55,
+              "avgConceded": 8.22,
+              "avgPoints": 1.12,
+              "biggestWin": "29 - 6",
+              "biggestLoss": "5 - 21"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Cup",
+              "leagueId": 2074,
+              "seasonId": 95,
+              "divisionId": 8151
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Cup",
+              "leagueId": 2027,
+              "seasonId": 94,
+              "divisionId": 7996
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2025) - Autumn 2025 - The Parks Cup",
+              "leagueId": 1971,
+              "seasonId": 93,
+              "divisionId": 7908
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2025) - Summer 2025 - Paddy Freeman's Plate",
+              "leagueId": 1927,
+              "seasonId": 92,
+              "divisionId": 7670
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2025) - Early Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1871,
+              "seasonId": 91,
+              "divisionId": 7518
+            },
+            {
+              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Cup",
+              "leagueId": 1770,
+              "seasonId": 90,
+              "divisionId": 7227
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2024) - Winter 2024/25 - Plate",
+              "leagueId": 1725,
+              "seasonId": 89,
+              "divisionId": 7122
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2024) - Autumn 2024 - The Parks Plate",
+              "leagueId": 1688,
+              "seasonId": 88,
+              "divisionId": 6968
+            }
+          ],
+          "pomAwards": []
+        },
+        "11373": {
+          "teamId": 11373,
+          "name": "The Try-ghty Ducks",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "18:25",
+              "court": "Pitch C",
+              "opposition": "ShadeStation",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 13.33,
+              "avgConceded": 13,
+              "avgPoints": 1.33,
+              "biggestWin": "15 - 13",
+              "biggestLoss": "10 - 12"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 9.31,
+              "avgConceded": 10.22,
+              "avgPoints": 0.81,
+              "biggestWin": "23 - 8",
+              "biggestLoss": "3 - 21"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Cup",
+              "leagueId": 2074,
+              "seasonId": 95,
+              "divisionId": 8151
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Plate",
+              "leagueId": 2027,
+              "seasonId": 94,
+              "divisionId": 7997
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2025) - Autumn 2025 - The Parks Cup",
+              "leagueId": 1971,
+              "seasonId": 93,
+              "divisionId": 7908
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2025) - Summer 2025 - Paddy Freeman's Plate",
+              "leagueId": 1927,
+              "seasonId": 92,
+              "divisionId": 7670
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2025) - Early Summer 2025 - Paddy Freeman's Plate",
+              "leagueId": 1871,
+              "seasonId": 91,
+              "divisionId": 7519
+            },
+            {
+              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Plate",
+              "leagueId": 1770,
+              "seasonId": 90,
+              "divisionId": 7228
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2024) - Winter 2024/25 - Plate",
+              "leagueId": 1725,
+              "seasonId": 89,
+              "divisionId": 7122
+            }
+          ],
+          "pomAwards": []
+        },
+        "11953": {
+          "teamId": 11953,
+          "name": "Try-ranosaurus Rex!",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "18:25",
+              "court": "Pitch B",
+              "opposition": "Ruck me Harder",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 11.33,
+              "avgConceded": 10.33,
+              "avgPoints": 1.33,
+              "biggestWin": "9 - 6",
+              "biggestLoss": "13 - 15"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 10.54,
+              "avgConceded": 8.58,
+              "avgPoints": 1.17,
+              "biggestWin": "27 - 6",
+              "biggestLoss": "3 - 18"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Cup",
+              "leagueId": 2074,
+              "seasonId": 95,
+              "divisionId": 8151
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Cup",
+              "leagueId": 2027,
+              "seasonId": 94,
+              "divisionId": 7996
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2025) - Autumn 2025 - The Parks Cup",
+              "leagueId": 1971,
+              "seasonId": 93,
+              "divisionId": 7908
+            },
+            {
+              "label": "Newcastle - Novocastrians RFC (Summer 2025) - Summer 2025 - Novos Cup",
+              "leagueId": 1928,
+              "seasonId": 92,
+              "divisionId": 7778
+            },
+            {
+              "label": "Newcastle - Novocastrians RFC (Early Summer 2025) - Early Summer 2025",
+              "leagueId": 1872,
+              "seasonId": 91,
+              "divisionId": 0
+            }
+          ],
+          "pomAwards": []
+        },
+        "12535": {
+          "teamId": 12535,
+          "name": "ShadeStation",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "18:25",
+              "court": "Pitch C",
+              "opposition": "The Try-ghty Ducks",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 13.67,
+              "avgConceded": 10.33,
+              "avgPoints": 1.33,
+              "biggestWin": "19 - 5",
+              "biggestLoss": "7 - 16"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 12.03,
+              "avgConceded": 7.52,
+              "avgPoints": 1.66,
+              "biggestWin": "23 - 5",
+              "biggestLoss": "4 - 13"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Cup",
+              "leagueId": 2074,
+              "seasonId": 95,
+              "divisionId": 8151
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Cup",
+              "leagueId": 2027,
+              "seasonId": 94,
+              "divisionId": 7996
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2025) - Autumn 2025 - The Parks Cup",
+              "leagueId": 1971,
+              "seasonId": 93,
+              "divisionId": 7908
+            }
+          ],
+          "pomAwards": []
+        },
+        "12537": {
+          "teamId": 12537,
+          "name": "Wu~Tag Clan",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch A",
+              "opposition": "Montag",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 14.67,
+              "avgConceded": 9,
+              "avgPoints": 1.33,
+              "biggestWin": "19 - 7",
+              "biggestLoss": "12 - 15"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 9.21,
+              "avgConceded": 9.31,
+              "avgPoints": 1.03,
+              "biggestWin": "18 - 1",
+              "biggestLoss": "3 - 19"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Cup",
+              "leagueId": 2074,
+              "seasonId": 95,
+              "divisionId": 8151
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Cup",
+              "leagueId": 2027,
+              "seasonId": 94,
+              "divisionId": 7996
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2025) - Autumn 2025 - The Parks Plate",
+              "leagueId": 1971,
+              "seasonId": 93,
+              "divisionId": 7909
+            }
+          ],
+          "pomAwards": []
+        },
+        "12560": {
+          "teamId": 12560,
+          "name": "Montag",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch A",
+              "opposition": "Wu~Tag Clan",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 18.33,
+              "avgConceded": 5.33,
+              "avgPoints": 2,
+              "biggestWin": "21 - 5",
+              "biggestLoss": "No losses"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 15.28,
+              "avgConceded": 6.9,
+              "avgPoints": 1.79,
+              "biggestWin": "29 - 1",
+              "biggestLoss": "12 - 16"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Cup",
+              "leagueId": 2074,
+              "seasonId": 95,
+              "divisionId": 8151
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Cup",
+              "leagueId": 2027,
+              "seasonId": 94,
+              "divisionId": 7996
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2025) - Autumn 2025 - The Parks Cup",
+              "leagueId": 1971,
+              "seasonId": 93,
+              "divisionId": 7908
+            }
+          ],
+          "pomAwards": []
+        },
+        "12628": {
+          "teamId": 12628,
+          "name": "Ruck me Harder",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "18:25",
+              "court": "Pitch B",
+              "opposition": "Try-ranosaurus Rex!",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 10.33,
+              "avgConceded": 12,
+              "avgPoints": 0.67,
+              "biggestWin": "15 - 12",
+              "biggestLoss": "10 - 15"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 10.37,
+              "avgConceded": 8.53,
+              "avgPoints": 1.13,
+              "biggestWin": "18 - 1",
+              "biggestLoss": "5 - 16"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Cup",
+              "leagueId": 2074,
+              "seasonId": 95,
+              "divisionId": 8151
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Plate",
+              "leagueId": 2027,
+              "seasonId": 94,
+              "divisionId": 7997
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2025) - Autumn 2025 - The Parks Plate",
+              "leagueId": 1971,
+              "seasonId": 93,
+              "divisionId": 7909
+            }
+          ],
+          "pomAwards": []
+        },
+        "12636": {
+          "teamId": 12636,
+          "name": "Sausage Roll-Ball",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch B",
+              "opposition": "Try, Mash and Gravy",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 7,
+              "avgConceded": 6.33,
+              "avgPoints": 1.33,
+              "biggestWin": "7 - 5",
+              "biggestLoss": "6 - 8"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 7.67,
+              "avgConceded": 7.7,
+              "avgPoints": 1.1,
+              "biggestWin": "13 - 4",
+              "biggestLoss": "2 - 19"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Plate",
+              "leagueId": 2074,
+              "seasonId": 95,
+              "divisionId": 8152
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Plate",
+              "leagueId": 2027,
+              "seasonId": 94,
+              "divisionId": 7997
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2025) - Autumn 2025 - The Parks Plate",
+              "leagueId": 1971,
+              "seasonId": 93,
+              "divisionId": 7909
+            }
+          ],
+          "pomAwards": []
+        }
+      }
+    },
+    "novos-mon-plate": {
+      "standings": [
+        {
+          "pos": 1,
+          "teamId": 13378,
+          "team": "50 Shades of Grey Street",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 11219,
+          "team": "All the Tags and Lasses",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12778,
+          "team": "Arnies",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 13379,
+          "team": "Geordie Score",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12777,
+          "team": "Kicking and Screaming",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 13388,
+          "team": "Novos Monday TTR Friendly",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12635,
+          "team": "Taggin-Ball Z",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12638,
+          "team": "Taggington Bear",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12953,
+          "team": "Tags and Tickles",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12639,
+          "team": "Yippee Try-Yay Mother Rucker!",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        }
+      ],
+      "fixtures": [
+        {
+          "date": "Monday 20 Apr 2026",
+          "time": "18:25",
+          "pitch": "Pitch A",
+          "home": "Tags and Tickles",
+          "away": "Yippee Try-Yay Mother Rucker!",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Monday 20 Apr 2026",
+          "time": "19:05",
+          "pitch": "Pitch A",
+          "home": "Taggington Bear",
+          "away": "Novos Monday TTR Friendly",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Monday 20 Apr 2026",
+          "time": "19:05",
+          "pitch": "Pitch C",
+          "home": "Taggin-Ball Z",
+          "away": "All the Tags and Lasses",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Monday 20 Apr 2026",
+          "time": "19:45",
+          "pitch": "Pitch B",
+          "home": "Kicking and Screaming",
+          "away": "Arnies",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Monday 20 Apr 2026",
+          "time": "19:45",
+          "pitch": "Pitch C",
+          "home": "50 Shades of Grey Street",
+          "away": "Geordie Score",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        }
+      ],
+      "teamProfiles": {
+        "11219": {
+          "teamId": 11219,
+          "name": "All the Tags and Lasses",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch C",
+              "opposition": "Taggin-Ball Z",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 8.33,
+              "avgConceded": 17,
+              "avgPoints": 0.67,
+              "biggestWin": "16 - 4",
+              "biggestLoss": "2 - 28"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 7.96,
+              "avgConceded": 9.23,
+              "avgPoints": 0.94,
+              "biggestWin": "19 - 1",
+              "biggestLoss": "2 - 28"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Cup",
+              "leagueId": 2074,
+              "seasonId": 95,
+              "divisionId": 8151
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Plate",
+              "leagueId": 2027,
+              "seasonId": 94,
+              "divisionId": 7997
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2025) - Autumn 2025 - The Parks Plate",
+              "leagueId": 1971,
+              "seasonId": 93,
+              "divisionId": 7909
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2025) - Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1927,
+              "seasonId": 92,
+              "divisionId": 7669
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2025) - Early Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1871,
+              "seasonId": 91,
+              "divisionId": 7518
+            },
+            {
+              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Plate",
+              "leagueId": 1770,
+              "seasonId": 90,
+              "divisionId": 7228
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2024) - Winter 2024/25 - Plate",
+              "leagueId": 1725,
+              "seasonId": 89,
+              "divisionId": 7122
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2024) - Autumn 2024 - The Parks Plate",
+              "leagueId": 1688,
+              "seasonId": 88,
+              "divisionId": 6968
+            }
+          ],
+          "pomAwards": []
+        },
+        "12635": {
+          "teamId": 12635,
+          "name": "Taggin-Ball Z",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch C",
+              "opposition": "All the Tags and Lasses",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 11,
+              "avgConceded": 10.67,
+              "avgPoints": 0.67,
+              "biggestWin": "15 - 7",
+              "biggestLoss": "8 - 13"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 8.07,
+              "avgConceded": 8.47,
+              "avgPoints": 0.97,
+              "biggestWin": "15 - 7",
+              "biggestLoss": "2 - 13"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Plate",
+              "leagueId": 2074,
+              "seasonId": 95,
+              "divisionId": 8152
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Plate",
+              "leagueId": 2027,
+              "seasonId": 94,
+              "divisionId": 7997
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2025) - Autumn 2025 - The Parks Plate",
+              "leagueId": 1971,
+              "seasonId": 93,
+              "divisionId": 7909
+            }
+          ],
+          "pomAwards": []
+        },
+        "12638": {
+          "teamId": 12638,
+          "name": "Taggington Bear",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch A",
+              "opposition": "Novos Monday TTR Friendly",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 7.67,
+              "avgConceded": 14.67,
+              "avgPoints": null,
+              "biggestWin": "No wins",
+              "biggestLoss": "4 - 16"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 8.6,
+              "avgConceded": 10.73,
+              "avgPoints": 1.03,
+              "biggestWin": "14 - 5",
+              "biggestLoss": "6 - 29"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Cup",
+              "leagueId": 2074,
+              "seasonId": 95,
+              "divisionId": 8151
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Plate",
+              "leagueId": 2027,
+              "seasonId": 94,
+              "divisionId": 7997
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2025) - Autumn 2025 - The Parks Plate",
+              "leagueId": 1971,
+              "seasonId": 93,
+              "divisionId": 7909
+            }
+          ],
+          "pomAwards": []
+        },
+        "12639": {
+          "teamId": 12639,
+          "name": "Yippee Try-Yay Mother Rucker!",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "18:25",
+              "court": "Pitch A",
+              "opposition": "Tags and Tickles",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 8,
+              "avgConceded": 11,
+              "avgPoints": 0.67,
+              "biggestWin": "12 - 10",
+              "biggestLoss": "6 - 15"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 6,
+              "avgConceded": 11,
+              "avgPoints": 0.37,
+              "biggestWin": "15 - 3",
+              "biggestLoss": "1 - 18"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Plate",
+              "leagueId": 2074,
+              "seasonId": 95,
+              "divisionId": 8152
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Plate",
+              "leagueId": 2027,
+              "seasonId": 94,
+              "divisionId": 7997
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2025) - Autumn 2025 - The Parks Plate",
+              "leagueId": 1971,
+              "seasonId": 93,
+              "divisionId": 7909
+            }
+          ],
+          "pomAwards": []
+        },
+        "12777": {
+          "teamId": 12777,
+          "name": "Kicking and Screaming",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch B",
+              "opposition": "Arnies",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 12.33,
+              "avgConceded": 10,
+              "avgPoints": 1.33,
+              "biggestWin": "15 - 6",
+              "biggestLoss": "5 - 11"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 8.45,
+              "avgConceded": 10.15,
+              "avgPoints": 0.85,
+              "biggestWin": "11 - 2",
+              "biggestLoss": "1 - 18"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Plate",
+              "leagueId": 2074,
+              "seasonId": 95,
+              "divisionId": 8152
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Plate",
+              "leagueId": 2027,
+              "seasonId": 94,
+              "divisionId": 7997
+            }
+          ],
+          "pomAwards": []
+        },
+        "12778": {
+          "teamId": 12778,
+          "name": "Arnies",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch B",
+              "opposition": "Kicking and Screaming",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 10,
+              "avgConceded": 12,
+              "avgPoints": 0.67,
+              "biggestWin": "11 - 5",
+              "biggestLoss": "9 - 19"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 7.55,
+              "avgConceded": 9.75,
+              "avgPoints": 0.6,
+              "biggestWin": "15 - 4",
+              "biggestLoss": "6 - 17"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Plate",
+              "leagueId": 2074,
+              "seasonId": 95,
+              "divisionId": 8152
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Plate",
+              "leagueId": 2027,
+              "seasonId": 94,
+              "divisionId": 7997
+            }
+          ],
+          "pomAwards": []
+        },
+        "12953": {
+          "teamId": 12953,
+          "name": "Tags and Tickles",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "18:25",
+              "court": "Pitch A",
+              "opposition": "Yippee Try-Yay Mother Rucker!",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 10,
+              "avgConceded": 8.33,
+              "avgPoints": 1.33,
+              "biggestWin": "13 - 8",
+              "biggestLoss": "5 - 7"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 8.2,
+              "avgConceded": 8.4,
+              "avgPoints": 0.9,
+              "biggestWin": "11 - 5",
+              "biggestLoss": "4 - 15"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Plate",
+              "leagueId": 2074,
+              "seasonId": 95,
+              "divisionId": 8152
+            }
+          ],
+          "pomAwards": []
+        },
+        "13378": {
+          "teamId": 13378,
+          "name": "50 Shades of Grey Street",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch C",
+              "opposition": "Geordie Score",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            }
+          },
+          "previousSeasons": [],
+          "pomAwards": []
+        },
+        "13379": {
+          "teamId": 13379,
+          "name": "Geordie Score",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch C",
+              "opposition": "50 Shades of Grey Street",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            }
+          },
+          "previousSeasons": [],
+          "pomAwards": []
+        },
+        "13388": {
+          "teamId": 13388,
+          "name": "Novos Monday TTR Friendly",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Mon 20 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch A",
+              "opposition": "Taggington Bear",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            }
+          },
+          "previousSeasons": [],
+          "pomAwards": []
+        }
+      }
+    },
+    "novos-wed-cup": {
+      "standings": [
+        {
+          "pos": 1,
+          "teamId": 12014,
+          "team": "Moves Like Tagger",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 13389,
+          "team": "Novos Wednesday TTR Friendly",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12813,
+          "team": "Scally Tags",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12010,
+          "team": "Smurf and Turf",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12013,
+          "team": "Tagamama",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12015,
+          "team": "Tag—Reflex",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 11207,
+          "team": "The TaggyCardics",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12812,
+          "team": "Why Aye Try",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        }
+      ],
+      "fixtures": [
+        {
+          "date": "Wednesday 22 Apr 2026",
+          "time": "18:25",
+          "pitch": "Pitch B",
+          "home": "Novos Wednesday TTR Friendly",
+          "away": "Moves Like Tagger",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Wednesday 22 Apr 2026",
+          "time": "18:25",
+          "pitch": "Pitch A",
+          "home": "Why Aye Try",
+          "away": "Smurf and Turf",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Wednesday 22 Apr 2026",
+          "time": "19:05",
+          "pitch": "Pitch A",
+          "home": "The TaggyCardics",
+          "away": "Tag—Reflex",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Wednesday 22 Apr 2026",
+          "time": "19:45",
+          "pitch": "Pitch C",
+          "home": "Scally Tags",
+          "away": "Tagamama",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        }
+      ],
+      "teamProfiles": {
+        "11207": {
+          "teamId": 11207,
+          "name": "The TaggyCardics",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Wed 22 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch A",
+              "opposition": "Tag—Reflex",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 11,
+              "avgConceded": 9.67,
+              "avgPoints": 0.67,
+              "biggestWin": "16 - 7",
+              "biggestLoss": "9 - 13"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 9.21,
+              "avgConceded": 8.59,
+              "avgPoints": 1.05,
+              "biggestWin": "20 - 2",
+              "biggestLoss": "1 - 16"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Spring 2026) - Spring 2026 - RGS Wednesday Spring Cup",
+              "leagueId": 2075,
+              "seasonId": 95,
+              "divisionId": 8159
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Autumn 2025) - Autumn 2025",
+              "leagueId": 1972,
+              "seasonId": 93,
+              "divisionId": 0
+            },
+            {
+              "label": "Newcastle - Novocastrians RFC (Summer 2025) - Summer 2025 - Novos Plate",
+              "leagueId": 1928,
+              "seasonId": 92,
+              "divisionId": 7779
+            },
+            {
+              "label": "Newcastle - Novocastrians RFC (Early Summer 2025) - Early Summer 2025",
+              "leagueId": 1872,
+              "seasonId": 91,
+              "divisionId": 0
+            },
+            {
+              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Cup",
+              "leagueId": 1770,
+              "seasonId": 90,
+              "divisionId": 7227
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2024) - Winter 2024/25 - Plate",
+              "leagueId": 1725,
+              "seasonId": 89,
+              "divisionId": 7122
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2024) - Autumn 2024 - The Parks Plate",
+              "leagueId": 1688,
+              "seasonId": 88,
+              "divisionId": 6968
+            }
+          ],
+          "pomAwards": []
+        },
+        "12010": {
+          "teamId": 12010,
+          "name": "Smurf and Turf",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Wed 22 Apr 2026",
+              "time": "18:25",
+              "court": "Pitch A",
+              "opposition": "Why Aye Try",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 16,
+              "avgConceded": 10.33,
+              "avgPoints": 1.33,
+              "biggestWin": "19 - 5",
+              "biggestLoss": "11 - 18"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 13.86,
+              "avgConceded": 7.38,
+              "avgPoints": 1.69,
+              "biggestWin": "23 - 2",
+              "biggestLoss": "2 - 11"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Spring 2026) - Spring 2026 - RGS Wednesday Spring Cup",
+              "leagueId": 2075,
+              "seasonId": 95,
+              "divisionId": 8159
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Winter 2025) - Winter 2025/26 - Winter 2025/26 - RGS Wednesday Pool A",
+              "leagueId": 2028,
+              "seasonId": 94,
+              "divisionId": 8051
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Autumn 2025) - Autumn 2025",
+              "leagueId": 1972,
+              "seasonId": 93,
+              "divisionId": 0
+            },
+            {
+              "label": "Newcastle - Novocastrians RFC (Summer 2025) - Summer 2025 - Novos Cup",
+              "leagueId": 1928,
+              "seasonId": 92,
+              "divisionId": 7778
+            },
+            {
+              "label": "Newcastle - Novocastrians RFC (Early Summer 2025) - Early Summer 2025",
+              "leagueId": 1872,
+              "seasonId": 91,
+              "divisionId": 0
+            }
+          ],
+          "pomAwards": []
+        },
+        "12013": {
+          "teamId": 12013,
+          "name": "Tagamama",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Wed 22 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch C",
+              "opposition": "Scally Tags",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 15.33,
+              "avgConceded": 6.33,
+              "avgPoints": 2,
+              "biggestWin": "24 - 7",
+              "biggestLoss": "No losses"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 9.43,
+              "avgConceded": 8.43,
+              "avgPoints": 0.98,
+              "biggestWin": "24 - 2",
+              "biggestLoss": "0 - 17"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Spring 2026) - Spring 2026 - RGS Wednesday Spring Plate",
+              "leagueId": 2075,
+              "seasonId": 95,
+              "divisionId": 8160
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Winter 2025) - Winter 2025/26 - Winter 2025/26 - RGS Wednesday Pool A",
+              "leagueId": 2028,
+              "seasonId": 94,
+              "divisionId": 8051
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Autumn 2025) - Autumn 2025",
+              "leagueId": 1972,
+              "seasonId": 93,
+              "divisionId": 0
+            },
+            {
+              "label": "Newcastle - Novocastrians RFC (Summer 2025) - Summer 2025 - Novos Plate",
+              "leagueId": 1928,
+              "seasonId": 92,
+              "divisionId": 7779
+            },
+            {
+              "label": "Newcastle - Novocastrians RFC (Early Summer 2025) - Early Summer 2025",
+              "leagueId": 1872,
+              "seasonId": 91,
+              "divisionId": 0
+            }
+          ],
+          "pomAwards": []
+        },
+        "12014": {
+          "teamId": 12014,
+          "name": "Moves Like Tagger",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Wed 22 Apr 2026",
+              "time": "18:25",
+              "court": "Pitch B",
+              "opposition": "Novos Wednesday TTR Friendly",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 11.33,
+              "avgConceded": 11.33,
+              "avgPoints": 0.67,
+              "biggestWin": "19 - 7",
+              "biggestLoss": "8 - 18"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 8.45,
+              "avgConceded": 7.9,
+              "avgPoints": 1.14,
+              "biggestWin": "16 - 3",
+              "biggestLoss": "5 - 20"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Spring 2026) - Spring 2026 - RGS Wednesday Spring Cup",
+              "leagueId": 2075,
+              "seasonId": 95,
+              "divisionId": 8159
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Winter 2025) - Winter 2025/26 - Winter 2025/26 - RGS Wednesday Pool B",
+              "leagueId": 2028,
+              "seasonId": 94,
+              "divisionId": 8052
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Autumn 2025) - Autumn 2025",
+              "leagueId": 1972,
+              "seasonId": 93,
+              "divisionId": 0
+            },
+            {
+              "label": "Newcastle - Novocastrians RFC (Summer 2025) - Summer 2025 - Novos Plate",
+              "leagueId": 1928,
+              "seasonId": 92,
+              "divisionId": 7779
+            },
+            {
+              "label": "Newcastle - Novocastrians RFC (Early Summer 2025) - Early Summer 2025",
+              "leagueId": 1872,
+              "seasonId": 91,
+              "divisionId": 0
+            }
+          ],
+          "pomAwards": []
+        },
+        "12015": {
+          "teamId": 12015,
+          "name": "Tag—Reflex",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Wed 22 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch A",
+              "opposition": "The TaggyCardics",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 9,
+              "avgConceded": 11.67,
+              "avgPoints": 1.33,
+              "biggestWin": "13 - 9",
+              "biggestLoss": "5 - 19"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 11.45,
+              "avgConceded": 8.1,
+              "avgPoints": 1.4,
+              "biggestWin": "27 - 3",
+              "biggestLoss": "5 - 19"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Spring 2026) - Spring 2026 - RGS Wednesday Spring Cup",
+              "leagueId": 2075,
+              "seasonId": 95,
+              "divisionId": 8159
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Winter 2025) - Winter 2025/26 - Winter 2025/26 - RGS Wednesday Pool B",
+              "leagueId": 2028,
+              "seasonId": 94,
+              "divisionId": 8052
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Autumn 2025) - Autumn 2025",
+              "leagueId": 1972,
+              "seasonId": 93,
+              "divisionId": 0
+            },
+            {
+              "label": "Newcastle - Novocastrians RFC (Summer 2025) - Summer 2025 - Novos Cup",
+              "leagueId": 1928,
+              "seasonId": 92,
+              "divisionId": 7778
+            },
+            {
+              "label": "Newcastle - Novocastrians RFC (Early Summer 2025) - Early Summer 2025",
+              "leagueId": 1872,
+              "seasonId": 91,
+              "divisionId": 0
+            }
+          ],
+          "pomAwards": []
+        },
+        "12812": {
+          "teamId": 12812,
+          "name": "Why Aye Try",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Wed 22 Apr 2026",
+              "time": "18:25",
+              "court": "Pitch A",
+              "opposition": "Smurf and Turf",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 7.67,
+              "avgConceded": 11,
+              "avgPoints": 1.33,
+              "biggestWin": "9 - 8",
+              "biggestLoss": "7 - 19"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 6.8,
+              "avgConceded": 10.2,
+              "avgPoints": 0.8,
+              "biggestWin": "17 - 12",
+              "biggestLoss": "3 - 20"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Spring 2026) - Spring 2026 - RGS Wednesday Spring Cup",
+              "leagueId": 2075,
+              "seasonId": 95,
+              "divisionId": 8159
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Winter 2025) - Winter 2025/26 - Winter 2025/26 - RGS Wednesday Pool A",
+              "leagueId": 2028,
+              "seasonId": 94,
+              "divisionId": 8051
+            }
+          ],
+          "pomAwards": []
+        },
+        "12813": {
+          "teamId": 12813,
+          "name": "Scally Tags",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Wed 22 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch C",
+              "opposition": "Tagamama",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 10.33,
+              "avgConceded": 10,
+              "avgPoints": 0.67,
+              "biggestWin": "19 - 9",
+              "biggestLoss": "7 - 12"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 8.13,
+              "avgConceded": 9.53,
+              "avgPoints": 0.67,
+              "biggestWin": "21 - 8",
+              "biggestLoss": "4 - 19"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Spring 2026) - Spring 2026 - RGS Wednesday Spring Plate",
+              "leagueId": 2075,
+              "seasonId": 95,
+              "divisionId": 8160
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Winter 2025) - Winter 2025/26 - Winter 2025/26 - RGS Wednesday Pool B",
+              "leagueId": 2028,
+              "seasonId": 94,
+              "divisionId": 8052
+            }
+          ],
+          "pomAwards": []
+        },
+        "13389": {
+          "teamId": 13389,
+          "name": "Novos Wednesday TTR Friendly",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Wed 22 Apr 2026",
+              "time": "18:25",
+              "court": "Pitch B",
+              "opposition": "Moves Like Tagger",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            }
+          },
+          "previousSeasons": [],
+          "pomAwards": []
+        }
+      }
+    },
+    "novos-wed-plate": {
+      "standings": [
+        {
+          "pos": 1,
+          "teamId": 13381,
+          "team": "Game of Throws",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12309,
+          "team": "Haggis, Neeps & Taggies",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 13382,
+          "team": "Heaton Things Up",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 13202,
+          "team": "Nap0leon Trynamite",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12957,
+          "team": "Taggy McTagFace",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12811,
+          "team": "Tagnificent 7",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 11896,
+          "team": "The Spy Who T*gged Me",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 13380,
+          "team": "We Found Tag in a Hopeless Place",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        }
+      ],
+      "fixtures": [
+        {
+          "date": "Wednesday 22 Apr 2026",
+          "time": "19:05",
+          "pitch": "Pitch B",
+          "home": "The Spy Who T*gged Me",
+          "away": "Nap0leon Trynamite",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Wednesday 22 Apr 2026",
+          "time": "19:05",
+          "pitch": "Pitch C",
+          "home": "Game of Throws",
+          "away": "We Found Tag in a Hopeless Place",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Wednesday 22 Apr 2026",
+          "time": "19:45",
+          "pitch": "Pitch B",
+          "home": "Taggy McTagFace",
+          "away": "Heaton Things Up",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Wednesday 22 Apr 2026",
+          "time": "19:45",
+          "pitch": "Pitch A",
+          "home": "Tagnificent 7",
+          "away": "Haggis, Neeps & Taggies",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        }
+      ],
+      "teamProfiles": {
+        "11896": {
+          "teamId": 11896,
+          "name": "The Spy Who T*gged Me",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Wed 22 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch B",
+              "opposition": "Nap0leon Trynamite",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 12.67,
+              "avgConceded": 14,
+              "avgPoints": 0.67,
+              "biggestWin": "17 - 8",
+              "biggestLoss": "9 - 19"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 8.64,
+              "avgConceded": 11.29,
+              "avgPoints": 0.71,
+              "biggestWin": "22 - 6",
+              "biggestLoss": "2 - 23"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Spring 2026) - Spring 2026 - RGS Wednesday Spring Plate",
+              "leagueId": 2075,
+              "seasonId": 95,
+              "divisionId": 8160
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Winter 2025) - Winter 2025/26 - Winter 2025/26 - RGS Wednesday Pool B",
+              "leagueId": 2028,
+              "seasonId": 94,
+              "divisionId": 8052
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Autumn 2025) - Autumn 2025",
+              "leagueId": 1972,
+              "seasonId": 93,
+              "divisionId": 0
+            },
+            {
+              "label": "Newcastle - Novocastrians RFC (Summer 2025) - Summer 2025 - Novos Cup",
+              "leagueId": 1928,
+              "seasonId": 92,
+              "divisionId": 7778
+            },
+            {
+              "label": "Newcastle - Novocastrians RFC (Early Summer 2025) - Early Summer 2025",
+              "leagueId": 1872,
+              "seasonId": 91,
+              "divisionId": 0
+            }
+          ],
+          "pomAwards": []
+        },
+        "12309": {
+          "teamId": 12309,
+          "name": "Haggis, Neeps & Taggies",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Wed 22 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch A",
+              "opposition": "Tagnificent 7",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 10.67,
+              "avgConceded": 12.67,
+              "avgPoints": 0.67,
+              "biggestWin": "17 - 5",
+              "biggestLoss": "7 - 24"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 7,
+              "avgConceded": 11.25,
+              "avgPoints": 0.5,
+              "biggestWin": "17 - 5",
+              "biggestLoss": "2 - 24"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Spring 2026) - Spring 2026 - RGS Wednesday Spring Plate",
+              "leagueId": 2075,
+              "seasonId": 95,
+              "divisionId": 8160
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Winter 2025) - Winter 2025/26 - Winter 2025/26 - RGS Wednesday Pool A",
+              "leagueId": 2028,
+              "seasonId": 94,
+              "divisionId": 8051
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Autumn 2025) - Autumn 2025",
+              "leagueId": 1972,
+              "seasonId": 93,
+              "divisionId": 0
+            },
+            {
+              "label": "Newcastle - Novocastrians RFC (Summer 2025) - Summer 2025 - Novos Plate",
+              "leagueId": 1928,
+              "seasonId": 92,
+              "divisionId": 7779
+            }
+          ],
+          "pomAwards": []
+        },
+        "12811": {
+          "teamId": 12811,
+          "name": "Tagnificent 7",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Wed 22 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch A",
+              "opposition": "Haggis, Neeps & Taggies",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 10.33,
+              "avgConceded": 11.33,
+              "avgPoints": 0.67,
+              "biggestWin": "18 - 11",
+              "biggestLoss": "7 - 16"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 7.2,
+              "avgConceded": 10.07,
+              "avgPoints": 0.73,
+              "biggestWin": "18 - 11",
+              "biggestLoss": "5 - 24"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Spring 2026) - Spring 2026 - RGS Wednesday Spring Cup",
+              "leagueId": 2075,
+              "seasonId": 95,
+              "divisionId": 8159
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Winter 2025) - Winter 2025/26 - Winter 2025/26 - RGS Wednesday Pool A",
+              "leagueId": 2028,
+              "seasonId": 94,
+              "divisionId": 8051
+            }
+          ],
+          "pomAwards": []
+        },
+        "12957": {
+          "teamId": 12957,
+          "name": "Taggy McTagFace",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Wed 22 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch B",
+              "opposition": "Heaton Things Up",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 7.33,
+              "avgConceded": 14,
+              "avgPoints": 0.67,
+              "biggestWin": "9 - 8",
+              "biggestLoss": "5 - 17"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 6,
+              "avgConceded": 11.63,
+              "avgPoints": 0.38,
+              "biggestWin": "9 - 8",
+              "biggestLoss": "3 - 15"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Wednesday - Spring 2026) - Spring 2026 - RGS Wednesday Spring Plate",
+              "leagueId": 2075,
+              "seasonId": 95,
+              "divisionId": 8160
+            }
+          ],
+          "pomAwards": []
+        },
+        "13202": {
+          "teamId": 13202,
+          "name": "Nap0leon Trynamite",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Wed 22 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch B",
+              "opposition": "The Spy Who T*gged Me",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            }
+          },
+          "previousSeasons": [],
+          "pomAwards": []
+        },
+        "13380": {
+          "teamId": 13380,
+          "name": "We Found Tag in a Hopeless Place",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Wed 22 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch C",
+              "opposition": "Game of Throws",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            }
+          },
+          "previousSeasons": [],
+          "pomAwards": []
+        },
+        "13381": {
+          "teamId": 13381,
+          "name": "Game of Throws",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Wed 22 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch C",
+              "opposition": "We Found Tag in a Hopeless Place",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            }
+          },
+          "previousSeasons": [],
+          "pomAwards": []
+        },
+        "13382": {
+          "teamId": 13382,
+          "name": "Heaton Things Up",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Wed 22 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch B",
+              "opposition": "Taggy McTagFace",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            }
+          },
+          "previousSeasons": [],
+          "pomAwards": []
+        }
+      }
+    },
+    "paddy-thu-cup": {
+      "standings": [
+        {
+          "pos": 1,
+          "teamId": 11379,
+          "team": "If I Could Turn Back Tyne",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 10981,
+          "team": "Miss Trynamite",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 13390,
+          "team": "Paddy Freeman's Thursday TTR Friendly",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 10660,
+          "team": "Panic! at the try line",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 11153,
+          "team": "RuPaul’s Tag Race!",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 11204,
+          "team": "The  Tagpies",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 11218,
+          "team": "The Tag-liatelles",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 10982,
+          "team": "Yabba-Tagga-Do!",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        }
+      ],
+      "fixtures": [
+        {
+          "date": "Thursday 23 Apr 2026",
+          "time": "18:25",
+          "pitch": "Pitch A",
+          "home": "The Tag-liatelles",
+          "away": "Miss Trynamite",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Thursday 23 Apr 2026",
+          "time": "18:25",
+          "pitch": "Pitch C",
+          "home": "Yabba-Tagga-Do!",
+          "away": "Paddy Freeman's Thursday TTR Friendly",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Thursday 23 Apr 2026",
+          "time": "19:05",
+          "pitch": "Pitch B",
+          "home": "The  Tagpies",
+          "away": "Panic! at the try line",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Thursday 23 Apr 2026",
+          "time": "19:45",
+          "pitch": "Pitch C",
+          "home": "If I Could Turn Back Tyne",
+          "away": "RuPaul’s Tag Race!",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        }
+      ],
+      "teamProfiles": {
+        "10660": {
+          "teamId": 10660,
+          "name": "Panic! at the try line",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch B",
+              "opposition": "The  Tagpies",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 7,
+              "avgConceded": 11.67,
+              "avgPoints": null,
+              "biggestWin": "No wins",
+              "biggestLoss": "2 - 13"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 9.27,
+              "avgConceded": 9.06,
+              "avgPoints": 1.07,
+              "biggestWin": "24 - 7",
+              "biggestLoss": "0 - 24"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Spring 2026) - Spring 2026 - RGS Thursday Cup",
+              "leagueId": 2076,
+              "seasonId": 95,
+              "divisionId": 8165
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Winter 2025) - Winter 2025/26 - RGS Thursday Cup",
+              "leagueId": 2029,
+              "seasonId": 94,
+              "divisionId": 8004
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Autumn 2025) - Autumn 2025 - RGS Newcastle Thursday Cup",
+              "leagueId": 1973,
+              "seasonId": 93,
+              "divisionId": 7868
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2025) - Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1927,
+              "seasonId": 92,
+              "divisionId": 7669
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2025) - Early Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1871,
+              "seasonId": 91,
+              "divisionId": 7518
+            },
+            {
+              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Cup",
+              "leagueId": 1770,
+              "seasonId": 90,
+              "divisionId": 7227
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2024) - Winter 2024/25 - Cup",
+              "leagueId": 1725,
+              "seasonId": 89,
+              "divisionId": 7121
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2024) - Autumn 2024 - The Parks Cup",
+              "leagueId": 1688,
+              "seasonId": 88,
+              "divisionId": 6967
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2024) - Summer 2024 - Paddy Freeman's Plate",
+              "leagueId": 1634,
+              "seasonId": 87,
+              "divisionId": 6836
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2024) - Early Summer 2024 - Open Grade",
+              "leagueId": 1548,
+              "seasonId": 86,
+              "divisionId": 6573
+            }
+          ],
+          "pomAwards": []
+        },
+        "10981": {
+          "teamId": 10981,
+          "name": "Miss Trynamite",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "18:25",
+              "court": "Pitch A",
+              "opposition": "The Tag-liatelles",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 10.33,
+              "avgConceded": 9.67,
+              "avgPoints": 1.33,
+              "biggestWin": "13 - 2",
+              "biggestLoss": "6 - 16"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 8.51,
+              "avgConceded": 8.03,
+              "avgPoints": 1.13,
+              "biggestWin": "15 - 0",
+              "biggestLoss": "4 - 17"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Spring 2026) - Spring 2026 - RGS Thursday Cup",
+              "leagueId": 2076,
+              "seasonId": 95,
+              "divisionId": 8165
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Winter 2025) - Winter 2025/26 - RGS Thursday Plate",
+              "leagueId": 2029,
+              "seasonId": 94,
+              "divisionId": 8005
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Autumn 2025) - Autumn 2025 - RGS Newcastle Thursday Plate",
+              "leagueId": 1973,
+              "seasonId": 93,
+              "divisionId": 7869
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2025) - Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1927,
+              "seasonId": 92,
+              "divisionId": 7669
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2025) - Early Summer 2025 - Paddy Freeman's Plate",
+              "leagueId": 1871,
+              "seasonId": 91,
+              "divisionId": 7519
+            },
+            {
+              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Cup",
+              "leagueId": 1770,
+              "seasonId": 90,
+              "divisionId": 7227
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2024) - Winter 2024/25 - Cup",
+              "leagueId": 1725,
+              "seasonId": 89,
+              "divisionId": 7121
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2024) - Autumn 2024 - The Parks Plate",
+              "leagueId": 1688,
+              "seasonId": 88,
+              "divisionId": 6968
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2024) - Summer 2024 - Paddy Freeman's Plate",
+              "leagueId": 1634,
+              "seasonId": 87,
+              "divisionId": 6836
+            }
+          ],
+          "pomAwards": []
+        },
+        "10982": {
+          "teamId": 10982,
+          "name": "Yabba-Tagga-Do!",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "18:25",
+              "court": "Pitch C",
+              "opposition": "Paddy Freeman's Thursday TTR Friendly",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 11,
+              "avgConceded": 4.33,
+              "avgPoints": 2,
+              "biggestWin": "17 - 8",
+              "biggestLoss": "No losses"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 9.25,
+              "avgConceded": 8.06,
+              "avgPoints": 1.14,
+              "biggestWin": "16 - 4",
+              "biggestLoss": "3 - 15"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Spring 2026) - Spring 2026 - RGS Thursday Plate",
+              "leagueId": 2076,
+              "seasonId": 95,
+              "divisionId": 8166
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Winter 2025) - Winter 2025/26 - RGS Thursday Cup",
+              "leagueId": 2029,
+              "seasonId": 94,
+              "divisionId": 8004
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Autumn 2025) - Autumn 2025 - RGS Newcastle Thursday Cup",
+              "leagueId": 1973,
+              "seasonId": 93,
+              "divisionId": 7868
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2025) - Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1927,
+              "seasonId": 92,
+              "divisionId": 7669
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2025) - Early Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1871,
+              "seasonId": 91,
+              "divisionId": 7518
+            },
+            {
+              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Cup",
+              "leagueId": 1770,
+              "seasonId": 90,
+              "divisionId": 7227
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2024) - Winter 2024/25 - Cup",
+              "leagueId": 1725,
+              "seasonId": 89,
+              "divisionId": 7121
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2024) - Autumn 2024 - The Parks Cup",
+              "leagueId": 1688,
+              "seasonId": 88,
+              "divisionId": 6967
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2024) - Summer 2024 - Paddy Freeman's Cup",
+              "leagueId": 1634,
+              "seasonId": 87,
+              "divisionId": 6835
+            }
+          ],
+          "pomAwards": []
+        },
+        "11153": {
+          "teamId": 11153,
+          "name": "RuPaul’s Tag Race!",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch C",
+              "opposition": "If I Could Turn Back Tyne",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 10.67,
+              "avgConceded": 8,
+              "avgPoints": 1.33,
+              "biggestWin": "11 - 3",
+              "biggestLoss": "11 - 12"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 10.83,
+              "avgConceded": 10.28,
+              "avgPoints": 1.03,
+              "biggestWin": "23 - 3",
+              "biggestLoss": "2 - 19"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Spring 2026) - Spring 2026 - RGS Thursday Cup",
+              "leagueId": 2076,
+              "seasonId": 95,
+              "divisionId": 8165
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Winter 2025) - Winter 2025/26 - RGS Thursday Cup",
+              "leagueId": 2029,
+              "seasonId": 94,
+              "divisionId": 8004
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Autumn 2025) - Autumn 2025 - RGS Newcastle Thursday Cup",
+              "leagueId": 1973,
+              "seasonId": 93,
+              "divisionId": 7868
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2025) - Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1927,
+              "seasonId": 92,
+              "divisionId": 7669
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2025) - Early Summer 2025 - Paddy Freeman's Plate",
+              "leagueId": 1871,
+              "seasonId": 91,
+              "divisionId": 7519
+            },
+            {
+              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Cup",
+              "leagueId": 1770,
+              "seasonId": 90,
+              "divisionId": 7227
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2024) - Winter 2024/25 - Cup",
+              "leagueId": 1725,
+              "seasonId": 89,
+              "divisionId": 7121
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2024) - Autumn 2024 - The Parks Cup",
+              "leagueId": 1688,
+              "seasonId": 88,
+              "divisionId": 6967
+            }
+          ],
+          "pomAwards": []
+        },
+        "11204": {
+          "teamId": 11204,
+          "name": "The  Tagpies",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch B",
+              "opposition": "Panic! at the try line",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 10.33,
+              "avgConceded": 9,
+              "avgPoints": 1,
+              "biggestWin": "19 - 7",
+              "biggestLoss": "3 - 11"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 9.97,
+              "avgConceded": 8.49,
+              "avgPoints": 1.22,
+              "biggestWin": "21 - 2",
+              "biggestLoss": "5 - 18"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Spring 2026) - Spring 2026 - RGS Thursday Cup",
+              "leagueId": 2076,
+              "seasonId": 95,
+              "divisionId": 8165
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Winter 2025) - Winter 2025/26 - RGS Thursday Cup",
+              "leagueId": 2029,
+              "seasonId": 94,
+              "divisionId": 8004
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Autumn 2025) - Autumn 2025 - RGS Newcastle Thursday Plate",
+              "leagueId": 1973,
+              "seasonId": 93,
+              "divisionId": 7869
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2025) - Summer 2025 - Paddy Freeman's Plate",
+              "leagueId": 1927,
+              "seasonId": 92,
+              "divisionId": 7670
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2025) - Early Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1871,
+              "seasonId": 91,
+              "divisionId": 7518
+            },
+            {
+              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Cup",
+              "leagueId": 1770,
+              "seasonId": 90,
+              "divisionId": 7227
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2024) - Winter 2024/25 - Plate",
+              "leagueId": 1725,
+              "seasonId": 89,
+              "divisionId": 7122
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2024) - Autumn 2024 - The Parks Plate",
+              "leagueId": 1688,
+              "seasonId": 88,
+              "divisionId": 6968
+            }
+          ],
+          "pomAwards": []
+        },
+        "11218": {
+          "teamId": 11218,
+          "name": "The Tag-liatelles",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "18:25",
+              "court": "Pitch A",
+              "opposition": "Miss Trynamite",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 9.33,
+              "avgConceded": 6,
+              "avgPoints": 1.33,
+              "biggestWin": "14 - 4",
+              "biggestLoss": "2 - 7"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 8.13,
+              "avgConceded": 8,
+              "avgPoints": 0.94,
+              "biggestWin": "18 - 3",
+              "biggestLoss": "2 - 20"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Spring 2026) - Spring 2026 - RGS Thursday Plate",
+              "leagueId": 2076,
+              "seasonId": 95,
+              "divisionId": 8166
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Winter 2025) - Winter 2025/26 - RGS Thursday Plate",
+              "leagueId": 2029,
+              "seasonId": 94,
+              "divisionId": 8005
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Autumn 2025) - Autumn 2025 - RGS Newcastle Thursday Plate",
+              "leagueId": 1973,
+              "seasonId": 93,
+              "divisionId": 7869
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2025) - Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1927,
+              "seasonId": 92,
+              "divisionId": 7669
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2025) - Early Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1871,
+              "seasonId": 91,
+              "divisionId": 7518
+            },
+            {
+              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Plate",
+              "leagueId": 1770,
+              "seasonId": 90,
+              "divisionId": 7228
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2024) - Winter 2024/25 - Plate",
+              "leagueId": 1725,
+              "seasonId": 89,
+              "divisionId": 7122
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2024) - Autumn 2024 - The Parks Plate",
+              "leagueId": 1688,
+              "seasonId": 88,
+              "divisionId": 6968
+            }
+          ],
+          "pomAwards": []
+        },
+        "11379": {
+          "teamId": 11379,
+          "name": "If I Could Turn Back Tyne",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch C",
+              "opposition": "RuPaul’s Tag Race!",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 12.67,
+              "avgConceded": 8.67,
+              "avgPoints": 1.67,
+              "biggestWin": "16 - 6",
+              "biggestLoss": "No losses"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 13.24,
+              "avgConceded": 6.35,
+              "avgPoints": 1.89,
+              "biggestWin": "24 - 4",
+              "biggestLoss": "6 - 10"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Spring 2026) - Spring 2026 - RGS Thursday Cup",
+              "leagueId": 2076,
+              "seasonId": 95,
+              "divisionId": 8165
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Winter 2025) - Winter 2025/26 - RGS Thursday Cup",
+              "leagueId": 2029,
+              "seasonId": 94,
+              "divisionId": 8004
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Autumn 2025) - Autumn 2025 - RGS Newcastle Thursday Cup",
+              "leagueId": 1973,
+              "seasonId": 93,
+              "divisionId": 7868
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2025) - Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1927,
+              "seasonId": 92,
+              "divisionId": 7669
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2025) - Early Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1871,
+              "seasonId": 91,
+              "divisionId": 7518
+            },
+            {
+              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Cup",
+              "leagueId": 1770,
+              "seasonId": 90,
+              "divisionId": 7227
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2024) - Winter 2024/25 - Cup",
+              "leagueId": 1725,
+              "seasonId": 89,
+              "divisionId": 7121
+            }
+          ],
+          "pomAwards": []
+        },
+        "13390": {
+          "teamId": 13390,
+          "name": "Paddy Freeman's Thursday TTR Friendly",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "18:25",
+              "court": "Pitch C",
+              "opposition": "Yabba-Tagga-Do!",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            }
+          },
+          "previousSeasons": [],
+          "pomAwards": []
+        }
+      }
+    },
+    "paddy-thu-plate": {
+      "standings": [
+        {
+          "pos": 1,
+          "teamId": 13216,
+          "team": "2 Mash 2 Gravy",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12307,
+          "team": "Chilli Con Geordie",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 13342,
+          "team": "Don't go taking my tag",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 10661,
+          "team": "Howay the Tags",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 13383,
+          "team": "Osbourne Road Regrets",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 13384,
+          "team": "Scrumbled Eggs",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12022,
+          "team": "Tag My Pitch Up",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 11576,
+          "team": "Tagquila Suntries 🍋‍🟩",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 12230,
+          "team": "Try-Curious",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        },
+        {
+          "pos": 1,
+          "teamId": 10658,
+          "team": "Tryker Grooove",
+          "pld": 0,
+          "w": 0,
+          "l": 0,
+          "d": 0,
+          "f": 0,
+          "a": 0,
+          "diff": 0,
+          "pts": 0
+        }
+      ],
+      "fixtures": [
+        {
+          "date": "Thursday 23 Apr 2026",
+          "time": "18:25",
+          "pitch": "Pitch B",
+          "home": "Tagquila Suntries 🍋‍🟩",
+          "away": "Howay the Tags",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Thursday 23 Apr 2026",
+          "time": "19:05",
+          "pitch": "Pitch A",
+          "home": "Chilli Con Geordie",
+          "away": "Don't go taking my tag",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Thursday 23 Apr 2026",
+          "time": "19:05",
+          "pitch": "Pitch C",
+          "home": "Osbourne Road Regrets",
+          "away": "Scrumbled Eggs",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Thursday 23 Apr 2026",
+          "time": "19:45",
+          "pitch": "Pitch B",
+          "home": "Tryker Grooove",
+          "away": "Tag My Pitch Up",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        },
+        {
+          "date": "Thursday 23 Apr 2026",
+          "time": "19:45",
+          "pitch": "Pitch A",
+          "home": "Try-Curious",
+          "away": "2 Mash 2 Gravy",
+          "homeScore": null,
+          "awayScore": null,
+          "played": false
+        }
+      ],
+      "teamProfiles": {
+        "10658": {
+          "teamId": 10658,
+          "name": "Tryker Grooove",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch B",
+              "opposition": "Tag My Pitch Up",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 8.33,
+              "avgConceded": 12.33,
+              "avgPoints": 0.67,
+              "biggestWin": "9 - 8",
+              "biggestLoss": "7 - 19"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 9.97,
+              "avgConceded": 8.47,
+              "avgPoints": 1.14,
+              "biggestWin": "19 - 2",
+              "biggestLoss": "6 - 21"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Spring 2026) - Spring 2026 - RGS Thursday Cup",
+              "leagueId": 2076,
+              "seasonId": 95,
+              "divisionId": 8165
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Winter 2025) - Winter 2025/26 - RGS Thursday Plate",
+              "leagueId": 2029,
+              "seasonId": 94,
+              "divisionId": 8005
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Autumn 2025) - Autumn 2025 - RGS Newcastle Thursday Cup",
+              "leagueId": 1973,
+              "seasonId": 93,
+              "divisionId": 7868
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2025) - Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1927,
+              "seasonId": 92,
+              "divisionId": 7669
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2025) - Early Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1871,
+              "seasonId": 91,
+              "divisionId": 7518
+            },
+            {
+              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Cup",
+              "leagueId": 1770,
+              "seasonId": 90,
+              "divisionId": 7227
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2024) - Winter 2024/25 - Cup",
+              "leagueId": 1725,
+              "seasonId": 89,
+              "divisionId": 7121
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2024) - Autumn 2024 - The Parks Cup",
+              "leagueId": 1688,
+              "seasonId": 88,
+              "divisionId": 6967
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2024) - Summer 2024 - Paddy Freeman's Cup",
+              "leagueId": 1634,
+              "seasonId": 87,
+              "divisionId": 6835
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2024) - Early Summer 2024 - Open Grade",
+              "leagueId": 1548,
+              "seasonId": 86,
+              "divisionId": 6573
+            }
+          ],
+          "pomAwards": []
+        },
+        "10661": {
+          "teamId": 10661,
+          "name": "Howay the Tags",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "18:25",
+              "court": "Pitch B",
+              "opposition": "Tagquila Suntries 🍋‍🟩",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 8.33,
+              "avgConceded": 6.67,
+              "avgPoints": 1.33,
+              "biggestWin": "12 - 8",
+              "biggestLoss": "7 - 8"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 7.91,
+              "avgConceded": 10.34,
+              "avgPoints": 0.78,
+              "biggestWin": "10 - 0",
+              "biggestLoss": "4 - 21"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Spring 2026) - Spring 2026 - RGS Thursday Plate",
+              "leagueId": 2076,
+              "seasonId": 95,
+              "divisionId": 8166
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Winter 2025) - Winter 2025/26 - RGS Thursday Cup",
+              "leagueId": 2029,
+              "seasonId": 94,
+              "divisionId": 8004
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Autumn 2025) - Autumn 2025 - RGS Newcastle Thursday Cup",
+              "leagueId": 1973,
+              "seasonId": 93,
+              "divisionId": 7868
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2025) - Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1927,
+              "seasonId": 92,
+              "divisionId": 7669
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2025) - Early Summer 2025 - Paddy Freeman's Cup",
+              "leagueId": 1871,
+              "seasonId": 91,
+              "divisionId": 7518
+            },
+            {
+              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Plate",
+              "leagueId": 1770,
+              "seasonId": 90,
+              "divisionId": 7228
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2024) - Winter 2024/25 - Cup",
+              "leagueId": 1725,
+              "seasonId": 89,
+              "divisionId": 7121
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2024) - Autumn 2024 - The Parks Cup",
+              "leagueId": 1688,
+              "seasonId": 88,
+              "divisionId": 6967
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2024) - Summer 2024 - Paddy Freeman's Plate",
+              "leagueId": 1634,
+              "seasonId": 87,
+              "divisionId": 6836
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2024) - Early Summer 2024 - Open Grade",
+              "leagueId": 1548,
+              "seasonId": 86,
+              "divisionId": 6573
+            }
+          ],
+          "pomAwards": []
+        },
+        "11576": {
+          "teamId": 11576,
+          "name": "Tagquila Suntries 🍋‍🟩",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "18:25",
+              "court": "Pitch B",
+              "opposition": "Howay the Tags",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 16.33,
+              "avgConceded": 6.67,
+              "avgPoints": 2,
+              "biggestWin": "22 - 5",
+              "biggestLoss": "No losses"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 9.1,
+              "avgConceded": 11.69,
+              "avgPoints": 0.79,
+              "biggestWin": "17 - 0",
+              "biggestLoss": "1 - 29"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Plate",
+              "leagueId": 2074,
+              "seasonId": 95,
+              "divisionId": 8152
+            },
+            {
+              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Plate",
+              "leagueId": 2027,
+              "seasonId": 94,
+              "divisionId": 7997
+            },
+            {
+              "label": "Newcastle - The Parks (Autumn 2025) - Autumn 2025 - The Parks Cup",
+              "leagueId": 1971,
+              "seasonId": 93,
+              "divisionId": 7908
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2025) - Summer 2025 - Paddy Freeman's Plate",
+              "leagueId": 1927,
+              "seasonId": 92,
+              "divisionId": 7670
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2025) - Early Summer 2025 - Paddy Freeman's Plate",
+              "leagueId": 1871,
+              "seasonId": 91,
+              "divisionId": 7519
+            },
+            {
+              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Plate",
+              "leagueId": 1770,
+              "seasonId": 90,
+              "divisionId": 7228
+            }
+          ],
+          "pomAwards": []
+        },
+        "12022": {
+          "teamId": 12022,
+          "name": "Tag My Pitch Up",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch B",
+              "opposition": "Tryker Grooove",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 10,
+              "avgConceded": 10.67,
+              "avgPoints": 0.67,
+              "biggestWin": "18 - 6",
+              "biggestLoss": "4 - 14"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 8.63,
+              "avgConceded": 10.58,
+              "avgPoints": 0.88,
+              "biggestWin": "18 - 6",
+              "biggestLoss": "5 - 20"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Spring 2026) - Spring 2026 - RGS Thursday Plate",
+              "leagueId": 2076,
+              "seasonId": 95,
+              "divisionId": 8166
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Winter 2025) - Winter 2025/26 - RGS Thursday Plate",
+              "leagueId": 2029,
+              "seasonId": 94,
+              "divisionId": 8005
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Autumn 2025) - Autumn 2025 - RGS Newcastle Thursday Plate",
+              "leagueId": 1973,
+              "seasonId": 93,
+              "divisionId": 7869
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2025) - Summer 2025 - Paddy Freeman's Plate",
+              "leagueId": 1927,
+              "seasonId": 92,
+              "divisionId": 7670
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Early Summer 2025) - Early Summer 2025 - Paddy Freeman's Plate",
+              "leagueId": 1871,
+              "seasonId": 91,
+              "divisionId": 7519
+            }
+          ],
+          "pomAwards": []
+        },
+        "12230": {
+          "teamId": 12230,
+          "name": "Try-Curious",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch A",
+              "opposition": "2 Mash 2 Gravy",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 7.67,
+              "avgConceded": 12,
+              "avgPoints": 0.67,
+              "biggestWin": "8 - 7",
+              "biggestLoss": "8 - 17"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 9.03,
+              "avgConceded": 10.65,
+              "avgPoints": 0.74,
+              "biggestWin": "22 - 1",
+              "biggestLoss": "8 - 25"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Spring 2026) - Spring 2026 - RGS Thursday Plate",
+              "leagueId": 2076,
+              "seasonId": 95,
+              "divisionId": 8166
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Winter 2025) - Winter 2025/26 - RGS Thursday Plate",
+              "leagueId": 2029,
+              "seasonId": 94,
+              "divisionId": 8005
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Autumn 2025) - Autumn 2025 - RGS Newcastle Thursday Plate",
+              "leagueId": 1973,
+              "seasonId": 93,
+              "divisionId": 7869
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2025) - Summer 2025 - Paddy Freeman's Plate",
+              "leagueId": 1927,
+              "seasonId": 92,
+              "divisionId": 7670
+            }
+          ],
+          "pomAwards": []
+        },
+        "12307": {
+          "teamId": 12307,
+          "name": "Chilli Con Geordie",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch A",
+              "opposition": "Don't go taking my tag",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": 4.33,
+              "avgConceded": 11,
+              "avgPoints": null,
+              "biggestWin": "No wins",
+              "biggestLoss": "6 - 18"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": 6.48,
+              "avgConceded": 11.55,
+              "avgPoints": 0.42,
+              "biggestWin": "15 - 5",
+              "biggestLoss": "1 - 22"
+            }
+          },
+          "previousSeasons": [
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Spring 2026) - Spring 2026 - RGS Thursday Plate",
+              "leagueId": 2076,
+              "seasonId": 95,
+              "divisionId": 8166
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Winter 2025) - Winter 2025/26 - RGS Thursday Plate",
+              "leagueId": 2029,
+              "seasonId": 94,
+              "divisionId": 8005
+            },
+            {
+              "label": "Newcastle - RGS Newcastle (Thursday - Autumn 2025) - Autumn 2025 - RGS Newcastle Thursday Plate",
+              "leagueId": 1973,
+              "seasonId": 93,
+              "divisionId": 7869
+            },
+            {
+              "label": "Newcastle - Paddy Freeman's Park (Summer 2025) - Summer 2025 - Paddy Freeman's Plate",
+              "leagueId": 1927,
+              "seasonId": 92,
+              "divisionId": 7670
+            }
+          ],
+          "pomAwards": []
+        },
+        "13216": {
+          "teamId": 13216,
+          "name": "2 Mash 2 Gravy",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "19:45",
+              "court": "Pitch A",
+              "opposition": "Try-Curious",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            }
+          },
+          "previousSeasons": [],
+          "pomAwards": []
+        },
+        "13342": {
+          "teamId": 13342,
+          "name": "Don't go taking my tag",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch A",
+              "opposition": "Chilli Con Geordie",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            }
+          },
+          "previousSeasons": [],
+          "pomAwards": []
+        },
+        "13383": {
+          "teamId": 13383,
+          "name": "Osbourne Road Regrets",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch C",
+              "opposition": "Scrumbled Eggs",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            }
+          },
+          "previousSeasons": [],
+          "pomAwards": []
+        },
+        "13384": {
+          "teamId": 13384,
+          "name": "Scrumbled Eggs",
+          "currentPosition": 1,
+          "currentRecord": {
+            "w": 0,
+            "l": 0,
+            "d": 0
+          },
+          "seasonMatches": [
+            {
+              "date": "Thu 23 Apr 2026",
+              "time": "19:05",
+              "court": "Pitch C",
+              "opposition": "Osbourne Road Regrets",
+              "scoreFor": null,
+              "scoreAgainst": null,
+              "result": null,
+              "label": null
+            }
+          ],
+          "stats": {
+            "last3": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "season": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            },
+            "allTime": {
+              "avgScored": null,
+              "avgConceded": null,
+              "avgPoints": null,
+              "biggestWin": "No data",
+              "biggestLoss": "No data"
+            }
+          },
+          "previousSeasons": [],
+          "pomAwards": []
+        }
+      }
+    }
+  }
+}

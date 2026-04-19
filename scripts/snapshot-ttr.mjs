@@ -22,15 +22,15 @@ const DRY_RUN   = process.argv.includes('--dry-run');
 
 // ── League config ─────────────────────────────────────────────────────────────
 
-const SEASON_ID = 95;
+const SEASON_ID = 96;
 
 const LEAGUES = [
-  { id: 'parks-cup',     label: 'The Parks — Cup',          leagueId: 2074, divisionId: 8151 },
-  { id: 'parks-plate',   label: 'The Parks — Plate',         leagueId: 2074, divisionId: 8152 },
-  { id: 'rgs-wed-cup',   label: 'RGS Newcastle Wed — Cup',   leagueId: 2075, divisionId: 8159 },
-  { id: 'rgs-wed-plate', label: 'RGS Newcastle Wed — Plate', leagueId: 2075, divisionId: 8160 },
-  { id: 'rgs-thu-cup',   label: 'RGS Newcastle Thu — Cup',   leagueId: 2076, divisionId: 8165 },
-  { id: 'rgs-thu-plate', label: 'RGS Newcastle Thu — Plate', leagueId: 2076, divisionId: 8166 },
+  { id: 'novos-mon-cup',   label: 'Novocastrians Mon — Cup',    leagueId: 2159, divisionId: 8327 },
+  { id: 'novos-mon-plate', label: 'Novocastrians Mon — Plate',  leagueId: 2159, divisionId: 8328 },
+  { id: 'novos-wed-cup',   label: 'Novocastrians Wed — Cup',    leagueId: 2160, divisionId: 8329 },
+  { id: 'novos-wed-plate', label: 'Novocastrians Wed — Plate',  leagueId: 2160, divisionId: 8330 },
+  { id: 'paddy-thu-cup',   label: "Paddy Freeman's Thu — Cup",   leagueId: 2161, divisionId: 8331 },
+  { id: 'paddy-thu-plate', label: "Paddy Freeman's Thu — Plate", leagueId: 2161, divisionId: 8332 },
 ];
 
 const BASE = 'https://trytagrugby.spawtz.com/Leagues';
