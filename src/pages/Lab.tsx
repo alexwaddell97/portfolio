@@ -24,7 +24,7 @@ function Lab() {
       <main className="flex-1">
         <section className="dot-grid border-b border-border">
           <div className="mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6 lg:px-8">
-            <h1 className="page-heading-sweep display-heading-safe mt-2 text-5xl font-black tracking-tighter md:text-7xl">
+            <h1 className="page-heading-sweep display-heading-safe mt-2 text-5xl font-extrabold tracking-tighter md:text-7xl">
               Lab
             </h1>
             <p className="mt-3 max-w-2xl text-text-secondary">

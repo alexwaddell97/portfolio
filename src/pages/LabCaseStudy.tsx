@@ -110,7 +110,7 @@ function LabCaseStudy() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }}
-            className={`display-heading-safe ${titleSizeClass} font-black tracking-tighter`}
+            className={`display-heading-safe ${titleSizeClass} font-extrabold tracking-tighter`}
             style={{ color: accentColor }}
           >
             {lab.title}
@@ -195,7 +195,7 @@ function LabCaseStudy() {
             <div className={`grid items-start gap-16 ${i % 2 === 1 ? 'md:grid-cols-[1fr_280px]' : 'md:grid-cols-[280px_1fr]'}`}>
               <div className={i % 2 === 1 ? 'md:order-2 md:text-right' : ''}>
                 <span
-                  className="block select-none text-[8rem] font-black leading-none opacity-[0.07]"
+                  className="block select-none text-[8rem] font-extrabold leading-none opacity-[0.07]"
                   style={{ color: panel.color }}
                 >
                   {String(i + 1).padStart(2, '0')}
@@ -322,7 +322,7 @@ function LabCaseStudy() {
                       Up Next
                     </span>
                     <h3
-                      className="display-heading-safe text-3xl font-black md:text-5xl"
+                      className="display-heading-safe text-3xl font-extrabold md:text-5xl"
                       style={{ color: nextLab.color }}
                     >
                       {nextLab.title}

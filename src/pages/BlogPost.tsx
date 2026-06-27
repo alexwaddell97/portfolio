@@ -63,7 +63,7 @@ function renderContent(content: string) {
       return (
         <h2
           key={i}
-          className="mt-10 mb-4 text-2xl font-bold tracking-tight text-text-primary"
+          className="mt-10 mb-4 text-2xl font-semibold tracking-tight text-text-primary"
         >
           {block.slice(3)}
         </h2>
@@ -143,7 +143,7 @@ function BlogPost() {
                 </span>
               </div>
 
-              <h1 className="page-heading-sweep display-heading-safe text-4xl font-black leading-tight tracking-tight md:text-5xl">
+              <h1 className="page-heading-sweep display-heading-safe text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
                 {post.title}
               </h1>
 
@@ -194,7 +194,7 @@ function BlogPost() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0">
-                    <h2 className="gradient-text-cyan-violet text-xl font-bold leading-snug md:text-2xl">
+                    <h2 className="gradient-text-cyan-violet text-xl font-semibold leading-snug md:text-2xl">
                       {nextPost.title}
                     </h2>
                     <p className="mt-2 text-sm leading-relaxed text-text-secondary line-clamp-2">

@@ -95,7 +95,7 @@ function ProjectCard({ project, index = 0, compact = false }: ProjectCardProps) 
             <div className="absolute inset-0 dot-grid opacity-40" />
             {/* Giant letter */}
             <span
-              className="relative select-none text-[clamp(6rem,18vw,14rem)] font-black leading-[1.05] opacity-15"
+              className="relative select-none text-[clamp(6rem,18vw,14rem)] font-extrabold leading-[1.05] opacity-15"
               style={{ color }}
             >
               {project.title[0]}
@@ -121,7 +121,7 @@ function ProjectCard({ project, index = 0, compact = false }: ProjectCardProps) 
 
         {/* Project number badge */}
         <div
-          className="absolute top-4 left-4 flex h-7 w-7 items-center justify-center rounded-full border text-xs font-bold"
+          className="absolute top-4 left-4 flex h-7 w-7 items-center justify-center rounded-full border text-xs font-semibold"
           style={{ borderColor: `${color}40`, color, background: `${color}10` }}
         >
           {String(index + 1).padStart(2, '0')}
@@ -133,7 +133,7 @@ function ProjectCard({ project, index = 0, compact = false }: ProjectCardProps) 
         {/* Title + description + tags */}
         <div className="flex-1">
           <h3
-            className={`${hasCustomAccent ? '' : gradientTextClass[accent]} font-bold leading-tight ${compact ? 'text-lg' : 'text-2xl md:text-3xl'}`}
+            className={`${hasCustomAccent ? '' : gradientTextClass[accent]} font-semibold leading-tight ${compact ? 'text-lg' : 'text-2xl md:text-3xl'}`}
             style={hasCustomAccent ? { color } : undefined}
           >
             {project.title}
@@ -161,7 +161,7 @@ function ProjectCard({ project, index = 0, compact = false }: ProjectCardProps) 
           <div className="flex shrink-0 flex-col items-end gap-4 sm:min-w-[180px]">
             {project.stats && project.stats.slice(0, 2).map((stat) => (
               <div key={stat.label} className="text-right">
-                <div className="text-xl font-black" style={{ color }}>{stat.value}</div>
+                <div className="text-xl font-extrabold" style={{ color }}>{stat.value}</div>
                 <div className="text-xs text-text-secondary">{stat.label}</div>
               </div>
             ))}

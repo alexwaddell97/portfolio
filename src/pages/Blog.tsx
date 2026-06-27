@@ -120,7 +120,7 @@ function PostCard({ post, featured = false, index = 0 }: { post: BlogPost; featu
 
           {/* Title */}
           <h2
-            className={`gradient-text-cyan-violet font-black leading-tight tracking-tight ${
+            className={`gradient-text-cyan-violet font-extrabold leading-tight tracking-tight ${
               featured ? 'text-2xl md:text-3xl lg:text-4xl' : 'text-xl md:text-2xl'
             }`}
           >
@@ -191,7 +191,7 @@ function Blog() {
             </Link>
             <div className="flex items-end justify-between">
               <div>
-                <h1 className="page-heading-sweep display-heading-safe text-5xl font-black tracking-tighter md:text-7xl">
+                <h1 className="page-heading-sweep display-heading-safe text-5xl font-extrabold tracking-tighter md:text-7xl">
                   Writing
                 </h1>
                 <p className="mt-3 text-base text-text-secondary max-w-2xl">

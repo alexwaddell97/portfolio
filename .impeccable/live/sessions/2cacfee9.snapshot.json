@@ -1,0 +1,23 @@
+{
+  "id": "2cacfee9",
+  "phase": "discarded",
+  "pageUrl": "/",
+  "sourceFile": "src/components/Contact.tsx",
+  "expectedVariants": 3,
+  "arrivedVariants": 3,
+  "visibleVariant": 1,
+  "paramValues": {
+    "density": "balanced",
+    "surface": "card"
+  },
+  "pendingEventSeq": null,
+  "pendingEvent": null,
+  "deliveryLease": null,
+  "checkpointRevision": 7,
+  "activeOwner": "1408b77d",
+  "sourceMarkers": {},
+  "fallbackMode": null,
+  "annotationArtifacts": [],
+  "diagnostics": [],
+  "updatedAt": "2026-05-23T16:25:15.437Z"
+}

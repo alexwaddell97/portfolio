@@ -20,12 +20,12 @@ function NotFound() {
             <div className="pointer-events-none absolute left-3 right-3 -top-2 h-px bg-border/45" />
             <div className="pointer-events-none absolute left-3 right-3 -bottom-2 h-px bg-border/45" />
 
-            <h1 className="display-heading-safe text-center text-[clamp(3rem,10vw,5.5rem)] font-black tracking-tighter text-transparent [-webkit-text-stroke:1.5px_var(--color-text-secondary)]">
+            <h1 className="display-heading-safe text-center text-[clamp(3rem,10vw,5.5rem)] font-extrabold tracking-tighter text-transparent [-webkit-text-stroke:1.5px_var(--color-text-secondary)]">
               404
             </h1>
           </div>
 
-          <h2 className="mt-6 text-2xl font-bold tracking-tight md:text-3xl">This Page Isn’t Finished Yet</h2>
+          <h2 className="mt-6 text-2xl font-semibold tracking-tight md:text-3xl">This Page Isn’t Finished Yet</h2>
           <p className="mx-auto mt-3 max-w-xl text-text-secondary">
             You’ve found a part of the site that’s still behind the scaffold.
           </p>

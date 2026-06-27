@@ -87,7 +87,6 @@ function ContactForm() {
           Message failed to send. Please try again or email alex@alexw.dev directly.
         </p>
       )}
-    
     </form>
   );
 }
@@ -99,11 +98,10 @@ function Contact() {
         <SectionHeading title="Get In Touch" subtitle="Have a project, mentoring initiative, or training idea? Let's talk" />
 
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-          {/* Left column — info + social */}
           <AnimatedSection>
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <img src="/images/headshot.webp" alt="Alex Waddell" className="w-20 h-20 rounded-full object-cover border border-border" loading="lazy" />
+                <img src="/images/headshot.webp" alt="Alex Waddell" className="h-20 w-20 rounded-full border border-border object-cover" loading="lazy" />
                 <div>
                   <p className="text-lg font-semibold text-text-primary">Alex Waddell</p>
                   <p className="text-sm text-text-secondary">Lead Developer</p>
@@ -133,7 +131,6 @@ function Contact() {
             </div>
           </AnimatedSection>
 
-          {/* Right column — form */}
           <AnimatedSection delay={0.1}>
             <ContactForm />
           </AnimatedSection>

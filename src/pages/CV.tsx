@@ -44,7 +44,7 @@ function CV() {
           <div className={isPdf ? 'flex flex-wrap items-start justify-between gap-2 border-b border-border pb-3' : 'flex flex-wrap items-start justify-between gap-4 border-b border-border pb-6'}>
             <div>
               <h1
-                className={`${isPdf ? 'text-3xl sm:text-3xl' : 'text-4xl sm:text-5xl'} font-black tracking-tight`}
+                className={`${isPdf ? 'text-3xl sm:text-3xl' : 'text-4xl sm:text-5xl'} font-extrabold tracking-tight`}
                 style={{
                   backgroundImage: 'linear-gradient(135deg, var(--color-cyan), var(--color-violet))',
                   WebkitBackgroundClip: 'text',

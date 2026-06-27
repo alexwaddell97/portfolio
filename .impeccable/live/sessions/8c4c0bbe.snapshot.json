@@ -1,0 +1,20 @@
+{
+  "id": "8c4c0bbe",
+  "phase": "discarded",
+  "pageUrl": "/",
+  "sourceFile": "src/components/Projects.tsx",
+  "expectedVariants": 2,
+  "arrivedVariants": 2,
+  "visibleVariant": 2,
+  "paramValues": {},
+  "pendingEventSeq": null,
+  "pendingEvent": null,
+  "deliveryLease": null,
+  "checkpointRevision": 4,
+  "activeOwner": "4dd70787",
+  "sourceMarkers": {},
+  "fallbackMode": null,
+  "annotationArtifacts": [],
+  "diagnostics": [],
+  "updatedAt": "2026-05-23T16:08:08.548Z"
+}

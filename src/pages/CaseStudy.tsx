@@ -314,7 +314,7 @@ function CaseStudy() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }}
-            className={`${titleStyle === undefined ? gradientTextClass[accent] : ''} display-heading-safe ${titleSizeClass} font-black tracking-tighter`}
+            className={`${titleStyle === undefined ? gradientTextClass[accent] : ''} display-heading-safe ${titleSizeClass} font-extrabold tracking-tighter`}
             style={titleStyle}
           >
               {displayTitle}
@@ -426,7 +426,7 @@ function CaseStudy() {
               {/* Label + ordinal */}
               <div className={i % 2 === 1 ? 'md:order-2 md:text-right' : ''}>
                 <span
-                  className="block select-none text-[8rem] font-black leading-none opacity-[0.07]"
+                  className="block select-none text-[8rem] font-extrabold leading-none opacity-[0.07]"
                   style={{ color: panel.color }}
                 >
                   {String(i + 1).padStart(2, '0')}
@@ -471,7 +471,7 @@ function CaseStudy() {
                     style={{ background: `radial-gradient(ellipse at 50% 0%, ${accentColor}22, transparent 65%)` }}
                   />
                   <div
-                    className="cs-stat-value relative text-5xl font-black md:text-6xl"
+                    className="cs-stat-value relative text-5xl font-extrabold md:text-6xl"
                     data-value={stat.value}
                     style={{ color: accentColor }}
                   >
@@ -613,7 +613,7 @@ function CaseStudy() {
                     Up Next
                   </span>
                   <h3
-                    className={`${nextTitleStyle === undefined ? gradientTextClass[nextProject.accentColor] : ''} display-heading-safe text-3xl font-black md:text-5xl`}
+                    className={`${nextTitleStyle === undefined ? gradientTextClass[nextProject.accentColor] : ''} display-heading-safe text-3xl font-extrabold md:text-5xl`}
                     style={nextTitleStyle}
                   >
                     {displayNextTitle}

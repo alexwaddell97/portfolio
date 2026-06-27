@@ -145,7 +145,7 @@ function AllProjects() {
             </Link>
             <div className="flex items-end justify-between">
               <div>
-                <h1 className="page-heading-sweep display-heading-safe text-5xl font-black tracking-tighter md:text-7xl">
+                <h1 className="page-heading-sweep display-heading-safe text-5xl font-extrabold tracking-tighter md:text-7xl">
                   All Projects
                 </h1>
                 <p className="mt-3 text-base text-text-secondary max-w-2xl">
@@ -288,7 +288,7 @@ function AllProjects() {
                         >
                           <div className="absolute inset-0 dot-grid opacity-30" />
                           <span
-                            className="relative select-none text-[clamp(4rem,12vw,8rem)] font-black leading-[1.05] opacity-15"
+                            className="relative select-none text-[clamp(4rem,12vw,8rem)] font-extrabold leading-[1.05] opacity-15"
                             style={{ color }}
                           >
                             {project.title[0]}
@@ -323,7 +323,7 @@ function AllProjects() {
                     {/* Content */}
                     <div className="mt-4 px-1">
                       <h2
-                        className={`${hasCustomAccent ? '' : gradientTextClass[accent]} text-xl font-bold leading-tight`}
+                        className={`${hasCustomAccent ? '' : gradientTextClass[accent]} text-xl font-semibold leading-tight`}
                         style={hasCustomAccent ? { color } : undefined}
                       >
                         {project.title}
@@ -390,7 +390,7 @@ function AllProjects() {
               <FiLock size={12} />
               Confidential client work
             </div>
-            <h2 className="display-heading-safe text-3xl font-black tracking-tight md:text-4xl">
+            <h2 className="display-heading-safe text-3xl font-extrabold tracking-tight md:text-4xl">
               Selected Client Work
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-text-secondary">

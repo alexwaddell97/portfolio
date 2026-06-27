@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-23T00:00:00.000Z",
+  "title": "Design System: Alex Waddell Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "bg-primary":      { "role": "neutral",   "displayName": "Abyss Ink",         "canonical": "#080810",  "tonalRamp": ["#080810","#0e0e1a","#12121f","#1a1a2e","#252535","#2e2e45","#3a3a55","#4a4a68"] },
+      "bg-secondary":    { "role": "neutral",   "displayName": "Deep Void",         "canonical": "#0e0e1a",  "tonalRamp": ["#080810","#0e0e1a","#12121f","#1a1a2e","#252535","#2e2e45","#3a3a55","#4a4a68"] },
+      "bg-card":         { "role": "neutral",   "displayName": "Surface Slate",     "canonical": "#12121f",  "tonalRamp": ["#080810","#0e0e1a","#12121f","#1a1a2e","#252535","#2e2e45","#3a3a55","#4a4a68"] },
+      "text-primary":    { "role": "neutral",   "displayName": "Off-White Signal",  "canonical": "#e4e4e7",  "tonalRamp": ["#9898a0","#ababb3","#bdbdc4","#cbcbd0","#d6d6db","#e0e0e4","#e4e4e7","#f0f0f2"] },
+      "text-secondary":  { "role": "neutral",   "displayName": "Ash Type",          "canonical": "#a1a1aa",  "tonalRamp": ["#52525b","#6b6b75","#7a7a83","#8e8e97","#a1a1aa","#b5b5bc","#c8c8ce","#dcdce0"] },
+      "text-muted":      { "role": "neutral",   "displayName": "Faded Lavender",    "canonical": "#8b8b9d",  "tonalRamp": ["#4a4a5a","#5e5e70","#6e6e82","#7b7b8f","#8b8b9d","#9e9eae","#b2b2be","#c6c6d0"] },
+      "electric-blue":   { "role": "primary",   "displayName": "Electric Blue",     "canonical": "#3b82f6",  "tonalRamp": ["#0a1628","#0f2040","#1e3a8a","#1d4ed8","#2563eb","#3b82f6","#60a5fa","#93c5fd"] },
+      "accent-hover":    { "role": "primary",   "displayName": "Electric Blue Deep","canonical": "#2563eb",  "tonalRamp": ["#0a1628","#0f2040","#1e3a8a","#1d4ed8","#2563eb","#3b82f6","#60a5fa","#93c5fd"] },
+      "drift-indigo":    { "role": "secondary", "displayName": "Drift Indigo",      "canonical": "#818cf8",  "tonalRamp": ["#0c0f24","#1e1b4b","#312e81","#4338ca","#4f46e5","#6366f1","#818cf8","#a5b4fc"] },
+      "pale-sky":        { "role": "tertiary",  "displayName": "Pale Sky",          "canonical": "#93c5fd",  "tonalRamp": ["#082040","#0c4a6e","#0369a1","#0284c7","#0ea5e9","#38bdf8","#7dd3fc","#93c5fd"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",  "purpose": "Hero name only. Never use on headings or body copy." },
+      "headline": { "displayName": "Headline", "purpose": "Section h2 titles. Primary page landmark." },
+      "title":    { "displayName": "Title",    "purpose": "Project card titles, h3 elements. May use gradient-text per-project accent." },
+      "body":     { "displayName": "Body",     "purpose": "All paragraph copy. Cap at 65–70ch line length." },
+      "label":    { "displayName": "Label",    "purpose": "Role cycling text, tag/chip text, utility labels. 0.2em tracking, uppercase." }
+    },
+    "shadows": [
+      { "name": "glow-ambient",  "value": "0 0 20px rgba(59,130,246,0.08), 0 0 60px rgba(59,130,246,0.04)", "purpose": "Low-intensity ambient glow on accent-bordered card panels at rest." },
+      { "name": "button-lift",   "value": "0 16px 30px -16px rgba(59,130,246,0.75)",                        "purpose": "Directional glow beneath primary buttons on hover only." },
+      { "name": "focus-ring",    "value": "0 0 0 2px rgba(147,197,253,0.5)",                                "purpose": "Keyboard focus indicator using Pale Sky alpha." },
+      { "name": "button-focus",  "value": "0 0 0 2px rgba(59,130,246,0.3)",                                 "purpose": "Focus ring on outline and soft-cyan buttons." },
+      { "name": "badge-glow",    "value": "radial-gradient(ellipse 60% 60% at 50% 50%, accent/0.18, transparent)", "purpose": "Accent radial on project card placeholder panels. Replace 'accent' with the token color." }
+    ],
+    "motion": [
+      { "name": "ease-standard",   "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Default easing for all transitions. Expo-out: fast in, graceful settle." },
+      { "name": "duration-micro",  "value": "200ms",                           "purpose": "Icon rotations, immediate state feedback (theme toggle)." },
+      { "name": "duration-fast",   "value": "220ms",                           "purpose": "Button and link state changes, hover transitions." },
+      { "name": "duration-mid",    "value": "350ms",                           "purpose": "AnimatePresence enter/exit (role cycling, Konami toast)." },
+      { "name": "duration-slow",   "value": "700ms",                           "purpose": "Page section entry animations with stagger." },
+      { "name": "stagger-children","value": "0.15s",                           "purpose": "Stagger delay between hero content children on mount." },
+      { "name": "spring-card",     "value": "stiffness: 280, damping: 22",     "purpose": "Spring physics for project card y:-3px hover lift." },
+      { "name": "spring-nav",      "value": "stiffness: 420, damping: 28",     "purpose": "Spring physics for nav brand micro-lift on hover." },
+      { "name": "marquee",         "value": "90s linear infinite",             "purpose": "Tech stack marquee ticker. Disabled under prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "sm",  "value": "640px"  },
+      { "name": "md",  "value": "768px"  },
+      { "name": "lg",  "value": "1024px" },
+      { "name": "xl",  "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The primary CTA. Electric Blue gradient fill, lifts on hover. Used for 'View Projects' and case study actions.",
+      "html": "<button class=\"ds-btn-primary\">View Projects</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; border-radius: 8px; padding: 12px 24px; font-family: Inter, system-ui, sans-serif; font-size: 1rem; font-weight: 500; color: #ffffff; background: linear-gradient(135deg, #3b82f6, #1d4ed8); border: none; box-shadow: 0 10px 24px -18px rgba(59, 130, 246, 0.7); transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1); text-decoration: none; } .ds-btn-primary:hover { transform: translateY(-1px) scale(1.02); box-shadow: 0 16px 30px -16px rgba(59, 130, 246, 0.75); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 2px rgba(147, 197, 253, 0.5), 0 16px 30px -16px rgba(29, 78, 216, 0.75); } .ds-btn-primary:disabled { transform: none; box-shadow: none; cursor: not-allowed; opacity: 0.5; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Ghost CTA. Transparent with a near-invisible border. Activates to Electric Blue on hover. Used for 'Get In Touch'.",
+      "html": "<button class=\"ds-btn-outline\">Get In Touch</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.06); padding: 12px 24px; font-family: Inter, system-ui, sans-serif; font-size: 1rem; font-weight: 500; color: #e4e4e7; background: transparent; transition: color 220ms cubic-bezier(0.22, 1, 0.36, 1), border-color 220ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1), transform 220ms cubic-bezier(0.22, 1, 0.36, 1); text-decoration: none; } .ds-btn-outline:hover { color: #3b82f6; border-color: rgba(59, 130, 246, 0.45); transform: translateY(-1px); } .ds-btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3); }"
+    },
+    {
+      "name": "Soft Cyan Button",
+      "kind": "button",
+      "refersTo": "button-soft-cyan",
+      "description": "Low-hierarchy CTA with a tinted Electric Blue background. Used for Download CV in nav and tertiary actions.",
+      "html": "<button class=\"ds-btn-soft-cyan\">Download CV</button>",
+      "css": ".ds-btn-soft-cyan { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.35); background: rgba(59, 130, 246, 0.1); color: #3b82f6; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; padding: 6px 16px; transition: background 220ms cubic-bezier(0.22, 1, 0.36, 1), border-color 220ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1), transform 220ms cubic-bezier(0.22, 1, 0.36, 1); text-decoration: none; } .ds-btn-soft-cyan:hover { background: rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.45); transform: translateY(-1px); } .ds-btn-soft-cyan:focus-visible { outline: none; box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.28); }"
+    },
+    {
+      "name": "Nav Active Pill",
+      "kind": "nav",
+      "refersTo": "nav-pill-active",
+      "description": "Active state for desktop navigation items. Tinted pill background, Electric Blue border, animated in/out.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-item ds-nav-item--active\">Projects</a><a href=\"#\" class=\"ds-nav-item\">Writing</a><a href=\"#\" class=\"ds-nav-item\">Contact</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 4px; font-family: Inter, system-ui, sans-serif; } .ds-nav-item { position: relative; padding: 6px 16px; font-size: 0.875rem; font-weight: 400; color: #a1a1aa; text-decoration: none; border-radius: 9999px; transition: color 200ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-nav-item:hover { color: #e4e4e7; } .ds-nav-item--active { color: #e4e4e7; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); } .ds-nav-item:focus-visible { outline: none; box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3); }"
+    },
+    {
+      "name": "Tag Chip",
+      "kind": "chip",
+      "refersTo": "tag-cyan",
+      "description": "Technology tag used on project cards. Display-only. Three color variants (cyan/violet/pink) mapped to the Signal Blue trio.",
+      "html": "<div class=\"ds-tag-group\"><span class=\"ds-tag-cyan\">TypeScript</span><span class=\"ds-tag-violet\">React</span><span class=\"ds-tag-pale\">Next.js</span></div>",
+      "css": ".ds-tag-group { display: flex; flex-wrap: wrap; gap: 8px; } .ds-tag-cyan, .ds-tag-violet, .ds-tag-pale { display: inline-block; border-radius: 9999px; font-family: Inter, system-ui, sans-serif; font-size: 0.75rem; font-weight: 500; padding: 4px 12px; } .ds-tag-cyan { background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); color: #3b82f6; } .ds-tag-violet { background: rgba(129, 140, 248, 0.1); border: 1px solid rgba(129, 140, 248, 0.2); color: #818cf8; } .ds-tag-pale { background: rgba(147, 197, 253, 0.1); border: 1px solid rgba(147, 197, 253, 0.2); color: #93c5fd; }"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "project-card",
+      "description": "The primary showcase surface. 16/7 aspect image panel with gradient border, accent glow, hover overlay, and content row below.",
+      "html": "<div class=\"ds-project-card\"><div class=\"ds-project-card__panel\"><div class=\"ds-project-card__badge\">01</div><div class=\"ds-project-card__overlay\"><div class=\"ds-project-card__cta\">View Case Study <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></div></div></div><div class=\"ds-project-card__body\"><h3 class=\"ds-project-card__title\">Project Name</h3><p class=\"ds-project-card__desc\">Short description of what was built and the problem it solves.</p><div class=\"ds-project-card__tags\"><span class=\"ds-tag-cyan\">TypeScript</span><span class=\"ds-tag-violet\">React</span></div></div></div>",
+      "css": ".ds-project-card { border-radius: 16px; cursor: pointer; } .ds-project-card__panel { position: relative; overflow: hidden; border-radius: 16px; background: #0e0e1a; aspect-ratio: 16 / 7; border: 1px solid rgba(59, 130, 246, 0.28); box-shadow: 0 0 20px rgba(59, 130, 246, 0.08), 0 0 60px rgba(59, 130, 246, 0.04); transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-project-card:hover .ds-project-card__panel { transform: translateY(-3px); } .ds-project-card__badge { position: absolute; top: 16px; left: 16px; width: 28px; height: 28px; border-radius: 9999px; border: 1px solid rgba(59, 130, 246, 0.4); color: #3b82f6; background: rgba(59, 130, 246, 0.1); display: flex; align-items: center; justify-content: center; font-family: Inter, system-ui, sans-serif; font-size: 0.7rem; font-weight: 700; } .ds-project-card__overlay { position: absolute; inset: 0; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: rgba(8, 8, 16, 0.6); backdrop-filter: blur(4px); opacity: 0; transition: opacity 300ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-project-card:hover .ds-project-card__overlay { opacity: 1; } .ds-project-card__cta { display: flex; align-items: center; gap: 12px; border-radius: 9999px; border: 1px solid rgba(59, 130, 246, 0.6); background: rgba(59, 130, 246, 0.15); padding: 12px 24px; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; color: #ffffff; } .ds-project-card__body { margin-top: 20px; padding: 0 4px; } .ds-project-card__title { font-family: Inter, system-ui, sans-serif; font-size: 1.5rem; font-weight: 700; color: #3b82f6; line-height: 1.2; margin: 0; } .ds-project-card__desc { font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; color: #a1a1aa; line-height: 1.625; margin-top: 8px; max-width: 60ch; } .ds-project-card__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; } .ds-tag-cyan { display: inline-block; border-radius: 9999px; border: 1px solid rgba(59, 130, 246, 0.2); background: rgba(59, 130, 246, 0.1); color: #3b82f6; font-family: Inter, system-ui, sans-serif; font-size: 0.75rem; font-weight: 500; padding: 4px 12px; } .ds-tag-violet { display: inline-block; border-radius: 9999px; border: 1px solid rgba(129, 140, 248, 0.2); background: rgba(129, 140, 248, 0.1); color: #818cf8; font-family: Inter, system-ui, sans-serif; font-size: 0.75rem; font-weight: 500; padding: 4px 12px; }"
+    },
+    {
+      "name": "Section Heading",
+      "kind": "custom",
+      "description": "Every section opens with an h2, optional subtitle, and a 64px tri-color gradient rule. The rule uses all three Signal Blue accents simultaneously.",
+      "html": "<div class=\"ds-section-heading\"><h2 class=\"ds-section-heading__title\">Projects</h2><p class=\"ds-section-heading__subtitle\">A selection of work spanning products, tools, and experiments.</p><div class=\"ds-section-heading__rule\" aria-hidden=\"true\"></div></div>",
+      "css": ".ds-section-heading { text-align: center; margin-bottom: 32px; font-family: Inter, system-ui, sans-serif; } .ds-section-heading__title { font-size: clamp(1.875rem, 4vw, 2.25rem); font-weight: 700; color: #e4e4e7; margin: 0; line-height: 1.2; } .ds-section-heading__subtitle { font-size: 1.125rem; color: #a1a1aa; margin-top: 12px; line-height: 1.625; } .ds-section-heading__rule { width: 64px; height: 2px; border-radius: 9999px; background: linear-gradient(90deg, #3b82f6, #818cf8, #93c5fd); margin: 16px auto 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Signal in the Dark",
+    "overview": "This is a precision instrument that broadcasts from a deep black field. The architecture is discipline — maximal negative space, a single typeface, a tight constraint of three blue-family accents used with restraint. The personality is not in the layout. It lives in the interactions: the glitch easter egg on five name clicks, the Konami code, the snake game. Find the layout, find the engineer. Find the easter eggs, find the person.\n\nThe system is dark because that is the correct answer for this context, not a reflex. A hiring manager reviewing work at night on a laptop, a founder scanning a portfolio at their standing desk — the deep navy-black reduces ambient glare and makes every interactive element feel like transmission rather than decoration.\n\nEvery element earns its presence. If something does not carry signal, it is removed.",
+    "keyCharacteristics": [
+      "Single typeface (Inter), weight-based hierarchy only — no display pairing",
+      "Three accents in the same blue family: Electric Blue, Drift Indigo, Pale Sky",
+      "Glow-based depth: surfaces are flat, glows mark active and interactive edges",
+      "Expo-out easing (cubic-bezier(0.22, 1, 0.36, 1)) for every transition",
+      "Stagger-and-settle entry animation; spring physics on interactive hover",
+      "Personality encoded in easter eggs and micromoments, not in decorative elements"
+    ],
+    "rules": [
+      { "name": "The One Source Rule",        "body": "All three accent colors derive from the blue family. Never introduce a warm accent into the primary palette. Warmth enters only as per-project accent overrides on case study cards, scoped to that card.",             "section": "colors" },
+      { "name": "The Glow Rule",              "body": "Glows are not atmosphere. A glow on a surface marks it as active, hoverable, or focused. No glow should appear on a static non-interactive element at rest.",                                                          "section": "colors" },
+      { "name": "The Gradient Text Rule",     "body": "Gradient text (background-clip: text) is restricted to project card titles as a functional per-project accent identifier. Gradient text on any heading, CTA, or decorative element is prohibited.",                     "section": "colors" },
+      { "name": "The Single-Family Rule",     "body": "Inter only. All hierarchy is expressed through weight (400–900) and scale. No second typeface without a system-level decision documented in DESIGN.md.",                                                                  "section": "typography" },
+      { "name": "The Flat-By-Default Rule",   "body": "Surfaces are flat at rest. Glow and shadow appear only as state transitions — hover, focus, or active. A static glow on any resting, non-interactive element is a mistake.",                                             "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Electric Blue (#3b82f6) as the sole action color. Every CTA, link hover, active state, and focus ring resolves to #3b82f6 or its hover derivative (#2563eb). Rarity is the point.",
+      "Do keep surfaces flat at rest. Glow and shadow appear only as state transitions — hover, focus, active.",
+      "Do use Inter exclusively. All hierarchy is expressed through weight (400/500/600/700/900) and scale.",
+      "Do use cubic-bezier(0.22, 1, 0.36, 1) for every transition. No bounce, no elastic.",
+      "Do respect prefers-reduced-motion. All animation must degrade gracefully to a static state.",
+      "Do encode personality in interactions and easter eggs. The layout is disciplined; the personality is discovered.",
+      "Do use the three-stop section divider (Electric Blue → Drift Indigo → Pale Sky) beneath every h2 section title."
+    ],
+    "donts": [
+      "Don't build the generic dev portfolio template: big avatar hero, role cycling as primary heading, skills logo grid, identical project card grid.",
+      "Don't use gradient text (background-clip: text) for any heading, CTA, or decorative element. Restricted to project card titles only.",
+      "Don't use glassmorphism as a surface style. backdrop-blur appears only as an interaction state, never a resting card background.",
+      "Don't introduce warm colors (orange, red, yellow, green) into the primary palette. Warmth is per-project card only.",
+      "Don't add decorative shadows or glows to non-interactive elements. Glows are state indicators.",
+      "Don't use side-stripe borders (border-left or border-right > 1px as a colored accent on cards or list items).",
+      "Don't build an over-animated showreel: particles, WebGL backgrounds, everything-enters-animated on load.",
+      "Don't apply a dry CV-with-theme approach. A section that does not demonstrate something should not exist.",
+      "Don't use AI-generated design output patterns: hero metric blocks, identical card grids, gradient-heavy CTAs, glassmorphism cards."
+    ]
+  }
+}

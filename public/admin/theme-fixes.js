@@ -221,7 +221,7 @@
     doc.body.style.setProperty('margin', '0', 'important');
     doc.body.style.setProperty('background', bg, 'important');
     doc.body.style.setProperty('color', text, 'important');
-    doc.body.style.setProperty('font-family', "'Inter', system-ui, sans-serif", 'important');
+    doc.body.style.setProperty('font-family', "'Manrope', system-ui, sans-serif", 'important');
   }
 
   function patchPreviewPane(root) {

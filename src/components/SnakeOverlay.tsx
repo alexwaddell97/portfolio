@@ -215,7 +215,7 @@ function SnakeOverlay({ onClose }: SnakeOverlayProps) {
                     : isFood
                       ? 'bg-pink/90'
                       : isPower
-                        ? 'snake-rainbow-pulse flex items-center justify-center bg-violet/85 font-mono text-lg font-black leading-none tracking-tighter text-bg-primary sm:text-xl'
+                        ? 'snake-rainbow-pulse flex items-center justify-center bg-violet/85 font-mono text-lg font-extrabold leading-none tracking-tighter text-bg-primary sm:text-xl'
                       : 'bg-transparent'
               }`}
             >

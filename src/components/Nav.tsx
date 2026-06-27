@@ -19,8 +19,7 @@ function ThemeToggle() {
       return;
     }
 
-    (document as Document & { startViewTransition(cb: () => void): void })
-      .startViewTransition(toggleTheme);
+    (document as Document & { startViewTransition(cb: () => void): void }).startViewTransition(toggleTheme);
   }
 
   return (
@@ -72,7 +71,6 @@ function Nav() {
       scrollToSection(sectionId, menuDelay);
     } else {
       navigate('/');
-      // After navigation, React re-renders the home page — wait a tick for the DOM
       scrollToSection(sectionId, 120 + menuDelay);
     }
   }
@@ -83,25 +81,24 @@ function Nav() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Track active section on home page only
   useEffect(() => {
     if (!isHome) return;
     const sections = ['hero', 'projects', 'contact'];
     const observers: IntersectionObserver[] = [];
-    sections.forEach(id => {
+
+    sections.forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
-      const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
-        { threshold: 0.4 }
-      );
+      const obs = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) setActiveSection(id);
+      }, { threshold: 0.4 });
       obs.observe(el);
       observers.push(obs);
     });
-    return () => observers.forEach(obs => obs.disconnect());
+
+    return () => observers.forEach((obs) => obs.disconnect());
   }, [isHome]);
 
-  // Nav items — each has a type so we know how to render
   type NavItem =
     | { label: string; type: 'hash'; href: string; section: string }
     | { label: string; type: 'link'; to: string };
@@ -119,7 +116,6 @@ function Nav() {
       if (item.to === '/blog') return isBlog;
       return false;
     }
-    // hash item — item.section is now narrowed correctly
     if (!isHome) return false;
     return activeSection === item.section;
   }
@@ -135,44 +131,30 @@ function Nav() {
             : 'border-b border-transparent bg-transparent'
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        {/* Logo + theme toggle */}
+      <div className="nav-v2">
         <div className="flex items-center gap-2.5">
           <Link
             to="/"
-            onClick={() => { if (isHome) window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            onClick={() => {
+              if (isHome) window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
             className="group relative flex items-center"
           >
-            <motion.span
-              whileHover={{ y: -1 }}
-              transition={{ type: 'spring', stiffness: 420, damping: 28 }}
-              className="nav-brand text-sm font-semibold tracking-tight"
-            >
+            <span className="n2-brand">
               <span className="text-text-primary">alexw</span>
               <span className="nav-brand-dotdev">.dev</span>
-            </motion.span>
-            <span
-              aria-hidden
-              className={`nav-brand-underline absolute -bottom-0.5 h-px bg-linear-to-r from-cyan to-violet transition-all duration-300 ${
-                isHome
-                  ? 'left-0 w-full opacity-70'
-                  : 'left-1/2 w-0 opacity-0 group-hover:left-0 group-hover:w-full group-hover:opacity-100'
-              }`}
-            />
+            </span>
           </Link>
           <ThemeToggle />
-          <motion.span whileHover={{ rotate: -15 }} transition={{ type: 'spring', stiffness: 400, damping: 20 }}>
-            <Link
-              to="/lab"
-              aria-label="Lab"
-              className="flex h-7 w-7 items-center justify-center rounded-full text-text-secondary transition-colors hover:text-cyan"
-            >
-              <LuFlaskConical size={15} strokeWidth={2} />
-            </Link>
-          </motion.span>
+          <Link
+            to="/lab"
+            aria-label="Lab"
+            className="flex h-7 w-7 items-center justify-center rounded-full text-text-secondary transition-colors hover:text-cyan"
+          >
+            <LuFlaskConical size={15} strokeWidth={2} />
+          </Link>
         </div>
 
-        {/* Case study: back button */}
         {isCaseStudy ? (
           <Link
             to="/projects"
@@ -182,64 +164,25 @@ function Nav() {
             Back to projects
           </Link>
         ) : (
-          <div className="hidden items-center gap-1 md:flex">
+          <div className="n2-links">
             {navItems.map((item) => {
               const active = isActive(item);
               return item.type === 'link' ? (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  className="relative px-4 py-1.5 text-sm transition-colors"
-                  style={{ color: active ? 'var(--color-text-primary)' : 'var(--color-text-secondary)' }}
-                >
-                  <AnimatePresence>
-                    {active && (
-                      <motion.span
-                        key={item.to}
-                        initial={{ opacity: 0, scale: 0.88 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.88 }}
-                        transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-                        className="absolute inset-0 rounded-full border border-cyan/30 bg-cyan/10"
-                      />
-                    )}
-                  </AnimatePresence>
-                  <span className="relative z-10">{item.label}</span>
+                <Link key={item.to} to={item.to} className="n2-item" data-active={active}>
+                  {item.label}
                 </Link>
               ) : (
-                <button
-                  key={item.href}
-                  onClick={() => handleHashNav(item.section)}
-                  className="relative px-4 py-1.5 text-sm transition-colors cursor-pointer"
-                  style={{ color: active ? 'var(--color-text-primary)' : 'var(--color-text-secondary)' }}
-                >
-                  <AnimatePresence>
-                    {active && (
-                      <motion.span
-                        key={item.href}
-                        initial={{ opacity: 0, scale: 0.88 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.88 }}
-                        transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-                        className="absolute inset-0 rounded-full border border-cyan/30 bg-cyan/10"
-                      />
-                    )}
-                  </AnimatePresence>
-                  <span className="relative z-10">{item.label}</span>
+                <button key={item.href} onClick={() => handleHashNav(item.section)} className="n2-item cursor-pointer" data-active={active}>
+                  {item.label}
                 </button>
               );
             })}
-            <a
-              href={cvFilePath}
-              download
-              className="btn-soft-cyan ml-2 rounded-full px-4 py-1.5 text-sm"
-            >
+            <a href={cvFilePath} download className="btn-soft-cyan ml-2 rounded-full px-4 py-1.5 text-sm">
               Download CV
             </a>
           </div>
         )}
 
-        {/* Mobile toggle */}
         {!isCaseStudy && (
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -253,7 +196,6 @@ function Nav() {
         )}
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && !isCaseStudy && (
           <motion.div

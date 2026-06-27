@@ -14,7 +14,7 @@ function SectionHeading({ title, subtitle }: SectionHeadingProps) {
       transition={{ duration: 0.5 }}
       className="mb-8 text-center"
     >
-      <h2 className="text-3xl font-bold text-text-primary md:text-4xl">{title}</h2>
+      <h2 className="text-3xl font-semibold text-text-primary md:text-4xl">{title}</h2>
       {subtitle && <p className="mt-3 text-lg text-text-secondary">{subtitle}</p>}
       <div className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-cyan via-violet to-pink" />
     </motion.div>
