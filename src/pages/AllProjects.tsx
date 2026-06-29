@@ -87,6 +87,7 @@ function AllProjects() {
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set());
 
   const displayItems = useMemo<DisplayItem[]>(() => [
+    ...projects.map(p => ({ ...p, href: `/projects/${p.slug}` })),
     ...labs.map(l => ({
       id: l.slug,
       slug: l.slug,
@@ -100,7 +101,6 @@ function AllProjects() {
       href: `/projects/lab/${l.slug}`,
       liveUrl: l.path,
     })),
-    ...projects.map(p => ({ ...p, href: `/projects/${p.slug}` })),
   ], []);
 
   const filtered = useMemo(() => {
