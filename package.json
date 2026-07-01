@@ -13,7 +13,9 @@
     "preview": "vite preview",
     "a11y": "npm run build && node scripts/a11y-audit.mjs",
     "ttr:snapshot": "node scripts/snapshot-ttr.mjs",
-    "ttr:snapshot:dry": "node scripts/snapshot-ttr.mjs --dry-run"
+    "ttr:snapshot:dry": "node scripts/snapshot-ttr.mjs --dry-run",
+    "ttr:new-season": "node scripts/new-season-ttr.mjs",
+    "ttr:new-season:dry": "node scripts/new-season-ttr.mjs --dry-run"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
