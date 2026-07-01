@@ -26,12 +26,12 @@ interface LeagueConfig {
 }
 
 const LEAGUES: LeagueConfig[] = [
-  { id: 'novos-mon-cup',   label: 'Novocastrians Mon — Cup',    shortLabel: 'Novos Mon Cup',   leagueId: 2159, divisionId: 8333, seasonId: 97, venue: 'novos-mon', division: 'cup'   },
-  { id: 'novos-mon-plate', label: 'Novocastrians Mon — Plate',  shortLabel: 'Novos Mon Plate', leagueId: 2159, divisionId: 8334, seasonId: 97, venue: 'novos-mon', division: 'plate' },
-  { id: 'novos-wed-cup',   label: 'Novocastrians Wed — Cup',    shortLabel: 'Novos Wed Cup',   leagueId: 2160, divisionId: 8335, seasonId: 97, venue: 'novos-wed', division: 'cup'   },
-  { id: 'novos-wed-plate', label: 'Novocastrians Wed — Plate',  shortLabel: 'Novos Wed Plate', leagueId: 2160, divisionId: 8336, seasonId: 97, venue: 'novos-wed', division: 'plate' },
-  { id: 'paddy-thu-cup',   label: "Paddy Freeman's Thu — Cup",   shortLabel: 'Paddy Thu Cup',   leagueId: 2161, divisionId: 8337, seasonId: 97, venue: 'paddy-thu', division: 'cup'   },
-  { id: 'paddy-thu-plate', label: "Paddy Freeman's Thu — Plate", shortLabel: 'Paddy Thu Plate', leagueId: 2161, divisionId: 8338, seasonId: 97, venue: 'paddy-thu', division: 'plate' },
+  { id: 'novos-mon-cup',   label: 'Novocastrians Mon — Cup',    shortLabel: 'Novos Mon Cup',   leagueId: 2159, divisionId: 8485, seasonId: 97, venue: 'novos-mon', division: 'cup'   },
+  { id: 'novos-mon-plate', label: 'Novocastrians Mon — Plate',  shortLabel: 'Novos Mon Plate', leagueId: 2159, divisionId: 8486, seasonId: 97, venue: 'novos-mon', division: 'plate' },
+  { id: 'novos-wed-cup',   label: 'Novocastrians Wed — Cup',    shortLabel: 'Novos Wed Cup',   leagueId: 2160, divisionId: 8495, seasonId: 97, venue: 'novos-wed', division: 'cup'   },
+  { id: 'novos-wed-plate', label: 'Novocastrians Wed — Plate',  shortLabel: 'Novos Wed Plate', leagueId: 2160, divisionId: 8496, seasonId: 97, venue: 'novos-wed', division: 'plate' },
+  { id: 'paddy-thu-cup',   label: "Paddy Freeman's Thu — Cup",   shortLabel: 'Paddy Thu Cup',   leagueId: 2161, divisionId: 8515, seasonId: 97, venue: 'paddy-thu', division: 'cup'   },
+  { id: 'paddy-thu-plate', label: "Paddy Freeman's Thu — Plate", shortLabel: 'Paddy Thu Plate', leagueId: 2161, divisionId: 8516, seasonId: 97, venue: 'paddy-thu', division: 'plate' },
 ];
 
 const VENUES = [
@@ -94,6 +94,12 @@ interface TeamProfile {
 // ── API helpers ───────────────────────────────────────────────────────────────
 
 const SNAPSHOT_LEAGUE_KEY_BY_IDS: Record<string, string> = {
+  '97:2159:8485': 'novos-mon-cup',
+  '97:2159:8486': 'novos-mon-plate',
+  '97:2160:8495': 'novos-wed-cup',
+  '97:2160:8496': 'novos-wed-plate',
+  '97:2161:8515': 'paddy-thu-cup',
+  '97:2161:8516': 'paddy-thu-plate',
   '96:2159:8327': 'novos-mon-cup',
   '96:2159:8328': 'novos-mon-plate',
   '96:2160:8329': 'novos-wed-cup',
@@ -145,7 +151,7 @@ async function fetchTeamProfileByIds(args: {
     if (!leagueKey) throw new Error('HTTP 500');
 
     const snapRes = await fetch(`/data/ttr/season-${seasonId}/latest.json`);
-    if (!snapRes.ok) throw new Error('HTTP 500');
+    if (!snapRes.ok || !snapRes.headers.get('content-type')?.includes('json')) throw new Error('HTTP 500');
 
     const snap = await snapRes.json() as {
       leagues?: Record<string, { teamProfiles?: Record<string, TeamProfile> }>;
@@ -176,7 +182,7 @@ async function fetchTTR(league: LeagueConfig, type: 'standings' | 'fixtures'): P
       apiUnavailableInLocalDev = true;
     }
     const snapRes = await fetch(`/data/ttr/season-${league.seasonId}/latest.json`);
-    if (!snapRes.ok) return [];
+    if (!snapRes.ok || !snapRes.headers.get('content-type')?.includes('json')) return [];
     const snap = await snapRes.json() as {
       leagues?: Record<string, { standings?: unknown[]; fixtures?: unknown[] }>;
     };

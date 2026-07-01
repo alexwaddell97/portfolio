@@ -1,5 +1,7 @@
 {
   "season": 97,
-  "dates": [],
-  "latestDate": null
+  "dates": [
+    "2026-07-01"
+  ],
+  "latestDate": "2026-07-01"
 }

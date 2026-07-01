@@ -1,11 +1,11 @@
 /**
  * TTR Newcastle — new season bootstrapper
  *
- * Probes the TTR website for the next season, verifies division IDs,
- * then updates every config location so you can immediately start snapshotting:
+ * Scrapes the TTR league list to find the real division IDs for the Newcastle
+ * leagues in the next season, then updates every config location:
  *
  *   scripts/snapshot-ttr.mjs   — SEASON_ID + LEAGUES
- *   src/labs/TTRDashboard.tsx  — LEAGUES
+ *   src/labs/TTRDashboard.tsx  — LEAGUES + SNAPSHOT_LEAGUE_KEY_BY_IDS
  *   api/ttr.ts                 — default seasonId
  *   public/data/ttr/season-N/  — creates index.json
  *
@@ -22,14 +22,17 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT      = join(__dirname, '..');
 const DRY_RUN   = process.argv.includes('--dry-run');
 
-const BASE = 'https://trytagrugby.spawtz.com/Leagues';
+const LEAGUE_LIST_URL = 'https://trytagrugby.spawtz.com/ActionController/LeagueList?';
 
-// ── The three leagues whose IDs stay constant across seasons ──────────────────
-
-const LEAGUE_DEFS = [
-  { leagueId: 2159, venue: 'novos-mon', cupId: 'novos-mon-cup',   plateId: 'novos-mon-plate', cupLabel: 'Novocastrians Mon — Cup',    plateLabel: 'Novocastrians Mon — Plate' },
-  { leagueId: 2160, venue: 'novos-wed', cupId: 'novos-wed-cup',   plateId: 'novos-wed-plate', cupLabel: 'Novocastrians Wed — Cup',    plateLabel: 'Novocastrians Wed — Plate' },
-  { leagueId: 2161, venue: 'paddy-thu', cupId: 'paddy-thu-cup',   plateId: 'paddy-thu-plate', cupLabel: "Paddy Freeman's Thu — Cup",  plateLabel: "Paddy Freeman's Thu — Plate" },
+// Division name patterns to match against the league list labels
+// Order must match: mon-cup, mon-plate, wed-cup, wed-plate, thu-cup, thu-plate
+const DIVISION_PATTERNS = [
+  { id: 'novos-mon-cup',   leagueId: 2159, pattern: /novos.*monday.*cup/i },
+  { id: 'novos-mon-plate', leagueId: 2159, pattern: /novos.*monday.*plate/i },
+  { id: 'novos-wed-cup',   leagueId: 2160, pattern: /novos.*wednesday.*cup/i },
+  { id: 'novos-wed-plate', leagueId: 2160, pattern: /novos.*wednesday.*plate/i },
+  { id: 'paddy-thu-cup',   leagueId: 2161, pattern: /paddy.*thursday.*cup/i },
+  { id: 'paddy-thu-plate', leagueId: 2161, pattern: /paddy.*thursday.*plate/i },
 ];
 
 // ── Read current config from snapshot-ttr.mjs ────────────────────────────────
@@ -37,43 +40,89 @@ const LEAGUE_DEFS = [
 function readCurrentConfig() {
   const snapshotPath = join(__dirname, 'snapshot-ttr.mjs');
   const src = readFileSync(snapshotPath, 'utf-8');
-
   const seasonMatch = src.match(/^const SEASON_ID\s*=\s*(\d+);/m);
   if (!seasonMatch) throw new Error('Could not find SEASON_ID in snapshot-ttr.mjs');
-
-  // Extract all divisionIds from the LEAGUES array
-  const divMatches = [...src.matchAll(/divisionId:\s*(\d+)/g)];
-  if (divMatches.length !== 6) throw new Error(`Expected 6 divisionId entries, found ${divMatches.length}`);
-
-  return {
-    seasonId: parseInt(seasonMatch[1]),
-    // Division IDs are ordered: mon-cup, mon-plate, wed-cup, wed-plate, thu-cup, thu-plate
-    divisionIds: divMatches.map(m => parseInt(m[1])),
-  };
+  return { seasonId: parseInt(seasonMatch[1]) };
 }
 
-// ── Probe a single standings page to verify it's valid ───────────────────────
+// ── Fetch league list and extract Newcastle division IDs ─────────────────────
 
-async function probe(leagueId, seasonId, divisionId) {
-  const url = `${BASE}/Standings?SportId=0&VenueId=0&LeagueId=${leagueId}&SeasonId=${seasonId}&DivisionId=${divisionId}`;
+async function detectNewSeasonIds(newSeason) {
+  console.log(`  Fetching league list…`);
   const ctrl  = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), 10_000);
+  const timer = setTimeout(() => ctrl.abort(), 15_000);
+  let html;
   try {
-    const res = await fetch(url, {
+    const res = await fetch(LEAGUE_LIST_URL, {
       signal:  ctrl.signal,
       headers: { 'User-Agent': 'Mozilla/5.0', Accept: 'text/html' },
       redirect: 'follow',
     });
     clearTimeout(timer);
-    if (!res.ok) return { ok: false };
-    const html = await res.text();
-    // A valid standings page contains a division heading; a stale/missing one doesn't
-    const hasStandings = /Current Standings/i.test(html);
-    return { ok: hasStandings };
-  } catch {
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    html = await res.text();
+  } catch (err) {
     clearTimeout(timer);
-    return { ok: false };
+    throw new Error(`Failed to fetch league list: ${err.message}`);
   }
+
+  // Extract all entries: { leagueId, seasonId, divisionId, label }
+  // Each row looks like: LeagueId=NNNN&SeasonId=NN&DivisionId=NNNN
+  const entryRe = /LeagueId=(\d+)[^"]*SeasonId=(\d+)[^"]*DivisionId=(\d+)/g;
+  const entries = [];
+  for (const m of html.matchAll(entryRe)) {
+    entries.push({ leagueId: parseInt(m[1]), seasonId: parseInt(m[2]), divisionId: parseInt(m[3]) });
+  }
+
+  // Also extract division name labels — they appear in SpawtzLeagueListDivisionName spans
+  // We'll associate them by position with the hrefs above
+  const labelRe = /class="SpawtzLeagueListDivisionName">([^<]+)</g;
+  const labels = [...html.matchAll(labelRe)].map(m => m[1].trim());
+
+  // Build labeled entries by matching positions (each entry appears twice — fixtures + standings)
+  // Deduplicate by divisionId
+  const seen = new Set();
+  const deduped = [];
+  for (const entry of entries) {
+    if (!seen.has(entry.divisionId)) {
+      seen.add(entry.divisionId);
+      deduped.push(entry);
+    }
+  }
+
+  // Filter to only new season entries
+  const newSeasonEntries = deduped.filter(e => e.seasonId === newSeason);
+
+  if (newSeasonEntries.length === 0) {
+    throw new Error(`No entries found for season ${newSeason} on the league list. The new season may not be published yet.`);
+  }
+
+  // Match labels to entries (labels and deduped entries are in the same DOM order)
+  // We need to re-pair them — extract label+ids together from the HTML
+  const rowRe = /class="SpawtzLeagueListDivisionName">([^<]+)<[\s\S]*?LeagueId=(\d+)[^"]*SeasonId=(\d+)[^"]*DivisionId=(\d+)/g;
+  const rows = [];
+  for (const m of html.matchAll(rowRe)) {
+    rows.push({ label: m[1].trim(), leagueId: parseInt(m[2]), seasonId: parseInt(m[3]), divisionId: parseInt(m[4]) });
+  }
+
+  const newSeasonRows = rows.filter(r => r.seasonId === newSeason);
+  console.log(`  Found ${newSeasonRows.length} divisions for season ${newSeason} on league list\n`);
+
+  // Match each expected division pattern against the rows
+  const result = [];
+  for (const def of DIVISION_PATTERNS) {
+    const match = newSeasonRows.find(r => r.leagueId === def.leagueId && def.pattern.test(r.label));
+    if (!match) {
+      throw new Error(
+        `Could not find division matching "${def.pattern}" (leagueId ${def.leagueId}) for season ${newSeason}.\n` +
+        `Available labels for this leagueId: ${newSeasonRows.filter(r => r.leagueId === def.leagueId).map(r => `"${r.label}"`).join(', ')}`
+      );
+    }
+    console.log(`  ✓ ${def.id.padEnd(18)} → divisionId ${match.divisionId}  ("${match.label}")`);
+    result.push({ ...def, divisionId: match.divisionId, seasonId: newSeason });
+  }
+
+  return result;
 }
 
 // ── Patch files ───────────────────────────────────────────────────────────────
@@ -95,8 +144,8 @@ function patch(filePath, oldStr, newStr, label) {
 
 // ── Build LEAGUES strings ─────────────────────────────────────────────────────
 
-function buildSnapshotLeagues(newDivIds) {
-  const [mc, mp, wc, wp, tc, tp] = newDivIds;
+function buildSnapshotLeagues(divs) {
+  const [mc, mp, wc, wp, tc, tp] = divs.map(d => d.divisionId);
   return `const LEAGUES = [
   { id: 'novos-mon-cup',   label: 'Novocastrians Mon — Cup',    leagueId: 2159, divisionId: ${mc} },
   { id: 'novos-mon-plate', label: 'Novocastrians Mon — Plate',  leagueId: 2159, divisionId: ${mp} },
@@ -107,16 +156,26 @@ function buildSnapshotLeagues(newDivIds) {
 ];`;
 }
 
-function buildDashboardLeagues(newSeasonId, newDivIds) {
-  const [mc, mp, wc, wp, tc, tp] = newDivIds;
+function buildDashboardLeagues(newSeason, divs) {
+  const [mc, mp, wc, wp, tc, tp] = divs.map(d => d.divisionId);
   return `const LEAGUES: LeagueConfig[] = [
-  { id: 'novos-mon-cup',   label: 'Novocastrians Mon — Cup',    shortLabel: 'Novos Mon Cup',   leagueId: 2159, divisionId: ${mc}, seasonId: ${newSeasonId}, venue: 'novos-mon', division: 'cup'   },
-  { id: 'novos-mon-plate', label: 'Novocastrians Mon — Plate',  shortLabel: 'Novos Mon Plate', leagueId: 2159, divisionId: ${mp}, seasonId: ${newSeasonId}, venue: 'novos-mon', division: 'plate' },
-  { id: 'novos-wed-cup',   label: 'Novocastrians Wed — Cup',    shortLabel: 'Novos Wed Cup',   leagueId: 2160, divisionId: ${wc}, seasonId: ${newSeasonId}, venue: 'novos-wed', division: 'cup'   },
-  { id: 'novos-wed-plate', label: 'Novocastrians Wed — Plate',  shortLabel: 'Novos Wed Plate', leagueId: 2160, divisionId: ${wp}, seasonId: ${newSeasonId}, venue: 'novos-wed', division: 'plate' },
-  { id: 'paddy-thu-cup',   label: "Paddy Freeman's Thu — Cup",   shortLabel: 'Paddy Thu Cup',   leagueId: 2161, divisionId: ${tc}, seasonId: ${newSeasonId}, venue: 'paddy-thu', division: 'cup'   },
-  { id: 'paddy-thu-plate', label: "Paddy Freeman's Thu — Plate", shortLabel: 'Paddy Thu Plate', leagueId: 2161, divisionId: ${tp}, seasonId: ${newSeasonId}, venue: 'paddy-thu', division: 'plate' },
+  { id: 'novos-mon-cup',   label: 'Novocastrians Mon — Cup',    shortLabel: 'Novos Mon Cup',   leagueId: 2159, divisionId: ${mc}, seasonId: ${newSeason}, venue: 'novos-mon', division: 'cup'   },
+  { id: 'novos-mon-plate', label: 'Novocastrians Mon — Plate',  shortLabel: 'Novos Mon Plate', leagueId: 2159, divisionId: ${mp}, seasonId: ${newSeason}, venue: 'novos-mon', division: 'plate' },
+  { id: 'novos-wed-cup',   label: 'Novocastrians Wed — Cup',    shortLabel: 'Novos Wed Cup',   leagueId: 2160, divisionId: ${wc}, seasonId: ${newSeason}, venue: 'novos-wed', division: 'cup'   },
+  { id: 'novos-wed-plate', label: 'Novocastrians Wed — Plate',  shortLabel: 'Novos Wed Plate', leagueId: 2160, divisionId: ${wp}, seasonId: ${newSeason}, venue: 'novos-wed', division: 'plate' },
+  { id: 'paddy-thu-cup',   label: "Paddy Freeman's Thu — Cup",   shortLabel: 'Paddy Thu Cup',   leagueId: 2161, divisionId: ${tc}, seasonId: ${newSeason}, venue: 'paddy-thu', division: 'cup'   },
+  { id: 'paddy-thu-plate', label: "Paddy Freeman's Thu — Plate", shortLabel: 'Paddy Thu Plate', leagueId: 2161, divisionId: ${tp}, seasonId: ${newSeason}, venue: 'paddy-thu', division: 'plate' },
 ];`;
+}
+
+function buildSnapshotLeagueKeys(newSeason, divs) {
+  const [mc, mp, wc, wp, tc, tp] = divs.map(d => d.divisionId);
+  return `  '${newSeason}:2159:${mc}': 'novos-mon-cup',
+  '${newSeason}:2159:${mp}': 'novos-mon-plate',
+  '${newSeason}:2160:${wc}': 'novos-wed-cup',
+  '${newSeason}:2160:${wp}': 'novos-wed-plate',
+  '${newSeason}:2161:${tc}': 'paddy-thu-cup',
+  '${newSeason}:2161:${tp}': 'paddy-thu-plate',`;
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────────
@@ -125,43 +184,16 @@ async function main() {
   console.log('\nTTR Newcastle — new season bootstrapper\n');
 
   // 1. Read current config
-  const { seasonId: currentSeason, divisionIds: currentDivIds } = readCurrentConfig();
-  const newSeason    = currentSeason + 1;
-  const currentMaxDiv = Math.max(...currentDivIds);
+  const { seasonId: currentSeason } = readCurrentConfig();
+  const newSeason = currentSeason + 1;
 
-  console.log(`  Current season : ${currentSeason}  (divisionIds ${Math.min(...currentDivIds)}–${currentMaxDiv})`);
-  console.log(`  Probing season : ${newSeason}…\n`);
+  console.log(`  Current season : ${currentSeason}`);
+  console.log(`  Detecting season : ${newSeason}…\n`);
 
-  // 2. Division IDs increment by 6 each season (one per division across all 3 leagues).
-  //    Probe candidate IDs starting from currentMaxDiv + 1.
-  const candidateStart = currentMaxDiv + 1;
-  const candidateIds   = [0, 1, 2, 3, 4, 5].map(i => candidateStart + i);
+  // 2. Scrape league list for real division IDs
+  const divs = await detectNewSeasonIds(newSeason);
 
-  // Verify each candidate belongs to the expected leagueId
-  // Order: mon-cup(2159), mon-plate(2159), wed-cup(2160), wed-plate(2160), thu-cup(2161), thu-plate(2161)
-  const leagueIdForCandidate = [2159, 2159, 2160, 2160, 2161, 2161];
-
-  process.stdout.write('  Verifying division IDs:');
-  const results = await Promise.all(
-    candidateIds.map((divId, i) => probe(leagueIdForCandidate[i], newSeason, divId))
-  );
-
-  const allOk = results.every(r => r.ok);
-
-  results.forEach((r, i) => {
-    process.stdout.write(` ${candidateIds[i]}${r.ok ? '✓' : '✗'}`);
-  });
-  console.log('');
-
-  if (!allOk) {
-    const failed = candidateIds.filter((_, i) => !results[i].ok);
-    console.error(`\n  ✗ Season ${newSeason} could not be confirmed — failed division IDs: ${failed.join(', ')}`);
-    console.error('    The season may not have started yet, or the division IDs have changed.');
-    console.error('    Check https://trytagrugby.spawtz.com manually and update snapshot-ttr.mjs by hand.\n');
-    process.exit(1);
-  }
-
-  console.log(`\n  ✓ Season ${newSeason} confirmed (divisionIds ${candidateStart}–${candidateStart + 5})\n`);
+  console.log(`\n  ✓ All 6 divisions found for season ${newSeason}\n`);
 
   if (DRY_RUN) {
     console.log('── [dry-run] would apply the following changes:\n');
@@ -182,20 +214,37 @@ async function main() {
   patch(
     snapshotPath,
     oldSnapshotLeagues,
-    buildSnapshotLeagues(candidateIds),
+    buildSnapshotLeagues(divs),
     'snapshot-ttr.mjs — LEAGUES',
   );
 
   // 4. Patch TTRDashboard.tsx
   const dashPath = join(ROOT, 'src', 'labs', 'TTRDashboard.tsx');
   const dashSrc  = readFileSync(dashPath, 'utf-8');
+
   const oldDashLeagues = dashSrc.match(/const LEAGUES: LeagueConfig\[\] = \[[\s\S]*?\];/)[0];
   patch(
     dashPath,
     oldDashLeagues,
-    buildDashboardLeagues(newSeason, candidateIds),
+    buildDashboardLeagues(newSeason, divs),
     'TTRDashboard.tsx — LEAGUES',
   );
+
+  // Prepend new season entries to SNAPSHOT_LEAGUE_KEY_BY_IDS
+  const currentSeason96Line = `  '${currentSeason}:2159:`;
+  const oldKeysBlock = dashSrc.match(new RegExp(`('${currentSeason}:\\d+:\\d+': '[\\s\\S]*?),\\s*\n  '9[0-9]`))?.[0];
+  // Simpler: find the first line of the current season block and prepend before it
+  const currentFirstKey = `  '${currentSeason}:2159:`;
+  const currentFirstKeyIdx = dashSrc.indexOf(currentFirstKey);
+  if (currentFirstKeyIdx !== -1) {
+    const insertBefore = dashSrc.slice(currentFirstKeyIdx, currentFirstKeyIdx + currentFirstKey.length + 50).split('\n')[0];
+    patch(
+      dashPath,
+      insertBefore,
+      buildSnapshotLeagueKeys(newSeason, divs) + '\n' + insertBefore,
+      'TTRDashboard.tsx — SNAPSHOT_LEAGUE_KEY_BY_IDS',
+    );
+  }
 
   // 5. Patch api/ttr.ts
   const apiPath = join(ROOT, 'api', 'ttr.ts');

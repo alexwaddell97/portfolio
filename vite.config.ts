@@ -35,7 +35,7 @@ export default defineConfig({
   plugins: [decapAdminPrettyPathPlugin(), react(), tailwindcss()],
   server: {
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/api': 'https://alexw.dev',
     },
   },
   build: {
