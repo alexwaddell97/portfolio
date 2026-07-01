@@ -26,12 +26,12 @@ interface LeagueConfig {
 }
 
 const LEAGUES: LeagueConfig[] = [
-  { id: 'novos-mon-cup',   label: 'Novocastrians Mon — Cup',    shortLabel: 'Novos Mon Cup',   leagueId: 2159, divisionId: 8327, seasonId: 96, venue: 'novos-mon', division: 'cup'   },
-  { id: 'novos-mon-plate', label: 'Novocastrians Mon — Plate',  shortLabel: 'Novos Mon Plate', leagueId: 2159, divisionId: 8328, seasonId: 96, venue: 'novos-mon', division: 'plate' },
-  { id: 'novos-wed-cup',   label: 'Novocastrians Wed — Cup',    shortLabel: 'Novos Wed Cup',   leagueId: 2160, divisionId: 8329, seasonId: 96, venue: 'novos-wed', division: 'cup'   },
-  { id: 'novos-wed-plate', label: 'Novocastrians Wed — Plate',  shortLabel: 'Novos Wed Plate', leagueId: 2160, divisionId: 8330, seasonId: 96, venue: 'novos-wed', division: 'plate' },
-  { id: 'paddy-thu-cup',   label: "Paddy Freeman's Thu — Cup",   shortLabel: 'Paddy Thu Cup',   leagueId: 2161, divisionId: 8331, seasonId: 96, venue: 'paddy-thu', division: 'cup'   },
-  { id: 'paddy-thu-plate', label: "Paddy Freeman's Thu — Plate", shortLabel: 'Paddy Thu Plate', leagueId: 2161, divisionId: 8332, seasonId: 96, venue: 'paddy-thu', division: 'plate' },
+  { id: 'novos-mon-cup',   label: 'Novocastrians Mon — Cup',    shortLabel: 'Novos Mon Cup',   leagueId: 2159, divisionId: 8333, seasonId: 97, venue: 'novos-mon', division: 'cup'   },
+  { id: 'novos-mon-plate', label: 'Novocastrians Mon — Plate',  shortLabel: 'Novos Mon Plate', leagueId: 2159, divisionId: 8334, seasonId: 97, venue: 'novos-mon', division: 'plate' },
+  { id: 'novos-wed-cup',   label: 'Novocastrians Wed — Cup',    shortLabel: 'Novos Wed Cup',   leagueId: 2160, divisionId: 8335, seasonId: 97, venue: 'novos-wed', division: 'cup'   },
+  { id: 'novos-wed-plate', label: 'Novocastrians Wed — Plate',  shortLabel: 'Novos Wed Plate', leagueId: 2160, divisionId: 8336, seasonId: 97, venue: 'novos-wed', division: 'plate' },
+  { id: 'paddy-thu-cup',   label: "Paddy Freeman's Thu — Cup",   shortLabel: 'Paddy Thu Cup',   leagueId: 2161, divisionId: 8337, seasonId: 97, venue: 'paddy-thu', division: 'cup'   },
+  { id: 'paddy-thu-plate', label: "Paddy Freeman's Thu — Plate", shortLabel: 'Paddy Thu Plate', leagueId: 2161, divisionId: 8338, seasonId: 97, venue: 'paddy-thu', division: 'plate' },
 ];
 
 const VENUES = [

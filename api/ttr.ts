@@ -231,7 +231,7 @@ export default async function handler(req: Req, res: Res) {
   const q = req.query as Record<string, string | undefined>;
   const leagueId   = q.leagueId;
   const divisionId = q.divisionId;
-  const seasonId   = q.seasonId ?? '95';
+  const seasonId   = q.seasonId ?? '97';
   const teamId     = q.teamId;
   const type       = q.type;
 

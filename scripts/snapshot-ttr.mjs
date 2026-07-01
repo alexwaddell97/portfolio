@@ -22,15 +22,15 @@ const DRY_RUN   = process.argv.includes('--dry-run');
 
 // ── League config ─────────────────────────────────────────────────────────────
 
-const SEASON_ID = 96;
+const SEASON_ID = 97;
 
 const LEAGUES = [
-  { id: 'novos-mon-cup',   label: 'Novocastrians Mon — Cup',    leagueId: 2159, divisionId: 8327 },
-  { id: 'novos-mon-plate', label: 'Novocastrians Mon — Plate',  leagueId: 2159, divisionId: 8328 },
-  { id: 'novos-wed-cup',   label: 'Novocastrians Wed — Cup',    leagueId: 2160, divisionId: 8329 },
-  { id: 'novos-wed-plate', label: 'Novocastrians Wed — Plate',  leagueId: 2160, divisionId: 8330 },
-  { id: 'paddy-thu-cup',   label: "Paddy Freeman's Thu — Cup",   leagueId: 2161, divisionId: 8331 },
-  { id: 'paddy-thu-plate', label: "Paddy Freeman's Thu — Plate", leagueId: 2161, divisionId: 8332 },
+  { id: 'novos-mon-cup',   label: 'Novocastrians Mon — Cup',    leagueId: 2159, divisionId: 8333 },
+  { id: 'novos-mon-plate', label: 'Novocastrians Mon — Plate',  leagueId: 2159, divisionId: 8334 },
+  { id: 'novos-wed-cup',   label: 'Novocastrians Wed — Cup',    leagueId: 2160, divisionId: 8335 },
+  { id: 'novos-wed-plate', label: 'Novocastrians Wed — Plate',  leagueId: 2160, divisionId: 8336 },
+  { id: 'paddy-thu-cup',   label: "Paddy Freeman's Thu — Cup",   leagueId: 2161, divisionId: 8337 },
+  { id: 'paddy-thu-plate', label: "Paddy Freeman's Thu — Plate", leagueId: 2161, divisionId: 8338 },
 ];
 
 const BASE = 'https://trytagrugby.spawtz.com/Leagues';
