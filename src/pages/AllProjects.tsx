@@ -9,6 +9,8 @@ import projects from '../data/projects.ts';
 import { labs } from '../data/labs.ts';
 import type { ProjectCategory } from '../types/index.ts';
 
+const EASE = [0.16, 1, 0.3, 1] as const;
+
 // Derive unique tech tags from all projects
 const allTags = Array.from(new Set([...projects.flatMap(p => p.tags), ...labs.flatMap(l => l.tags)])).sort();
 const categories: ProjectCategory[] = ['Full-Stack', 'Frontend', 'AI / ML', 'Data & Viz'];
@@ -23,42 +25,11 @@ type DisplayItem = {
   accentHex?: string;
   accentHexLight?: string;
   accentHexDark?: string;
-  accentColor: 'cyan' | 'violet' | 'pink';
   liveUrl?: string;
   repoUrl?: string;
   tags: string[];
   category: ProjectCategory | ProjectCategory[];
   href: string;
-};
-
-const accentColor: Record<string, string> = {
-  cyan: 'var(--color-cyan)',
-  violet: 'var(--color-violet)',
-  pink: 'var(--color-pink)',
-};
-
-const tagClass: Record<string, string> = {
-  cyan: 'bg-cyan/10 text-cyan border-cyan/20',
-  violet: 'bg-violet/10 text-violet border-violet/20',
-  pink: 'bg-pink/10 text-pink border-pink/20',
-};
-
-const imageBorderClass: Record<string, string> = {
-  cyan: 'gradient-border-cyan glow-cyan',
-  violet: 'gradient-border-violet glow-violet',
-  pink: 'gradient-border-pink glow-pink',
-};
-
-const placeholderGradient: Record<string, string> = {
-  cyan: 'from-cyan/20 via-cyan/5 to-transparent',
-  violet: 'from-violet/20 via-violet/5 to-transparent',
-  pink: 'from-pink/20 via-pink/5 to-transparent',
-};
-
-const gradientTextClass: Record<string, string> = {
-  cyan: 'gradient-text-cyan-violet',
-  violet: 'gradient-text-violet-pink',
-  pink: 'gradient-text-violet-pink',
 };
 
 const clientHighlights = [
@@ -95,7 +66,6 @@ function AllProjects() {
       description: l.description,
       image: l.image ?? '',
       accentHex: l.color,
-      accentColor: 'cyan' as const,
       tags: l.tags,
       category: ['Data & Viz'] as ProjectCategory[],
       href: `/projects/lab/${l.slug}`,
@@ -128,298 +98,283 @@ function AllProjects() {
   const isFiltered = activeCategory !== 'All' || activeTags.size > 0;
 
   return (
-    <div className="min-h-screen bg-bg-primary text-text-primary flex flex-col">
+    <div className="home-scene flex min-h-screen flex-col">
       <Nav />
       <main className="flex-1">
         {/* Page header */}
-        <div className="dot-grid border-b border-border">
-          <div className="mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6 lg:px-8">            <motion.div
+        <div className="border-b border-home-line">
+          <div className="mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6 lg:px-8">
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-            >            <Link
-              to="/"
-              className="hover-underline-accent mb-8 inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-cyan"
+              transition={{ duration: 0.6, ease: EASE }}
             >
-              <FiArrowLeft size={14} /> Back to home
-            </Link>
-            <div className="flex items-end justify-between">
-              <div>
-                <h1 className="page-heading-sweep display-heading-safe text-5xl font-black tracking-tighter md:text-7xl">
-                  All Projects
-                </h1>
-                <p className="mt-3 text-base text-text-secondary max-w-2xl">
-                  A curated collection of projects I’ve worked on or contributed to.
-                </p>
-                <p className="mt-3 text-lg text-text-secondary">
-                  {filtered.length} project{filtered.length !== 1 ? 's' : ''}
-                  {isFiltered && ' matching filters'}
-                </p>
+              <Link
+                to="/"
+                className="home-link-volt mb-8 inline-flex items-center gap-2 text-sm text-home-paper-dim"
+              >
+                <FiArrowLeft size={14} /> Back to home
+              </Link>
+              <div className="flex items-end justify-between">
+                <div>
+                  <h1 className="home-heading text-[clamp(2.4rem,6vw,4.5rem)] font-extrabold text-home-paper">
+                    All Projects
+                  </h1>
+                  <p className="mt-3 max-w-2xl text-base text-home-paper-dim">
+                    A curated collection of projects I&rsquo;ve worked on or contributed to.
+                  </p>
+                  <p className="mt-3 text-home-paper-dim">
+                    {filtered.length} project{filtered.length !== 1 ? 's' : ''}
+                    {isFiltered && ' matching filters'}
+                  </p>
+                </div>
+                {isFiltered && (
+                  <button
+                    onClick={clearFilters}
+                    className="home-link-volt text-sm text-home-paper-dim"
+                  >
+                    Clear filters
+                  </button>
+                )}
               </div>
-              {isFiltered && (
-                <button
-                  onClick={clearFilters}
-                  className="text-sm text-text-secondary transition-colors hover:text-text-primary"
-                >
-                  Clear filters
-                </button>
-              )}
-            </div>
             </motion.div>
           </div>
         </div>
 
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Filter bar */}
-        <div className="mb-10 flex flex-col gap-5">
-          {/* Category pills */}
-          <div className="flex flex-wrap gap-2">
-            {(['All', ...categories] as const).map(cat => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                aria-pressed={activeCategory === cat}
-                className={`relative cursor-pointer rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-200 ${
-                  activeCategory === cat
-                    ? 'text-text-primary'
-                    : 'text-text-secondary hover:text-text-primary'
-                }`}
-              >
-                {activeCategory === cat && (
-                  <motion.span
-                    layoutId="category-pill"
-                    className="absolute inset-0 rounded-full bg-white/8 border border-border"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-                <span className="relative z-10">{cat}</span>
-              </button>
-            ))}
-          </div>
-
-          {/* Tech tag toggles */}
-          <div className="flex flex-wrap gap-2">
-            {allTags.map(tag => {
-              const active = activeTags.has(tag);
-              return (
+          {/* Filter bar */}
+          <div className="mb-10 flex flex-col gap-5">
+            {/* Category tabs — underline indicator, matching Nav's active-item language */}
+            <div className="flex flex-wrap gap-1">
+              {(['All', ...categories] as const).map(cat => (
                 <button
-                  key={tag}
-                  onClick={() => toggleTag(tag)}
-                  aria-pressed={active}
-                  className={`cursor-pointer rounded-full border px-3 py-1 text-xs font-medium transition-all duration-200 ${
-                    active
-                      ? 'border-cyan/40 bg-cyan/10 text-cyan'
-                      : 'border-border bg-bg-card text-text-secondary hover:border-border hover:text-text-primary'
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  aria-pressed={activeCategory === cat}
+                  className={`relative cursor-pointer rounded-xs px-4 py-1.5 font-mono text-xs uppercase tracking-[0.12em] transition-colors duration-200 ${
+                    activeCategory === cat
+                      ? 'text-home-paper'
+                      : 'text-home-paper-dim hover:text-home-paper'
                   }`}
                 >
-                  {tag}
+                  {activeCategory === cat && (
+                    <motion.span
+                      layoutId="category-underline"
+                      className="absolute inset-x-3 bottom-0.5 h-0.5 bg-home-ember"
+                      transition={{ duration: 0.3, ease: EASE }}
+                    />
+                  )}
+                  <span className="relative z-10">{cat}</span>
                 </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Project grid */}
-        <motion.div layout className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
-          <AnimatePresence mode="popLayout">
-            {filtered.length === 0 ? (
-              <motion.div
-                key="empty"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="col-span-2 py-24 text-center text-text-muted"
-              >
-                No projects match those filters.
-              </motion.div>
-            ) : (
-              filtered.map((project) => {
-                const accent = project.accentColor;
-                const hasCustomAccent = Boolean(project.accentHex);
-                const color = hasCustomAccent
-                  ? (theme === 'light' ? (project.accentHexDark ?? project.accentHexLight ?? project.accentHex!) : project.accentHex!)
-                  : accentColor[accent];
-                const projectCategories = getProjectCategories(project.category);
-                const primaryCategory = projectCategories[0];
-                const extraCategoryCount = Math.max(0, projectCategories.length - 1);
-                const openCaseStudy = () => navigate(project.href);
-                return (
-                  <motion.div
-                    key={project.id}
-                    layout
-                    onClick={openCaseStudy}
-                    onKeyDown={(event) => {
-                      if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault();
-                        openCaseStudy();
-                      }
-                    }}
-                    tabIndex={0}
-                    aria-label={`Open case study for ${project.title}`}
-                    initial={{ opacity: 0, y: 16, scale: 0.98 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -8, scale: 0.98 }}
-                    transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] as const }}
-                    whileHover={{ y: -3 }}
-                    className="group relative cursor-pointer rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary"
-                  >
-                    {/* Image panel */}
-                    <div
-                      className={`relative overflow-hidden rounded-2xl bg-bg-secondary ${hasCustomAccent ? 'border' : imageBorderClass[accent]}`}
-                      style={{
-                        aspectRatio: '16/9',
-                        backgroundColor: project.imageBgHex,
-                        borderColor: hasCustomAccent ? `${color}66` : undefined,
-                        boxShadow: hasCustomAccent ? `0 0 0 1px ${color}22, 0 0 30px ${color}20` : undefined,
-                      }}
-                    >
-                      {project.image ? (
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      ) : (
-                        <div
-                          className={`flex h-full w-full items-center justify-center ${hasCustomAccent ? '' : `bg-gradient-to-br ${placeholderGradient[accent]}`}`}
-                          style={hasCustomAccent ? { background: `linear-gradient(135deg, ${color}22, transparent 70%)` } : undefined}
-                        >
-                          <div className="absolute inset-0 dot-grid opacity-30" />
-                          <span
-                            className="relative select-none text-[clamp(4rem,12vw,8rem)] font-black leading-[1.05] opacity-15"
-                            style={{ color }}
-                          >
-                            {project.title[0]}
-                          </span>
-                          <div
-                            className="pointer-events-none absolute inset-0"
-                            style={{ background: `radial-gradient(ellipse 70% 70% at 50% 50%, ${color}15, transparent)` }}
-                          />
-                        </div>
-                      )}
-
-                      {/* Hover overlay */}
-                      <div className="absolute inset-0 flex items-center justify-center bg-bg-primary/60 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100 rounded-2xl">
-                        <div
-                          className="flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold text-white"
-                          style={{ borderColor: `${color}60`, background: `${color}15` }}
-                        >
-                          View Case Study
-                          <FiArrowRight size={14} />
-                        </div>
-                      </div>
-
-                      {/* Category badge */}
-                      <div className="absolute top-3 right-3 rounded-full border border-border/80 bg-bg-primary/85 px-2.5 py-1 text-xs font-semibold text-text-primary backdrop-blur-sm">
-                        {primaryCategory}
-                        {extraCategoryCount > 0 && (
-                          <span className="ml-1 text-text-secondary">+{extraCategoryCount}</span>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="mt-4 px-1">
-                      <h2
-                        className={`${hasCustomAccent ? '' : gradientTextClass[accent]} text-xl font-bold leading-tight`}
-                        style={hasCustomAccent ? { color } : undefined}
-                      >
-                        {project.title}
-                      </h2>
-                      <p className="mt-1.5 text-sm leading-relaxed text-text-secondary line-clamp-2">
-                        {project.description}
-                      </p>
-                      <div className="mt-3 flex items-center justify-between">
-                        <div className="flex flex-wrap gap-1.5">
-                          {project.tags.map(tag => (
-                            <span
-                              key={tag}
-                              className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${hasCustomAccent ? 'bg-bg-card text-text-primary' : tagClass[accent]}`}
-                              style={hasCustomAccent ? { borderColor: `${color}55`, background: `${color}12` } : undefined}
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                        <div className="flex shrink-0 items-center gap-3 pl-3">
-                          {project.liveUrl && (
-                            <a
-                              href={project.liveUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={e => e.stopPropagation()}
-                              aria-label={`Open live site for ${project.title}`}
-                              className="text-text-secondary transition-colors hover:text-text-primary"
-                            >
-                              <FiExternalLink size={14} />
-                            </a>
-                          )}
-                          {project.repoUrl && (
-                            <a
-                              href={project.repoUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={e => e.stopPropagation()}
-                              aria-label={`Open source code for ${project.title}`}
-                              className="text-text-secondary transition-colors hover:text-text-primary"
-                            >
-                              <FiGithub size={14} />
-                            </a>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })
-            )}
-          </AnimatePresence>
-        </motion.div>
-
-        <section className="mt-16 border-t border-border pt-10">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-            className="max-w-4xl"
-          >
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-border bg-bg-card px-3 py-1 text-xs font-medium uppercase tracking-wide text-text-secondary">
-              <FiLock size={12} />
-              Confidential client work
+              ))}
             </div>
-            <h2 className="display-heading-safe text-3xl font-black tracking-tight md:text-4xl">
-              Selected Client Work
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-text-secondary">
-              Bespoke projects delivered under confidentiality agreements. Summaries are limited to NDA-safe scope and outcomes.
-            </p>
+
+            {/* Tech tag toggles — multi-select chips */}
+            <div className="flex flex-wrap gap-2">
+              {allTags.map(tag => {
+                const active = activeTags.has(tag);
+                return (
+                  <button
+                    key={tag}
+                    onClick={() => toggleTag(tag)}
+                    aria-pressed={active}
+                    className={`cursor-pointer rounded-xs border px-3 py-1 font-mono text-[11px] uppercase tracking-[0.08em] transition-all duration-200 ${
+                      active
+                        ? 'border-home-ember/50 bg-home-ember/10 text-home-ember'
+                        : 'border-home-line bg-home-bg-raised text-home-paper-dim hover:border-home-paper-dim hover:text-home-paper'
+                    }`}
+                  >
+                    {tag}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Project grid */}
+          <motion.div layout className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
+            <AnimatePresence mode="popLayout">
+              {filtered.length === 0 ? (
+                <motion.div
+                  key="empty"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="col-span-2 py-24 text-center text-home-paper-dim"
+                >
+                  No projects match those filters.
+                </motion.div>
+              ) : (
+                filtered.map((project, index) => {
+                  const accent = (theme === 'light'
+                    ? (project.accentHexDark ?? project.accentHexLight ?? project.accentHex)
+                    : project.accentHex) ?? 'var(--color-home-paper-dim)';
+                  const projectCategories = getProjectCategories(project.category);
+                  const primaryCategory = projectCategories[0];
+                  const extraCategoryCount = Math.max(0, projectCategories.length - 1);
+                  const openCaseStudy = () => navigate(project.href);
+                  return (
+                    <motion.div
+                      key={project.id}
+                      layout
+                      onClick={openCaseStudy}
+                      onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                          event.preventDefault();
+                          openCaseStudy();
+                        }
+                      }}
+                      tabIndex={0}
+                      aria-label={`Open case study for ${project.title}`}
+                      initial={{ opacity: 0, y: 24 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: '-60px' }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.45, ease: EASE, delay: Math.min(index, 7) * 0.05 }}
+                      whileHover={{ y: -3 }}
+                      className="group relative cursor-pointer rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-home-volt focus-visible:ring-offset-2 focus-visible:ring-offset-home-bg"
+                    >
+                      {/* Image panel */}
+                      <div
+                        className="relative overflow-hidden rounded-xs bg-home-bg-raised"
+                        style={{ aspectRatio: '16/9', backgroundColor: project.imageBgHex }}
+                      >
+                        {project.image ? (
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ) : (
+                          <div className="flex h-full w-full items-center justify-center bg-home-bg-raised">
+                            <span
+                              className="select-none text-[clamp(3rem,10vw,6rem)] font-extrabold leading-none opacity-20"
+                              style={{ color: accent }}
+                            >
+                              {project.title[0]}
+                            </span>
+                          </div>
+                        )}
+
+                        {/* Hover overlay — flat, no blur */}
+                        <div className="absolute inset-0 flex items-center justify-center bg-home-bg/75 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                          <div
+                            className="flex items-center gap-2 rounded-xs border px-5 py-2.5 font-mono text-xs uppercase tracking-widest text-home-paper"
+                            style={{ borderColor: `${accent}60`, background: `${accent}15` }}
+                          >
+                            View Case Study
+                            <FiArrowRight size={14} />
+                          </div>
+                        </div>
+
+                        {/* Category badge */}
+                        <div className="absolute top-3 right-3 rounded-xs border border-home-line bg-home-bg px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-home-paper-dim">
+                          {primaryCategory}
+                          {extraCategoryCount > 0 && ` +${extraCategoryCount}`}
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="mt-4 px-1">
+                        <h2
+                          className="text-xl font-extrabold leading-tight"
+                          style={{ color: accent }}
+                        >
+                          {project.title}
+                        </h2>
+                        <p className="mt-1.5 text-sm leading-relaxed text-home-paper-dim line-clamp-2">
+                          {project.description}
+                        </p>
+                        <div className="mt-3 flex items-center justify-between">
+                          <div className="flex flex-wrap gap-1.5">
+                            {project.tags.map(tag => (
+                              <span
+                                key={tag}
+                                className="rounded-xs border border-home-line bg-home-bg-raised px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.08em] text-home-paper-dim"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                          <div className="flex shrink-0 items-center gap-3 pl-3">
+                            {project.liveUrl && (
+                              <a
+                                href={project.liveUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={e => e.stopPropagation()}
+                                aria-label={`Open live site for ${project.title}`}
+                                className="text-home-paper-dim transition-colors hover:text-home-volt"
+                              >
+                                <FiExternalLink size={14} />
+                              </a>
+                            )}
+                            {project.repoUrl && (
+                              <a
+                                href={project.repoUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={e => e.stopPropagation()}
+                                aria-label={`Open source code for ${project.title}`}
+                                className="text-home-paper-dim transition-colors hover:text-home-volt"
+                              >
+                                <FiGithub size={14} />
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })
+              )}
+            </AnimatePresence>
           </motion.div>
 
-          <div className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-3">
-            {clientHighlights.map((item, idx) => (
-              <motion.article
-                key={item.client}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
-                className="rounded-2xl border border-border bg-bg-card/60 p-5"
-              >
-                <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-border bg-bg-primary/60 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-text-muted">
-                  <FiLock size={10} />
-                  NDA-safe summary
-                </div>
-                <h3 className="text-base font-semibold text-text-primary">{item.client}</h3>
-                <p className="mt-1 text-xs font-medium uppercase tracking-wide text-cyan">{item.role}</p>
-                <p className="mt-3 text-sm leading-relaxed text-text-secondary">{item.scope}</p>
-                <p className="mt-2 text-sm leading-relaxed text-text-secondary">{item.impact}</p>
-              </motion.article>
-            ))}
-          </div>
-        </section>
+          <section className="mt-16 border-t border-home-line pt-10">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.6, ease: EASE }}
+              className="max-w-4xl"
+            >
+              <div className="mb-3 inline-flex items-center gap-2 rounded-xs border border-home-line bg-home-bg-raised px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-home-paper-dim">
+                <FiLock size={12} />
+                Confidential client work
+              </div>
+              <h2 className="home-heading text-3xl font-extrabold text-home-paper md:text-4xl">
+                Selected Client Work
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-home-paper-dim">
+                Bespoke projects delivered under confidentiality agreements. Summaries are limited to NDA-safe scope and outcomes.
+              </p>
+            </motion.div>
+
+            <div className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-3">
+              {clientHighlights.map((item, idx) => (
+                <motion.article
+                  key={item.client}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.55, delay: idx * 0.1, ease: EASE }}
+                  className="rounded-xs border border-home-line bg-home-bg-raised p-5"
+                >
+                  <div className="home-kicker mb-3 inline-flex items-center gap-1.5">
+                    <FiLock size={10} />
+                    NDA-safe summary
+                  </div>
+                  <h3 className="text-base font-semibold text-home-paper">{item.client}</h3>
+                  <p className="home-kicker mt-1">{item.role}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-home-paper-dim">{item.scope}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-home-paper-dim">{item.impact}</p>
+                </motion.article>
+              ))}
+            </div>
+          </section>
         </div>
       </main>
       <Footer />

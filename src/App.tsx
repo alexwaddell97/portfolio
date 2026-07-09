@@ -1,8 +1,10 @@
 import './App.css';
 import { lazy, Suspense, useEffect, useLayoutEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { useLenis } from 'lenis/react';
 import { ThemeProvider } from './contexts/ThemeContext.tsx';
 import SnakeOverlay from './components/SnakeOverlay.tsx';
+import SmoothScroll from './components/SmoothScroll.tsx';
 
 const Home = lazy(() => import('./pages/Home.tsx'));
 const AllProjects = lazy(() => import('./pages/AllProjects.tsx'));
@@ -19,8 +21,14 @@ const KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'Ar
 
 function ScrollToTop() {
   const { pathname } = useLocation();
+  const lenis = useLenis();
 
   useLayoutEffect(() => {
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+      return;
+    }
+
     const root = document.documentElement;
     const previousScrollBehavior = root.style.scrollBehavior;
 
@@ -30,7 +38,7 @@ function ScrollToTop() {
     window.requestAnimationFrame(() => {
       root.style.scrollBehavior = previousScrollBehavior;
     });
-  }, [pathname]);
+  }, [pathname, lenis]);
 
   return null;
 }
@@ -39,7 +47,9 @@ function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
-        <AppRoutes />
+        <SmoothScroll>
+          <AppRoutes />
+        </SmoothScroll>
       </BrowserRouter>
     </ThemeProvider>
   );

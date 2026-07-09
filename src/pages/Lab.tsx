@@ -1,72 +1,76 @@
 import { Link } from 'react-router-dom';
-import Nav from '../components/Nav.tsx';
-import Footer from '../components/Footer.tsx';
+import { FiArrowUpRight } from 'react-icons/fi';
 import { labs } from '../data/labs.ts';
+import type { LabExperiment } from '../data/labs.ts';
 
 function StatusBadge({ status }: { status: 'live' | 'wip' | 'idea' }) {
-  const styles = {
-    live: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-    wip: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-    idea: 'bg-border text-text-secondary border-border',
-  };
   const labels = { live: 'Live', wip: 'WIP', idea: 'Idea' };
+  const isLive = status === 'live';
+
   return (
-    <span className={`rounded-full border px-2 py-0.5 text-xs font-medium ${styles[status]}`}>
+    <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-next-line px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wide text-next-ink-dim">
+      {isLive && (
+        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-next-neon shadow-[0_0_6px_var(--color-next-neon)]" />
+      )}
       {labels[status]}
     </span>
   );
 }
 
-function Lab() {
+function LabRow({ experiment, index }: { experiment: LabExperiment; index: number }) {
   return (
-    <div className="min-h-screen bg-bg-primary text-text-primary flex flex-col">
-      <Nav />
-      <main className="flex-1">
-        <section className="dot-grid border-b border-border">
-          <div className="mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6 lg:px-8">
-            <h1 className="page-heading-sweep display-heading-safe mt-2 text-5xl font-black tracking-tighter md:text-7xl">
-              Lab
-            </h1>
-            <p className="mt-3 max-w-2xl text-text-secondary">
-              A quiet corner for experiments, toys, and things that exist for the joy of building them.
-            </p>
+    <Link
+      to={experiment.path}
+      className="group flex flex-col gap-4 border-b next-rule py-10 outline-none focus-visible:ring-2 focus-visible:ring-next-neon sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
+    >
+      <div className="flex items-baseline gap-4 sm:w-2/3">
+        <span className="next-index text-sm">0{index + 1}</span>
+        <div>
+          <div className="flex flex-wrap items-center gap-3">
+            <h2 className="next-heading text-2xl font-extrabold sm:text-3xl">
+              {experiment.shortTitle ?? experiment.title}
+            </h2>
+            <StatusBadge status={experiment.status} />
           </div>
-        </section>
-
-        <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {labs.map((experiment) => (
-              <Link
-                key={experiment.slug}
-                to={experiment.path}
-                style={{ '--accent': experiment.color } as React.CSSProperties}
-                className="group relative flex flex-col rounded-2xl border border-border bg-bg-card p-5 transition-colors hover:border-(--accent) hover:bg-bg-card/80"
-              >
-                <div className="flex items-start justify-between">
-                  <h2 className="text-lg font-semibold transition-colors group-hover:text-(--accent)">
-                    {experiment.shortTitle ?? experiment.title}
-                  </h2>
-                  <StatusBadge status={experiment.status} />
-                </div>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-text-secondary">
-                  {experiment.description}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {experiment.tags.slice(0, 3).map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-md border border-border bg-bg-primary px-2 py-0.5 text-xs text-text-secondary"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </Link>
+          <p className="mt-2 max-w-md text-sm leading-relaxed text-next-ink-dim">
+            {experiment.description}
+          </p>
+          <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[11px] uppercase tracking-wide text-next-ink-dim">
+            {experiment.tags.slice(0, 4).map((tag) => (
+              <span key={tag}>{tag}</span>
             ))}
           </div>
-        </section>
-      </main>
-      <Footer />
+        </div>
+      </div>
+
+      <span className="next-cta-link inline-flex shrink-0 items-center gap-2 font-mono text-xs uppercase tracking-wide">
+        Launch
+        <FiArrowUpRight className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      </span>
+    </Link>
+  );
+}
+
+function Lab() {
+  return (
+    <div className="next-scene min-h-screen">
+      <div className="mx-auto max-w-4xl px-4 pt-16 pb-28 sm:px-6 lg:px-8">
+        <div className="mb-10 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <span className="next-index text-sm">00</span>
+            <span className="next-kicker">Lab — experiments, not portfolio pieces</span>
+          </div>
+          <Link to="/" className="next-kicker">
+            ← alexw.dev
+          </Link>
+        </div>
+
+        <div className="next-rule border-t">
+          {labs.map((experiment, index) => (
+            <LabRow key={experiment.slug} experiment={experiment} index={index} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

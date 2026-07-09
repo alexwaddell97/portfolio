@@ -32,17 +32,65 @@
   --color-border-violet: rgba(129, 140, 248, 0.3);
   --color-border-pink: rgba(147, 197, 253, 0.25);
 
-  /* UI chrome */
-  --color-scrollbar-track: #0e0e1a;
-  --color-scrollbar-thumb: rgba(59, 130, 246, 0.5);
-  --color-scrollbar-thumb-hover: rgba(29, 78, 216, 0.7);
-  --color-selection-bg: rgba(59, 130, 246, 0.3);
+  /* UI chrome — matches the noir/neon system now that it's the primary
+     experience (Home, Lab). Solid neon, not a gradient — this system
+     avoids gradient chrome on purpose. */
+  --color-scrollbar-track: #000000;
+  --color-scrollbar-thumb: rgba(212, 255, 0, 0.45);
+  --color-scrollbar-thumb-hover: rgba(212, 255, 0, 0.75);
+  --color-selection-bg: rgba(212, 255, 0, 0.3);
   --color-selection-text: #ffffff;
 
-  --font-family-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
   /* Misc icon overrides */
   --color-vercel-icon: #ffffff;
+
+  /* ── Home page — kinetic full-palette system ─────────────
+     Reference: ink-black foundry poster, flare orange-red +
+     acid lime + deep indigo shadow. Deliberate departure from
+     the site-wide cyan/violet/pink trio — Home only. */
+  --color-home-bg: oklch(14% 0.012 45);
+  --color-home-bg-raised: oklch(18% 0.014 45);
+  --color-home-paper: oklch(96% 0.01 80);
+  --color-home-paper-dim: oklch(70% 0.014 60);
+  --color-home-ember: oklch(62% 0.21 32);
+  --color-home-ember-dim: oklch(62% 0.21 32 / 0.5);
+  --color-home-volt: oklch(87% 0.24 126);
+  --color-home-volt-dim: oklch(87% 0.24 126 / 0.5);
+  --color-home-indigo: oklch(38% 0.16 292);
+  --color-home-indigo-bright: oklch(55% 0.19 292);
+  --color-home-line: oklch(96% 0.01 80 / 0.12);
+
+  /* ── /next concept — stark noir + neon signal ─────────────
+     A separate, louder lane from the Home palette above: true
+     black/white instead of warm ink, one acid neon reserved for
+     interaction payoffs rather than ambient fill. Forced-dark —
+     does not respond to the site's light/dark theme toggle. */
+  --color-next-bg: #000000;
+  --color-next-bg-raised: #0a0a0a;
+  --color-next-ink: #ffffff;
+  --color-next-ink-dim: rgba(255, 255, 255, 0.52);
+  --color-next-line: rgba(255, 255, 255, 0.14);
+  --color-next-neon: #d4ff00;
+  --color-next-neon-dim: rgba(212, 255, 0, 0.5);
+  --color-next-neon-2: #ff2e9a;
+}
+
+/* ─── Home page — light mode (simpler, coherent secondary) ── */
+[data-theme="light"] {
+  --color-home-bg: oklch(97% 0.008 80);
+  --color-home-bg-raised: oklch(93% 0.01 80);
+  --color-home-paper: oklch(18% 0.012 45);
+  --color-home-paper-dim: oklch(40% 0.014 60);
+  --color-home-ember: oklch(52% 0.19 32);
+  --color-home-ember-dim: oklch(52% 0.19 32 / 0.45);
+  --color-home-volt: oklch(55% 0.17 126);
+  --color-home-volt-dim: oklch(55% 0.17 126 / 0.4);
+  --color-home-indigo: oklch(38% 0.16 292);
+  --color-home-indigo-bright: oklch(45% 0.18 292);
+  --color-home-line: oklch(18% 0.012 45 / 0.1);
 }
 
 /* ─── Light mode overrides ──────────────────────────────── */
@@ -124,13 +172,13 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--color-violet), var(--color-cyan));
+  background: var(--color-scrollbar-thumb);
   border: 2px solid var(--color-scrollbar-track);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--color-cyan), var(--color-violet));
+  background: var(--color-scrollbar-thumb-hover);
 }
 
 /* ─── Theme-switch view transition ─────────────────────── */
@@ -265,9 +313,9 @@
 }
 
 @keyframes streak-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
-  35% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.12); }
-  70% { box-shadow: 0 0 0 16px rgba(29, 78, 216, 0.08); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 90, 50, 0); }
+  35% { box-shadow: 0 0 0 8px rgba(255, 90, 50, 0.14); }
+  70% { box-shadow: 0 0 0 16px rgba(200, 255, 61, 0.1); }
 }
 
 @keyframes hero-glitch {
@@ -312,13 +360,13 @@
 }
 
 .hero-name-glitch::before {
-  transform: translateX(1px);
-  color: rgba(59, 130, 246, 0.65);
+  transform: translateX(2px);
+  color: var(--color-home-ember-dim, rgba(59, 130, 246, 0.65));
 }
 
 .hero-name-glitch::after {
-  transform: translateX(-1px);
-  color: rgba(147, 197, 253, 0.6);
+  transform: translateX(-2px);
+  color: var(--color-home-volt-dim, rgba(147, 197, 253, 0.6));
 }
 
 /* ─── Marquee ticker ────────────────────────────────────── */
@@ -359,30 +407,14 @@
 }
 
 /* ─── Nav brand micro-interaction ──────────────────────── */
-.nav-brand {
-  letter-spacing: -0.01em;
-}
-
 .nav-brand-dotdev {
-  margin-left: 0.08em;
-  background: linear-gradient(
-    120deg,
-    var(--color-cyan) 0%,
-    #bae6fd 24%,
-    var(--color-violet) 52%,
-    #60a5fa 74%,
-    var(--color-cyan) 100%
-  );
-  background-size: 220% 100%;
-  background-position: 0% 50%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: background-position 520ms ease;
+  color: var(--color-home-paper);
+  letter-spacing: -0.01em;
+  transition: color 320ms ease;
 }
 
 .group:hover .nav-brand-dotdev {
-  background-position: 100% 50%;
+  color: var(--color-home-volt);
 }
 
 .nav-brand-underline {
@@ -618,4 +650,370 @@
 }
 .cs-tech-pill-pink {
   animation: pill-pulse-pink 2.8s ease-in-out infinite;
+}
+
+/* ══════════════════════════════════════════════════════════
+   Home page — kinetic system
+   Scoped to the home page's own components; the legacy
+   utilities above stay untouched for other routes.
+   ══════════════════════════════════════════════════════════ */
+
+.home-scene {
+  background-color: var(--color-home-bg);
+  color: var(--color-home-paper);
+}
+
+@keyframes scrollcue {
+  0% { transform: translateY(-100%); }
+  50% { transform: translateY(100%); }
+  100% { transform: translateY(-100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="animate-[scrollcue"] {
+    animation: none !important;
+  }
+}
+
+/* Fine paper-grain texture — physical, not glassy */
+.home-grain {
+  position: relative;
+}
+
+.home-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+}
+
+.home-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-home-paper-dim);
+}
+
+.home-index {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-home-ember);
+}
+
+.home-rule {
+  border-color: var(--color-home-line);
+}
+
+.home-heading {
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+}
+
+.home-ember-text {
+  color: var(--color-home-ember);
+}
+
+.home-volt-text {
+  color: var(--color-home-volt);
+}
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 0.9rem 1.75rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), background-color 220ms ease, color 220ms ease, border-color 220ms ease;
+}
+
+.home-btn-primary {
+  background: var(--color-home-ember);
+  color: var(--color-home-bg);
+  border: 1px solid var(--color-home-ember);
+}
+
+.home-btn-primary:hover,
+.home-btn-primary:focus-visible {
+  transform: translateY(-2px);
+  background: var(--color-home-volt);
+  border-color: var(--color-home-volt);
+}
+
+.home-btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-home-bg), 0 0 0 4px var(--color-home-volt);
+}
+
+.home-btn-outline {
+  background: transparent;
+  color: var(--color-home-paper);
+  border: 1px solid var(--color-home-line);
+}
+
+.home-btn-outline:hover,
+.home-btn-outline:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--color-home-paper-dim);
+}
+
+.home-btn-outline:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-home-bg), 0 0 0 4px var(--color-home-paper-dim);
+}
+
+.home-link-volt {
+  position: relative;
+  background-image: linear-gradient(90deg, var(--color-home-volt), var(--color-home-volt));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  transition: background-size 280ms cubic-bezier(0.16, 1, 0.3, 1), color 220ms ease;
+}
+
+.home-link-volt:hover,
+.home-link-volt:focus-visible {
+  color: var(--color-home-volt);
+  background-size: 100% 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-btn-primary,
+  .home-btn-outline,
+  .home-link-volt {
+    transition: none;
+  }
+}
+
+/* ─── /next concept — noir signal ───────────────────────── */
+.next-scene {
+  background-color: var(--color-next-bg);
+  color: var(--color-next-ink);
+}
+
+/* Same fractal-noise overlay technique as .home-grain, kept as its own
+   rule so the /next system's CSS doesn't reach for "home-" prefixed classes.
+   Deliberately no `position` here — every usage already sets its own
+   (relative, or md:absolute for the pinned work slides). An unlayered rule
+   here would beat a responsive Tailwind utility in the cascade and silently
+   override it at that breakpoint (this exact bug broke the work-slide pin). */
+.next-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+}
+
+.next-kicker {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--color-next-ink-dim);
+}
+
+.next-heading {
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+
+.next-rule {
+  border-color: var(--color-next-line);
+}
+
+.next-index {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-next-neon);
+}
+
+.next-scramble-noise {
+  color: var(--color-next-neon);
+}
+
+.next-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 0.9rem 1.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), background-color 220ms ease, color 220ms ease, border-color 220ms ease;
+}
+
+.next-btn-primary {
+  background: var(--color-next-neon);
+  color: var(--color-next-bg);
+  border: 1px solid var(--color-next-neon);
+}
+
+.next-btn-primary:hover,
+.next-btn-primary:focus-visible {
+  transform: translateY(-2px);
+  background: var(--color-next-ink);
+  border-color: var(--color-next-ink);
+}
+
+.next-btn-outline {
+  background: transparent;
+  color: var(--color-next-ink);
+  border: 1px solid var(--color-next-line);
+}
+
+.next-btn-outline:hover,
+.next-btn-outline:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--color-next-ink);
+}
+
+.next-btn-primary:focus-visible,
+.next-btn-outline:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-next-bg), 0 0 0 4px var(--color-next-neon);
+}
+
+/* Scroll-scrubbed fill text: two stacked layers, the top one
+   clipped by GSAP ScrollTrigger scrub as the user scrolls. */
+.next-fill-wrap {
+  position: relative;
+}
+
+.next-fill-base {
+  color: var(--color-next-ink-dim);
+}
+
+.next-fill-neon {
+  position: absolute;
+  inset: 0;
+  color: var(--color-next-neon);
+  clip-path: inset(0 100% 0 0);
+  pointer-events: none;
+}
+
+.next-marquee-text {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  -webkit-text-stroke: 1.5px var(--color-next-ink);
+  color: transparent;
+}
+
+.next-marquee-text .is-neon {
+  -webkit-text-stroke: 0;
+  color: var(--color-next-neon);
+}
+
+.next-cta-link {
+  /* No display here on purpose — Tailwind utilities on each usage (inline-flex,
+     inline-block) set it. This class used to hardcode inline-block, which — being
+     unlayered CSS — beat the inline-flex utility in the cascade and broke usages
+     that pair this class with an icon (Tailwind's svg preflight is display:block,
+     so it dropped to its own line instead of sitting next to the text). */
+  position: relative;
+}
+
+.next-cta-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0.06em;
+  width: 100%;
+  height: 2px;
+  background: var(--color-next-neon);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.next-cta-link:hover::after,
+.next-cta-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .next-btn-primary,
+  .next-btn-outline,
+  .next-cta-link::after {
+    transition: none;
+  }
+}
+
+/* Hidden lab-access dot — blends into the shader grain at rest,
+   only reveals itself on hover/focus. A visual easter egg, not a
+   nav item; kept out of Nav.tsx on purpose. */
+.next-secret-dot-mark {
+  display: block;
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--color-next-ink);
+  opacity: 0.05;
+  transition: opacity 320ms ease, background-color 320ms ease, box-shadow 320ms ease, transform 320ms ease;
+}
+
+.next-secret-dot:hover .next-secret-dot-mark,
+.next-secret-dot:focus-visible .next-secret-dot-mark {
+  opacity: 1;
+  background: var(--color-next-neon);
+  box-shadow: 0 0 12px var(--color-next-neon), 0 0 28px var(--color-next-neon-dim);
+  transform: scale(1.6);
+}
+
+/* Slides out to the dot's left via an animated 0fr → 1fr grid track,
+   so it reveals at the text's natural width without a hardcoded value. */
+.next-secret-label {
+  display: grid;
+  grid-template-columns: 0fr;
+  margin-right: 0;
+  opacity: 0;
+  transition: grid-template-columns 340ms cubic-bezier(0.16, 1, 0.3, 1), margin-right 340ms cubic-bezier(0.16, 1, 0.3, 1), opacity 220ms ease;
+}
+
+.next-secret-label-text {
+  overflow: hidden;
+  min-width: 0;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--color-next-neon);
+}
+
+.next-secret-dot:hover .next-secret-label,
+.next-secret-dot:focus-visible .next-secret-label {
+  grid-template-columns: 1fr;
+  margin-right: 0.6rem;
+  opacity: 1;
+}
+
+.next-secret-dot:focus-visible {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .next-secret-dot-mark,
+  .next-secret-label {
+    transition: none;
+  }
 }

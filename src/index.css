@@ -8,12 +8,11 @@
   }
 
   html {
-    scroll-behavior: smooth;
     background-color: var(--color-bg-primary);
   }
 
   body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Bricolage Grotesque', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--color-bg-primary);

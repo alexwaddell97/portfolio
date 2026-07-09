@@ -11,6 +11,9 @@ async function run() {
     <html>
       <head>
         <meta charset="utf-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
         <style>
           * { box-sizing: border-box; }
           html, body {
@@ -18,67 +21,55 @@ async function run() {
             width: 1200px;
             height: 630px;
             overflow: hidden;
-            background: #080810;
-            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-            color: #e4e4e7;
+            background: oklch(14% 0.012 45);
+            font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+            color: oklch(96% 0.01 80);
           }
           .frame {
             position: relative;
             width: 1200px;
             height: 630px;
-            padding: 56px 64px;
-            background:
-              radial-gradient(circle at 14% 22%, rgba(6, 182, 212, 0.28), transparent 42%),
-              radial-gradient(circle at 86% 78%, rgba(124, 58, 237, 0.34), transparent 45%),
-              radial-gradient(circle at 74% 20%, rgba(236, 72, 153, 0.2), transparent 35%),
-              #080810;
-          }
-          .grid {
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
-            background-size: 28px 28px;
-            opacity: 0.35;
-          }
-          .card {
-            position: relative;
-            height: 100%;
-            border-radius: 28px;
-            border: 1px solid rgba(255,255,255,0.12);
-            background: linear-gradient(180deg, rgba(18,18,31,0.82), rgba(10,10,18,0.72));
-            padding: 48px;
+            padding: 72px 80px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            backdrop-filter: blur(2px);
+          }
+          .border {
+            position: absolute;
+            inset: 28px;
+            border: 1px solid oklch(96% 0.01 80 / 0.12);
+            pointer-events: none;
+          }
+          .grain {
+            position: absolute;
+            inset: 0;
+            opacity: 0.5;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
           }
           .kicker {
             margin: 0;
-            letter-spacing: 0.24em;
-            font-size: 14px;
-            font-weight: 600;
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            letter-spacing: 0.14em;
+            font-size: 20px;
+            font-weight: 500;
             text-transform: uppercase;
-            color: #a1a1aa;
+            color: oklch(70% 0.014 60);
           }
-          .title {
-            margin: 16px 0 0;
-            font-size: 78px;
-            line-height: 1.02;
-            letter-spacing: -0.045em;
-            font-weight: 900;
-            max-width: 820px;
-            background: linear-gradient(135deg, #06b6d4 0%, #7c3aed 62%, #ec4899 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-          }
-          .subtitle {
+          .name {
             margin: 20px 0 0;
-            max-width: 860px;
-            font-size: 28px;
-            line-height: 1.35;
-            color: #c7c7d2;
-            letter-spacing: -0.01em;
+            font-size: 132px;
+            line-height: 0.94;
+            letter-spacing: -0.02em;
+            font-weight: 800;
+          }
+          .tagline {
+            margin: 28px 0 0;
+            max-width: 760px;
+            font-size: 30px;
+            line-height: 1.4;
+            font-weight: 400;
+            color: oklch(70% 0.014 60);
           }
           .footer {
             display: flex;
@@ -86,44 +77,37 @@ async function run() {
             justify-content: space-between;
           }
           .url {
-            font-size: 24px;
-            font-weight: 600;
-            color: #d4d4db;
+            font-size: 26px;
+            font-weight: 500;
+            color: oklch(96% 0.01 80);
             letter-spacing: -0.01em;
           }
           .mark {
-            width: 86px;
-            height: 86px;
-            border-radius: 22px;
+            width: 72px;
+            height: 72px;
             display: grid;
             place-items: center;
-            background: #0d0d18;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.24);
-            font-size: 40px;
-            font-weight: 900;
-            letter-spacing: -0.07em;
+            background: oklch(62% 0.21 32);
+            color: oklch(14% 0.012 45);
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: -0.06em;
             text-transform: lowercase;
-            background-image: linear-gradient(135deg, #06b6d4 0%, #7c3aed 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
           }
         </style>
       </head>
       <body>
         <div class="frame">
-          <div class="grid"></div>
-          <div class="card">
-            <div>
-              <p class="kicker">Alexander Waddell</p>
-              <h1 class="title">Lead Developer · Software Architect · Mentor</h1>
-              <p class="subtitle">Building fast, scalable web applications and helping teams ship with confidence.</p>
-            </div>
-            <div class="footer">
-              <div class="url">alexw.dev</div>
-              <div class="mark">aw</div>
-            </div>
+          <div class="grain"></div>
+          <div class="border"></div>
+          <div>
+            <p class="kicker">Full-Stack Engineer &middot; Engineering Mentor</p>
+            <h1 class="name">Alex Waddell</h1>
+            <p class="tagline">I build fast, scalable web applications and optimise teams to deliver at their best.</p>
+          </div>
+          <div class="footer">
+            <div class="url">alexw.dev</div>
+            <div class="mark">aw</div>
           </div>
         </div>
       </body>
