@@ -1,8 +1,24 @@
+import { readFile } from 'node:fs/promises';
 import { chromium } from 'playwright';
 
 const outputPath = 'public/og-image.png';
 
+// logo.svg is a rasterised PNG wrapped in an <svg> (no vector paths to
+// retint), so we pull its embedded base64 PNG out and reuse it as a CSS
+// mask — same technique as generate-favicon.mjs and the AW mark elsewhere
+// in the app — rather than duplicating a second copy of the mark as a
+// separate asset.
+async function readLogoMaskDataUri() {
+  const svg = await readFile('public/images/logo.svg', 'utf-8');
+  const match = svg.match(/data:image\/png;base64,([A-Za-z0-9+/=]+)/);
+  if (!match) {
+    throw new Error('Could not find embedded PNG in public/images/logo.svg');
+  }
+  return `data:image/png;base64,${match[1]}`;
+}
+
 async function run() {
+  const logoDataUri = await readLogoMaskDataUri();
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
 
@@ -11,9 +27,6 @@ async function run() {
     <html>
       <head>
         <meta charset="utf-8" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
         <style>
           * { box-sizing: border-box; }
           html, body {
@@ -21,9 +34,9 @@ async function run() {
             width: 1200px;
             height: 630px;
             overflow: hidden;
-            background: oklch(14% 0.012 45);
+            background: #000000;
             font-family: 'Bricolage Grotesque', system-ui, sans-serif;
-            color: oklch(96% 0.01 80);
+            color: #ffffff;
           }
           .frame {
             position: relative;
@@ -33,19 +46,40 @@ async function run() {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            isolation: isolate;
+          }
+          /* Same static approximation of the hero's MeshGradient used by
+             generate-favicon.mjs — blurred radial blobs rather than the
+             live WebGL shader, since this is a single rasterised frame. */
+          .frame::before {
+            content: '';
+            position: absolute;
+            inset: -25%;
+            z-index: 0;
+            background:
+              radial-gradient(circle at 18% 15%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 42%),
+              radial-gradient(circle at 88% 85%, rgba(212, 255, 0, 0.9) 0%, rgba(212, 255, 0, 0) 45%),
+              radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 38%),
+              #000000;
+            filter: blur(40px) saturate(1.1);
+          }
+          .frame::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.5);
           }
           .border {
             position: absolute;
             inset: 28px;
-            border: 1px solid oklch(96% 0.01 80 / 0.12);
+            z-index: 2;
+            border: 1px solid rgba(255, 255, 255, 0.12);
             pointer-events: none;
           }
-          .grain {
-            position: absolute;
-            inset: 0;
-            opacity: 0.5;
-            mix-blend-mode: overlay;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+          .content {
+            position: relative;
+            z-index: 2;
           }
           .kicker {
             margin: 0;
@@ -54,24 +88,27 @@ async function run() {
             font-size: 20px;
             font-weight: 500;
             text-transform: uppercase;
-            color: oklch(70% 0.014 60);
+            color: rgba(255, 255, 255, 0.65);
           }
           .name {
             margin: 20px 0 0;
-            font-size: 132px;
+            font-size: 116px;
             line-height: 0.94;
             letter-spacing: -0.02em;
             font-weight: 800;
+            text-transform: uppercase;
           }
           .tagline {
             margin: 28px 0 0;
             max-width: 760px;
-            font-size: 30px;
+            font-size: 28px;
             line-height: 1.4;
             font-weight: 400;
-            color: oklch(70% 0.014 60);
+            color: rgba(255, 255, 255, 0.65);
           }
           .footer {
+            position: relative;
+            z-index: 2;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -79,35 +116,35 @@ async function run() {
           .url {
             font-size: 26px;
             font-weight: 500;
-            color: oklch(96% 0.01 80);
+            color: #ffffff;
             letter-spacing: -0.01em;
           }
           .mark {
-            width: 72px;
-            height: 72px;
-            display: grid;
-            place-items: center;
-            background: oklch(62% 0.21 32);
-            color: oklch(14% 0.012 45);
-            font-size: 30px;
-            font-weight: 800;
-            letter-spacing: -0.06em;
-            text-transform: lowercase;
+            width: 64px;
+            height: 64px;
+            background-color: #d4ff00;
+            -webkit-mask-image: url('${logoDataUri}');
+            mask-image: url('${logoDataUri}');
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
           }
         </style>
       </head>
       <body>
         <div class="frame">
-          <div class="grain"></div>
           <div class="border"></div>
-          <div>
-            <p class="kicker">Full-Stack Engineer &middot; Engineering Mentor</p>
+          <div class="content">
+            <p class="kicker">Lead Developer &middot; Software Architect &middot; Mentor</p>
             <h1 class="name">Alex Waddell</h1>
-            <p class="tagline">I build fast, scalable web applications and optimise teams to deliver at their best.</p>
+            <p class="tagline">I build things that work, and the teams that can keep building them.</p>
           </div>
           <div class="footer">
             <div class="url">alexw.dev</div>
-            <div class="mark">aw</div>
+            <div class="mark"></div>
           </div>
         </div>
       </body>

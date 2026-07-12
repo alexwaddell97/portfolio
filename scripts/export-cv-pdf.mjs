@@ -53,6 +53,14 @@ async function run() {
       viewport: { width: 1280, height: 1800 },
     });
 
+    // The app-wide PageLoader intro (App.tsx) gates on a sessionStorage flag
+    // and otherwise blocks the screen for 1s+ before exiting — irrelevant
+    // (and actively wrong) for a machine-generated PDF export, so pre-seed
+    // the flag before the page's own scripts run and it never shows at all.
+    await page.addInitScript(() => {
+      window.sessionStorage.setItem('alexw-loader-seen', '1');
+    });
+
     await page.goto(cvUrl, { waitUntil: 'networkidle' });
     await page.emulateMedia({ media: 'screen' });
     await page.pdf({

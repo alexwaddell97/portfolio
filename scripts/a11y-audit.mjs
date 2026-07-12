@@ -6,7 +6,7 @@ import AxeBuilder from '@axe-core/playwright';
 const host = '127.0.0.1';
 const port = '4173';
 const baseUrl = `http://${host}:${port}`;
-const staticPaths = ['/', '/projects', '/blog'];
+const staticPaths = ['/', '/lab', '/cv'];
 
 function wait(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -62,22 +62,6 @@ async function run() {
     const page = await context.newPage();
 
     const allPaths = new Set(staticPaths);
-
-    await page.goto(`${baseUrl}/projects`, { waitUntil: 'networkidle' });
-    const projectDetailPaths = await page.evaluate(() => {
-      return Array.from(document.querySelectorAll('a[href^="/projects/"]'))
-        .map((anchor) => anchor.getAttribute('href'))
-        .filter((href) => Boolean(href) && href !== '/projects');
-    });
-    projectDetailPaths.slice(0, 3).forEach((path) => allPaths.add(path));
-
-    await page.goto(`${baseUrl}/blog`, { waitUntil: 'networkidle' });
-    const blogDetailPaths = await page.evaluate(() => {
-      return Array.from(document.querySelectorAll('a[href^="/blog/"]'))
-        .map((anchor) => anchor.getAttribute('href'))
-        .filter((href) => Boolean(href) && href !== '/blog');
-    });
-    blogDetailPaths.slice(0, 3).forEach((path) => allPaths.add(path));
 
     const allViolations = [];
 

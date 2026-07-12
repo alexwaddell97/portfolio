@@ -182,11 +182,19 @@
 }
 
 /* ─── Theme-switch view transition ─────────────────────── */
-::view-transition-old(root) {
+/* Scoped to [data-view-transition='theme'] (set in Nav.tsx right before
+   calling startViewTransition, cleared once it finishes) so this doesn't
+   collide with the route-change glitch transition below — both animate
+   the same ::view-transition-old/new(root) pseudo-elements, and without
+   this the two rule blocks would just fight over CSS source order,
+   silently applying to both triggers instead of just their own. The
+   attribute selector's extra specificity wins here regardless of where
+   either block sits in the file. */
+html[data-view-transition='theme']::view-transition-old(root) {
   animation: none;
 }
 
-::view-transition-new(root) {
+html[data-view-transition='theme']::view-transition-new(root) {
   animation: theme-sweep 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
@@ -196,8 +204,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
+  html[data-view-transition='theme']::view-transition-old(root),
+  html[data-view-transition='theme']::view-transition-new(root) {
     animation: none;
   }
 }
@@ -844,6 +852,73 @@
   color: var(--color-next-neon);
 }
 
+/* logo.svg ships as a rasterised PNG wrapped in an <svg>, not real vector
+   paths — there's no fill to retint via CSS. Using it as a mask instead
+   keys off the alpha channel, so any solid colour can be painted through
+   the letterforms regardless of the source raster's actual pixels. Shared
+   by every place the mark shows up (loader, footer) so the mask rules
+   don't get re-declared per usage. */
+.logo-mark {
+  background-color: var(--color-next-neon);
+  -webkit-mask-image: url('/images/logo.svg');
+  mask-image: url('/images/logo.svg');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.page-loader-mark {
+  width: clamp(6rem, 20vw, 9rem);
+  height: clamp(6rem, 20vw, 9rem);
+  will-change: opacity, filter, transform;
+}
+
+/* Oversized behind the closing CTA, low-opacity so "Let's talk" stays the
+   thing you read first — a signature mark closing out the page, not a
+   literal logo bolted onto the footer. */
+.footer-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(16rem, 42vw, 30rem);
+  height: clamp(16rem, 42vw, 30rem);
+  transform: translate(-50%, -50%);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* CRT scanlines drifting slowly downward — static enough to read as texture,
+   not a light show, so it doesn't compete with the mark for attention. */
+.page-loader-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.06) 0px,
+    rgba(255, 255, 255, 0.06) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: page-loader-scan-drift 9s linear infinite;
+}
+
+@keyframes page-loader-scan-drift {
+  from { background-position: 0 0; }
+  to   { background-position: 0 300px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-loader-scanlines {
+    animation: none;
+  }
+}
+
 .next-btn {
   display: inline-flex;
   align-items: center;
@@ -974,8 +1049,8 @@
 .next-secret-dot:hover .next-secret-dot-mark,
 .next-secret-dot:focus-visible .next-secret-dot-mark {
   opacity: 1;
-  background: var(--color-next-neon);
-  box-shadow: 0 0 12px var(--color-next-neon), 0 0 28px var(--color-next-neon-dim);
+  background: var(--color-next-neon-2);
+  box-shadow: 0 0 12px var(--color-next-neon-2), 0 0 28px rgba(255, 46, 154, 0.5);
   transform: scale(1.6);
 }
 
@@ -997,7 +1072,7 @@
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.01em;
-  color: var(--color-next-neon);
+  color: var(--color-next-neon-2);
 }
 
 .next-secret-dot:hover .next-secret-label,
@@ -1015,5 +1090,49 @@
   .next-secret-dot-mark,
   .next-secret-label {
     transition: none;
+  }
+}
+
+/* ─── Page View Transition API ──────────────────────────── */
+/* This is the default/unscoped case — any view transition that isn't
+   explicitly marked [data-view-transition='theme'] (see Nav.tsx and the
+   theme-switch block above) falls through to this glitch effect, which
+   covers route navigation via <Link viewTransition>. */
+/* Exit: glitch-flicker then snap out */
+::view-transition-old(root) {
+  animation: page-glitch-out 0.32s steps(1, end) forwards;
+}
+
+/* Enter: snap in then settle */
+::view-transition-new(root) {
+  animation: page-glitch-in 0.38s steps(1, end) forwards;
+  opacity: 0;
+}
+
+@keyframes page-glitch-out {
+  0%   { opacity: 1; transform: translate3d(0, 0, 0);      filter: none; }
+  15%  { opacity: 1; transform: translate3d(-3px, 1px, 0); filter: hue-rotate(40deg) brightness(1.4); }
+  30%  { opacity: 0; transform: translate3d(3px, -1px, 0); filter: hue-rotate(-20deg); }
+  45%  { opacity: 1; transform: translate3d(-2px, 0, 0);   filter: hue-rotate(20deg) brightness(1.2); }
+  60%  { opacity: 0; transform: translate3d(2px, 1px, 0);  filter: none; }
+  75%  { opacity: 1; transform: translate3d(0, 0, 0);      filter: brightness(2) saturate(0); }
+  100% { opacity: 0; transform: translate3d(0, 0, 0);      filter: none; }
+}
+
+@keyframes page-glitch-in {
+  0%   { opacity: 0; transform: translate3d(0, 0, 0);      filter: brightness(2) saturate(0); }
+  20%  { opacity: 1; transform: translate3d(3px, -1px, 0); filter: hue-rotate(-30deg) brightness(1.5); }
+  35%  { opacity: 0; transform: translate3d(-2px, 1px, 0); filter: hue-rotate(20deg); }
+  50%  { opacity: 1; transform: translate3d(1px, 0, 0);    filter: hue-rotate(-10deg) brightness(1.2); }
+  70%  { opacity: 1; transform: translate3d(-1px, 0, 0);   filter: hue-rotate(5deg); }
+  85%  { opacity: 1; transform: translate3d(0, 0, 0);      filter: none; }
+  100% { opacity: 1; transform: translate3d(0, 0, 0);      filter: none; }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
   }
 }

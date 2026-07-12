@@ -1,14 +1,21 @@
-import { useRef } from 'react';
-import type { CSSProperties } from 'react';
+import { lazy, Suspense, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MeshGradient } from '@paper-design/shaders-react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { FiArrowUpRight, FiChevronLeft, FiChevronRight, FiGithub, FiLinkedin, FiLock, FiTwitter } from 'react-icons/fi';
+import { FiArrowUpRight, FiChevronDown, FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi';
 import ScrambleText from '../components/ScrambleText.tsx';
+import ViewTransitionLink from '../components/ViewTransitionLink.tsx';
+import type { Laptop3DHandle } from '../components/Laptop3D.tsx';
 import projects from '../data/projects.ts';
+
+// Lazy-loaded: three.js/@react-three/fiber/drei are a ~230KB (gzipped) chunk.
+// isDesktop already stops this from ever mounting on phones, but a static
+// import would still ship that code to every visitor regardless — code-
+// splitting means mobile only pays for the small Suspense wrapper.
+const Laptop3D = lazy(() => import('../components/Laptop3D.tsx'));
 import type { Project } from '../types/index.ts';
 
 gsap.registerPlugin(SplitText);
@@ -87,11 +94,9 @@ function useTilt<T extends HTMLElement>(strength = 6) {
   return ref;
 }
 
-function ScrollProgress() {
+function ScrollHint() {
   const wrapRef = useRef<HTMLDivElement>(null);
-  const fillRef = useRef<HTMLSpanElement>(null);
-  const blipRef = useRef<HTMLSpanElement>(null);
-  const percentRef = useRef<HTMLSpanElement>(null);
+  const arrowRef = useRef<HTMLSpanElement>(null);
 
   useGSAP(() => {
     const wrap = wrapRef.current;
@@ -99,54 +104,52 @@ function ScrollProgress() {
     // passed down from an ancestor — a parent's ref attaches AFTER its
     // children's layout effects run, so heroRef.current would still be null here.
     const hero = wrap?.closest('section');
-    const fill = fillRef.current;
-    const blip = blipRef.current;
-    const percentEl = percentRef.current;
-    if (!wrap || !hero || !fill || !blip || !percentEl) return;
+    const arrow = arrowRef.current;
+    if (!wrap || !hero || !arrow) return;
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduceMotion) return;
 
-    // Progress across the hero's OWN scroll distance (top of hero at viewport
-    // top → bottom of hero at viewport top), not the whole page — this widget
-    // only ever lives inside the hero, so page-wide progress would barely move
-    // off 0% before it fades away. Fade-out is derived from the same number,
-    // so "100%" and "gone" land together instead of being two unrelated triggers.
+    // Fades out across the hero's OWN scroll distance (top of hero at
+    // viewport top → bottom of hero at viewport top), not the whole page —
+    // gone by the time the hero itself scrolls away, not some unrelated
+    // page-wide trigger.
     const FADE_START = 0.75;
-
-    const setProgress = (progress: number) => {
-      const pct = Math.round(progress * 100);
-      gsap.set(fill, { height: `${pct}%` });
-      gsap.set(blip, { top: `${pct}%` });
-      percentEl.textContent = `${String(pct).padStart(2, '0')}%`;
-
+    const setOpacity = (progress: number) => {
       const opacity = progress <= FADE_START ? 1 : 1 - (progress - FADE_START) / (1 - FADE_START);
       gsap.set(wrap, { opacity });
     };
 
-    const progressTrigger = ScrollTrigger.create({
+    const fadeTrigger = ScrollTrigger.create({
       trigger: hero,
       start: 'top top',
       end: 'bottom top',
-      onUpdate: (self) => setProgress(self.progress),
-      onRefresh: (self) => setProgress(self.progress),
+      onUpdate: (self) => setOpacity(self.progress),
+      onRefresh: (self) => setOpacity(self.progress),
     });
 
-    return () => progressTrigger.kill();
+    const bounce = gsap.to(arrow, {
+      y: 8,
+      duration: 0.9,
+      ease: 'sine.inOut',
+      repeat: -1,
+      yoyo: true,
+    });
+
+    return () => {
+      fadeTrigger.kill();
+      bounce.kill();
+    };
   }, []);
 
   return (
-    <div ref={wrapRef} className="absolute bottom-6 left-6 z-10 flex items-center gap-3 sm:bottom-8 sm:left-10">
+    <div
+      ref={wrapRef}
+      className="absolute bottom-6 left-6 z-10 flex flex-col items-center gap-2 sm:bottom-8 sm:left-10"
+    >
       <span className="next-kicker">Scroll</span>
-      <span className="relative h-16 w-px bg-next-line">
-        <span ref={fillRef} className="absolute inset-x-0 top-0 w-px bg-next-neon" />
-        <span
-          ref={blipRef}
-          className="absolute left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-next-neon shadow-[0_0_8px_var(--color-next-neon),0_0_18px_var(--color-next-neon-dim)]"
-        />
-      </span>
-      <span ref={percentRef} className="next-kicker w-9 tabular-nums">
-        00%
+      <span ref={arrowRef} className="flex text-next-neon">
+        <FiChevronDown size={20} />
       </span>
     </div>
   );
@@ -179,8 +182,8 @@ function FillStatement({ text }: { text: string }) {
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: container,
-              start: 'top 75%',
-              end: 'bottom 45%',
+              start: 'top 55%',
+              end: 'bottom 30%',
               scrub: 0.6,
             },
           });
@@ -216,39 +219,40 @@ function getSlideImage(project: Project): string {
   return project.gallery?.[0] || project.image;
 }
 
-// Bare domain for the fake browser chrome's URL pill, e.g. "giglab.co.uk".
-function getDisplayUrl(liveUrl: string | undefined): string {
-  if (!liveUrl) return '';
-  try {
-    return new URL(liveUrl).hostname.replace(/^www\./, '');
-  } catch {
-    return liveUrl;
-  }
-}
-
-function WorkSlide({
-  project,
-  index,
-  style,
-}: {
-  project: Project;
-  index: number;
-  style?: CSSProperties;
-}) {
+// Projects alternate sides each slide (even index -> laptop on the right,
+// text on the left; odd index -> the reverse), so the showcase doesn't
+// repeat the same left/right rhythm every time.
+function WorkSlide({ project, index }: { project: Project; index: number }) {
   const ctaRef = useMagnetic<HTMLSpanElement>(0.25);
+  const textSide = index % 2 === 0 ? 'left' : 'right';
 
   return (
     <a
       href={project.liveUrl}
       target="_blank"
       rel="noreferrer"
-      style={style}
-      className="work-slide next-grain group relative flex w-full flex-col justify-center gap-10 overflow-hidden bg-next-bg px-8 py-16 outline-none focus-visible:ring-2 focus-visible:ring-next-neon md:absolute md:inset-0 md:h-full md:flex-row md:items-center md:gap-16 md:px-20"
+      className={`work-slide next-grain group relative flex w-full flex-col justify-center overflow-hidden bg-next-bg px-8 py-16 outline-none focus-visible:ring-2 focus-visible:ring-next-neon md:absolute md:inset-y-0 md:h-full md:w-1/2 md:px-16 ${
+        textSide === 'left' ? 'md:left-0' : 'md:right-0'
+      }`}
     >
       {/* Faint radial glow behind the text — depth without a second WebGL canvas per slide */}
-      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top_left,rgba(212,255,0,0.06),transparent_55%)]" />
+      <div
+        className={`pointer-events-none absolute inset-0 z-0 ${
+          textSide === 'right'
+            ? 'bg-[radial-gradient(ellipse_at_top_left,rgba(212,255,0,0.14),transparent_55%)]'
+            : 'bg-[radial-gradient(ellipse_at_top_left,rgba(212,255,0,0.06),transparent_55%)]'
+        }`}
+      />
 
-      <div className="work-slide-content relative z-10 max-w-xl md:w-1/2">
+      {/* Hidden by default on desktop (matching GSAP's initial autoAlpha:0
+          state) so there's no flash of every slide's text fully visible and
+          overlapping before the 3D model finishes loading and the pinned
+          timeline's gsap.set() runs. Scoped to md + motion-safe — the exact
+          condition the timeline itself requires — so mobile and
+          reduced-motion users (where GSAP never takes over) still see this
+          normally, un-hidden. Once JS is ready, its inline autoAlpha style
+          takes over and overrides these classes entirely. */}
+      <div className="work-slide-content relative z-10 max-w-xl md:motion-safe:translate-y-6 md:motion-safe:opacity-0">
         <span className="next-index text-sm">0{index + 1}</span>
         <h3 className="next-heading mt-2 text-3xl font-extrabold sm:text-4xl">{project.title}</h3>
         <p className="mt-3 max-w-md text-base leading-relaxed text-next-ink-dim">{project.description}</p>
@@ -270,172 +274,224 @@ function WorkSlide({
           <FiArrowUpRight className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </span>
       </div>
-
-      {project.image && (
-        <div className="relative z-10 w-full shrink-0 perspective-[1600px] md:w-1/2 md:max-w-2xl">
-          {/* Screen/lid — hinges open or shut via rotationX in WorkSlides (first
-              and last slide only); transform-origin is the hinge at the base. */}
-          <div className="laptop-lid origin-bottom rounded-t-md border border-b-0 border-zinc-400 bg-zinc-300 p-2 backface-hidden sm:p-2.5">
-            <div className="relative flex aspect-16/10 w-full flex-col overflow-hidden rounded-sm bg-black">
-              {/* macOS-style browser chrome — its own row, not overlaid on the
-                  screenshot, so the page content is contained below it rather
-                  than covered by it */}
-              <div className="relative flex h-5 shrink-0 items-center gap-2 border-b border-black/40 bg-zinc-800 px-2 sm:h-6">
-                <div className="flex shrink-0 items-center gap-1">
-                  <span className="h-2 w-2 rounded-full bg-linear-to-b from-[#ff8a80] to-[#e0443e] shadow-[inset_0_0_1px_rgba(255,255,255,0.4)]" />
-                  <span className="h-2 w-2 rounded-full bg-linear-to-b from-[#ffd873] to-[#dea123] shadow-[inset_0_0_1px_rgba(255,255,255,0.4)]" />
-                  <span className="h-2 w-2 rounded-full bg-linear-to-b from-[#6fe377] to-[#1aab29] shadow-[inset_0_0_1px_rgba(255,255,255,0.4)]" />
-                </div>
-                <div className="hidden shrink-0 items-center gap-1 text-zinc-500 sm:flex">
-                  <FiChevronLeft size={10} />
-                  <FiChevronRight size={10} />
-                </div>
-                {/* Centered on the whole bar, not just the space left of the controls — matches real browser chrome */}
-                <div className="absolute top-1/2 left-1/2 flex max-w-[65%] -translate-x-1/2 -translate-y-1/2 items-center gap-1 truncate rounded-sm bg-zinc-900 px-2 py-0.5">
-                  <FiLock size={7} className="shrink-0 text-zinc-500" />
-                  <span className="truncate font-mono text-[8px] text-zinc-400">{getDisplayUrl(project.liveUrl)}</span>
-                </div>
-              </div>
-              <div className="relative flex-1 overflow-hidden">
-                <img
-                  src={getSlideImage(project)}
-                  alt=""
-                  loading="lazy"
-                  className={`work-slide-image h-full w-full object-cover contrast-105 ${
-                    project.slug === 'subcreation' ? 'object-top' : 'object-center'
-                  }`}
-                />
-                {/* Grey brighten/contrast wash (no hue shift) — opacity is scroll-driven in WorkSlides, brightest once this slide has arrived */}
-                <div className="work-slide-tint pointer-events-none absolute inset-0 bg-white opacity-0 mix-blend-overlay" />
-              </div>
-            </div>
-          </div>
-          {/* Base / hinge lip — slightly wider than the screen, like a laptop chassis. Stays put; only the lid above it rotates. */}
-          <div className="relative mx-[-4%] h-3 rounded-b-xl border border-t-0 border-zinc-400 bg-zinc-300 sm:h-4">
-            <div className="absolute top-0 left-1/2 h-1 w-14 -translate-x-1/2 rounded-b-full bg-zinc-500" />
-          </div>
-        </div>
-      )}
     </a>
   );
 }
 
+// Even index -> laptop wrapper shifted a full width over into the right
+// slot; odd index -> left in its home slot (the left half). Text always
+// takes the opposite side (see WorkSlide above).
+function laptopXPercent(index: number) {
+  return index % 2 === 0 ? 100 : 0;
+}
+
+// Scroll units (not seconds) to hold still, screen facing forward, before a
+// turn begins — the laptop just arrived at this pose from the previous turn
+// (or the initial open), so it's a beat to actually look at the project
+// before the next flip starts, rather than being in constant motion.
+const TURN_HOLD_DURATION = 0.75;
+
+// Reveal-spotlight intensity once the lid is open — 0 while closed (set on
+// the spotlight itself as its default, and explicitly here at rest).
+const SPOTLIGHT_ON_INTENSITY = 4;
+
 function WorkSlides() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const laptopWrapRef = useRef<HTMLDivElement>(null);
+  const laptopRef = useRef<Laptop3DHandle>(null);
+  const [laptopReady, setLaptopReady] = useState(false);
+  // Client-only SPA (no SSR), so it's safe to read this directly rather than
+  // deferring to an effect — avoids mounting/loading the 10MB model at all
+  // on phones, where the pinned/rotating showcase doesn't run anyway.
+  const [isDesktop] = useState(() => window.matchMedia('(min-width: 768px)').matches);
 
   useGSAP(
     () => {
+      if (!laptopReady) return;
+
+      // Defensive: React remounting this component (route away and back)
+      // must never leave a previous pin/ScrollTrigger alive on this same
+      // trigger element. If one somehow survived (e.g. a cleanup that ran
+      // out of order), it would fight the new one for control of the same
+      // `.work-slide-content` nodes, showing two slides' text overlapping
+      // at once. Kill anything already attached to this section first.
+      ScrollTrigger.getAll().forEach((st) => {
+        if (st.trigger === sectionRef.current) st.kill();
+      });
+
       const mm = gsap.matchMedia();
 
       mm.add('(min-width: 768px) and (prefers-reduced-motion: no-preference)', () => {
         const track = trackRef.current;
         const section = sectionRef.current;
-        if (!track || !section) return;
+        const laptopWrap = laptopWrapRef.current;
+        const laptop = laptopRef.current;
+        const lidPivot = laptop?.lidPivot;
+        const modelGroup = laptop?.modelGroup;
+        const closedRotationX = laptop?.closedRotationX;
+        const closedLiftY = laptop?.closedLiftY;
+        const spotlight = laptop?.spotlight;
+        const spotlightBack = laptop?.spotlightBack;
+        if (
+          !track ||
+          !section ||
+          !laptopWrap ||
+          !laptop ||
+          !lidPivot ||
+          !modelGroup ||
+          !spotlight ||
+          !spotlightBack ||
+          closedRotationX == null ||
+          closedLiftY == null
+        ) {
+          return;
+        }
 
         const slides = gsap.utils.toArray<HTMLElement>('.work-slide', track);
 
-        // One viewport-height of scroll per incoming panel, plus one extra for
-        // the closing beat at the very end (see isLast below).
-        const scrollDistance = () => window.innerHeight * (slides.length + 1);
-
+        // Every tween below is positioned against an explicit label (or an
+        // offset from one) rather than "<"/sequential chaining — the turn
+        // transitions (rotation + a mid-call + rotation) take 2 units where
+        // everything else takes 1, and relying on GSAP's "end of the last
+        // tween added" cursor for sequential inserts silently desyncs once
+        // durations differ. Explicit positions sidestep that entirely.
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
             start: 'top top',
-            end: () => `+=${scrollDistance()}`,
+            // Scroll distance follows however long the choreography actually
+            // ends up being (via labels/offsets below) rather than a guessed
+            // "one viewport-height per slide" constant.
+            end: () => `+=${tl.duration() * window.innerHeight}`,
             scrub: 0.6,
             pin: true,
             invalidateOnRefresh: true,
           },
         });
 
-        const CLOSED_ROTATION_X = -100;
+        // Start closed, laptop in slide 0's slot, showing its screenshot —
+        // the lid opens as slide 0 arrives (below).
+        gsap.set(lidPivot.rotation, { x: closedRotationX });
+        gsap.set(lidPivot.position, { y: closedLiftY });
+        gsap.set([spotlight, spotlightBack], { intensity: 0 });
+        gsap.set(laptopWrap, { xPercent: laptopXPercent(0) });
+        gsap.set(gsap.utils.toArray('.work-slide-content', track), { autoAlpha: 0, y: 24 });
+        laptop.setScreenTexture(getSlideImage(workItems[0]));
 
         slides.forEach((slide, i) => {
-          const tint = slide.querySelector<HTMLElement>('.work-slide-tint');
-          const lid = slide.querySelector<HTMLElement>('.laptop-lid');
-          const contentChildren = slide.querySelector<HTMLElement>('.work-slide-content')?.children;
+          const content = slide.querySelector<HTMLElement>('.work-slide-content');
           const isFirst = i === 0;
           const isLast = i === slides.length - 1;
+          const label = `slide-${i}`;
+          tl.addLabel(label);
 
-          // The first slide starts half onscreen (paired with the intro panel's
-          // own 50% width, below) so the opening frame reads as a 50/50 split
-          // rather than an empty full-width intro. Later slides arrive from
-          // fully offscreen since they're covering another full-bleed slide.
-          const fromXPercent = isFirst ? 50 : 100;
-          tl.fromTo(slide, { xPercent: fromXPercent }, { xPercent: 0, ease: 'none' });
+          let segmentDuration = 1;
 
-          if (tint) {
-            // Same timeline position as the slide-in ("<") — the photo brightens
-            // and gains contrast as the panel arrives and covers the last one.
-            tl.fromTo(tint, { opacity: 0 }, { opacity: 0.4, ease: 'none' }, '<');
-          }
-          // No motion on the image itself — it's meant to read as a static
-          // screenshot sitting in a real laptop screen, not something that
-          // zooms as you scroll.
-          if (lid) {
-            if (isFirst) {
-              // The very first laptop opens as it arrives — kicks off the showcase.
-              tl.fromTo(lid, { rotationX: CLOSED_ROTATION_X }, { rotationX: 0, ease: 'none' }, '<');
-            } else {
-              // Every other laptop is already open when its slide arrives.
-              gsap.set(lid, { rotationX: 0 });
-            }
-          }
-          if (i > 0 && contentChildren && contentChildren.length) {
-            // Slide 0's text is already visible at rest (the 50/50 opening
-            // frame), so only later slides — fully offscreen until scrolled
-            // to — get a staggered fade/rise as their panel arrives.
-            tl.fromTo(
-              contentChildren,
-              { autoAlpha: 0, y: 24 },
-              { autoAlpha: 1, y: 0, ease: 'none', stagger: 0.08 },
-              '<',
+          if (isFirst) {
+            // The laptop opens as the first showcase fades in — kicks off the sequence.
+            // Explicit duration: 1 unit, matching the label spacing below — without it,
+            // tweens default to GSAP's 0.5s and leave the back half of every "unit"
+            // completely static (dead scroll range with nothing animating).
+            tl.to(lidPivot.rotation, { x: 0, ease: 'none', duration: 1 }, label);
+            tl.to(lidPivot.position, { y: 0, ease: 'none', duration: 1 }, label);
+            tl.to(
+              [spotlight, spotlightBack],
+              { intensity: SPOTLIGHT_ON_INTENSITY, ease: 'none', duration: 1 },
+              label,
             );
+            if (content) tl.to(content, { autoAlpha: 1, y: 0, ease: 'none', duration: 1 }, label);
+          } else {
+            // Between projects the laptop turns a full revolution while
+            // translating to the opposite slot; the screen texture swaps at
+            // the halfway point, while it's facing away, and the outgoing/
+            // incoming text crossfade around that same beat.
+            const prevContent = slides[i - 1].querySelector<HTMLElement>('.work-slide-content');
+            const project = workItems[i];
+            const prevProject = workItems[i - 1];
+
+            // Hold first (screen still facing forward, showing the previous
+            // project) — then each rotation half explicitly spans its own
+            // full unit (turnStart to turnStart+1, then +1 to +2) so the turn
+            // itself is one continuous sweep, no held/paused moment right as
+            // the laptop's back faces the camera.
+            const turnStart = TURN_HOLD_DURATION;
+            const turnMid = TURN_HOLD_DURATION + 1;
+            if (prevContent) {
+              tl.to(prevContent, { autoAlpha: 0, y: -24, ease: 'none', duration: 1 }, `${label}+=${turnStart}`);
+            }
+            tl.to(modelGroup.rotation, { y: `+=${Math.PI}`, ease: 'none', duration: 1 }, `${label}+=${turnStart}`);
+            tl.to(laptopWrap, { xPercent: laptopXPercent(i), ease: 'none', duration: 2 }, `${label}+=${turnStart}`);
+
+            // GSAP fires .call() on both scrub directions — scrolling back up
+            // crosses this same instant, so pick the texture by direction
+            // rather than always swapping forward to `project`.
+            tl.call(
+              () => {
+                const direction = tl.scrollTrigger?.direction ?? 1;
+                laptop.setScreenTexture(getSlideImage(direction === 1 ? project : prevProject));
+              },
+              [],
+              `${label}+=${turnMid}`,
+            );
+            tl.to(modelGroup.rotation, { y: `+=${Math.PI}`, ease: 'none', duration: 1 }, `${label}+=${turnMid}`);
+            if (content) {
+              tl.fromTo(
+                content,
+                { autoAlpha: 0, y: 24 },
+                { autoAlpha: 1, y: 0, ease: 'none', duration: 1 },
+                `${label}+=${turnMid}`,
+              );
+            }
+            segmentDuration = TURN_HOLD_DURATION + 2; // hold + the turn/move
           }
 
-          if (isLast && lid) {
-            // A distinct closing beat AFTER the last slide has fully arrived
-            // (not simultaneous with its slide-in) — the showcase wraps up
-            // cleanly instead of arriving and shutting at the same time.
-            tl.to(lid, { rotationX: CLOSED_ROTATION_X, ease: 'none' });
+          if (isLast) {
+            // A distinct closing beat AFTER the last slide's segment fully
+            // completes, plus the same "screen facing us" hold as every other
+            // turn — the final project gets a beat on screen before the lid
+            // folds shut, instead of closing the instant the turn finishes.
+            const closeAt = `${label}+=${segmentDuration + TURN_HOLD_DURATION}`;
+            tl.to(lidPivot.rotation, { x: closedRotationX, ease: 'none', duration: 1 }, closeAt);
+            tl.to(lidPivot.position, { y: closedLiftY, ease: 'none', duration: 1 }, closeAt);
+            tl.to([spotlight, spotlightBack], { intensity: 0, ease: 'none', duration: 1 }, closeAt);
           }
         });
 
-        return () => tl.scrollTrigger?.kill();
+        // Force a synchronous measurement pass right away rather than
+        // waiting for GSAP's next natural refresh cycle — this section's
+        // pinned height depends on the timeline duration computed just
+        // above, and the trigger may be created while the page is still
+        // settling (e.g. right after a route change), so any stale cached
+        // measurement must be thrown out immediately, not eventually.
+        ScrollTrigger.refresh();
+
+        return () => tl.kill();
       });
 
       return () => mm.revert();
     },
-    { scope: sectionRef },
+    { scope: sectionRef, dependencies: [laptopReady] },
   );
 
   return (
-    <section
-      id="work"
-      ref={sectionRef}
-      className="next-rule relative overflow-hidden border-t md:h-screen"
-    >
+    <section id="work" ref={sectionRef} className="relative overflow-hidden md:h-screen">
       <div ref={trackRef} className="relative flex flex-col md:block md:h-full">
-        <div className="next-grain relative w-full px-6 py-20 sm:px-10 md:flex md:h-full md:w-1/2 md:flex-col md:justify-center md:px-16 md:py-0">
-          <div className="md:max-w-xl">
-            <div className="mb-6 flex items-center gap-3">
-              <span className="next-index text-sm">02</span>
-              <span className="next-kicker">Selected work</span>
-            </div>
-            <h2 className="next-heading text-[clamp(1.9rem,4.2vw,3rem)] font-black uppercase">
-              Some of what I&rsquo;ve shipped.
-            </h2>
-            <Link to="/projects" className="next-cta-link next-kicker mt-8 inline-block w-fit">
-              View all {projects.length} projects
-            </Link>
-          </div>
-        </div>
-
         {workItems.map((project, index) => (
-          <WorkSlide key={project.id} project={project} index={index} style={{ zIndex: index + 1 }} />
+          <WorkSlide key={project.id} project={project} index={index} />
         ))}
+
+        {isDesktop && (
+          <div ref={laptopWrapRef} className="pointer-events-none absolute inset-y-0 left-0 z-30 w-1/2">
+            <Suspense fallback={null}>
+              <Laptop3D
+                ref={laptopRef}
+                onReady={() => setLaptopReady(true)}
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
+              />
+            </Suspense>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -504,13 +560,13 @@ function Home() {
             <a href="#work" className="next-btn next-btn-primary">
               View work
             </a>
-            <a href="mailto:alex@alexw.dev" className="next-btn next-btn-outline">
+             <ViewTransitionLink to="/contact" className="next-btn next-btn-outline">
               Say hello
-            </a>
+            </ViewTransitionLink>
           </div>
         </div>
 
-        <ScrollProgress />
+        <ScrollHint />
 
         <Link
           to="/lab"
@@ -524,21 +580,22 @@ function Home() {
         </Link>
       </section>
 
-      <FillStatement text="I BUILD PRODUCTS. I HELP BUILD THE PEOPLE WHO BUILD THEM." />
+      <FillStatement text="I build software that works, and engineers who can build it without me." />
 
       <WorkSlides />
 
       <MarqueeBand />
 
-      <footer id="contact" className="flex flex-col items-center gap-8 px-6 py-32 text-center sm:px-10">
-        <a
+      <footer id="contact" className="relative flex flex-col items-center gap-8 overflow-hidden px-6 py-32 text-center sm:px-10">
+        <span aria-hidden="true" className="logo-mark footer-mark" />
+        <ViewTransitionLink
           ref={ctaRef}
-          href="mailto:alex@alexw.dev"
-          className="next-cta-link next-heading inline-block text-[clamp(2.5rem,9vw,6rem)] font-black uppercase"
+          to="/contact"
+          className="next-cta-link next-heading relative z-10 inline-block text-[clamp(2.5rem,9vw,6rem)] font-black uppercase"
         >
           Let&apos;s talk →
-        </a>
-        <div className="flex items-center gap-5">
+        </ViewTransitionLink>
+        <div className="relative z-10 flex items-center gap-5">
           {socialLinks.map(({ icon: Icon, label, href }) => (
             <a
               key={label}

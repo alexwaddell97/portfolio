@@ -17,18 +17,6 @@ export interface CaseStudyContent {
 
 export type ProjectCategory = 'Full-Stack' | 'Frontend' | 'AI / ML' | 'Data & Viz' | 'Other';
 
-export type BlogTag = string;
-
-export interface BlogPost {
-  slug: string;
-  title: string;
-  date: string;      // ISO date string e.g. "2025-11-14"
-  readTime: number;  // minutes
-  excerpt: string;
-  tags: BlogTag[];
-  content: string;   // markdown-style plain text / paragraphs, separated by \n\n
-}
-
 export interface Project {
   id: string;
   slug: string;

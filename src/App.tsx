@@ -5,17 +5,17 @@ import { useLenis } from 'lenis/react';
 import { ThemeProvider } from './contexts/ThemeContext.tsx';
 import SnakeOverlay from './components/SnakeOverlay.tsx';
 import SmoothScroll from './components/SmoothScroll.tsx';
+import PageLoader from './components/PageLoader.tsx';
+import { markAppReady } from './lib/appReady.ts';
+
+const LOADER_SEEN_KEY = 'alexw-loader-seen';
 
 const Home = lazy(() => import('./pages/Home.tsx'));
-const AllProjects = lazy(() => import('./pages/AllProjects.tsx'));
-const CaseStudy = lazy(() => import('./pages/CaseStudy.tsx'));
-const Blog = lazy(() => import('./pages/Blog.tsx'));
-const BlogPost = lazy(() => import('./pages/BlogPost.tsx'));
+const Contact = lazy(() => import('./pages/Contact.tsx'));
 const CV = lazy(() => import('./pages/CV.tsx'));
 const NotFound = lazy(() => import('./pages/NotFound.tsx'));
 const Lab = lazy(() => import('./pages/Lab.tsx'));
 const LabExperiment = lazy(() => import('./pages/LabExperiment.tsx'));
-const LabCaseStudy = lazy(() => import('./pages/LabCaseStudy.tsx'));
 
 const KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 
@@ -44,8 +44,34 @@ function ScrollToTop() {
 }
 
 function App() {
+  // Lazy initializer marks the session as "seen" the moment we decide to
+  // show the loader (not after it finishes) — if the tab reloads mid-load,
+  // sessionStorage already reflects the choice, so it shows once and stays gone.
+  const [showLoader, setShowLoader] = useState(() => {
+    if (typeof window === 'undefined') return false;
+
+    // Dev convenience: ?loader=1 replays the intro regardless of session
+    // gating, so iterating on it doesn't need a DevTools round-trip each time.
+    const forceReplay = import.meta.env.DEV && new URLSearchParams(window.location.search).get('loader') === '1';
+
+    if (!forceReplay && window.sessionStorage.getItem(LOADER_SEEN_KEY)) {
+      markAppReady();
+      return false;
+    }
+    window.sessionStorage.setItem(LOADER_SEEN_KEY, '1');
+    return true;
+  });
+
   return (
     <ThemeProvider>
+      {showLoader && (
+        <PageLoader
+          onDone={() => {
+            markAppReady();
+            setShowLoader(false);
+          }}
+        />
+      )}
       <BrowserRouter>
         <SmoothScroll>
           <AppRoutes />
@@ -140,12 +166,8 @@ function AppRoutes() {
       {terminalMode && <SnakeOverlay onClose={() => setTerminalMode(false)} />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<AllProjects />} />
-        <Route path="/projects/lab/:slug" element={<LabCaseStudy />} />
-        <Route path="/projects/:slug" element={<CaseStudy key={location.pathname} />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/cv" element={<CV />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/lab" element={<Lab />} />
         <Route path="/ttr" element={<LabExperiment slugOverride="ttr-dashboard" />} />
         <Route path="/f1" element={<LabExperiment slugOverride="f1-dashboard" />} />

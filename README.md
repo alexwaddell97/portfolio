@@ -16,13 +16,12 @@
 
 ## Overview
 
-This project powers **alexw.dev**: a multi-page portfolio experience with project case studies, blog posts, CV rendering/export, and a contact workflow.
+This project powers **alexw.dev**: a portfolio experience with a home page, lab experiments, CV rendering/export, and a contact workflow.
 
 ### In this README
 
 - [Tech stack](#tech-stack)
 - [Quick start](#quick-start)
-- [Blog CMS (Decap)](#blog-cms-decap)
 - [Scripts](#scripts)
 - [Environment variables](#environment-variables)
 - [Routes](#routes)
@@ -92,7 +91,6 @@ npm run preview
 | `npm run build` | Type-check and create production build |
 | `npm run preview` | Serve production build locally |
 | `npm run lint` | Run ESLint across the repo |
-| `npm run cms:proxy` | Start Decap local backend proxy for local blog editing |
 | `npm run og:image` | Generate `public/og-image.png` |
 | `npm run cv:pdf` | Build app, render `/cv?pdf=1`, export `alexander-waddell-cv.pdf` |
 | `npm run a11y` | Build and run axe-core checks on preview output |
@@ -117,55 +115,15 @@ If `VITE_FORMSPREE_FORM_ID` is not set, the contact form opens the user's defaul
 
 ---
 
-## Blog CMS (Decap)
-
-The project includes a lightweight Decap CMS at `/admin` for blog-only editing.
-
-### Local usage
-
-1. Start the Vite app:
-
-```bash
-npm run dev
-```
-
-2. In a second terminal, start the Decap proxy:
-
-```bash
-npm run cms:proxy
-```
-
-3. Open:
-
-```text
-http://localhost:5173/admin
-```
-
-Blog posts are stored as Markdown files in `src/content/blog`.
-
-Use Decap's built-in editorial workflow status dropdown (top-right) to keep entries as draft/review until you publish.
-Use the post `Status` field for public visibility control:
-
-- `Live` → shown on the public blog
-- `Hidden` → kept in CMS but excluded from public blog routes/lists
-
-> [!NOTE]
-> Decap config is in `public/admin/config.yml`.
-> The GitHub backend is preconfigured for `alexwaddell97/portfolio` on `main`.
-
----
-
 ## Routes
 
 | Route | Description |
 |---|---|
 | `/` | Home page |
-| `/projects` | All projects with category/tag filtering |
-| `/projects/:slug` | Project case study detail |
-| `/blog` | Blog index with tag filtering |
-| `/blog/:slug` | Blog post detail |
+| `/contact` | Contact page |
 | `/cv` | Browser CV view |
 | `/lab` | Hidden experiments page |
+| `/projects/lab/:slug` | Lab experiment case study |
 | `*` | Custom 404 |
 
 ---
@@ -176,13 +134,9 @@ Most editable content is data-driven from `src/data`:
 
 | File | Responsibility |
 |---|---|
-| `src/data/projects.ts` | Project cards, stats, and case study content |
-| `src/data/posts.ts` | Blog loader/parsing from markdown files |
+| `src/data/projects.ts` | Project cards shown on the home page |
+| `src/data/labs.ts` | Lab experiment listings and case study content |
 | `src/data/cv.ts` | CV profile content and downloadable PDF filename/path |
-
-CMS-backed blog content files:
-
-- `src/content/blog/*.md`
 
 Additional touchpoints:
 
@@ -223,8 +177,7 @@ npm run a11y
 
 Scans with axe:
 
-- Static routes: `/`, `/projects`, `/blog`
-- Plus up to 3 discovered project detail routes and 3 discovered blog post routes
+- Static routes: `/`, `/lab`, `/cv`
 
 ---
 

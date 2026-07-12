@@ -10,7 +10,7 @@ const cvData: CVProfile = {
   email: 'alex@alexw.dev',
   website: 'https://alexw.dev',
   summary:
-    'Lead Developer with 6+ years delivering production software for agencies and SMEs. I specialise in JavaScript/TypeScript, React, Next.js, and Node.js, building scalable web apps, CRMs, and high-converting marketing sites from discovery through launch. I help teams work more effectively through clear technical direction, structured delivery, and hands-on mentoring.',
+    'Lead Developer with over seven years shipping production software for agencies and SMEs, specialising in JavaScript, TypeScript, React, Next.js and Node.js. I build things that work, and the teams that can keep building them. Clear technical direction, structured delivery and hands-on mentoring, end to end.',
   links: [
     { label: '07940327386', href: 'tel:+447940327386' },
     { label: 'Website', href: 'https://alexw.dev' },
