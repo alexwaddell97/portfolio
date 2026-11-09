@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-02T08:14:31.060Z",
+  "capturedAt": "2026-11-09T08:15:00.775Z",
   "season": 97,
-  "date": "2026-11-02",
+  "date": "2026-11-09",
   "leagues": {
     "novos-mon-cup": {
       "standings": [
@@ -215,11 +215,11 @@
           ],
           "stats": {
             "last3": {
-              "avgScored": 16.33,
-              "avgConceded": 7.33,
+              "avgScored": 6.33,
+              "avgConceded": 6.67,
               "avgPoints": 1.33,
-              "biggestWin": "24 - 3",
-              "biggestLoss": "10 - 11"
+              "biggestWin": "10 - 3",
+              "biggestLoss": "2 - 11"
             },
             "season": {
               "avgScored": 12,
@@ -229,14 +229,20 @@
               "biggestLoss": "8 - 18"
             },
             "allTime": {
-              "avgScored": 9.78,
-              "avgConceded": 8.68,
-              "avgPoints": 1.05,
+              "avgScored": 9.7,
+              "avgConceded": 8.89,
+              "avgPoints": 1.06,
               "biggestWin": "29 - 6",
-              "biggestLoss": "5 - 21"
+              "biggestLoss": "7 - 25"
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Cup",
+              "leagueId": 1971,
+              "seasonId": 100,
+              "divisionId": 8731
+            },
             {
               "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Cup Division",
               "leagueId": 2159,
@@ -274,7 +280,7 @@
               "divisionId": 7518
             },
             {
-              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Cup",
+              "label": "Newcastle - The Parks (Monday - Winter 2026/2027) - Spring 2025 - Cup",
               "leagueId": 1770,
               "seasonId": 90,
               "divisionId": 7227
@@ -418,11 +424,11 @@
           ],
           "stats": {
             "last3": {
-              "avgScored": 8,
-              "avgConceded": 12,
-              "avgPoints": 1.33,
-              "biggestWin": "8 - 6",
-              "biggestLoss": "5 - 20"
+              "avgScored": 8.33,
+              "avgConceded": 15.33,
+              "avgPoints": 0.67,
+              "biggestWin": "12 - 9",
+              "biggestLoss": "7 - 20"
             },
             "season": {
               "avgScored": 8.78,
@@ -432,14 +438,20 @@
               "biggestLoss": "1 - 28"
             },
             "allTime": {
-              "avgScored": 9.46,
-              "avgConceded": 10.48,
-              "avgPoints": 0.81,
+              "avgScored": 9.37,
+              "avgConceded": 10.94,
+              "avgPoints": 0.8,
               "biggestWin": "23 - 8",
               "biggestLoss": "1 - 28"
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Cup",
+              "leagueId": 1971,
+              "seasonId": 100,
+              "divisionId": 8731
+            },
             {
               "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Cup Division",
               "leagueId": 2159,
@@ -477,7 +489,7 @@
               "divisionId": 7519
             },
             {
-              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Plate",
+              "label": "Newcastle - The Parks (Monday - Winter 2026/2027) - Spring 2025 - Plate",
               "leagueId": 1770,
               "seasonId": 90,
               "divisionId": 7228
@@ -605,11 +617,11 @@
           ],
           "stats": {
             "last3": {
-              "avgScored": 6.33,
-              "avgConceded": 8.33,
-              "avgPoints": 0.67,
-              "biggestWin": "11 - 3",
-              "biggestLoss": "3 - 14"
+              "avgScored": 10,
+              "avgConceded": 2,
+              "avgPoints": 2,
+              "biggestWin": "11 - 1",
+              "biggestLoss": "No losses"
             },
             "season": {
               "avgScored": 8.33,
@@ -619,14 +631,20 @@
               "biggestLoss": "3 - 14"
             },
             "allTime": {
-              "avgScored": 10.26,
-              "avgConceded": 8.71,
-              "avgPoints": 1.12,
+              "avgScored": 10.5,
+              "avgConceded": 8.22,
+              "avgPoints": 1.23,
               "biggestWin": "27 - 6",
               "biggestLoss": "6 - 23"
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Cup",
+              "leagueId": 1971,
+              "seasonId": 100,
+              "divisionId": 8731
+            },
             {
               "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Cup Division",
               "leagueId": 2159,
@@ -785,11 +803,11 @@
           ],
           "stats": {
             "last3": {
-              "avgScored": 14,
-              "avgConceded": 9.33,
-              "avgPoints": 2,
-              "biggestWin": "16 - 5",
-              "biggestLoss": "No losses"
+              "avgScored": 12,
+              "avgConceded": 7,
+              "avgPoints": 1.33,
+              "biggestWin": "20 - 7",
+              "biggestLoss": "6 - 7"
             },
             "season": {
               "avgScored": 14.89,
@@ -799,14 +817,20 @@
               "biggestLoss": "8 - 14"
             },
             "allTime": {
-              "avgScored": 12.39,
-              "avgConceded": 7.43,
-              "avgPoints": 1.7,
+              "avgScored": 12.56,
+              "avgConceded": 7.75,
+              "avgPoints": 1.6,
               "biggestWin": "28 - 1",
-              "biggestLoss": "4 - 13"
+              "biggestLoss": "1 - 17"
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Cup",
+              "leagueId": 1971,
+              "seasonId": 100,
+              "divisionId": 8731
+            },
             {
               "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Cup Division",
               "leagueId": 2159,
@@ -958,11 +982,11 @@
           ],
           "stats": {
             "last3": {
-              "avgScored": 5.67,
-              "avgConceded": 9.33,
+              "avgScored": 4,
+              "avgConceded": 11.33,
               "avgPoints": null,
               "biggestWin": "No wins",
-              "biggestLoss": "3 - 11"
+              "biggestLoss": "1 - 11"
             },
             "season": {
               "avgScored": 8.78,
@@ -972,14 +996,20 @@
               "biggestLoss": "9 - 18"
             },
             "allTime": {
-              "avgScored": 8.8,
-              "avgConceded": 10.3,
-              "avgPoints": 0.83,
+              "avgScored": 8.24,
+              "avgConceded": 11.11,
+              "avgPoints": 0.69,
               "biggestWin": "18 - 1",
-              "biggestLoss": "3 - 19"
+              "biggestLoss": "5 - 29"
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Cup",
+              "leagueId": 1971,
+              "seasonId": 100,
+              "divisionId": 8731
+            },
             {
               "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Cup Division",
               "leagueId": 2159,
@@ -1126,11 +1156,11 @@
           ],
           "stats": {
             "last3": {
-              "avgScored": 15,
-              "avgConceded": 6.67,
-              "avgPoints": 1.33,
-              "biggestWin": "20 - 5",
-              "biggestLoss": "11 - 12"
+              "avgScored": 15.33,
+              "avgConceded": 5,
+              "avgPoints": 2,
+              "biggestWin": "21 - 2",
+              "biggestLoss": "No losses"
             },
             "season": {
               "avgScored": 15.78,
@@ -1140,14 +1170,20 @@
               "biggestLoss": "11 - 12"
             },
             "allTime": {
-              "avgScored": 15.59,
-              "avgConceded": 7.09,
+              "avgScored": 15.87,
+              "avgConceded": 6.84,
               "avgPoints": 1.78,
               "biggestWin": "29 - 1",
               "biggestLoss": "12 - 16"
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Cup",
+              "leagueId": 1971,
+              "seasonId": 100,
+              "divisionId": 8731
+            },
             {
               "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Cup Division",
               "leagueId": 2159,
@@ -1304,11 +1340,11 @@
           ],
           "stats": {
             "last3": {
-              "avgScored": 8.33,
-              "avgConceded": 11.67,
+              "avgScored": 9.67,
+              "avgConceded": 8.67,
               "avgPoints": 0.67,
-              "biggestWin": "8 - 5",
-              "biggestLoss": "5 - 16"
+              "biggestWin": "17 - 6",
+              "biggestLoss": "3 - 8"
             },
             "season": {
               "avgScored": 9.78,
@@ -1318,14 +1354,20 @@
               "biggestLoss": "5 - 20"
             },
             "allTime": {
-              "avgScored": 10.04,
-              "avgConceded": 8.96,
-              "avgPoints": 1.15,
-              "biggestWin": "18 - 1",
+              "avgScored": 10.89,
+              "avgConceded": 8.8,
+              "avgPoints": 1.14,
+              "biggestWin": "29 - 3",
               "biggestLoss": "2 - 18"
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Cup",
+              "leagueId": 1971,
+              "seasonId": 100,
+              "divisionId": 8731
+            },
             {
               "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Cup Division",
               "leagueId": 2159,
@@ -1472,11 +1514,11 @@
           ],
           "stats": {
             "last3": {
-              "avgScored": 6.67,
-              "avgConceded": 15.67,
-              "avgPoints": 0.67,
-              "biggestWin": "9 - 8",
-              "biggestLoss": "3 - 24"
+              "avgScored": 5.67,
+              "avgConceded": 12.67,
+              "avgPoints": 0.33,
+              "biggestWin": "No wins",
+              "biggestLoss": "1 - 18"
             },
             "season": {
               "avgScored": 7.33,
@@ -1486,14 +1528,20 @@
               "biggestLoss": "3 - 24"
             },
             "allTime": {
-              "avgScored": 7.97,
-              "avgConceded": 9.79,
-              "avgPoints": 0.89,
+              "avgScored": 7.43,
+              "avgConceded": 10.26,
+              "avgPoints": 0.74,
               "biggestWin": "15 - 4",
               "biggestLoss": "3 - 24"
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Plate",
+              "leagueId": 1971,
+              "seasonId": 100,
+              "divisionId": 8732
+            },
             {
               "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Plate Division",
               "leagueId": 2159,
@@ -1776,11 +1824,11 @@
           ],
           "stats": {
             "last3": {
-              "avgScored": 8.33,
-              "avgConceded": 6.67,
-              "avgPoints": 1.33,
-              "biggestWin": "13 - 3",
-              "biggestLoss": "2 - 17"
+              "avgScored": 6,
+              "avgConceded": 9.67,
+              "avgPoints": 1,
+              "biggestWin": "8 - 7",
+              "biggestLoss": "4 - 16"
             },
             "season": {
               "avgScored": 7.6,
@@ -1790,14 +1838,20 @@
               "biggestLoss": "2 - 17"
             },
             "allTime": {
-              "avgScored": 7.86,
-              "avgConceded": 8.73,
-              "avgPoints": 0.96,
+              "avgScored": 7.56,
+              "avgConceded": 9.06,
+              "avgPoints": 0.92,
               "biggestWin": "19 - 1",
               "biggestLoss": "2 - 28"
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Plate",
+              "leagueId": 1971,
+              "seasonId": 100,
+              "divisionId": 8732
+            },
             {
               "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Plate Division",
               "leagueId": 2159,
@@ -1835,7 +1889,7 @@
               "divisionId": 7518
             },
             {
-              "label": "Newcastle - The Parks (Spring 2025) - Spring 2025 - Plate",
+              "label": "Newcastle - The Parks (Monday - Winter 2026/2027) - Spring 2025 - Plate",
               "leagueId": 1770,
               "seasonId": 90,
               "divisionId": 7228
@@ -1878,349 +1932,11 @@
         },
         "12635": {
           "teamId": 12635,
-          "name": "Taggin-Ball Z",
-          "currentPosition": 5,
-          "currentRecord": {
-            "w": 5,
-            "l": 4,
-            "d": 0
-          },
-          "seasonMatches": [
-            {
-              "date": "Mon 22 Jun 2026",
-              "time": "19:25",
-              "court": "Pitch B",
-              "opposition": "Kicking and Screaming",
-              "scoreFor": 7,
-              "scoreAgainst": 12,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 29 Jun 2026",
-              "time": "18:40",
-              "court": "Pitch B",
-              "opposition": "Sausage Roll-Ball",
-              "scoreFor": 12,
-              "scoreAgainst": 5,
-              "result": "W",
-              "label": null
-            },
-            {
-              "date": "Mon 06 Jul 2026",
-              "time": "19:25",
-              "court": "Pitch A",
-              "opposition": "Taggington Bear",
-              "scoreFor": 10,
-              "scoreAgainst": 5,
-              "result": "W",
-              "label": null
-            },
-            {
-              "date": "Mon 13 Jul 2026",
-              "time": "20:10",
-              "court": "Pitch C",
-              "opposition": "Tagius Maximus",
-              "scoreFor": 3,
-              "scoreAgainst": 6,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 20 Jul 2026",
-              "time": "19:50",
-              "court": "Pitch B",
-              "opposition": "All the Tags and Lasses",
-              "scoreFor": 4,
-              "scoreAgainst": 2,
-              "result": "W",
-              "label": null
-            },
-            {
-              "date": "Mon 20 Jul 2026",
-              "time": "20:10",
-              "court": "Pitch A",
-              "opposition": "Geordie Score",
-              "scoreFor": 6,
-              "scoreAgainst": 5,
-              "result": "W",
-              "label": null
-            },
-            {
-              "date": "Mon 27 Jul 2026",
-              "time": "18:40",
-              "court": "Pitch C",
-              "opposition": "Novos Monday TTR Friendly",
-              "scoreFor": 10,
-              "scoreAgainst": 0,
-              "result": "W",
-              "label": null
-            },
-            {
-              "date": "Mon 03 Aug 2026",
-              "time": "19:25",
-              "court": "Pitch B",
-              "opposition": "Geordie Rock",
-              "scoreFor": 5,
-              "scoreAgainst": 9,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 10 Aug 2026",
-              "time": "19:15",
-              "court": "Pitch B",
-              "opposition": "Yippee Try-Yay Mother Rucker!",
-              "scoreFor": 8,
-              "scoreAgainst": 10,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 17 Aug 2026",
-              "time": "19:07",
-              "court": "Pitch B",
-              "opposition": "Geordie Score",
-              "scoreFor": 8,
-              "scoreAgainst": 8,
-              "result": "D",
-              "label": null
-            }
-          ],
-          "stats": {
-            "last3": {
-              "avgScored": 7,
-              "avgConceded": 9,
-              "avgPoints": 0.33,
-              "biggestWin": "No wins",
-              "biggestLoss": "5 - 9"
-            },
-            "season": {
-              "avgScored": 7.3,
-              "avgConceded": 6.2,
-              "avgPoints": 1.1,
-              "biggestWin": "10 - 0",
-              "biggestLoss": "7 - 12"
-            },
-            "allTime": {
-              "avgScored": 8.08,
-              "avgConceded": 7.57,
-              "avgPoints": 1.08,
-              "biggestWin": "10 - 0",
-              "biggestLoss": "2 - 13"
-            }
-          },
-          "previousSeasons": [
-            {
-              "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Plate Division",
-              "leagueId": 2159,
-              "seasonId": 96,
-              "divisionId": 8328
-            },
-            {
-              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Plate",
-              "leagueId": 2074,
-              "seasonId": 95,
-              "divisionId": 8152
-            },
-            {
-              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Plate",
-              "leagueId": 2027,
-              "seasonId": 94,
-              "divisionId": 7997
-            },
-            {
-              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2025 - The Parks Plate",
-              "leagueId": 1971,
-              "seasonId": 93,
-              "divisionId": 7909
-            }
-          ],
-          "pomAwards": [
-            {
-              "player": "Tom  Haigh",
-              "team": "Taggin-Ball Z",
-              "awards": 3
-            },
-            {
-              "player": "Chloe  Twiselton",
-              "team": "Taggin-Ball Z",
-              "awards": 1
-            }
-          ]
+          "error": "This operation was aborted"
         },
         "12636": {
           "teamId": 12636,
-          "name": "Sausage Roll-Ball",
-          "currentPosition": 9,
-          "currentRecord": {
-            "w": 2,
-            "l": 7,
-            "d": 0
-          },
-          "seasonMatches": [
-            {
-              "date": "Mon 22 Jun 2026",
-              "time": "20:10",
-              "court": "Pitch A",
-              "opposition": "Novos Monday TTR Friendly",
-              "scoreFor": 10,
-              "scoreAgainst": 0,
-              "result": "W",
-              "label": null
-            },
-            {
-              "date": "Mon 29 Jun 2026",
-              "time": "18:40",
-              "court": "Pitch B",
-              "opposition": "Taggin-Ball Z",
-              "scoreFor": 5,
-              "scoreAgainst": 12,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 06 Jul 2026",
-              "time": "20:10",
-              "court": "Pitch C",
-              "opposition": "Yippee Try-Yay Mother Rucker!",
-              "scoreFor": 10,
-              "scoreAgainst": 23,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 13 Jul 2026",
-              "time": "18:40",
-              "court": "Pitch A",
-              "opposition": "All the Tags and Lasses",
-              "scoreFor": 8,
-              "scoreAgainst": 10,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 20 Jul 2026",
-              "time": "20:10",
-              "court": "Pitch C",
-              "opposition": "Kicking and Screaming",
-              "scoreFor": 2,
-              "scoreAgainst": 8,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 20 Jul 2026",
-              "time": "20:35",
-              "court": "Pitch A",
-              "opposition": "Geordie Score",
-              "scoreFor": 1,
-              "scoreAgainst": 10,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 27 Jul 2026",
-              "time": "19:25",
-              "court": "Pitch B",
-              "opposition": "Geordie Rock",
-              "scoreFor": 5,
-              "scoreAgainst": 12,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 03 Aug 2026",
-              "time": "19:25",
-              "court": "Pitch A",
-              "opposition": "Taggington Bear",
-              "scoreFor": 12,
-              "scoreAgainst": 6,
-              "result": "W",
-              "label": null
-            },
-            {
-              "date": "Mon 10 Aug 2026",
-              "time": "18:30",
-              "court": "Pitch A",
-              "opposition": "Tagius Maximus",
-              "scoreFor": 8,
-              "scoreAgainst": 17,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 17 Aug 2026",
-              "time": "18:25",
-              "court": "Pitch C",
-              "opposition": "Novos Monday TTR Friendly",
-              "scoreFor": 10,
-              "scoreAgainst": 0,
-              "result": "W",
-              "label": null
-            }
-          ],
-          "stats": {
-            "last3": {
-              "avgScored": 10,
-              "avgConceded": 7.67,
-              "avgPoints": 1.33,
-              "biggestWin": "10 - 0",
-              "biggestLoss": "8 - 17"
-            },
-            "season": {
-              "avgScored": 7.1,
-              "avgConceded": 9.8,
-              "avgPoints": 0.6,
-              "biggestWin": "10 - 0",
-              "biggestLoss": "10 - 23"
-            },
-            "allTime": {
-              "avgScored": 7.1,
-              "avgConceded": 9.58,
-              "avgPoints": 0.81,
-              "biggestWin": "10 - 0",
-              "biggestLoss": "2 - 19"
-            }
-          },
-          "previousSeasons": [
-            {
-              "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Cup Division",
-              "leagueId": 2159,
-              "seasonId": 96,
-              "divisionId": 8327
-            },
-            {
-              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Plate",
-              "leagueId": 2074,
-              "seasonId": 95,
-              "divisionId": 8152
-            },
-            {
-              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Plate",
-              "leagueId": 2027,
-              "seasonId": 94,
-              "divisionId": 7997
-            },
-            {
-              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2025 - The Parks Plate",
-              "leagueId": 1971,
-              "seasonId": 93,
-              "divisionId": 7909
-            }
-          ],
-          "pomAwards": [
-            {
-              "player": "Sarah Connolly",
-              "team": "Sausage Roll-Ball",
-              "awards": 2
-            },
-            {
-              "player": "Olivia Atkinson",
-              "team": "Sausage Roll-Ball",
-              "awards": 1
-            }
-          ]
+          "error": "This operation was aborted"
         },
         "12638": {
           "teamId": 12638,
@@ -2335,11 +2051,11 @@
           ],
           "stats": {
             "last3": {
-              "avgScored": 3.67,
-              "avgConceded": 13.67,
-              "avgPoints": null,
-              "biggestWin": "No wins",
-              "biggestLoss": "2 - 16"
+              "avgScored": 9,
+              "avgConceded": 11,
+              "avgPoints": 0.67,
+              "biggestWin": "7 - 6",
+              "biggestLoss": "9 - 15"
             },
             "season": {
               "avgScored": 5.9,
@@ -2349,14 +2065,20 @@
               "biggestLoss": "2 - 16"
             },
             "allTime": {
-              "avgScored": 7.47,
-              "avgConceded": 9.57,
-              "avgPoints": 0.92,
-              "biggestWin": "13 - 0",
+              "avgScored": 7.66,
+              "avgConceded": 9.6,
+              "avgPoints": 0.91,
+              "biggestWin": "18 - 1",
               "biggestLoss": "6 - 29"
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Plate",
+              "leagueId": 1971,
+              "seasonId": 100,
+              "divisionId": 8732
+            },
             {
               "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Plate Division",
               "leagueId": 2159,
@@ -2518,11 +2240,11 @@
           ],
           "stats": {
             "last3": {
-              "avgScored": 9.33,
-              "avgConceded": 5,
-              "avgPoints": 2,
-              "biggestWin": "10 - 0",
-              "biggestLoss": "No losses"
+              "avgScored": 4.67,
+              "avgConceded": 14.33,
+              "avgPoints": null,
+              "biggestWin": "No wins",
+              "biggestLoss": "2 - 21"
             },
             "season": {
               "avgScored": 11.7,
@@ -2532,14 +2254,20 @@
               "biggestLoss": "No losses"
             },
             "allTime": {
-              "avgScored": 7.65,
-              "avgConceded": 9.02,
-              "avgPoints": 0.88,
+              "avgScored": 7.34,
+              "avgConceded": 10.34,
+              "avgPoints": 0.78,
               "biggestWin": "23 - 10",
-              "biggestLoss": "1 - 18"
+              "biggestLoss": "4 - 26"
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Cup",
+              "leagueId": 1971,
+              "seasonId": 100,
+              "divisionId": 8731
+            },
             {
               "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Plate Division",
               "leagueId": 2159,
@@ -2701,11 +2429,11 @@
           ],
           "stats": {
             "last3": {
-              "avgScored": 9,
-              "avgConceded": 10.67,
-              "avgPoints": 0.67,
-              "biggestWin": "16 - 6",
-              "biggestLoss": "4 - 16"
+              "avgScored": 13.67,
+              "avgConceded": 8.67,
+              "avgPoints": 2,
+              "biggestWin": "15 - 9",
+              "biggestLoss": "No losses"
             },
             "season": {
               "avgScored": 8.4,
@@ -2715,14 +2443,20 @@
               "biggestLoss": "4 - 16"
             },
             "allTime": {
-              "avgScored": 8.56,
-              "avgConceded": 9.03,
-              "avgPoints": 0.85,
-              "biggestWin": "19 - 8",
+              "avgScored": 9.04,
+              "avgConceded": 8.79,
+              "avgPoints": 0.94,
+              "biggestWin": "18 - 6",
               "biggestLoss": "1 - 18"
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Plate",
+              "leagueId": 1971,
+              "seasonId": 100,
+              "divisionId": 8732
+            },
             {
               "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Plate Division",
               "leagueId": 2159,
@@ -2873,11 +2607,11 @@
           ],
           "stats": {
             "last3": {
-              "avgScored": 10.67,
-              "avgConceded": 5,
-              "avgPoints": 1.33,
-              "biggestWin": "16 - 2",
-              "biggestLoss": "7 - 8"
+              "avgScored": 9,
+              "avgConceded": 4.33,
+              "avgPoints": 1.67,
+              "biggestWin": "16 - 4",
+              "biggestLoss": "No losses"
             },
             "season": {
               "avgScored": 9.5,
@@ -2887,14 +2621,20 @@
               "biggestLoss": "5 - 14"
             },
             "allTime": {
-              "avgScored": 7.84,
-              "avgConceded": 7.68,
-              "avgPoints": 0.95,
+              "avgScored": 9.18,
+              "avgConceded": 6.75,
+              "avgPoints": 1.18,
               "biggestWin": "16 - 2",
               "biggestLoss": "8 - 19"
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Plate",
+              "leagueId": 1971,
+              "seasonId": 100,
+              "divisionId": 8732
+            },
             {
               "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Plate Division",
               "leagueId": 2159,
@@ -2922,168 +2662,7 @@
         },
         "13379": {
           "teamId": 13379,
-          "name": "Geordie Score",
-          "currentPosition": 6,
-          "currentRecord": {
-            "w": 4,
-            "l": 5,
-            "d": 0
-          },
-          "seasonMatches": [
-            {
-              "date": "Mon 22 Jun 2026",
-              "time": "18:40",
-              "court": "Pitch B",
-              "opposition": "Taggington Bear",
-              "scoreFor": 9,
-              "scoreAgainst": 3,
-              "result": "W",
-              "label": null
-            },
-            {
-              "date": "Mon 29 Jun 2026",
-              "time": "19:25",
-              "court": "Pitch B",
-              "opposition": "Tagius Maximus",
-              "scoreFor": 6,
-              "scoreAgainst": 8,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 06 Jul 2026",
-              "time": "19:25",
-              "court": "Pitch B",
-              "opposition": "Geordie Rock",
-              "scoreFor": 4,
-              "scoreAgainst": 5,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 13 Jul 2026",
-              "time": "18:40",
-              "court": "Pitch C",
-              "opposition": "Novos Monday TTR Friendly",
-              "scoreFor": 10,
-              "scoreAgainst": 0,
-              "result": "W",
-              "label": null
-            },
-            {
-              "date": "Mon 20 Jul 2026",
-              "time": "20:10",
-              "court": "Pitch A",
-              "opposition": "Taggin-Ball Z",
-              "scoreFor": 5,
-              "scoreAgainst": 6,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 20 Jul 2026",
-              "time": "20:35",
-              "court": "Pitch A",
-              "opposition": "Sausage Roll-Ball",
-              "scoreFor": 10,
-              "scoreAgainst": 1,
-              "result": "W",
-              "label": null
-            },
-            {
-              "date": "Mon 27 Jul 2026",
-              "time": "18:40",
-              "court": "Pitch A",
-              "opposition": "Yippee Try-Yay Mother Rucker!",
-              "scoreFor": 11,
-              "scoreAgainst": 17,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 03 Aug 2026",
-              "time": "20:10",
-              "court": "Pitch B",
-              "opposition": "All the Tags and Lasses",
-              "scoreFor": 17,
-              "scoreAgainst": 2,
-              "result": "W",
-              "label": null
-            },
-            {
-              "date": "Mon 10 Aug 2026",
-              "time": "20:00",
-              "court": "Pitch B",
-              "opposition": "Kicking and Screaming",
-              "scoreFor": 6,
-              "scoreAgainst": 16,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 17 Aug 2026",
-              "time": "19:07",
-              "court": "Pitch B",
-              "opposition": "Taggin-Ball Z",
-              "scoreFor": 8,
-              "scoreAgainst": 8,
-              "result": "D",
-              "label": null
-            }
-          ],
-          "stats": {
-            "last3": {
-              "avgScored": 10.33,
-              "avgConceded": 8.67,
-              "avgPoints": 1,
-              "biggestWin": "17 - 2",
-              "biggestLoss": "6 - 16"
-            },
-            "season": {
-              "avgScored": 8.6,
-              "avgConceded": 6.6,
-              "avgPoints": 0.9,
-              "biggestWin": "17 - 2",
-              "biggestLoss": "6 - 16"
-            },
-            "allTime": {
-              "avgScored": 7.89,
-              "avgConceded": 7.26,
-              "avgPoints": 0.79,
-              "biggestWin": "17 - 2",
-              "biggestLoss": "3 - 13"
-            }
-          },
-          "previousSeasons": [
-            {
-              "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Plate Division",
-              "leagueId": 2159,
-              "seasonId": 96,
-              "divisionId": 8328
-            }
-          ],
-          "pomAwards": [
-            {
-              "player": "Sam Nik",
-              "team": "Geordie Score",
-              "awards": 3
-            },
-            {
-              "player": "Lewis  Kapa",
-              "team": "Geordie Score",
-              "awards": 1
-            },
-            {
-              "player": "Fliss Robertson-Shore",
-              "team": "Geordie Score",
-              "awards": 1
-            },
-            {
-              "player": "Alex Holdstock",
-              "team": "Geordie Score",
-              "awards": 1
-            }
-          ]
+          "error": "This operation was aborted"
         },
         "13388": {
           "teamId": 13388,
@@ -3342,10 +2921,10 @@
           ],
           "stats": {
             "last3": {
-              "avgScored": 14.33,
-              "avgConceded": 6.33,
-              "avgPoints": 2,
-              "biggestWin": "16 - 4",
+              "avgScored": 8.33,
+              "avgConceded": 5.33,
+              "avgPoints": 1.33,
+              "biggestWin": "13 - 4",
               "biggestLoss": "No losses"
             },
             "season": {
@@ -3356,14 +2935,21 @@
               "biggestLoss": "6 - 19"
             },
             "allTime": {
-              "avgScored": 8.9,
-              "avgConceded": 6.6,
-              "avgPoints": 1.3,
-              "biggestWin": "16 - 4",
+              "avgScored": 10.32,
+              "avgConceded": 6.21,
+              "avgPoints": 1.42,
+              "biggestWin": "20 - 3",
               "biggestLoss": "6 - 19"
             }
           },
-          "previousSeasons": [],
+          "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Plate",
+              "leagueId": 1971,
+              "seasonId": 100,
+              "divisionId": 8732
+            }
+          ],
           "pomAwards": [
             {
               "player": "James Newton",
