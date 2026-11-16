@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-09T08:15:00.775Z",
+  "capturedAt": "2026-11-16T08:25:41.718Z",
   "season": 97,
-  "date": "2026-11-09",
+  "date": "2026-11-16",
   "leagues": {
     "novos-mon-cup": {
       "standings": [
@@ -238,6 +238,12 @@
           },
           "previousSeasons": [
             {
+              "label": "Newcastle - The Parks (Monday - Winter 2026/2027) - Winter 2026/27 - The Parks - Cup",
+              "leagueId": 1770,
+              "seasonId": 101,
+              "divisionId": 8865
+            },
+            {
               "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Cup",
               "leagueId": 1971,
               "seasonId": 100,
@@ -447,6 +453,12 @@
           },
           "previousSeasons": [
             {
+              "label": "Newcastle - The Parks (Monday - Winter 2026/2027) - Winter 2026/27 - The Parks - Cup",
+              "leagueId": 1770,
+              "seasonId": 101,
+              "divisionId": 8865
+            },
+            {
               "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Cup",
               "leagueId": 1971,
               "seasonId": 100,
@@ -640,6 +652,12 @@
           },
           "previousSeasons": [
             {
+              "label": "Newcastle - The Parks (Monday - Winter 2026/2027) - Winter 2026/27 - The Parks - Cup",
+              "leagueId": 1770,
+              "seasonId": 101,
+              "divisionId": 8865
+            },
+            {
               "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Cup",
               "leagueId": 1971,
               "seasonId": 100,
@@ -826,6 +844,12 @@
           },
           "previousSeasons": [
             {
+              "label": "Newcastle - The Parks (Monday - Winter 2026/2027) - Winter 2026/27 - The Parks - Cup",
+              "leagueId": 1770,
+              "seasonId": 101,
+              "divisionId": 8865
+            },
+            {
               "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Cup",
               "leagueId": 1971,
               "seasonId": 100,
@@ -1005,6 +1029,12 @@
           },
           "previousSeasons": [
             {
+              "label": "Newcastle - The Parks (Monday - Winter 2026/2027) - Winter 2026/27 - The Parks - Plate",
+              "leagueId": 1770,
+              "seasonId": 101,
+              "divisionId": 8866
+            },
+            {
               "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Cup",
               "leagueId": 1971,
               "seasonId": 100,
@@ -1178,6 +1208,12 @@
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Winter 2026/2027) - Winter 2026/27 - The Parks - Cup",
+              "leagueId": 1770,
+              "seasonId": 101,
+              "divisionId": 8865
+            },
             {
               "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Cup",
               "leagueId": 1971,
@@ -1363,6 +1399,12 @@
           },
           "previousSeasons": [
             {
+              "label": "Newcastle - The Parks (Monday - Winter 2026/2027) - Winter 2026/27 - The Parks - Cup",
+              "leagueId": 1770,
+              "seasonId": 101,
+              "divisionId": 8865
+            },
+            {
               "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Cup",
               "leagueId": 1971,
               "seasonId": 100,
@@ -1537,6 +1579,12 @@
           },
           "previousSeasons": [
             {
+              "label": "Newcastle - The Parks (Monday - Winter 2026/2027) - Winter 2026/27 - The Parks - Plate",
+              "leagueId": 1770,
+              "seasonId": 101,
+              "divisionId": 8866
+            },
+            {
               "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Plate",
               "leagueId": 1971,
               "seasonId": 100,
@@ -1581,7 +1629,7 @@
         {
           "pos": 1,
           "teamId": 12639,
-          "team": "Yippee Try-Yay Mother Rucker!",
+          "team": "Unexpected Item in the Tagging Area! 🛒",
           "pld": 9,
           "w": 9,
           "l": 0,
@@ -1633,7 +1681,7 @@
         {
           "pos": 5,
           "teamId": 12635,
-          "team": "Taggin-Ball Z",
+          "team": "Gagging 4 a Tagging",
           "pld": 9,
           "w": 5,
           "l": 4,
@@ -1725,7 +1773,7 @@
               "date": "Mon 22 Jun 2026",
               "time": "18:40",
               "court": "Pitch C",
-              "opposition": "Yippee Try-Yay Mother Rucker!",
+              "opposition": "Unexpected Item in the Tagging Area! 🛒",
               "scoreFor": 9,
               "scoreAgainst": 15,
               "result": "L",
@@ -1775,7 +1823,7 @@
               "date": "Mon 20 Jul 2026",
               "time": "19:50",
               "court": "Pitch B",
-              "opposition": "Taggin-Ball Z",
+              "opposition": "Gagging 4 a Tagging",
               "scoreFor": 2,
               "scoreAgainst": 4,
               "result": "L",
@@ -1846,6 +1894,12 @@
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Winter 2026/2027) - Winter 2026/27 - The Parks - Plate",
+              "leagueId": 1770,
+              "seasonId": 101,
+              "divisionId": 8866
+            },
             {
               "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Plate",
               "leagueId": 1971,
@@ -1940,196 +1994,11 @@
         },
         "12638": {
           "teamId": 12638,
-          "name": "Taggington Bear",
-          "currentPosition": 7,
-          "currentRecord": {
-            "w": 4,
-            "l": 5,
-            "d": 0
-          },
-          "seasonMatches": [
-            {
-              "date": "Mon 22 Jun 2026",
-              "time": "18:40",
-              "court": "Pitch B",
-              "opposition": "Geordie Score",
-              "scoreFor": 3,
-              "scoreAgainst": 9,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 29 Jun 2026",
-              "time": "20:10",
-              "court": "Pitch A",
-              "opposition": "Novos Monday TTR Friendly",
-              "scoreFor": 10,
-              "scoreAgainst": 0,
-              "result": "W",
-              "label": null
-            },
-            {
-              "date": "Mon 06 Jul 2026",
-              "time": "19:25",
-              "court": "Pitch A",
-              "opposition": "Taggin-Ball Z",
-              "scoreFor": 5,
-              "scoreAgainst": 10,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 13 Jul 2026",
-              "time": "20:10",
-              "court": "Pitch B",
-              "opposition": "Yippee Try-Yay Mother Rucker!",
-              "scoreFor": 3,
-              "scoreAgainst": 13,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 20 Jul 2026",
-              "time": "19:25",
-              "court": "Pitch B",
-              "opposition": "All the Tags and Lasses",
-              "scoreFor": 13,
-              "scoreAgainst": 0,
-              "result": "W",
-              "label": null
-            },
-            {
-              "date": "Mon 20 Jul 2026",
-              "time": "19:50",
-              "court": "Pitch A",
-              "opposition": "Tagius Maximus",
-              "scoreFor": 3,
-              "scoreAgainst": 1,
-              "result": "W",
-              "label": null
-            },
-            {
-              "date": "Mon 27 Jul 2026",
-              "time": "19:25",
-              "court": "Pitch C",
-              "opposition": "Kicking and Screaming",
-              "scoreFor": 11,
-              "scoreAgainst": 5,
-              "result": "W",
-              "label": null
-            },
-            {
-              "date": "Mon 03 Aug 2026",
-              "time": "19:25",
-              "court": "Pitch A",
-              "opposition": "Sausage Roll-Ball",
-              "scoreFor": 6,
-              "scoreAgainst": 12,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 10 Aug 2026",
-              "time": "20:00",
-              "court": "Pitch C",
-              "opposition": "Geordie Rock",
-              "scoreFor": 2,
-              "scoreAgainst": 16,
-              "result": "L",
-              "label": null
-            },
-            {
-              "date": "Mon 17 Aug 2026",
-              "time": "19:07",
-              "court": "Pitch A",
-              "opposition": "All the Tags and Lasses",
-              "scoreFor": 3,
-              "scoreAgainst": 13,
-              "result": "L",
-              "label": null
-            }
-          ],
-          "stats": {
-            "last3": {
-              "avgScored": 9,
-              "avgConceded": 11,
-              "avgPoints": 0.67,
-              "biggestWin": "7 - 6",
-              "biggestLoss": "9 - 15"
-            },
-            "season": {
-              "avgScored": 5.9,
-              "avgConceded": 7.9,
-              "avgPoints": 0.8,
-              "biggestWin": "13 - 0",
-              "biggestLoss": "2 - 16"
-            },
-            "allTime": {
-              "avgScored": 7.66,
-              "avgConceded": 9.6,
-              "avgPoints": 0.91,
-              "biggestWin": "18 - 1",
-              "biggestLoss": "6 - 29"
-            }
-          },
-          "previousSeasons": [
-            {
-              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Plate",
-              "leagueId": 1971,
-              "seasonId": 100,
-              "divisionId": 8732
-            },
-            {
-              "label": "Newcastle - Novocastrians RFC (Monday - Summer 2026) - Early Summer 2026 - Novos Monday Plate Division",
-              "leagueId": 2159,
-              "seasonId": 96,
-              "divisionId": 8328
-            },
-            {
-              "label": "Newcastle - The Parks (Spring 2026) - Spring 2026 - The Parks Cup",
-              "leagueId": 2074,
-              "seasonId": 95,
-              "divisionId": 8151
-            },
-            {
-              "label": "Newcastle - The Parks (Winter 2025) - Winter 2025/26 - The Parks Plate",
-              "leagueId": 2027,
-              "seasonId": 94,
-              "divisionId": 7997
-            },
-            {
-              "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2025 - The Parks Plate",
-              "leagueId": 1971,
-              "seasonId": 93,
-              "divisionId": 7909
-            }
-          ],
-          "pomAwards": [
-            {
-              "player": "Phoebe Procter",
-              "team": "Taggington Bear",
-              "awards": 2
-            },
-            {
-              "player": "Sandy Shepherd",
-              "team": "Taggington Bear",
-              "awards": 1
-            },
-            {
-              "player": "Jack Rhodes",
-              "team": "Taggington Bear",
-              "awards": 1
-            },
-            {
-              "player": "James Lewis",
-              "team": "Taggington Bear",
-              "awards": 1
-            }
-          ]
+          "error": "This operation was aborted"
         },
         "12639": {
           "teamId": 12639,
-          "name": "Yippee Try-Yay Mother Rucker!",
+          "name": "Unexpected Item in the Tagging Area! 🛒",
           "currentPosition": 1,
           "currentRecord": {
             "w": 9,
@@ -2221,7 +2090,7 @@
               "date": "Mon 10 Aug 2026",
               "time": "19:15",
               "court": "Pitch B",
-              "opposition": "Taggin-Ball Z",
+              "opposition": "Gagging 4 a Tagging",
               "scoreFor": 10,
               "scoreAgainst": 8,
               "result": "W",
@@ -2262,6 +2131,12 @@
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Winter 2026/2027) - Winter 2026/27 - The Parks - Plate",
+              "leagueId": 1770,
+              "seasonId": 101,
+              "divisionId": 8866
+            },
             {
               "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Cup",
               "leagueId": 1971,
@@ -2330,7 +2205,7 @@
               "date": "Mon 22 Jun 2026",
               "time": "19:25",
               "court": "Pitch B",
-              "opposition": "Taggin-Ball Z",
+              "opposition": "Gagging 4 a Tagging",
               "scoreFor": 12,
               "scoreAgainst": 7,
               "result": "W",
@@ -2340,7 +2215,7 @@
               "date": "Mon 29 Jun 2026",
               "time": "18:40",
               "court": "Pitch C",
-              "opposition": "Yippee Try-Yay Mother Rucker!",
+              "opposition": "Unexpected Item in the Tagging Area! 🛒",
               "scoreFor": 5,
               "scoreAgainst": 7,
               "result": "L",
@@ -2452,6 +2327,12 @@
           },
           "previousSeasons": [
             {
+              "label": "Newcastle - The Parks (Monday - Winter 2026/2027) - Winter 2026/27 - The Parks - Plate",
+              "leagueId": 1770,
+              "seasonId": 101,
+              "divisionId": 8866
+            },
+            {
               "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Plate",
               "leagueId": 1971,
               "seasonId": 100,
@@ -2548,7 +2429,7 @@
               "date": "Mon 20 Jul 2026",
               "time": "18:40",
               "court": "Pitch A",
-              "opposition": "Yippee Try-Yay Mother Rucker!",
+              "opposition": "Unexpected Item in the Tagging Area! 🛒",
               "scoreFor": 5,
               "scoreAgainst": 8,
               "result": "L",
@@ -2578,7 +2459,7 @@
               "date": "Mon 03 Aug 2026",
               "time": "19:25",
               "court": "Pitch B",
-              "opposition": "Taggin-Ball Z",
+              "opposition": "Gagging 4 a Tagging",
               "scoreFor": 9,
               "scoreAgainst": 5,
               "result": "W",
@@ -2598,7 +2479,7 @@
               "date": "Mon 17 Aug 2026",
               "time": "19:07",
               "court": "Pitch C",
-              "opposition": "Yippee Try-Yay Mother Rucker!",
+              "opposition": "Unexpected Item in the Tagging Area! 🛒",
               "scoreFor": 7,
               "scoreAgainst": 8,
               "result": "L",
@@ -2629,6 +2510,12 @@
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Winter 2026/2027) - Winter 2026/27 - The Parks - Cup",
+              "leagueId": 1770,
+              "seasonId": 101,
+              "divisionId": 8865
+            },
             {
               "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Plate",
               "leagueId": 1971,
@@ -2662,45 +2549,41 @@
         },
         "13379": {
           "teamId": 13379,
-          "error": "This operation was aborted"
-        },
-        "13388": {
-          "teamId": 13388,
-          "name": "Novos Monday TTR Friendly",
-          "currentPosition": 10,
+          "name": "Geordie Score",
+          "currentPosition": 6,
           "currentRecord": {
-            "w": 0,
-            "l": 9,
+            "w": 4,
+            "l": 5,
             "d": 0
           },
           "seasonMatches": [
             {
               "date": "Mon 22 Jun 2026",
-              "time": "20:10",
-              "court": "Pitch A",
-              "opposition": "Sausage Roll-Ball",
-              "scoreFor": 0,
-              "scoreAgainst": 10,
-              "result": "L",
+              "time": "18:40",
+              "court": "Pitch B",
+              "opposition": "Taggington Bear",
+              "scoreFor": 9,
+              "scoreAgainst": 3,
+              "result": "W",
               "label": null
             },
             {
               "date": "Mon 29 Jun 2026",
-              "time": "20:10",
-              "court": "Pitch A",
-              "opposition": "Taggington Bear",
-              "scoreFor": 0,
-              "scoreAgainst": 10,
+              "time": "19:25",
+              "court": "Pitch B",
+              "opposition": "Tagius Maximus",
+              "scoreFor": 6,
+              "scoreAgainst": 8,
               "result": "L",
               "label": null
             },
             {
               "date": "Mon 06 Jul 2026",
-              "time": "20:10",
+              "time": "19:25",
               "court": "Pitch B",
-              "opposition": "Tagius Maximus",
-              "scoreFor": 0,
-              "scoreAgainst": 10,
+              "opposition": "Geordie Rock",
+              "scoreFor": 4,
+              "scoreAgainst": 5,
               "result": "L",
               "label": null
             },
@@ -2708,94 +2591,94 @@
               "date": "Mon 13 Jul 2026",
               "time": "18:40",
               "court": "Pitch C",
-              "opposition": "Geordie Score",
-              "scoreFor": 0,
-              "scoreAgainst": 10,
-              "result": "L",
+              "opposition": "Novos Monday TTR Friendly",
+              "scoreFor": 10,
+              "scoreAgainst": 0,
+              "result": "W",
               "label": null
             },
             {
               "date": "Mon 20 Jul 2026",
-              "time": "19:25",
+              "time": "20:10",
               "court": "Pitch A",
-              "opposition": "Geordie Rock",
-              "scoreFor": 0,
-              "scoreAgainst": 5,
+              "opposition": "Gagging 4 a Tagging",
+              "scoreFor": 5,
+              "scoreAgainst": 6,
               "result": "L",
               "label": null
             },
             {
               "date": "Mon 20 Jul 2026",
               "time": "20:35",
-              "court": "Pitch C",
-              "opposition": "Kicking and Screaming",
-              "scoreFor": 0,
-              "scoreAgainst": 5,
-              "result": "L",
+              "court": "Pitch A",
+              "opposition": "Sausage Roll-Ball",
+              "scoreFor": 10,
+              "scoreAgainst": 1,
+              "result": "W",
               "label": null
             },
             {
               "date": "Mon 27 Jul 2026",
               "time": "18:40",
-              "court": "Pitch C",
-              "opposition": "Taggin-Ball Z",
-              "scoreFor": 0,
-              "scoreAgainst": 10,
+              "court": "Pitch A",
+              "opposition": "Unexpected Item in the Tagging Area! 🛒",
+              "scoreFor": 11,
+              "scoreAgainst": 17,
               "result": "L",
               "label": null
             },
             {
               "date": "Mon 03 Aug 2026",
               "time": "20:10",
-              "court": "Pitch A",
-              "opposition": "Yippee Try-Yay Mother Rucker!",
-              "scoreFor": 0,
-              "scoreAgainst": 10,
-              "result": "L",
+              "court": "Pitch B",
+              "opposition": "All the Tags and Lasses",
+              "scoreFor": 17,
+              "scoreAgainst": 2,
+              "result": "W",
               "label": null
             },
             {
               "date": "Mon 10 Aug 2026",
-              "time": "18:30",
-              "court": "Pitch C",
-              "opposition": "All the Tags and Lasses",
-              "scoreFor": 0,
-              "scoreAgainst": 10,
+              "time": "20:00",
+              "court": "Pitch B",
+              "opposition": "Kicking and Screaming",
+              "scoreFor": 6,
+              "scoreAgainst": 16,
               "result": "L",
               "label": null
             },
             {
               "date": "Mon 17 Aug 2026",
-              "time": "18:25",
-              "court": "Pitch C",
-              "opposition": "Sausage Roll-Ball",
-              "scoreFor": 0,
-              "scoreAgainst": 10,
-              "result": "L",
+              "time": "19:07",
+              "court": "Pitch B",
+              "opposition": "Gagging 4 a Tagging",
+              "scoreFor": 8,
+              "scoreAgainst": 8,
+              "result": "D",
               "label": null
             }
           ],
           "stats": {
             "last3": {
-              "avgScored": null,
-              "avgConceded": 10,
-              "avgPoints": null,
-              "biggestWin": "No wins",
-              "biggestLoss": "0 - 10"
+              "avgScored": 10.33,
+              "avgConceded": 8.67,
+              "avgPoints": 1,
+              "biggestWin": "17 - 2",
+              "biggestLoss": "6 - 16"
             },
             "season": {
-              "avgScored": null,
-              "avgConceded": 9,
-              "avgPoints": null,
-              "biggestWin": "No wins",
-              "biggestLoss": "0 - 10"
+              "avgScored": 8.6,
+              "avgConceded": 6.6,
+              "avgPoints": 0.9,
+              "biggestWin": "17 - 2",
+              "biggestLoss": "6 - 16"
             },
             "allTime": {
-              "avgScored": null,
-              "avgConceded": 9.47,
-              "avgPoints": null,
-              "biggestWin": "No wins",
-              "biggestLoss": "0 - 10"
+              "avgScored": 7.89,
+              "avgConceded": 7.26,
+              "avgPoints": 0.79,
+              "biggestWin": "17 - 2",
+              "biggestLoss": "3 - 13"
             }
           },
           "previousSeasons": [
@@ -2806,7 +2689,32 @@
               "divisionId": 8328
             }
           ],
-          "pomAwards": []
+          "pomAwards": [
+            {
+              "player": "Sam Nik",
+              "team": "Geordie Score",
+              "awards": 3
+            },
+            {
+              "player": "Lewis  Kapa",
+              "team": "Geordie Score",
+              "awards": 1
+            },
+            {
+              "player": "Fliss Robertson-Shore",
+              "team": "Geordie Score",
+              "awards": 1
+            },
+            {
+              "player": "Alex Holdstock",
+              "team": "Geordie Score",
+              "awards": 1
+            }
+          ]
+        },
+        "13388": {
+          "teamId": 13388,
+          "error": "This operation was aborted"
         },
         "13788": {
           "teamId": 13788,
@@ -2852,7 +2760,7 @@
               "date": "Mon 13 Jul 2026",
               "time": "20:10",
               "court": "Pitch C",
-              "opposition": "Taggin-Ball Z",
+              "opposition": "Gagging 4 a Tagging",
               "scoreFor": 6,
               "scoreAgainst": 3,
               "result": "W",
@@ -2862,7 +2770,7 @@
               "date": "Mon 20 Jul 2026",
               "time": "19:05",
               "court": "Pitch A",
-              "opposition": "Yippee Try-Yay Mother Rucker!",
+              "opposition": "Unexpected Item in the Tagging Area! 🛒",
               "scoreFor": 5,
               "scoreAgainst": 6,
               "result": "L",
@@ -2943,6 +2851,12 @@
             }
           },
           "previousSeasons": [
+            {
+              "label": "Newcastle - The Parks (Monday - Winter 2026/2027) - Winter 2026/27 - The Parks - Cup",
+              "leagueId": 1770,
+              "seasonId": 101,
+              "divisionId": 8865
+            },
             {
               "label": "Newcastle - The Parks (Monday - Autumn 2026) - Autumn 2026 - The Parks - Plate",
               "leagueId": 1971,
